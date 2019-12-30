@@ -1,0 +1,122 @@
+
+
+================================================================
+== Vivado HLS Report for 'rtl_model'
+================================================================
+* Date:           Sun Dec 29 14:45:33 2019
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        proj_rtl_as_blackbox
+* Solution:       solution1
+* Product family: virtexuplus
+* Target device:  xcvu9p-flga2104-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 5.00 ns | 2.500 ns |   0.62 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
+    |   min   |   max   |    min    |    max    | min | max |   Type   |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |        2|        2| 10.000 ns | 10.000 ns |    1|    1| function |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+-----+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT   | URAM|
++---------------------+---------+-------+---------+---------+-----+
+|DSP                  |        -|      -|        -|        -|    -|
+|Expression           |        -|      -|        -|        -|    -|
+|FIFO                 |        -|      -|        -|        -|    -|
+|Instance             |        0|      1|        0|        0|    0|
+|Memory               |        -|      -|        -|        -|    -|
+|Multiplexer          |        -|      -|        -|        -|    -|
+|Register             |        -|      -|        -|        -|    -|
++---------------------+---------+-------+---------+---------+-----+
+|Total                |        0|      1|        0|        0|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available SLR        |     1440|   2280|   788160|   394080|  320|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization SLR (%)  |        0|   ~0  |        0|        0|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available            |     4320|   6840|  2364480|  1182240|  960|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization (%)      |        0|   ~0  |        0|        0|    0|
++---------------------+---------+-------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------+-----+-----+------------+--------------+--------------+
+|  RTL Ports  | Dir | Bits|  Protocol  | Source Object|    C Type    |
++-------------+-----+-----+------------+--------------+--------------+
+|ap_clk       |  in |    1| ap_ctrl_hs |   rtl_model  | return value |
+|ap_rst       |  in |    1| ap_ctrl_hs |   rtl_model  | return value |
+|ap_start     |  in |    1| ap_ctrl_hs |   rtl_model  | return value |
+|ap_ce        |  in |    1| ap_ctrl_hs |   rtl_model  | return value |
+|ap_done      | out |    1| ap_ctrl_hs |   rtl_model  | return value |
+|ap_ready     | out |    1| ap_ctrl_hs |   rtl_model  | return value |
+|ap_continue  |  in |    1| ap_ctrl_hs |   rtl_model  | return value |
+|a1           |  in |   10|   ap_none  |      a1      |    scalar    |
+|a2           |  in |   10|   ap_none  |      a2      |    scalar    |
+|a3           |  in |   10|   ap_none  |      a3      |    scalar    |
+|a4           |  in |   10|   ap_none  |      a4      |    scalar    |
+|b1           |  in |   10|   ap_none  |      b1      |    scalar    |
+|b2           |  in |   10|   ap_none  |      b2      |    scalar    |
+|b3           |  in |   10|   ap_none  |      b3      |    scalar    |
+|b4           |  in |   10|   ap_none  |      b4      |    scalar    |
+|z1           | out |   10|   ap_vld   |      z1      |    pointer   |
+|z1_ap_vld    | out |    1|   ap_vld   |      z1      |    pointer   |
+|z2           | out |   10|   ap_vld   |      z2      |    pointer   |
+|z2_ap_vld    | out |    1|   ap_vld   |      z2      |    pointer   |
+|z3           | out |   10|   ap_vld   |      z3      |    pointer   |
+|z3_ap_vld    | out |    1|   ap_vld   |      z3      |    pointer   |
+|z4           | out |   10|   ap_vld   |      z4      |    pointer   |
+|z4_ap_vld    | out |    1|   ap_vld   |      z4      |    pointer   |
++-------------+-----+-----+------------+--------------+--------------+
+

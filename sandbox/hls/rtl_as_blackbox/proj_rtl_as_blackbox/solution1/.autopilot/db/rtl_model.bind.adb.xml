@@ -1,0 +1,57 @@
+<stg><name>rtl_model</name>
+
+
+<trans_list>
+</trans_list>
+
+
+
+<state_list>
+</state_list>
+
+
+<ports>
+<port id="1" name="a1" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="a1"/></StgValue>
+</port>
+<port id="2" name="a2" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="a2"/></StgValue>
+</port>
+<port id="3" name="a3" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="a3"/></StgValue>
+</port>
+<port id="4" name="a4" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="a4"/></StgValue>
+</port>
+<port id="5" name="b1" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="b1"/></StgValue>
+</port>
+<port id="6" name="b2" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="b2"/></StgValue>
+</port>
+<port id="7" name="b3" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="b3"/></StgValue>
+</port>
+<port id="8" name="b4" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="b4"/></StgValue>
+</port>
+<port id="9" name="z1" dir="1" iftype="0">
+<core>NULL</core><StgValue><ssdm name="z1"/></StgValue>
+</port>
+<port id="10" name="z2" dir="1" iftype="0">
+<core>NULL</core><StgValue><ssdm name="z2"/></StgValue>
+</port>
+<port id="11" name="z3" dir="1" iftype="0">
+<core>NULL</core><StgValue><ssdm name="z3"/></StgValue>
+</port>
+<port id="12" name="z4" dir="1" iftype="0">
+<core>NULL</core><StgValue><ssdm name="z4"/></StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+</dataflows>
+
+
+</stg>

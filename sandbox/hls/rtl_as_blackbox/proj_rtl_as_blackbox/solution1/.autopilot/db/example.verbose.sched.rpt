@@ -1,0 +1,165 @@
+
+
+================================================================
+== Vivado HLS Report for 'example'
+================================================================
+* Date:           Sun Dec 29 14:45:33 2019
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        proj_rtl_as_blackbox
+* Solution:       solution1
+* Product family: virtexuplus
+* Target device:  xcvu9p-flga2104-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 5.00 ns | 4.375 ns |   0.62 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        3|        3| 15.000 ns | 15.000 ns |    3|    3|   none  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.37>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%b4_V_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %b4_V)"   --->   Operation 5 'read' 'b4_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%b3_V_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %b3_V)"   --->   Operation 6 'read' 'b3_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%b2_V_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %b2_V)"   --->   Operation 7 'read' 'b2_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%b1_V_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %b1_V)"   --->   Operation 8 'read' 'b1_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%a4_V_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %a4_V)"   --->   Operation 9 'read' 'a4_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%a3_V_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %a3_V)"   --->   Operation 10 'read' 'a3_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%a2_V_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %a2_V)"   --->   Operation 11 'read' 'a2_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%a1_V_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %a1_V)"   --->   Operation 12 'read' 'a1_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%tmp1_V = alloca i10, align 2" [example.cpp:12]   --->   Operation 13 'alloca' 'tmp1_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%tmp2_V = alloca i10, align 2" [example.cpp:12]   --->   Operation 14 'alloca' 'tmp2_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tmp3_V = alloca i10, align 2" [example.cpp:12]   --->   Operation 15 'alloca' 'tmp3_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%tmp4_V = alloca i10, align 2" [example.cpp:12]   --->   Operation 16 'alloca' 'tmp4_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [3/3] (4.37ns)   --->   "call fastcc void @rtl_model(i10 %a1_V_read, i10 %a2_V_read, i10 %a3_V_read, i10 %a4_V_read, i10 %b1_V_read, i10 %b2_V_read, i10 %b3_V_read, i10 %b4_V_read, i10* %tmp1_V, i10* %tmp2_V, i10* %tmp3_V, i10* %tmp4_V)" [example.cpp:14]   --->   Operation 17 'call' <Predicate = true> <Delay = 4.37> <Core = "BlackBox">   --->   Core 87 'BlackBox' <Latency = 2> <II = 1> <Delay = 2.50> <IPBlock> <Opcode : 'call' 'blackbox'> <InPorts = 0> <OutPorts = 0> <Async> <CReg>
+
+State 2 <SV = 1> <Delay = 4.37>
+ST_2 : Operation 18 [2/3] (4.37ns)   --->   "call fastcc void @rtl_model(i10 %a1_V_read, i10 %a2_V_read, i10 %a3_V_read, i10 %a4_V_read, i10 %b1_V_read, i10 %b2_V_read, i10 %b3_V_read, i10 %b4_V_read, i10* %tmp1_V, i10* %tmp2_V, i10* %tmp3_V, i10* %tmp4_V)" [example.cpp:14]   --->   Operation 18 'call' <Predicate = true> <Delay = 4.37> <Core = "BlackBox">   --->   Core 87 'BlackBox' <Latency = 2> <II = 1> <Delay = 2.50> <IPBlock> <Opcode : 'call' 'blackbox'> <InPorts = 0> <OutPorts = 0> <Async> <CReg>
+
+State 3 <SV = 2> <Delay = 4.37>
+ST_3 : Operation 19 [1/3] (4.37ns)   --->   "call fastcc void @rtl_model(i10 %a1_V_read, i10 %a2_V_read, i10 %a3_V_read, i10 %a4_V_read, i10 %b1_V_read, i10 %b2_V_read, i10 %b3_V_read, i10 %b4_V_read, i10* %tmp1_V, i10* %tmp2_V, i10* %tmp3_V, i10* %tmp4_V)" [example.cpp:14]   --->   Operation 19 'call' <Predicate = true> <Delay = 4.37> <Core = "BlackBox">   --->   Core 87 'BlackBox' <Latency = 2> <II = 1> <Delay = 2.50> <IPBlock> <Opcode : 'call' 'blackbox'> <InPorts = 0> <OutPorts = 0> <Async> <CReg>
+
+State 4 <SV = 3> <Delay = 1.34>
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i10 %a1_V), !map !86"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i10 %a2_V), !map !92"   --->   Operation 21 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i10 %a3_V), !map !96"   --->   Operation 22 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i10 %a4_V), !map !100"   --->   Operation 23 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i10 %b1_V), !map !104"   --->   Operation 24 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i10 %b2_V), !map !108"   --->   Operation 25 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i10 %b3_V), !map !112"   --->   Operation 26 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i10 %b4_V), !map !116"   --->   Operation 27 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i10* %sigma_V), !map !120"   --->   Operation 28 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([8 x i8]* @example_str) nounwind"   --->   Operation 29 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%tmp1_V_load = load i10* %tmp1_V, align 2" [example.cpp:15]   --->   Operation 30 'load' 'tmp1_V_load' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%tmp2_V_load = load i10* %tmp2_V, align 2" [example.cpp:15]   --->   Operation 31 'load' 'tmp2_V_load' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%tmp3_V_load = load i10* %tmp3_V, align 2" [example.cpp:15]   --->   Operation 32 'load' 'tmp3_V_load' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%tmp4_V_load = load i10* %tmp4_V, align 2" [example.cpp:15]   --->   Operation 33 'load' 'tmp4_V_load' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 34 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln68 = add i10 %tmp2_V_load, %tmp1_V_load" [example.cpp:15]   --->   Operation 34 'add' 'add_ln68' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.39> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 35 [1/1] (0.54ns)   --->   "%add_ln68_1 = add i10 %tmp3_V_load, %tmp4_V_load" [example.cpp:15]   --->   Operation 35 'add' 'add_ln68_1' <Predicate = true> <Delay = 0.54> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 36 [1/1] (0.79ns) (root node of TernaryAdder)   --->   "%add_ln68_2 = add i10 %add_ln68_1, %add_ln68" [example.cpp:15]   --->   Operation 36 'add' 'add_ln68_2' <Predicate = true> <Delay = 0.79> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.39> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i10P(i10* %sigma_V, i10 %add_ln68_2)" [example.cpp:15]   --->   Operation 37 'write' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "ret void" [example.cpp:16]   --->   Operation 38 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 4.38ns
+The critical path consists of the following:
+	wire read on port 'b4_V' [20]  (0 ns)
+	'call' operation ('call_ln14', example.cpp:14) to 'rtl_model' [32]  (4.38 ns)
+
+ <State 2>: 4.38ns
+The critical path consists of the following:
+	'call' operation ('call_ln14', example.cpp:14) to 'rtl_model' [32]  (4.38 ns)
+
+ <State 3>: 4.38ns
+The critical path consists of the following:
+	'call' operation ('call_ln14', example.cpp:14) to 'rtl_model' [32]  (4.38 ns)
+
+ <State 4>: 1.34ns
+The critical path consists of the following:
+	'load' operation ('tmp3_V_load', example.cpp:15) on local variable 'tmp3.V', example.cpp:12 [35]  (0 ns)
+	'add' operation ('add_ln68_1', example.cpp:15) [38]  (0.543 ns)
+	'add' operation ('add_ln68_2', example.cpp:15) [39]  (0.797 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
