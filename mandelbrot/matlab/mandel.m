@@ -16,7 +16,7 @@ function mandel(centre,width,grid,depth,cmapindx)
 
     % generate mandelbrot set 
     for k = 1:depth
-        %mandelbrot formual (2D grid)
+        %mandelbrot formula (2D grid)
         z = z.^2 + z0;
         %set escape count
         c(abs(z) < 2) = k;
@@ -26,8 +26,6 @@ function mandel(centre,width,grid,depth,cmapindx)
      image(c)
      axis image
      colormap(flipud(jet(depth)))
-%     spinmap(10)
-%    surf(c);
     
 end
 
