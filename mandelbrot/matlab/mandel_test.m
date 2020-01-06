@@ -10,13 +10,15 @@ grid = 1024;
 iter = 256;
 
 buildInstrumentedMex mandel_fi ...
-    -args {centre,width,grid,iter} -histogram
+    -args {centre,width,grid,iter } -histogram
 
 [z_expected, c_expected] = mandel(centre,width,grid,iter);
 [z, c] = mandel_fi_mex(centre,width,grid,iter);
 
-showInstrumentationResults mandel_fi_mex
 
+showInstrumentationResults mandel_fi_mex ...
+     -proposeFL defaultDT 'embedded.numerictype'
+ 
 err = c - c_expected;
 
 
