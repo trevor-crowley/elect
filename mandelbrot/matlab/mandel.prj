@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration file="/home/trevor/dev/myelect/mandelbrot/matlab/mandel.prj" location="/home/trevor/dev/myelect/mandelbrot/matlab" name="mandel" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration file="/Users/trevor/dev/myelect/mandelbrot/matlab/mandel.prj" location="/Users/trevor/dev/myelect/mandelbrot/matlab" name="mandel" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex />
       <param.RanInstrumentedMex />
@@ -796,7 +796,7 @@
     <param.DefaultImportExportVariable />
     <param.ExternalFcnMajority />
     <param.UseGlobals>option.UseGlobals.No</param.UseGlobals>
-    <param.outputfile>${PROJECT_ROOT}/mandel_mex.mexa64</param.outputfile>
+    <param.outputfile>${PROJECT_ROOT}/mandel_mex.mexmaci64</param.outputfile>
     <param.version />
     <param.HasECoderFeatures />
     <param.HasGpuCoder>false</param.HasGpuCoder>
@@ -825,7 +825,7 @@
     <var.cfi.preBuildChecksum />
     <var.outdatedOnRestore />
     <var.lastUserSourceChecksum />
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles/&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;true&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;true&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/Users/trevor/dev/myelect/mandelbrot/matlab/mandel.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;true&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;true&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT />
     <param.configImportActive>false</param.configImportActive>
@@ -835,7 +835,7 @@
     <param.mex.outputfile>mandel_mex</param.mex.outputfile>
     <param.grt.outputfile>mandel</param.grt.outputfile>
     <param.artifact>option.target.artifact.mex</param.artifact>
-    <param.outputfile>${PROJECT_ROOT}/mandel_mex.mexa64</param.outputfile>
+    <param.outputfile>${PROJECT_ROOT}/mandel_mex.mexmaci64</param.outputfile>
     <param.gpu.Enabled>false</param.gpu.Enabled>
     <param.gpu.KernelNamePrefix />
     <param.gpu.SelectCudaDevice />
@@ -1027,11 +1027,11 @@
       <file>${PROJECT_ROOT}/mandel.m</file>
     </fileset.inputtypes>
     <build-deliverables>
-      <file location="/home/trevor/dev/myelect/mandelbrot/matlab" name="mandel_mex.mexa64" optional="false">/home/trevor/dev/myelect/mandelbrot/matlab/mandel_mex.mexa64</file>
+      <file location="/Users/trevor/dev/myelect/mandelbrot/matlab" name="mandel_mex.mexmaci64" optional="false">/Users/trevor/dev/myelect/mandelbrot/matlab/mandel_mex.mexmaci64</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>/opt/MATLAB/R2018b</root>
+      <root>/Applications/MATLAB_R2018b.app</root>
       <toolboxes>
         <toolbox name="fixedpoint" />
       </toolboxes>
@@ -1043,17 +1043,17 @@
     </matlab>
     <platform>
       <unix>true</unix>
-      <mac>false</mac>
+      <mac>true</mac>
       <windows>false</windows>
       <win2k>false</win2k>
       <winxp>false</winxp>
       <vista>false</vista>
-      <linux>true</linux>
+      <linux>false</linux>
       <solaris>false</solaris>
-      <osver>4.12.14-lp151.28.36-default</osver>
+      <osver>10.13.6</osver>
       <os32>false</os32>
       <os64>true</os64>
-      <arch>glnxa64</arch>
+      <arch>maci64</arch>
       <matlab>true</matlab>
     </platform>
   </configuration>
