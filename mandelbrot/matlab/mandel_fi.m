@@ -1,17 +1,17 @@
 
-function [z, c] = mandel(centre,width,grid,depth) %#codegen
+function [z, c] = mandel_fi(centre,width,grid,depth) %#codegen
 
-    x = linspace(real(centre)-(width/2),real(centre)+(width/2),grid);
-    y = linspace(imag(centre)-(width/2),imag(centre)+(width/2),grid)';
+    x = (linspace(real(centre)-(width/2),real(centre)+(width/2),grid));
+    y = (linspace(imag(centre)-(width/2),imag(centre)+(width/2),grid))';
 
-    n = length(x);
-    e = ones(n,1);
+    n = (length(x));
+    e = (ones(n,1));
 
     % setup 2D complex initial mesh
     z0 = x(e,:) + 1i*y(:,e);
 
     % working complex plane
-    z = zeros(n,n);
+    z = complex(zeros(n,n));
     % working escape count
     c = zeros(n,n, 'uint16');
 
