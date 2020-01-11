@@ -2,35 +2,42 @@
 %     % create image, mapping escape count grid to colour map
 %      image(c)
 %      axis image
-%      colormap(flipud(jet(depth)))
+%      colormap(flipud(jet(iter)))
 
-%% build
+%% setup data
+T = mandel_type('fixed');
 
-T = mandel_type('single');
+centre = -0.7700+ 0.1300i;
+width = 0.1 / 8;
+grid = 1024;
+iter = 255;
 
-centre = cast(-0.7700, 'like', T.x) -cast(0.1300i, 'like', T.x);
-width = double(0.1);
-grid = uint16(1024);
-iter = uint16(256);
-
+%% build mex
 buildInstrumentedMex mandel_fi ...
     -args {centre,width,grid,iter,T } -histogram
-%% expected
-[z_expected, c_expected] = mandel(centre,width,grid,iter);
-%%
 
-%% test
+%% run mex
 [z, c] = mandel_fi_mex(centre,width,grid,iter,T);
-%%
+
+%% test model - debug
+[z, c] = mandel_fi(centre,width,grid,iter,T);
+
+%% calc expected
+[z_exp, c_exp] = mandel(centre,width,grid,iter);
+
+%% map
+colormap(flipud(jet(iter)));
+image(c);
+%image(c_exp);
+%% map diff
+image (c-c_exp)
 
 %% test model
 showInstrumentationResults mandel_fi_mex ...
-    -proposeFL -defaultDT numerictype(1,16)
-%%
-
+    -proposeFL -defaultDT numerictype(1,18, 15)
 
 %% get error
-absError = abs(c-c_expected);
-relError = max(absError(:) ./ abs(c_expected(:)))
-%%
-
+absError = abs(c-c_exp);
+relError = max(absError(:) ./ abs(c_exp(:)))
+% Ceiling, Nearest, convergent, Round 7
+% zero 9
