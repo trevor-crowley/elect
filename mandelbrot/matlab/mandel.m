@@ -1,5 +1,5 @@
 
-function [z, c] = mandel(centre,width,grid,depth) %#codegen
+function [z, c, z0] = mandel(centre,width,grid,depth) %#codegen
 
     x = linspace(real(centre)-(width/2),real(centre)+(width/2),grid);
     y = linspace(imag(centre)-(width/2),imag(centre)+(width/2),grid)';
@@ -16,7 +16,7 @@ function [z, c] = mandel(centre,width,grid,depth) %#codegen
     c = zeros(n,n, 'uint16');
 
     % generate mandelbrot set 
-    for k = 1:depth
+    for k = 0:depth
         %mandelbrot formula (2D grid)
         z = z.^2 + z0;
         %set escape count

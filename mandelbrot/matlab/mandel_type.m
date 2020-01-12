@@ -20,7 +20,7 @@ switch (dt)
         T.x = fi([], 1, 18, 15, F);
         T.y = fi([], 1, 18, 15, F);
     case 'scaled'
-        T.x = fi([], 1, 18, 15, 'DataType', 'ScaledDouble');
+        T.x = fi([], 1, 23, 20, 'DataType', 'ScaledDouble');
         T.y = fi([], 1, 18, 15, 'DataType', 'ScaledDouble');
        
 end

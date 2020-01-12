@@ -1,5 +1,5 @@
 
-function [z, c] = mandel_fi(centre,width,grid,depth, T) %#codegen
+function [z, c, z0] = mandel_fi(centre,width,grid,depth, T) %#codegen
 
     x = linspace(real(centre)-(width/2),real(centre)+(width/2),grid);
     y = linspace(imag(centre)-(width/2),imag(centre)+(width/2),grid)';
@@ -22,7 +22,6 @@ function [z, c] = mandel_fi(centre,width,grid,depth, T) %#codegen
         %set escape count
         c(abs(z) < 2) = k;
     end
-   
 end
 
 %%
