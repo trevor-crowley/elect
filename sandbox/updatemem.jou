@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# updatemem v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# 
+# Start of session at: Sun Jan 12 21:41:54 2020
+# Process ID: 24280
+# Current directory: /home/trevor/dev/myelect/sandbox
+# Command line: updatemem -mode batch -source /opt/Xilinx/SDK/2019.1/scripts/updatemem/main.tcl -notrace -tclargs -meminfo /home/trevor/dev/myelect/sandbox/sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.mmi -data /opt/Xilinx/SDK/2019.1/data/embeddedsw/lib/microblaze/mb_bootloop_le.elf -proc design_1_i/microblaze_0 -bit /home/trevor/dev/myelect/sandbox/sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit -out /home/trevor/dev/myelect/sandbox/sdk/design_1_wrapper_hw_platform_0/download.bit -force
+# Log file: /home/trevor/dev/myelect/sandbox/updatemem.log
+# Journal file: /home/trevor/dev/myelect/sandbox/updatemem.jou
+#-----------------------------------------------------------
+source /opt/Xilinx/SDK/2019.1/scripts/updatemem/main.tcl -notrace

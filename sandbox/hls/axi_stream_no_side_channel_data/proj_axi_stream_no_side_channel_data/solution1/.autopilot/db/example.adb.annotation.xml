@@ -1,0 +1,5 @@
+<annotationInfo>
+<item  id="11" filename="example.cpp" linenumber="99" name="icmp_ln99" contextFuncName="example" moduleName="example" rtlName="icmp_ln99_fu_62_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="3" fileDirectory="/home/trevor/dev/myelect/sandbox/hls/axi_stream_no_side_channel_data"><\/item>
+<item  id="13" filename="example.cpp" linenumber="99" name="i" contextFuncName="example" moduleName="example" rtlName="i_fu_68_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="6" fileDirectory="/home/trevor/dev/myelect/sandbox/hls/axi_stream_no_side_channel_data"><\/item>
+<item  id="17" filename="example.cpp" linenumber="100" name="add_ln100" contextFuncName="example" moduleName="example" rtlName="B_TDATA_int" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="/home/trevor/dev/myelect/sandbox/hls/axi_stream_no_side_channel_data"><\/item>
+</annotationInfo>
