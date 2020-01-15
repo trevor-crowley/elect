@@ -1,36 +1,44 @@
-%%
-%     % create image, mapping escape count grid to colour map
-%      image(c)
-%      axis image
-%      colormap(flipud(jet(depth)))
+%% Mandelbrot model using 18bit fixed integer
+% Goal is to move logic to Basys3 FPGA board
 
-%% build
+%% set model parameters
+T = mandel_type('fixed');
 
-T = mandel_type('single');
+%centre = -0.7700+ 0.1300i;
+centre = 0.3245046418497685 + 0.04855101129280834i;
+width = 1.0 / 10 ^  2
+%width = 0.4 / 10 ^  -1;
+grid = 1024;
+iter = 255;
 
-centre = cast(-0.7700, 'like', T.x) -cast(0.1300i, 'like', T.x);
-width = double(0.1);
-grid = uint16(1024);
-iter = uint16(256);
-
+%% build mex 
 buildInstrumentedMex mandel_fi ...
     -args {centre,width,grid,iter,T } -histogram
-%% expected
-[z_expected, c_expected] = mandel(centre,width,grid,iter);
-%%
 
-%% test
-[z, c] = mandel_fi_mex(centre,width,grid,iter,T);
-%%
+%% run mex
+[z, c, z0] = mandel_fi_mex(centre,width,grid,iter,T);
+
+%% test model - debug
+%[z, c, z0] = mandel_fi(centre,width,grid,iter,T);
+
+%% calc expected
+[z_exp, c_exp, z0_exp] = mandel(centre,width,grid,iter);
+
+%% final model
+colormap(flipud(jet(iter)));
+image(c);
+
+%% final expected
+colormap(flipud(jet(iter)));
+image(c_exp);
+
+%% difference model vs expected
+image (c-c_exp)
 
 %% test model
-showInstrumentationResults mandel_fi_mex ...
-    -proposeFL -defaultDT numerictype(1,16)
-%%
-
+% showInstrumentationResults mandel_fi_mex ...
+%    -proposeFL -defaultDT numerictype(1,23, 20)
 
 %% get error
-absError = abs(c-c_expected);
-relError = max(absError(:) ./ abs(c_expected(:)))
-%%
-
+absError = abs(c-c_exp);
+relError = max(absError(:) ./ abs(c_exp(:)))
