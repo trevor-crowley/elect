@@ -6,7 +6,7 @@ T = mandel_type('fixed');
 
 %centre = -0.7700+ 0.1300i;
 centre = 0.3245046418497685 + 0.04855101129280834i;
-width = 1.0 / 10 ^  2
+width = 1.0 / 10 ^  2;
 %width = 0.4 / 10 ^  -1;
 grid = 1024;
 iter = 255;
