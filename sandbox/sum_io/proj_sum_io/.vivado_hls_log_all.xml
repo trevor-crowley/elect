@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="proj_sum_io" solutionName="solution2" date="2020-01-25T00:03:28.073-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="proj_sum_io" solutionName="solution2" date="2020-01-24T23:31:37.143-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="proj_sum_io" solutionName="solution2" date="2020-01-24T23:11:57.843-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="proj_sum_io" solutionName="solution2" date="2020-01-24T22:32:06.377-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="proj_sum_io" solutionName="solution2" date="2020-01-24T21:57:08.592-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="proj_sum_io" solutionName="solution2" date="2020-01-24T21:44:04.000-0500"/>
+        <logs message="ERROR: [HLS 200-70] Part 'xc7k160tfbg484-1' is not installed.&#xA;command 'ap_source' returned error code&#xA;    while executing&#xA;&quot;source /home/trevor/dev/myelect/sandbox/sum_io/proj_sum_io/solution2/csim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/trevor/dev/myelect/sandbox/sum_io/proj_sum_io/solution2/csim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="proj_sum_io" solutionName="solution2" date="2020-01-24T21:39:41.299-0500"/>
+      </csimLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
