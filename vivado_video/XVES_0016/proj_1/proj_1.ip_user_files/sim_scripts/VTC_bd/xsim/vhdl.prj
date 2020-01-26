@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../bd/VTC_bd/ip/VTC_bd_v_tc_0_0/sim/VTC_bd_v_tc_0_0.vhd" \
+
+nosort

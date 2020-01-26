@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../proj_1.ip_user_files/bd/VTC_bd/ip/VTC_bd_const_VCC_0/sim/VTC_bd_const_VCC_0.v" \
+"../../../../proj_1.ip_user_files/bd/VTC_bd/sim/VTC_bd.v" \
+"../../../../proj_1.srcs/sources_1/bd/VTC_bd/hdl/VTC_bd_wrapper.v" \
+
+sv xil_defaultlib  \
+"../../../../proj_1.srcs/sim_1/imports/sim/tb_VTC.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

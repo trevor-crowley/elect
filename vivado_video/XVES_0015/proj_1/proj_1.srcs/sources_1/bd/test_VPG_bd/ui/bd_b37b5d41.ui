@@ -1,0 +1,18 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 TLS
+#  -string -flagsOSRD
+preplace port AXIS_out -pg 1 -lvl 2 -x 360 -y 80 -defaultsOSRD
+preplace port aclk_40MHz -pg 1 -lvl 0 -x 0 -y 90 -defaultsOSRD
+preplace port ap_start -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace port aresetn_0 -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace inst video_pattern_genera_0 -pg 1 -lvl 1 -x 180 -y 80 -defaultsOSRD
+preplace netloc aclk_40MHz_1 1 0 1 NJ 90
+preplace netloc ap_start_0_1 1 0 1 NJ 70
+preplace netloc aresetn_0_1 1 0 1 NJ 110
+preplace netloc video_pattern_genera_0_m_axis_video 1 1 1 N 80
+levelinfo -pg 1 0 180 360
+pagesize -pg 1 -db -bbox -sgen -130 0 470 170
+"
+}
+

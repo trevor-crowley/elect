@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'video_pattern_generator'" level="0">
-<item name = "Date">Sat Jan 25 13:59:50 2020
+<item name = "Date">Sun Jan 26 00:18:25 2020
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">Video_Pattern_Generator</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 0.000, 1.25</column>
+<column name="ap_clk">10.00, 5.404, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">0, 0, 0, 0, none</column>
+<column name="">481201, 481201, 481201, 481201, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,6 +35,8 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">481200, 481200, 802, -, -, 600, no</column>
+<column name=" + Loop 1.1">800, 800, 1, -, -, 800, no</column>
 </table>
 </item>
 </section>

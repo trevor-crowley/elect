@@ -15,14 +15,34 @@
 namespace ap_rtl {
 
 struct video_pattern_generator : public sc_module {
-    // Port declarations 5
+    // Port declarations 27
+    sc_in_clk ap_clk;
+    sc_in< sc_logic > ap_rst;
     sc_in< sc_logic > ap_start;
     sc_out< sc_logic > ap_done;
     sc_out< sc_logic > ap_idle;
     sc_out< sc_logic > ap_ready;
-    sc_in< sc_lv<8> > m_axis_video;
-    // Port declarations for the virtual clock. 
-    sc_in_clk ap_virtual_clock;
+    sc_out< sc_lv<24> > m_axis_video_V_data_V_din;
+    sc_in< sc_logic > m_axis_video_V_data_V_full_n;
+    sc_out< sc_logic > m_axis_video_V_data_V_write;
+    sc_out< sc_lv<3> > m_axis_video_V_keep_V_din;
+    sc_in< sc_logic > m_axis_video_V_keep_V_full_n;
+    sc_out< sc_logic > m_axis_video_V_keep_V_write;
+    sc_out< sc_lv<3> > m_axis_video_V_strb_V_din;
+    sc_in< sc_logic > m_axis_video_V_strb_V_full_n;
+    sc_out< sc_logic > m_axis_video_V_strb_V_write;
+    sc_out< sc_lv<1> > m_axis_video_V_user_V_din;
+    sc_in< sc_logic > m_axis_video_V_user_V_full_n;
+    sc_out< sc_logic > m_axis_video_V_user_V_write;
+    sc_out< sc_lv<1> > m_axis_video_V_last_V_din;
+    sc_in< sc_logic > m_axis_video_V_last_V_full_n;
+    sc_out< sc_logic > m_axis_video_V_last_V_write;
+    sc_out< sc_lv<1> > m_axis_video_V_id_V_din;
+    sc_in< sc_logic > m_axis_video_V_id_V_full_n;
+    sc_out< sc_logic > m_axis_video_V_id_V_write;
+    sc_out< sc_lv<1> > m_axis_video_V_dest_V_din;
+    sc_in< sc_logic > m_axis_video_V_dest_V_full_n;
+    sc_out< sc_logic > m_axis_video_V_dest_V_write;
 
 
     // Module declarations
@@ -35,12 +55,88 @@ struct video_pattern_generator : public sc_module {
 
     ofstream mHdltvinHandle;
     ofstream mHdltvoutHandle;
+    sc_signal< sc_lv<3> > ap_CS_fsm;
+    sc_signal< sc_logic > ap_CS_fsm_state1;
+    sc_signal< sc_logic > m_axis_video_V_data_V_blk_n;
+    sc_signal< sc_logic > ap_CS_fsm_state3;
+    sc_signal< sc_lv<1> > icmp_ln15_fu_126_p2;
+    sc_signal< sc_logic > m_axis_video_V_keep_V_blk_n;
+    sc_signal< sc_logic > m_axis_video_V_strb_V_blk_n;
+    sc_signal< sc_logic > m_axis_video_V_user_V_blk_n;
+    sc_signal< sc_logic > m_axis_video_V_last_V_blk_n;
+    sc_signal< sc_logic > m_axis_video_V_id_V_blk_n;
+    sc_signal< sc_logic > m_axis_video_V_dest_V_blk_n;
+    sc_signal< sc_lv<10> > i_fu_116_p2;
+    sc_signal< sc_lv<10> > i_reg_175;
+    sc_signal< sc_logic > ap_CS_fsm_state2;
+    sc_signal< sc_lv<8> > pixel_R_fu_122_p1;
+    sc_signal< sc_lv<8> > pixel_R_reg_180;
+    sc_signal< sc_lv<1> > icmp_ln13_fu_110_p2;
+    sc_signal< sc_lv<10> > j_fu_132_p2;
+    sc_signal< sc_logic > io_acc_block_signal_op38;
+    sc_signal< bool > ap_block_state3;
+    sc_signal< sc_lv<10> > i_0_reg_87;
+    sc_signal< sc_lv<10> > j_0_reg_99;
+    sc_signal< sc_lv<10> > or_ln18_fu_138_p2;
+    sc_signal< sc_lv<8> > trunc_ln301_fu_158_p1;
+    sc_signal< sc_lv<3> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
+    static const sc_lv<3> ap_ST_fsm_state1;
+    static const sc_lv<3> ap_ST_fsm_state2;
+    static const sc_lv<3> ap_ST_fsm_state3;
+    static const sc_lv<32> ap_const_lv32_0;
+    static const sc_lv<32> ap_const_lv32_2;
+    static const sc_lv<1> ap_const_lv1_0;
+    static const sc_lv<32> ap_const_lv32_1;
+    static const sc_lv<10> ap_const_lv10_0;
+    static const sc_lv<1> ap_const_lv1_1;
+    static const sc_lv<3> ap_const_lv3_0;
+    static const sc_lv<10> ap_const_lv10_258;
+    static const sc_lv<10> ap_const_lv10_1;
+    static const sc_lv<10> ap_const_lv10_320;
+    static const sc_lv<10> ap_const_lv10_31F;
+    static const sc_lv<8> ap_const_lv8_0;
+    static const bool ap_const_boolean_1;
     // Thread declarations
+    void thread_ap_clk_no_reset_();
+    void thread_ap_CS_fsm_state1();
+    void thread_ap_CS_fsm_state2();
+    void thread_ap_CS_fsm_state3();
+    void thread_ap_block_state3();
     void thread_ap_done();
     void thread_ap_idle();
     void thread_ap_ready();
+    void thread_i_fu_116_p2();
+    void thread_icmp_ln13_fu_110_p2();
+    void thread_icmp_ln15_fu_126_p2();
+    void thread_io_acc_block_signal_op38();
+    void thread_j_fu_132_p2();
+    void thread_m_axis_video_V_data_V_blk_n();
+    void thread_m_axis_video_V_data_V_din();
+    void thread_m_axis_video_V_data_V_write();
+    void thread_m_axis_video_V_dest_V_blk_n();
+    void thread_m_axis_video_V_dest_V_din();
+    void thread_m_axis_video_V_dest_V_write();
+    void thread_m_axis_video_V_id_V_blk_n();
+    void thread_m_axis_video_V_id_V_din();
+    void thread_m_axis_video_V_id_V_write();
+    void thread_m_axis_video_V_keep_V_blk_n();
+    void thread_m_axis_video_V_keep_V_din();
+    void thread_m_axis_video_V_keep_V_write();
+    void thread_m_axis_video_V_last_V_blk_n();
+    void thread_m_axis_video_V_last_V_din();
+    void thread_m_axis_video_V_last_V_write();
+    void thread_m_axis_video_V_strb_V_blk_n();
+    void thread_m_axis_video_V_strb_V_din();
+    void thread_m_axis_video_V_strb_V_write();
+    void thread_m_axis_video_V_user_V_blk_n();
+    void thread_m_axis_video_V_user_V_din();
+    void thread_m_axis_video_V_user_V_write();
+    void thread_or_ln18_fu_138_p2();
+    void thread_pixel_R_fu_122_p1();
+    void thread_trunc_ln301_fu_158_p1();
+    void thread_ap_NS_fsm();
     void thread_hdltv_gen();
 };
 

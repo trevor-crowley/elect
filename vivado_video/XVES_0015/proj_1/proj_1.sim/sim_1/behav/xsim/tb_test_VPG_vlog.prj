@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../proj_1.srcs/sources_1/bd/test_VPG_bd/ipshared/5a5d/hdl/verilog/video_pattern_generator.v" \
+"../../../../proj_1.ip_user_files/bd/test_VPG_bd/ip/test_VPG_bd_video_pattern_genera_0_0/sim/test_VPG_bd_video_pattern_genera_0_0.v" \
+"../../../../proj_1.ip_user_files/bd/test_VPG_bd/sim/test_VPG_bd.v" \
+"../../../../proj_1.srcs/sources_1/bd/test_VPG_bd/hdl/test_VPG_bd_wrapper.v" \
+
+sv xil_defaultlib  \
+"../../../../proj_1.srcs/sim_1/imports/sim/tb_test_VPG.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
