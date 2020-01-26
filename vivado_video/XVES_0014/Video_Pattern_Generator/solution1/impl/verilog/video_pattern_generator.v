@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="video_pattern_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=5.404500,HLS_SYN_LAT=481201,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=41,HLS_SYN_LUT=196,HLS_VERSION=2019_1}" *)
+(* CORE_GENERATION_INFO="video_pattern_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=5.404500,HLS_SYN_LAT=481201,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=33,HLS_SYN_LUT=196,HLS_VERSION=2019_1}" *)
 
 module video_pattern_generator (
         ap_clk,
@@ -86,26 +86,23 @@ reg m_axis_video_V_dest_V_write;
 wire    ap_CS_fsm_state1;
 reg    m_axis_video_V_data_V_blk_n;
 wire    ap_CS_fsm_state3;
-wire   [0:0] icmp_ln15_fu_126_p2;
+wire   [0:0] icmp_ln15_fu_118_p2;
 reg    m_axis_video_V_keep_V_blk_n;
 reg    m_axis_video_V_strb_V_blk_n;
 reg    m_axis_video_V_user_V_blk_n;
 reg    m_axis_video_V_last_V_blk_n;
 reg    m_axis_video_V_id_V_blk_n;
 reg    m_axis_video_V_dest_V_blk_n;
-wire   [9:0] i_fu_116_p2;
-reg   [9:0] i_reg_175;
+wire   [9:0] i_fu_112_p2;
+reg   [9:0] i_reg_158;
 wire    ap_CS_fsm_state2;
-wire   [7:0] pixel_R_fu_122_p1;
-reg   [7:0] pixel_R_reg_180;
-wire   [0:0] icmp_ln13_fu_110_p2;
-wire   [9:0] j_fu_132_p2;
-wire    io_acc_block_signal_op38;
+wire   [9:0] j_fu_124_p2;
+wire    io_acc_block_signal_op36;
 reg    ap_block_state3;
-reg   [9:0] i_0_reg_87;
-reg   [9:0] j_0_reg_99;
-wire   [9:0] or_ln18_fu_138_p2;
-wire   [7:0] trunc_ln301_fu_158_p1;
+reg   [9:0] i_0_reg_83;
+reg   [9:0] j_0_reg_95;
+wire   [0:0] icmp_ln13_fu_106_p2;
+wire   [9:0] or_ln18_fu_130_p2;
 reg   [2:0] ap_NS_fsm;
 
 // power-on initialization
@@ -122,35 +119,29 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
-        i_0_reg_87 <= i_reg_175;
+    if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
+        i_0_reg_83 <= i_reg_158;
     end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        i_0_reg_87 <= 10'd0;
+        i_0_reg_83 <= 10'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln13_fu_110_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        j_0_reg_99 <= 10'd0;
-    end else if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-        j_0_reg_99 <= j_fu_132_p2;
+    if (((icmp_ln13_fu_106_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+        j_0_reg_95 <= 10'd0;
+    end else if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+        j_0_reg_95 <= j_fu_124_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        i_reg_175 <= i_fu_116_p2;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((icmp_ln13_fu_110_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        pixel_R_reg_180 <= pixel_R_fu_122_p1;
+        i_reg_158 <= i_fu_112_p2;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln13_fu_110_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+    if (((icmp_ln13_fu_106_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -166,7 +157,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln13_fu_110_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+    if (((icmp_ln13_fu_106_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -174,7 +165,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if (((icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_data_V_blk_n = m_axis_video_V_data_V_full_n;
     end else begin
         m_axis_video_V_data_V_blk_n = 1'b1;
@@ -182,7 +173,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_data_V_write = 1'b1;
     end else begin
         m_axis_video_V_data_V_write = 1'b0;
@@ -190,7 +181,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if (((icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_dest_V_blk_n = m_axis_video_V_dest_V_full_n;
     end else begin
         m_axis_video_V_dest_V_blk_n = 1'b1;
@@ -198,7 +189,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_dest_V_write = 1'b1;
     end else begin
         m_axis_video_V_dest_V_write = 1'b0;
@@ -206,7 +197,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if (((icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_id_V_blk_n = m_axis_video_V_id_V_full_n;
     end else begin
         m_axis_video_V_id_V_blk_n = 1'b1;
@@ -214,7 +205,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_id_V_write = 1'b1;
     end else begin
         m_axis_video_V_id_V_write = 1'b0;
@@ -222,7 +213,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if (((icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_keep_V_blk_n = m_axis_video_V_keep_V_full_n;
     end else begin
         m_axis_video_V_keep_V_blk_n = 1'b1;
@@ -230,7 +221,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_keep_V_write = 1'b1;
     end else begin
         m_axis_video_V_keep_V_write = 1'b0;
@@ -238,7 +229,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if (((icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_last_V_blk_n = m_axis_video_V_last_V_full_n;
     end else begin
         m_axis_video_V_last_V_blk_n = 1'b1;
@@ -246,7 +237,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_last_V_write = 1'b1;
     end else begin
         m_axis_video_V_last_V_write = 1'b0;
@@ -254,7 +245,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if (((icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_strb_V_blk_n = m_axis_video_V_strb_V_full_n;
     end else begin
         m_axis_video_V_strb_V_blk_n = 1'b1;
@@ -262,7 +253,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_strb_V_write = 1'b1;
     end else begin
         m_axis_video_V_strb_V_write = 1'b0;
@@ -270,7 +261,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if (((icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_user_V_blk_n = m_axis_video_V_user_V_full_n;
     end else begin
         m_axis_video_V_user_V_blk_n = 1'b1;
@@ -278,7 +269,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
         m_axis_video_V_user_V_write = 1'b1;
     end else begin
         m_axis_video_V_user_V_write = 1'b0;
@@ -295,16 +286,16 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((icmp_ln13_fu_110_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+            if (((icmp_ln13_fu_106_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end
         end
         ap_ST_fsm_state3 : begin
-            if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
+            if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
-            end else if ((~((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0)) & (icmp_ln15_fu_126_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+            end else if ((~((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0)) & (icmp_ln15_fu_118_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state3;
@@ -323,20 +314,20 @@ assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
 always @ (*) begin
-    ap_block_state3 = ((icmp_ln15_fu_126_p2 == 1'd0) & (io_acc_block_signal_op38 == 1'b0));
+    ap_block_state3 = ((icmp_ln15_fu_118_p2 == 1'd0) & (io_acc_block_signal_op36 == 1'b0));
 end
 
-assign i_fu_116_p2 = (i_0_reg_87 + 10'd1);
+assign i_fu_112_p2 = (i_0_reg_83 + 10'd1);
 
-assign icmp_ln13_fu_110_p2 = ((i_0_reg_87 == 10'd600) ? 1'b1 : 1'b0);
+assign icmp_ln13_fu_106_p2 = ((i_0_reg_83 == 10'd600) ? 1'b1 : 1'b0);
 
-assign icmp_ln15_fu_126_p2 = ((j_0_reg_99 == 10'd800) ? 1'b1 : 1'b0);
+assign icmp_ln15_fu_118_p2 = ((j_0_reg_95 == 10'd800) ? 1'b1 : 1'b0);
 
-assign io_acc_block_signal_op38 = (m_axis_video_V_user_V_full_n & m_axis_video_V_strb_V_full_n & m_axis_video_V_last_V_full_n & m_axis_video_V_keep_V_full_n & m_axis_video_V_id_V_full_n & m_axis_video_V_dest_V_full_n & m_axis_video_V_data_V_full_n);
+assign io_acc_block_signal_op36 = (m_axis_video_V_user_V_full_n & m_axis_video_V_strb_V_full_n & m_axis_video_V_last_V_full_n & m_axis_video_V_keep_V_full_n & m_axis_video_V_id_V_full_n & m_axis_video_V_dest_V_full_n & m_axis_video_V_data_V_full_n);
 
-assign j_fu_132_p2 = (j_0_reg_99 + 10'd1);
+assign j_fu_124_p2 = (j_0_reg_95 + 10'd1);
 
-assign m_axis_video_V_data_V_din = {{{pixel_R_reg_180}, {trunc_ln301_fu_158_p1}}, {8'd0}};
+assign m_axis_video_V_data_V_din = j_0_reg_95;
 
 assign m_axis_video_V_dest_V_din = 1'd0;
 
@@ -344,16 +335,12 @@ assign m_axis_video_V_id_V_din = 1'd0;
 
 assign m_axis_video_V_keep_V_din = 3'd0;
 
-assign m_axis_video_V_last_V_din = ((j_0_reg_99 == 10'd799) ? 1'b1 : 1'b0);
+assign m_axis_video_V_last_V_din = ((j_0_reg_95 == 10'd799) ? 1'b1 : 1'b0);
 
 assign m_axis_video_V_strb_V_din = 3'd0;
 
-assign m_axis_video_V_user_V_din = ((or_ln18_fu_138_p2 == 10'd0) ? 1'b1 : 1'b0);
+assign m_axis_video_V_user_V_din = ((or_ln18_fu_130_p2 == 10'd0) ? 1'b1 : 1'b0);
 
-assign or_ln18_fu_138_p2 = (j_0_reg_99 | i_0_reg_87);
-
-assign pixel_R_fu_122_p1 = i_0_reg_87[7:0];
-
-assign trunc_ln301_fu_158_p1 = j_0_reg_99[7:0];
+assign or_ln18_fu_130_p2 = (j_0_reg_95 | i_0_reg_83);
 
 endmodule //video_pattern_generator

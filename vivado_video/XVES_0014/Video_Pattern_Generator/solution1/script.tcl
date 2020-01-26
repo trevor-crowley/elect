@@ -13,5 +13,5 @@ create_clock -period 10 -name default
 #source "./Video_Pattern_Generator/solution1/directives.tcl"
 csim_design -argv {-shared}
 csynth_design
-cosim_design -trace_level all
+cosim_design -trace_level port -tool xsim
 export_design -format ip_catalog

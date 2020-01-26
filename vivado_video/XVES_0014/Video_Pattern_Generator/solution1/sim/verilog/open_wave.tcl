@@ -1,2 +1,0 @@
-current_fileset
-open_wave_database video_pattern_generator.wdb
