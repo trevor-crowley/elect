@@ -24,7 +24,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # Configuration - Can be modified by the user
 set project_name 				proj_1
-set BD_name 					test_VMG_bd
+set BD_name 					test_VPG_bd
 
 # Create a new project
 create_project $project_name ./$project_name -part xc7z020clg484-1

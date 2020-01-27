@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Sun Jan 26 21:30:30 2020
-# Process ID: 26598
+# Start of session at: Sun Jan 26 21:14:56 2020
+# Process ID: 24488
 # Current directory: /home/trevor/dev/myelect/video_mandel_gen
 # Command line: vivado
 # Log file: /home/trevor/dev/myelect/video_mandel_gen/vivado.log
@@ -11,16 +11,18 @@
 #-----------------------------------------------------------
 start_gui
 ls
+pwd
+ls
+source ./create_proj.tcl
+pwd
 source ./create_proj.tcl
 update_compile_order -fileset sources_1
-launch_simulation
 close_project
 source ./create_proj.tcl
 update_compile_order -fileset sources_1
+validate_bd_design -force
 launch_simulation
 source tb_test_VPG.tcl
 run 17 ms
-save_wave_config {/home/trevor/dev/myelect/video_mandel_gen/proj_1/tb_test_VPG_behav.wcfg}
-add_files -fileset sim_1 -norecurse /home/trevor/dev/myelect/video_mandel_gen/proj_1/tb_test_VPG_behav.wcfg
-set_property xsim.view /home/trevor/dev/myelect/video_mandel_gen/proj_1/tb_test_VPG_behav.wcfg [get_filesets sim_1]
+open_bd_design {/home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.srcs/sources_1/bd/test_VPG_bd/test_VPG_bd.bd}
 close_sim
