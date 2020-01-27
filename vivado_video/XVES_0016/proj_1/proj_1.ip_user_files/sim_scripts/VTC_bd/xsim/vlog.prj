@@ -1,7 +1,0 @@
-verilog xil_defaultlib  \
-"../../../bd/VTC_bd/ip/VTC_bd_const_VCC_0/sim/VTC_bd_const_VCC_0.v" \
-"../../../bd/VTC_bd/sim/VTC_bd.v" \
-
-verilog xil_defaultlib "glbl.v"
-
-nosort

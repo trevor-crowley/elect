@@ -155,32 +155,10 @@ proc create_root_design { parentCell } {
 
 
   # Create interface ports
-  set AXIS_out [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 AXIS_out ]
-  set_property -dict [ list \
-   CONFIG.FREQ_HZ {40000000} \
-   ] $AXIS_out
-
 
   # Create ports
-  set aclk_40MHz [ create_bd_port -dir I -type clk aclk_40MHz ]
-  set_property -dict [ list \
-   CONFIG.ASSOCIATED_BUSIF {AXIS_out} \
-   CONFIG.ASSOCIATED_RESET {aresetn_0} \
-   CONFIG.FREQ_HZ {40000000} \
- ] $aclk_40MHz
-  set ap_start [ create_bd_port -dir I ap_start ]
-  set aresetn_0 [ create_bd_port -dir I -type rst aresetn_0 ]
-
-  # Create instance: video_pattern_genera_0, and set properties
-  set video_pattern_genera_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:video_pattern_generator:1.0 video_pattern_genera_0 ]
-
-  # Create interface connections
-  connect_bd_intf_net -intf_net video_pattern_genera_0_m_axis_video [get_bd_intf_ports AXIS_out] [get_bd_intf_pins video_pattern_genera_0/m_axis_video]
 
   # Create port connections
-  connect_bd_net -net aclk_40MHz_1 [get_bd_ports aclk_40MHz] [get_bd_pins video_pattern_genera_0/ap_clk]
-  connect_bd_net -net ap_start_0_1 [get_bd_ports ap_start] [get_bd_pins video_pattern_genera_0/ap_start]
-  connect_bd_net -net aresetn_0_1 [get_bd_ports aresetn_0] [get_bd_pins video_pattern_genera_0/ap_rst_n]
 
   # Create address segments
 

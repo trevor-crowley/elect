@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Sat Jan 25 22:13:18 2020
+//Date        : Sun Jan 26 18:44:09 2020
 //Host        : luigilinux running 64-bit unknown
 //Command     : generate_target VTC_bd.bd
 //Design      : VTC_bd

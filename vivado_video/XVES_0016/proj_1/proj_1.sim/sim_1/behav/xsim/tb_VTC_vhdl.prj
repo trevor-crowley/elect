@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../proj_1.ip_user_files/bd/VTC_bd/ip/VTC_bd_v_tc_0_0/sim/VTC_bd_v_tc_0_0.vhd" \
-
-# Do not sort compile order
-nosort

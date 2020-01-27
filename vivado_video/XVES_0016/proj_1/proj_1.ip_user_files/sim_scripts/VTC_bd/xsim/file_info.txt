@@ -1,4 +1,0 @@
-VTC_bd_const_VCC_0.v,verilog,xil_defaultlib,../../../bd/VTC_bd/ip/VTC_bd_const_VCC_0/sim/VTC_bd_const_VCC_0.v,
-VTC_bd_v_tc_0_0.vhd,vhdl,xil_defaultlib,../../../bd/VTC_bd/ip/VTC_bd_v_tc_0_0/sim/VTC_bd_v_tc_0_0.vhd,
-VTC_bd.v,verilog,xil_defaultlib,../../../bd/VTC_bd/sim/VTC_bd.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v

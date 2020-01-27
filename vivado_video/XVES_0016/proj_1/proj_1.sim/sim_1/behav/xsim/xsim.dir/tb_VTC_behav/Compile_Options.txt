@@ -1,1 +1,0 @@
--wto "dba8e3f7746e420191e06c3df501759d" --incr --debug "typical" --relax --mt "8" -L "xlconstant_v1_1_6" -L "xil_defaultlib" -L "axi_lite_ipif_v3_0_4" -L "v_tc_v6_1_13" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "tb_VTC_behav" "xil_defaultlib.tb_VTC" "xil_defaultlib.glbl" -log "elaborate.log" 
