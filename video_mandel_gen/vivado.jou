@@ -1,0 +1,28 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Jan 26 21:14:56 2020
+# Process ID: 24488
+# Current directory: /home/trevor/dev/myelect/video_mandel_gen
+# Command line: vivado
+# Log file: /home/trevor/dev/myelect/video_mandel_gen/vivado.log
+# Journal file: /home/trevor/dev/myelect/video_mandel_gen/vivado.jou
+#-----------------------------------------------------------
+start_gui
+ls
+pwd
+ls
+source ./create_proj.tcl
+pwd
+source ./create_proj.tcl
+update_compile_order -fileset sources_1
+close_project
+source ./create_proj.tcl
+update_compile_order -fileset sources_1
+validate_bd_design -force
+launch_simulation
+source tb_test_VPG.tcl
+run 17 ms
+open_bd_design {/home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.srcs/sources_1/bd/test_VPG_bd/test_VPG_bd.bd}
+close_sim

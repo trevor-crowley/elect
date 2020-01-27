@@ -1,0 +1,161 @@
+
+
+================================================================
+== Vivado HLS Report for 'video_mandelbrot_generator'
+================================================================
+* Date:           Sun Jan 26 21:09:23 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        Video_Mandelbrot_Generator
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     1.770|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  481201|  481201|  481201|  481201|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+--------+--------+----------+-----------+-----------+------+----------+
+        |          |     Latency     | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min  |   max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+--------+--------+----------+-----------+-----------+------+----------+
+        |- outer   |  481200|  481200|       802|          -|          -|   600|    no    |
+        | + inner  |     800|     800|         1|          -|          -|   800|    no    |
+        +----------+--------+--------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 3 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i24* %m_axis_video_V_data_V), !map !36"   --->   Operation 4 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i3* %m_axis_video_V_keep_V), !map !40"   --->   Operation 5 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i3* %m_axis_video_V_strb_V), !map !44"   --->   Operation 6 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %m_axis_video_V_user_V), !map !48"   --->   Operation 7 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %m_axis_video_V_last_V), !map !52"   --->   Operation 8 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %m_axis_video_V_id_V), !map !56"   --->   Operation 9 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %m_axis_video_V_dest_V), !map !60"   --->   Operation 10 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([27 x i8]* @video_mandelbrot_gen) nounwind"   --->   Operation 11 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i24* %m_axis_video_V_data_V, i3* %m_axis_video_V_keep_V, i3* %m_axis_video_V_strb_V, i1* %m_axis_video_V_user_V, i1* %m_axis_video_V_last_V, i1* %m_axis_video_V_id_V, i1* %m_axis_video_V_dest_V, [5 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [src/cpp/video_mandelbrot_generator.cpp:8]   --->   Operation 12 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (1.76ns)   --->   "br label %1" [src/cpp/video_mandelbrot_generator.cpp:14]   --->   Operation 13 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 1.77>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%i_0 = phi i10 [ 0, %0 ], [ %i, %outer_end ]"   --->   Operation 14 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (1.77ns)   --->   "%icmp_ln14 = icmp eq i10 %i_0, -424" [src/cpp/video_mandelbrot_generator.cpp:14]   --->   Operation 15 'icmp' 'icmp_ln14' <Predicate = true> <Delay = 1.77> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 600, i64 600, i64 600)"   --->   Operation 16 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (1.73ns)   --->   "%i = add i10 %i_0, 1" [src/cpp/video_mandelbrot_generator.cpp:14]   --->   Operation 17 'add' 'i' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "br i1 %icmp_ln14, label %4, label %outer_begin" [src/cpp/video_mandelbrot_generator.cpp:14]   --->   Operation 18 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([6 x i8]* @p_str2) nounwind" [src/cpp/video_mandelbrot_generator.cpp:15]   --->   Operation 19 'specloopname' <Predicate = (!icmp_ln14)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([6 x i8]* @p_str2)" [src/cpp/video_mandelbrot_generator.cpp:15]   --->   Operation 20 'specregionbegin' 'tmp' <Predicate = (!icmp_ln14)> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (1.76ns)   --->   "br label %2" [src/cpp/video_mandelbrot_generator.cpp:16]   --->   Operation 21 'br' <Predicate = (!icmp_ln14)> <Delay = 1.76>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "ret void" [src/cpp/video_mandelbrot_generator.cpp:41]   --->   Operation 22 'ret' <Predicate = (icmp_ln14)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 1.77>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%j_0 = phi i10 [ 0, %outer_begin ], [ %j, %3 ]"   --->   Operation 23 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (1.77ns)   --->   "%icmp_ln16 = icmp eq i10 %j_0, -224" [src/cpp/video_mandelbrot_generator.cpp:16]   --->   Operation 24 'icmp' 'icmp_ln16' <Predicate = true> <Delay = 1.77> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%empty_2 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 800, i64 800, i64 800)"   --->   Operation 25 'speclooptripcount' 'empty_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (1.73ns)   --->   "%j = add i10 %j_0, 1" [src/cpp/video_mandelbrot_generator.cpp:16]   --->   Operation 26 'add' 'j' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "br i1 %icmp_ln16, label %outer_end, label %3" [src/cpp/video_mandelbrot_generator.cpp:16]   --->   Operation 27 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([6 x i8]* @p_str3) nounwind" [src/cpp/video_mandelbrot_generator.cpp:17]   --->   Operation 28 'specloopname' <Predicate = (!icmp_ln16)> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns) (grouped into LUT with out node tmp_user_V)   --->   "%or_ln19 = or i10 %j_0, %i_0" [src/cpp/video_mandelbrot_generator.cpp:19]   --->   Operation 29 'or' 'or_ln19' <Predicate = (!icmp_ln16)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 30 [1/1] (1.77ns) (out node of the LUT)   --->   "%tmp_user_V = icmp eq i10 %or_ln19, 0" [src/cpp/video_mandelbrot_generator.cpp:19]   --->   Operation 30 'icmp' 'tmp_user_V' <Predicate = (!icmp_ln16)> <Delay = 1.77> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 31 [1/1] (1.77ns)   --->   "%tmp_last_V = icmp eq i10 %j_0, -225" [src/cpp/video_mandelbrot_generator.cpp:25]   --->   Operation 31 'icmp' 'tmp_last_V' <Predicate = (!icmp_ln16)> <Delay = 1.77> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%pixel_out_V = zext i10 %j_0 to i24" [src/cpp/video_mandelbrot_generator.cpp:47->src/cpp/video_mandelbrot_generator.cpp:35]   --->   Operation 32 'zext' 'pixel_out_V' <Predicate = (!icmp_ln16)> <Delay = 0.00>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i24P.i3P.i3P.i1P.i1P.i1P.i1P(i24* %m_axis_video_V_data_V, i3* %m_axis_video_V_keep_V, i3* %m_axis_video_V_strb_V, i1* %m_axis_video_V_user_V, i1* %m_axis_video_V_last_V, i1* %m_axis_video_V_id_V, i1* %m_axis_video_V_dest_V, i24 %pixel_out_V, i3 undef, i3 undef, i1 %tmp_user_V, i1 %tmp_last_V, i1 undef, i1 undef)" [src/cpp/video_mandelbrot_generator.cpp:38]   --->   Operation 33 'write' <Predicate = (!icmp_ln16)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "br label %2" [src/cpp/video_mandelbrot_generator.cpp:16]   --->   Operation 34 'br' <Predicate = (!icmp_ln16)> <Delay = 0.00>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecRegionEnd([6 x i8]* @p_str2, i32 %tmp)" [src/cpp/video_mandelbrot_generator.cpp:40]   --->   Operation 35 'specregionend' 'empty_3' <Predicate = (icmp_ln16)> <Delay = 0.00>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "br label %1" [src/cpp/video_mandelbrot_generator.cpp:14]   --->   Operation 36 'br' <Predicate = (icmp_ln16)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', src/cpp/video_mandelbrot_generator.cpp:14) [19]  (1.77 ns)
+
+ <State 2>: 1.77ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', src/cpp/video_mandelbrot_generator.cpp:14) [19]  (0 ns)
+	'icmp' operation ('icmp_ln14', src/cpp/video_mandelbrot_generator.cpp:14) [20]  (1.77 ns)
+
+ <State 3>: 1.77ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', src/cpp/video_mandelbrot_generator.cpp:16) [29]  (0 ns)
+	'icmp' operation ('icmp_ln16', src/cpp/video_mandelbrot_generator.cpp:16) [30]  (1.77 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
