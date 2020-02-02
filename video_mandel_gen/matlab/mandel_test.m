@@ -1,6 +1,6 @@
 %% Mandelbrot model using 18bit fixed integer
 % Goal is to move logic to Basys3 FPGA board
-
+    
 %% set model parameters
 T = mandel_type('fixed');
 

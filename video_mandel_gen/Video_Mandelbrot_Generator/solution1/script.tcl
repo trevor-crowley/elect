@@ -6,11 +6,14 @@
 open_project Video_Mandelbrot_Generator
 set_top video_mandelbrot_generator
 add_files src/cpp/video_mandelbrot_generator.cpp
-add_files -tb src/cpp/video_mandelbrot_generator_tb.cpp
+add_files -tb src/cpp/video_mandelbrot_generator_tb.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "solution1"
-set_part {xc7z020-clg484-1} -tool vivado
+set_part {xc7a35t-cpg236-1}
 create_clock -period 10 -name default
-#source "./Video_Mandelbrot_Generator/solution1/directives.tcl"
+config_export -format ip_catalog -rtl verilog -vivado_optimization_level 2 -vivado_phys_opt place -vivado_report_level 0
+config_sdx -optimization_level none -target none
+set_clock_uncertainty 12.5%
+source "./Video_Mandelbrot_Generator/solution1/directives.tcl"
 csim_design
 csynth_design
 cosim_design -trace_level port -tool xsim

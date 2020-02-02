@@ -1,13 +1,13 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'video_mandelbrot_generator'" level="0">
-<item name = "Date">Sun Jan 26 21:09:23 2020
+<item name = "Date">Sun Feb  2 00:04:59 2020
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">Video_Mandelbrot_Generator</item>
 <item name = "Solution">solution1</item>
-<item name = "Product family">zynq</item>
-<item name = "Target device">xc7z020-clg484-1</item>
+<item name = "Product family">artix7</item>
+<item name = "Target device">xc7a35t-cpg236-1</item>
 </section>
 
 <section name = "Performance Estimates" level="0">
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 1.770, 1.25</column>
+<column name="ap_clk">10.00, 8.263, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">481201, 481201, 481201, 481201, none</column>
+<column name="">?, ?, ?, ?, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,8 +35,9 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- outer">481200, 481200, 802, -, -, 600, no</column>
-<column name=" + inner">800, 800, 1, -, -, 800, no</column>
+<column name="- outer">?, ?, ?, -, -, 600, no</column>
+<column name=" + inner">?, ?, ?, -, -, 800, no</column>
+<column name="  ++ inner.1">?, ?, 30, -, -, ?, no</column>
 </table>
 </item>
 </section>

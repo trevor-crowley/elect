@@ -8,7 +8,7 @@ set PipelineFlag 0
 set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0
-set FloatingPointFlag 0
+set FloatingPointFlag 1
 set FftOrFirFlag 0
 set NbRWValue 0
 set intNbAccess 0
@@ -39,7 +39,7 @@ set ExportMCPathFlag 0
 set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
-set TargetInfo xc7z020:-clg484:-1
+set TargetInfo xc7a35t:-cpg236:-1
 set SourceFiles {sc {} c ../../src/cpp/video_mandelbrot_generator.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /home/trevor/dev/myelect/video_mandel_gen/Video_Mandelbrot_Generator/solution1/solution1.directive
@@ -59,5 +59,5 @@ set DefaultPlatform DefaultPlatform
 set multiClockList {}
 set SCPortClockMap {}
 set intNbAccess 0
-set PlatformFiles {{DefaultPlatform {xilinx/zynq/zynq xilinx/zynq/zynq_fpv6}}}
+set PlatformFiles {{DefaultPlatform {xilinx/artix7/artix7 xilinx/artix7/artix7_fpv6}}}
 set HPFPO 0
