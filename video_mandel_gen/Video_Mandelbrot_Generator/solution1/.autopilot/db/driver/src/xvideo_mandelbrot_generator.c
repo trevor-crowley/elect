@@ -73,54 +73,54 @@ void XVideo_mandelbrot_generator_DisableAutoRestart(XVideo_mandelbrot_generator 
     XVideo_mandelbrot_generator_WriteReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_AP_CTRL, 0);
 }
 
-void XVideo_mandelbrot_generator_Set_moveX(XVideo_mandelbrot_generator *InstancePtr, u32 Data) {
+void XVideo_mandelbrot_generator_Set_re_V(XVideo_mandelbrot_generator *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XVideo_mandelbrot_generator_WriteReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_MOVEX_DATA, Data);
+    XVideo_mandelbrot_generator_WriteReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_RE_V_DATA, Data);
 }
 
-u32 XVideo_mandelbrot_generator_Get_moveX(XVideo_mandelbrot_generator *InstancePtr) {
+u32 XVideo_mandelbrot_generator_Get_re_V(XVideo_mandelbrot_generator *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XVideo_mandelbrot_generator_ReadReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_MOVEX_DATA);
+    Data = XVideo_mandelbrot_generator_ReadReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_RE_V_DATA);
     return Data;
 }
 
-void XVideo_mandelbrot_generator_Set_moveY(XVideo_mandelbrot_generator *InstancePtr, u32 Data) {
+void XVideo_mandelbrot_generator_Set_im_V(XVideo_mandelbrot_generator *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XVideo_mandelbrot_generator_WriteReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_MOVEY_DATA, Data);
+    XVideo_mandelbrot_generator_WriteReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_IM_V_DATA, Data);
 }
 
-u32 XVideo_mandelbrot_generator_Get_moveY(XVideo_mandelbrot_generator *InstancePtr) {
+u32 XVideo_mandelbrot_generator_Get_im_V(XVideo_mandelbrot_generator *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XVideo_mandelbrot_generator_ReadReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_MOVEY_DATA);
+    Data = XVideo_mandelbrot_generator_ReadReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_IM_V_DATA);
     return Data;
 }
 
-void XVideo_mandelbrot_generator_Set_zoom(XVideo_mandelbrot_generator *InstancePtr, u32 Data) {
+void XVideo_mandelbrot_generator_Set_zoom_factor_V(XVideo_mandelbrot_generator *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XVideo_mandelbrot_generator_WriteReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_ZOOM_DATA, Data);
+    XVideo_mandelbrot_generator_WriteReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_ZOOM_FACTOR_V_DATA, Data);
 }
 
-u32 XVideo_mandelbrot_generator_Get_zoom(XVideo_mandelbrot_generator *InstancePtr) {
+u32 XVideo_mandelbrot_generator_Get_zoom_factor_V(XVideo_mandelbrot_generator *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XVideo_mandelbrot_generator_ReadReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_ZOOM_DATA);
+    Data = XVideo_mandelbrot_generator_ReadReg(InstancePtr->Cmd_BaseAddress, XVIDEO_MANDELBROT_GENERATOR_CMD_ADDR_ZOOM_FACTOR_V_DATA);
     return Data;
 }
 

@@ -1,28 +1,47 @@
-HEIGHT = 600;
-WIDTH = 800;
 
-cartXoffset = 0.3245046418497685;
-cartYoffset = + 0.04855101129280834;
+function [z, c, z0] = video_mapping(re, im, zoom_factor, width, height, depth) %#codegen
 
+    HEIGHT = width;
+    WIDTH = width;
 
-
-zoom_factor = 0.01;
-
-
-screenX = 0:WIDTH-1;
-screenY = 0:HEIGHT-1;
-
-% optimize below for verilog
-cartX = +3.0 * (screenX - WIDTH/1.28) .* (zoom_factor * 1/WIDTH)  + cartXoffset;
-cartY = -2.0 * (screenY - HEIGHT/2.0) .* (zoom_factor * 1/HEIGHT) + cartYoffset;
+    cartXoffset = re;
+    cartYoffset = im;
 
 
-tiledlayout(2,1); % Requires R2019b or later
-nexttile;
-plot(screenX, cartX, 'b.');
+    screenX = 0:WIDTH-1;
+    screenY = 0:HEIGHT-1;
 
-nexttile;
-plot(screenY, cartY, 'r.');
+    % optimize below for verilog
+    cartX = +3.0 * (screenX - WIDTH/2.0) .* (zoom_factor * 1/WIDTH)  + cartXoffset;
+    %cartX = +3.0 * (screenX - WIDTH/1.28) .* (zoom_factor * 1/WIDTH)  + cartXoffset;
+    cartY = -2.0 * (screenY - HEIGHT/2.0) .* (zoom_factor * 1/HEIGHT) + cartYoffset;
+
+
+    x = cartX;
+    y = cartY';
+
+    n = length(x);
+    e = ones(n,1);
+
+    % setup 2D complex initial mesh
+    z0 = x(e,:) + 1i*y(:,e);
+
+    % working complex plane
+    z = zeros(n,n);
+    % working escape count
+    c = zeros(n,n, 'uint16');
+
+    % generate mandelbrot set 
+    for k = 0:depth
+        %mandelbrot formula (2D grid)
+        z = z.^2 + z0;
+        %set escape count
+        c(abs(z) < 2) = k;
+    end
+   
+end
+
+
 
 %{
 

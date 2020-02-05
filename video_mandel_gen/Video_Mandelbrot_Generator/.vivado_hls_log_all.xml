@@ -12,8 +12,8 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [HLS 200-484] The 'config_sdx -optimization_level' command is deprecated and will be removed in a future release." projectName="Video_Mandelbrot_Generator" solutionName="solution1" date="2020-02-02T00:04:07.365-0500" type="Warning"/>
-        <logs message="WARNING: [HLS 200-483] The 'config_sdx -optimization_level' command is deprecated and will be removed in a future release. Use 'config_export -vivado_optimization_level' as its replacement." projectName="Video_Mandelbrot_Generator" solutionName="solution1" date="2020-02-02T00:04:07.350-0500" type="Warning"/>
+        <logs message="WARNING: [HLS 200-484] The 'config_sdx -optimization_level' command is deprecated and will be removed in a future release." projectName="Video_Mandelbrot_Generator" solutionName="solution1" date="2020-02-04T23:56:05.592-0500" type="Warning"/>
+        <logs message="WARNING: [HLS 200-483] The 'config_sdx -optimization_level' command is deprecated and will be removed in a future release. Use 'config_export -vivado_optimization_level' as its replacement." projectName="Video_Mandelbrot_Generator" solutionName="solution1" date="2020-02-04T23:56:05.579-0500" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

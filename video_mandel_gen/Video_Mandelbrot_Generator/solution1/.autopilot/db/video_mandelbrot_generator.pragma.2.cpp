@@ -36060,12 +36060,12 @@ _ssdm_op_SpecDataflowPipeline(-1, 0, "");
 }
 # 70 "/opt/Xilinx/Vivado/2019.1/common/technology/autopilot/hls_video.h" 2
 # 5 "src/cpp/video_mandelbrot_generator.h" 2
-# 16 "src/cpp/video_mandelbrot_generator.h"
+# 15 "src/cpp/video_mandelbrot_generator.h"
  typedef hls::stream<ap_axiu<24,1,1,1> > AXI_STREAM;
 
 
- typedef float fixed_point;
- typedef float fixed_point_scale;
+ typedef ap_fixed<18,3,AP_TRN_ZERO,AP_SAT> fixed_point;
+
 
 
 
@@ -36075,22 +36075,23 @@ _ssdm_op_SpecDataflowPipeline(-1, 0, "");
 
 
 
-void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point moveX, fixed_point moveY, fixed_point zoom)
+void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_point im, fixed_point zoom_factor)
 {
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 # 6 "src/cpp/video_mandelbrot_generator.cpp"
 
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "cmd", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(moveX, "s_axilite", 0, 0, "", 0, 0, "cmd", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(moveY, "s_axilite", 0, 0, "", 0, 0, "cmd", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(zoom, "s_axilite", 0, 0, "", 0, 0, "cmd", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(&re, "s_axilite", 0, 0, "", 0, 0, "cmd", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(&im, "s_axilite", 0, 0, "", 0, 0, "cmd", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(&zoom_factor, "s_axilite", 0, 0, "", 0, 0, "cmd", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(&m_axis_video, "axis", 1, 1, "both", 0, 0, "VIDEO_OUT", "", "", 0, 0, 0, 0, "", "");
 
 
  ap_axiu<24, 1, 1, 1> video;
  hls::rgb_8 pixel;
 
- fixed_point_scale real_top, real_btm, imag_top, imag_btm;
+ fixed_point real_top, imag_top;
+ fixed_point real_btm, imag_btm;
  fixed_point x0, y0, rsquare, isquare, zsquare;
  fixed_point x,y;
  unsigned int iter;
@@ -36113,18 +36114,19 @@ _ssdm_op_SpecInterface(&m_axis_video, "axis", 1, 1, "both", 0, 0, "VIDEO_OUT", "
    else
     video.last = 0;
 
-         real_top = (col - (fixed_point_scale)(800 * (1.0/1.3)));
-         real_btm = (fixed_point_scale) (1.0/(0.5 * 800));
-         x0 = (fixed_point) 1.5 * (fixed_point)(real_top * real_btm * zoom) + moveX;
 
-         imag_top = (row - (fixed_point_scale)(600 * 0.5));
-         imag_btm = (fixed_point_scale)(1.0/(0.5 * 600));
-         y0 = (fixed_point)(imag_top * imag_btm * zoom) + moveY;
+   real_top = col * (const fixed_point)(1.0 / 800) - (fixed_point)0.5;
+   real_btm = (fixed_point)3.0 * zoom_factor;
+   x0 = (fixed_point)real_top * real_btm + re;
 
+   imag_top = row * (const fixed_point)(1.0 / 600) - (fixed_point)0.5;
+   imag_btm = (fixed_point)-2.0 * zoom_factor;
+   y0 = (fixed_point)(imag_top * imag_btm) + im;
+# 58 "src/cpp/video_mandelbrot_generator.cpp"
          iter =0;
          rsquare = isquare = zsquare = 0;
 
-      while ((rsquare + isquare < (fixed_point)4) && (iter < 255)) {
+      mandel_calc:while ((rsquare + isquare < (fixed_point)4) && (iter < 255)) {
           x = rsquare - isquare + x0;
           y = zsquare - rsquare - isquare + y0;
           rsquare = (fixed_point)x * x;

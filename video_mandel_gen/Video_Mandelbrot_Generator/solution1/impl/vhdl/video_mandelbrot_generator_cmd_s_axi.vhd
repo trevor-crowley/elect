@@ -36,9 +36,9 @@ port (
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
     ap_idle               :in   STD_LOGIC;
-    moveX                 :out  STD_LOGIC_VECTOR(31 downto 0);
-    moveY                 :out  STD_LOGIC_VECTOR(31 downto 0);
-    zoom                  :out  STD_LOGIC_VECTOR(31 downto 0)
+    re_V                  :out  STD_LOGIC_VECTOR(17 downto 0);
+    im_V                  :out  STD_LOGIC_VECTOR(17 downto 0);
+    zoom_factor_V         :out  STD_LOGIC_VECTOR(17 downto 0)
 );
 end entity video_mandelbrot_generator_cmd_s_axi;
 
@@ -61,14 +61,17 @@ end entity video_mandelbrot_generator_cmd_s_axi;
 --        bit 0  - Channel 0 (ap_done)
 --        bit 1  - Channel 1 (ap_ready)
 --        others - reserved
--- 0x10 : Data signal of moveX
---        bit 31~0 - moveX[31:0] (Read/Write)
+-- 0x10 : Data signal of re_V
+--        bit 17~0 - re_V[17:0] (Read/Write)
+--        others   - reserved
 -- 0x14 : reserved
--- 0x18 : Data signal of moveY
---        bit 31~0 - moveY[31:0] (Read/Write)
+-- 0x18 : Data signal of im_V
+--        bit 17~0 - im_V[17:0] (Read/Write)
+--        others   - reserved
 -- 0x1c : reserved
--- 0x20 : Data signal of zoom
---        bit 31~0 - zoom[31:0] (Read/Write)
+-- 0x20 : Data signal of zoom_factor_V
+--        bit 17~0 - zoom_factor_V[17:0] (Read/Write)
+--        others   - reserved
 -- 0x24 : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
@@ -77,16 +80,16 @@ architecture behave of video_mandelbrot_generator_cmd_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL      : INTEGER := 16#00#;
-    constant ADDR_GIE          : INTEGER := 16#04#;
-    constant ADDR_IER          : INTEGER := 16#08#;
-    constant ADDR_ISR          : INTEGER := 16#0c#;
-    constant ADDR_MOVEX_DATA_0 : INTEGER := 16#10#;
-    constant ADDR_MOVEX_CTRL   : INTEGER := 16#14#;
-    constant ADDR_MOVEY_DATA_0 : INTEGER := 16#18#;
-    constant ADDR_MOVEY_CTRL   : INTEGER := 16#1c#;
-    constant ADDR_ZOOM_DATA_0  : INTEGER := 16#20#;
-    constant ADDR_ZOOM_CTRL    : INTEGER := 16#24#;
+    constant ADDR_AP_CTRL              : INTEGER := 16#00#;
+    constant ADDR_GIE                  : INTEGER := 16#04#;
+    constant ADDR_IER                  : INTEGER := 16#08#;
+    constant ADDR_ISR                  : INTEGER := 16#0c#;
+    constant ADDR_RE_V_DATA_0          : INTEGER := 16#10#;
+    constant ADDR_RE_V_CTRL            : INTEGER := 16#14#;
+    constant ADDR_IM_V_DATA_0          : INTEGER := 16#18#;
+    constant ADDR_IM_V_CTRL            : INTEGER := 16#1c#;
+    constant ADDR_ZOOM_FACTOR_V_DATA_0 : INTEGER := 16#20#;
+    constant ADDR_ZOOM_FACTOR_V_CTRL   : INTEGER := 16#24#;
     constant ADDR_BITS         : INTEGER := 6;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -109,9 +112,9 @@ architecture behave of video_mandelbrot_generator_cmd_s_axi is
     signal int_gie             : STD_LOGIC := '0';
     signal int_ier             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
-    signal int_moveX           : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_moveY           : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_zoom            : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_re_V            : UNSIGNED(17 downto 0) := (others => '0');
+    signal int_im_V            : UNSIGNED(17 downto 0) := (others => '0');
+    signal int_zoom_factor_V   : UNSIGNED(17 downto 0) := (others => '0');
 
 
 begin
@@ -233,12 +236,12 @@ begin
                         rdata_data <= (1 => int_ier(1), 0 => int_ier(0), others => '0');
                     when ADDR_ISR =>
                         rdata_data <= (1 => int_isr(1), 0 => int_isr(0), others => '0');
-                    when ADDR_MOVEX_DATA_0 =>
-                        rdata_data <= RESIZE(int_moveX(31 downto 0), 32);
-                    when ADDR_MOVEY_DATA_0 =>
-                        rdata_data <= RESIZE(int_moveY(31 downto 0), 32);
-                    when ADDR_ZOOM_DATA_0 =>
-                        rdata_data <= RESIZE(int_zoom(31 downto 0), 32);
+                    when ADDR_RE_V_DATA_0 =>
+                        rdata_data <= RESIZE(int_re_V(17 downto 0), 32);
+                    when ADDR_IM_V_DATA_0 =>
+                        rdata_data <= RESIZE(int_im_V(17 downto 0), 32);
+                    when ADDR_ZOOM_FACTOR_V_DATA_0 =>
+                        rdata_data <= RESIZE(int_zoom_factor_V(17 downto 0), 32);
                     when others =>
                         rdata_data <= (others => '0');
                     end case;
@@ -250,9 +253,9 @@ begin
 -- ----------------------- Register logic ----------------
     interrupt            <= int_gie and (int_isr(0) or int_isr(1));
     ap_start             <= int_ap_start;
-    moveX                <= STD_LOGIC_VECTOR(int_moveX);
-    moveY                <= STD_LOGIC_VECTOR(int_moveY);
-    zoom                 <= STD_LOGIC_VECTOR(int_zoom);
+    re_V                 <= STD_LOGIC_VECTOR(int_re_V);
+    im_V                 <= STD_LOGIC_VECTOR(int_im_V);
+    zoom_factor_V        <= STD_LOGIC_VECTOR(int_zoom_factor_V);
 
     process (ACLK)
     begin
@@ -383,8 +386,8 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_MOVEX_DATA_0) then
-                    int_moveX(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_moveX(31 downto 0));
+                if (w_hs = '1' and waddr = ADDR_RE_V_DATA_0) then
+                    int_re_V(17 downto 0) <= (UNSIGNED(WDATA(17 downto 0)) and wmask(17 downto 0)) or ((not wmask(17 downto 0)) and int_re_V(17 downto 0));
                 end if;
             end if;
         end if;
@@ -394,8 +397,8 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_MOVEY_DATA_0) then
-                    int_moveY(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_moveY(31 downto 0));
+                if (w_hs = '1' and waddr = ADDR_IM_V_DATA_0) then
+                    int_im_V(17 downto 0) <= (UNSIGNED(WDATA(17 downto 0)) and wmask(17 downto 0)) or ((not wmask(17 downto 0)) and int_im_V(17 downto 0));
                 end if;
             end if;
         end if;
@@ -405,8 +408,8 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_ZOOM_DATA_0) then
-                    int_zoom(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_zoom(31 downto 0));
+                if (w_hs = '1' and waddr = ADDR_ZOOM_FACTOR_V_DATA_0) then
+                    int_zoom_factor_V(17 downto 0) <= (UNSIGNED(WDATA(17 downto 0)) and wmask(17 downto 0)) or ((not wmask(17 downto 0)) and int_zoom_factor_V(17 downto 0));
                 end if;
             end if;
         end if;

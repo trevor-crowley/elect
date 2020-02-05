@@ -10,9 +10,9 @@ int main (int argc, char** argv) {
 	AXI_STREAM dst_axi;
 
 
-	fixed_point move_x = -(3.0/13.0)+0.3245046418497685; //-1.2;
-	fixed_point move_y = 0.04855101129280834;
-	fixed_point zoom = 0.5; //0.01;
+	fixed_point move_x = +0.3245046418497685;
+	fixed_point move_y = +0.04855101129280834;
+	fixed_point zoom = 0.01;
 
 	// Call the function to be synthesized
 	video_mandelbrot_generator(dst_axi, move_x, move_y, zoom);

@@ -6,25 +6,25 @@ ap_start { }
 ap_done { }
 ap_ready { }
 ap_idle { }
-moveX { 
+re_V { 
 	dir I
-	width 32
+	width 18
 	depth 1
 	mode ap_none
 	offset 16
 	offset_end 23
 }
-moveY { 
+im_V { 
 	dir I
-	width 32
+	width 18
 	depth 1
 	mode ap_none
 	offset 24
 	offset_end 31
 }
-zoom { 
+zoom_factor_V { 
 	dir I
-	width 32
+	width 18
 	depth 1
 	mode ap_none
 	offset 32

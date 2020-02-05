@@ -84,12 +84,12 @@ u32 XVideo_mandelbrot_generator_IsReady(XVideo_mandelbrot_generator *InstancePtr
 void XVideo_mandelbrot_generator_EnableAutoRestart(XVideo_mandelbrot_generator *InstancePtr);
 void XVideo_mandelbrot_generator_DisableAutoRestart(XVideo_mandelbrot_generator *InstancePtr);
 
-void XVideo_mandelbrot_generator_Set_moveX(XVideo_mandelbrot_generator *InstancePtr, u32 Data);
-u32 XVideo_mandelbrot_generator_Get_moveX(XVideo_mandelbrot_generator *InstancePtr);
-void XVideo_mandelbrot_generator_Set_moveY(XVideo_mandelbrot_generator *InstancePtr, u32 Data);
-u32 XVideo_mandelbrot_generator_Get_moveY(XVideo_mandelbrot_generator *InstancePtr);
-void XVideo_mandelbrot_generator_Set_zoom(XVideo_mandelbrot_generator *InstancePtr, u32 Data);
-u32 XVideo_mandelbrot_generator_Get_zoom(XVideo_mandelbrot_generator *InstancePtr);
+void XVideo_mandelbrot_generator_Set_re_V(XVideo_mandelbrot_generator *InstancePtr, u32 Data);
+u32 XVideo_mandelbrot_generator_Get_re_V(XVideo_mandelbrot_generator *InstancePtr);
+void XVideo_mandelbrot_generator_Set_im_V(XVideo_mandelbrot_generator *InstancePtr, u32 Data);
+u32 XVideo_mandelbrot_generator_Get_im_V(XVideo_mandelbrot_generator *InstancePtr);
+void XVideo_mandelbrot_generator_Set_zoom_factor_V(XVideo_mandelbrot_generator *InstancePtr, u32 Data);
+u32 XVideo_mandelbrot_generator_Get_zoom_factor_V(XVideo_mandelbrot_generator *InstancePtr);
 
 void XVideo_mandelbrot_generator_InterruptGlobalEnable(XVideo_mandelbrot_generator *InstancePtr);
 void XVideo_mandelbrot_generator_InterruptGlobalDisable(XVideo_mandelbrot_generator *InstancePtr);

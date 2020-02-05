@@ -21,9 +21,9 @@ set C_modelArgList {
 	{ VIDEO_OUT_V_last_V int 1 regular {axi_s 1 volatile  { m_axis_video Last } }  }
 	{ VIDEO_OUT_V_id_V int 1 regular {axi_s 1 volatile  { m_axis_video ID } }  }
 	{ VIDEO_OUT_V_dest_V int 1 regular {axi_s 1 volatile  { m_axis_video Dest } }  }
-	{ moveX float 32 regular {axi_slave 0}  }
-	{ moveY float 32 regular {axi_slave 0}  }
-	{ zoom float 32 regular {axi_slave 0}  }
+	{ re_V int 18 regular {axi_slave 0}  }
+	{ im_V int 18 regular {axi_slave 0}  }
+	{ zoom_factor_V int 18 regular {axi_slave 0}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "VIDEO_OUT_V_data_V", "interface" : "axis", "bitwidth" : 24, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":23,"cElement": [{"cName": "m_axis_video.V.data.V","cData": "uint24","bit_use": { "low": 0,"up": 23},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
@@ -33,9 +33,9 @@ set C_modelArgMapList {[
  	{ "Name" : "VIDEO_OUT_V_last_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "m_axis_video.V.last.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "VIDEO_OUT_V_id_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "m_axis_video.V.id.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
  	{ "Name" : "VIDEO_OUT_V_dest_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "m_axis_video.V.dest.V","cData": "uint1","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
- 	{ "Name" : "moveX", "interface" : "axi_slave", "bundle":"cmd","type":"ap_none","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "moveX","cData": "float","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":16}, "offset_end" : {"in":23}} , 
- 	{ "Name" : "moveY", "interface" : "axi_slave", "bundle":"cmd","type":"ap_none","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "moveY","cData": "float","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":24}, "offset_end" : {"in":31}} , 
- 	{ "Name" : "zoom", "interface" : "axi_slave", "bundle":"cmd","type":"ap_none","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "zoom","cData": "float","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":32}, "offset_end" : {"in":39}} ]}
+ 	{ "Name" : "re_V", "interface" : "axi_slave", "bundle":"cmd","type":"ap_none","bitwidth" : 18, "direction" : "READONLY", "bitSlice":[{"low":0,"up":17,"cElement": [{"cName": "re.V","cData": "int18","bit_use": { "low": 0,"up": 17},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":16}, "offset_end" : {"in":23}} , 
+ 	{ "Name" : "im_V", "interface" : "axi_slave", "bundle":"cmd","type":"ap_none","bitwidth" : 18, "direction" : "READONLY", "bitSlice":[{"low":0,"up":17,"cElement": [{"cName": "im.V","cData": "int18","bit_use": { "low": 0,"up": 17},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":24}, "offset_end" : {"in":31}} , 
+ 	{ "Name" : "zoom_factor_V", "interface" : "axi_slave", "bundle":"cmd","type":"ap_none","bitwidth" : 18, "direction" : "READONLY", "bitSlice":[{"low":0,"up":17,"cElement": [{"cName": "zoom_factor.V","cData": "int18","bit_use": { "low": 0,"up": 17},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":32}, "offset_end" : {"in":39}} ]}
 # RTL Port declarations: 
 set portNum 29
 set portList { 
@@ -70,7 +70,7 @@ set portList {
 	{ interrupt sc_out sc_logic 1 signal -1 } 
 }
 set NewPortList {[ 
-	{ "name": "s_axi_cmd_AWADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "cmd", "role": "AWADDR" },"address":[{"name":"video_mandelbrot_generator","role":"start","value":"0","valid_bit":"0"},{"name":"video_mandelbrot_generator","role":"continue","value":"0","valid_bit":"4"},{"name":"video_mandelbrot_generator","role":"auto_start","value":"0","valid_bit":"7"},{"name":"moveX","role":"data","value":"16"},{"name":"moveY","role":"data","value":"24"},{"name":"zoom","role":"data","value":"32"}] },
+	{ "name": "s_axi_cmd_AWADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "cmd", "role": "AWADDR" },"address":[{"name":"video_mandelbrot_generator","role":"start","value":"0","valid_bit":"0"},{"name":"video_mandelbrot_generator","role":"continue","value":"0","valid_bit":"4"},{"name":"video_mandelbrot_generator","role":"auto_start","value":"0","valid_bit":"7"},{"name":"re_V","role":"data","value":"16"},{"name":"im_V","role":"data","value":"24"},{"name":"zoom_factor_V","role":"data","value":"32"}] },
 	{ "name": "s_axi_cmd_AWVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "cmd", "role": "AWVALID" } },
 	{ "name": "s_axi_cmd_AWREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "cmd", "role": "AWREADY" } },
 	{ "name": "s_axi_cmd_WVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "cmd", "role": "WVALID" } },
@@ -101,7 +101,7 @@ set NewPortList {[
  	{ "name": "m_axis_video_TDEST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "VIDEO_OUT_V_dest_V", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6"],
 		"CDFG" : "video_mandelbrot_generator",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -124,30 +124,29 @@ set RtlHierarchyInfo {[
 			{"Name" : "VIDEO_OUT_V_last_V", "Type" : "Axis", "Direction" : "O"},
 			{"Name" : "VIDEO_OUT_V_id_V", "Type" : "Axis", "Direction" : "O"},
 			{"Name" : "VIDEO_OUT_V_dest_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "moveX", "Type" : "None", "Direction" : "I"},
-			{"Name" : "moveY", "Type" : "None", "Direction" : "I"},
-			{"Name" : "zoom", "Type" : "None", "Direction" : "I"}]},
+			{"Name" : "re_V", "Type" : "None", "Direction" : "I"},
+			{"Name" : "im_V", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zoom_factor_V", "Type" : "None", "Direction" : "I"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_cmd_s_axi_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_faddfsub_32ns_32ns_32_5_full_dsp_1_U1", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_fsub_32ns_32ns_32_5_full_dsp_1_U2", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_fmul_32ns_32ns_32_4_max_dsp_1_U3", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_fmul_32ns_32ns_32_4_max_dsp_1_U4", "Parent" : "0"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_uitofp_32ns_32_6_1_U5", "Parent" : "0"},
-	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_fcmp_32ns_32ns_1_2_1_U6", "Parent" : "0"}]}
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U1", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U2", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U3", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U4", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_19s_19s_38_1_1_U5", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	video_mandelbrot_generator {
-		VIDEO_OUT_V_data_V {Type O LastRead -1 FirstWrite 59}
-		VIDEO_OUT_V_keep_V {Type O LastRead -1 FirstWrite 59}
-		VIDEO_OUT_V_strb_V {Type O LastRead -1 FirstWrite 59}
-		VIDEO_OUT_V_user_V {Type O LastRead -1 FirstWrite 59}
-		VIDEO_OUT_V_last_V {Type O LastRead -1 FirstWrite 59}
-		VIDEO_OUT_V_id_V {Type O LastRead -1 FirstWrite 59}
-		VIDEO_OUT_V_dest_V {Type O LastRead -1 FirstWrite 59}
-		moveX {Type I LastRead 0 FirstWrite -1}
-		moveY {Type I LastRead 0 FirstWrite -1}
-		zoom {Type I LastRead 0 FirstWrite -1}}}
+		VIDEO_OUT_V_data_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_keep_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_strb_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_user_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_last_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_id_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_dest_V {Type O LastRead -1 FirstWrite 7}
+		re_V {Type I LastRead 0 FirstWrite -1}
+		im_V {Type I LastRead 0 FirstWrite -1}
+		zoom_factor_V {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 

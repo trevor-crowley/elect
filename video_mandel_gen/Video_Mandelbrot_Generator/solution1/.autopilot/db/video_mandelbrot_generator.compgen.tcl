@@ -1,57 +1,43 @@
 # This script segment is generated automatically by AutoPilot
 
 set id 1
-set name video_mandelbrot_generator_faddfsub_32ns_32ns_32_5_full_dsp_1
-set corename simcore_faddfsub
-set op faddfsub
-set stage_num 5
+set name video_mandelbrot_generator_mul_mul_18s_18s_36_1_1
+set corename simcore_mul
+set op mul
+set stage_num 1
 set max_latency -1
 set registered_input 1
-set impl_style full_dsp
-set Futype4reduceCEFanout 1
-set clk_width 1
-set clk_signed 0
-set reset_width 1
-set reset_signed 0
-set in0_width 32
-set in0_signed 0
-set in1_width 32
-set in1_signed 0
-set opcode_width 2
-set opcode_signed 0
-set ce_width 1
-set ce_signed 0
-set out_width 32
+set in0_width 18
+set in0_signed 1
+set in1_width 18
+set in1_signed 1
+set out_width 36
+set exp i0*i1
+set arg_lists {i0 {18 1 +} i1 {18 1 +} p {36 1 +} acc {0} }
+set TrueReset 0
 if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_faddfsub] == "ap_gen_simcore_faddfsub"} {
-eval "ap_gen_simcore_faddfsub { \
+if {[info proc ap_gen_simcore_mul] == "ap_gen_simcore_mul"} {
+eval "ap_gen_simcore_mul { \
     id ${id} \
     name ${name} \
     corename ${corename} \
     op ${op} \
     reset_level 1 \
     sync_rst true \
+    true_reset ${TrueReset} \
     stage_num ${stage_num} \
     max_latency ${max_latency} \
     registered_input ${registered_input} \
-    style ${impl_style} \
-    Futype4reduceCEFanout ${Futype4reduceCEFanout} \
-    clk_width ${clk_width} \
-    clk_signed ${clk_signed} \
-    reset_width ${reset_width} \
-    reset_signed ${reset_signed} \
     in0_width ${in0_width} \
     in0_signed ${in0_signed} \
     in1_width ${in1_width} \
     in1_signed ${in1_signed} \
-    opcode_width ${opcode_width} \
-    opcode_signed ${opcode_signed} \
-    ce_width ${ce_width} \
-    ce_signed ${ce_signed} \
     out_width ${out_width} \
+    exp ${exp} \
+    arg_lists {${arg_lists}} \
 }"
 } else {
-puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_faddfsub, check your AutoPilot builtin lib"
+puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_mul, check your AutoPilot builtin lib"
 }
 }
 
@@ -61,266 +47,73 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 }
 
 
-set op faddfsub
-set corename FAddSub
-if {${::AESL::PGuard_autocg_gen} && (${::AESL::PGuard_autocg_fpip} || ${::AESL::PGuard_autocg_fpv6en} || ${::AESL::PGuard_autocg_hpen})} {
-if {[info proc ::AESL_LIB_XILINX_FPV6::fpv6_gen] == "::AESL_LIB_XILINX_FPV6::fpv6_gen"} {
-eval "::AESL_LIB_XILINX_FPV6::fpv6_gen { \
+set op mul
+set corename DSP48
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_dsp48] == "::AESL_LIB_VIRTEX::xil_gen_dsp48"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_dsp48 { \
     id ${id} \
     name ${name} \
     corename ${corename} \
     op ${op} \
     reset_level 1 \
     sync_rst true \
+    true_reset ${TrueReset} \
     stage_num ${stage_num} \
     max_latency ${max_latency} \
     registered_input ${registered_input} \
-    style ${impl_style} \
-    Futype4reduceCEFanout ${Futype4reduceCEFanout} \
-    clk_width ${clk_width} \
-    clk_signed ${clk_signed} \
-    reset_width ${reset_width} \
-    reset_signed ${reset_signed} \
     in0_width ${in0_width} \
     in0_signed ${in0_signed} \
     in1_width ${in1_width} \
     in1_signed ${in1_signed} \
-    opcode_width ${opcode_width} \
-    opcode_signed ${opcode_signed} \
-    ce_width ${ce_width} \
-    ce_signed ${ce_signed} \
     out_width ${out_width} \
+    exp ${exp} \
+    arg_lists {${arg_lists}} \
 }"
 } else {
-puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your platform lib"
-}
-}
-
-
-set id 2
-set name video_mandelbrot_generator_fsub_32ns_32ns_32_5_full_dsp_1
-set corename simcore_fsub
-set op fsub
-set stage_num 5
-set max_latency -1
-set registered_input 1
-set impl_style full_dsp
-set Futype4reduceCEFanout 1
-set clk_width 1
-set clk_signed 0
-set reset_width 1
-set reset_signed 0
-set in0_width 32
-set in0_signed 0
-set in1_width 32
-set in1_signed 0
-set ce_width 1
-set ce_signed 0
-set out_width 32
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_fsub] == "ap_gen_simcore_fsub"} {
-eval "ap_gen_simcore_fsub { \
-    id ${id} \
-    name ${name} \
-    corename ${corename} \
-    op ${op} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${stage_num} \
-    max_latency ${max_latency} \
-    registered_input ${registered_input} \
-    style ${impl_style} \
-    Futype4reduceCEFanout ${Futype4reduceCEFanout} \
-    clk_width ${clk_width} \
-    clk_signed ${clk_signed} \
-    reset_width ${reset_width} \
-    reset_signed ${reset_signed} \
-    in0_width ${in0_width} \
-    in0_signed ${in0_signed} \
-    in1_width ${in1_width} \
-    in1_signed ${in1_signed} \
-    ce_width ${ce_width} \
-    ce_signed ${ce_signed} \
-    out_width ${out_width} \
-}"
-} else {
-puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_fsub, check your AutoPilot builtin lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler ${name}
-}
-
-
-set op fsub
-set corename FAddSub
-if {${::AESL::PGuard_autocg_gen} && (${::AESL::PGuard_autocg_fpip} || ${::AESL::PGuard_autocg_fpv6en} || ${::AESL::PGuard_autocg_hpen})} {
-if {[info proc ::AESL_LIB_XILINX_FPV6::fpv6_gen] == "::AESL_LIB_XILINX_FPV6::fpv6_gen"} {
-eval "::AESL_LIB_XILINX_FPV6::fpv6_gen { \
-    id ${id} \
-    name ${name} \
-    corename ${corename} \
-    op ${op} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${stage_num} \
-    max_latency ${max_latency} \
-    registered_input ${registered_input} \
-    style ${impl_style} \
-    Futype4reduceCEFanout ${Futype4reduceCEFanout} \
-    clk_width ${clk_width} \
-    clk_signed ${clk_signed} \
-    reset_width ${reset_width} \
-    reset_signed ${reset_signed} \
-    in0_width ${in0_width} \
-    in0_signed ${in0_signed} \
-    in1_width ${in1_width} \
-    in1_signed ${in1_signed} \
-    ce_width ${ce_width} \
-    ce_signed ${ce_signed} \
-    out_width ${out_width} \
-}"
-} else {
-puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your platform lib"
-}
-}
-
-
-set id 3
-set name video_mandelbrot_generator_fmul_32ns_32ns_32_4_max_dsp_1
-set corename simcore_fmul
-set op fmul
-set stage_num 4
-set max_latency -1
-set registered_input 1
-set impl_style max_dsp
-set Futype4reduceCEFanout 1
-set clk_width 1
-set clk_signed 0
-set reset_width 1
-set reset_signed 0
-set in0_width 32
-set in0_signed 0
-set in1_width 32
-set in1_signed 0
-set ce_width 1
-set ce_signed 0
-set out_width 32
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_fmul] == "ap_gen_simcore_fmul"} {
-eval "ap_gen_simcore_fmul { \
-    id ${id} \
-    name ${name} \
-    corename ${corename} \
-    op ${op} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${stage_num} \
-    max_latency ${max_latency} \
-    registered_input ${registered_input} \
-    style ${impl_style} \
-    Futype4reduceCEFanout ${Futype4reduceCEFanout} \
-    clk_width ${clk_width} \
-    clk_signed ${clk_signed} \
-    reset_width ${reset_width} \
-    reset_signed ${reset_signed} \
-    in0_width ${in0_width} \
-    in0_signed ${in0_signed} \
-    in1_width ${in1_width} \
-    in1_signed ${in1_signed} \
-    ce_width ${ce_width} \
-    ce_signed ${ce_signed} \
-    out_width ${out_width} \
-}"
-} else {
-puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_fmul, check your AutoPilot builtin lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler ${name}
-}
-
-
-set op fmul
-set corename FMul
-if {${::AESL::PGuard_autocg_gen} && (${::AESL::PGuard_autocg_fpip} || ${::AESL::PGuard_autocg_fpv6en} || ${::AESL::PGuard_autocg_hpen})} {
-if {[info proc ::AESL_LIB_XILINX_FPV6::fpv6_gen] == "::AESL_LIB_XILINX_FPV6::fpv6_gen"} {
-eval "::AESL_LIB_XILINX_FPV6::fpv6_gen { \
-    id ${id} \
-    name ${name} \
-    corename ${corename} \
-    op ${op} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${stage_num} \
-    max_latency ${max_latency} \
-    registered_input ${registered_input} \
-    style ${impl_style} \
-    Futype4reduceCEFanout ${Futype4reduceCEFanout} \
-    clk_width ${clk_width} \
-    clk_signed ${clk_signed} \
-    reset_width ${reset_width} \
-    reset_signed ${reset_signed} \
-    in0_width ${in0_width} \
-    in0_signed ${in0_signed} \
-    in1_width ${in1_width} \
-    in1_signed ${in1_signed} \
-    ce_width ${ce_width} \
-    ce_signed ${ce_signed} \
-    out_width ${out_width} \
-}"
-} else {
-puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your platform lib"
+puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your platform lib"
 }
 }
 
 
 set id 5
-set name video_mandelbrot_generator_uitofp_32ns_32_6_1
-set corename simcore_uitofp
-set op uitofp
-set stage_num 6
+set name video_mandelbrot_generator_mul_mul_19s_19s_38_1_1
+set corename simcore_mul
+set op mul
+set stage_num 1
 set max_latency -1
 set registered_input 1
-set Futype4reduceCEFanout 1
-set clk_width 1
-set clk_signed 0
-set reset_width 1
-set reset_signed 0
-set in0_width 32
-set in0_signed 0
-set ce_width 1
-set ce_signed 0
-set out_width 32
+set in0_width 19
+set in0_signed 1
+set in1_width 19
+set in1_signed 1
+set out_width 38
+set exp i0*i1
+set arg_lists {i0 {19 1 +} i1 {19 1 +} p {38 1 +} acc {0} }
+set TrueReset 0
 if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_uitofp] == "ap_gen_simcore_uitofp"} {
-eval "ap_gen_simcore_uitofp { \
+if {[info proc ap_gen_simcore_mul] == "ap_gen_simcore_mul"} {
+eval "ap_gen_simcore_mul { \
     id ${id} \
     name ${name} \
     corename ${corename} \
     op ${op} \
     reset_level 1 \
     sync_rst true \
+    true_reset ${TrueReset} \
     stage_num ${stage_num} \
     max_latency ${max_latency} \
     registered_input ${registered_input} \
-    Futype4reduceCEFanout ${Futype4reduceCEFanout} \
-    clk_width ${clk_width} \
-    clk_signed ${clk_signed} \
-    reset_width ${reset_width} \
-    reset_signed ${reset_signed} \
     in0_width ${in0_width} \
     in0_signed ${in0_signed} \
-    ce_width ${ce_width} \
-    ce_signed ${ce_signed} \
+    in1_width ${in1_width} \
+    in1_signed ${in1_signed} \
     out_width ${out_width} \
+    exp ${exp} \
+    arg_lists {${arg_lists}} \
 }"
 } else {
-puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_uitofp, check your AutoPilot builtin lib"
+puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_mul, check your AutoPilot builtin lib"
 }
 }
 
@@ -330,127 +123,31 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 }
 
 
-set op uitofp
-set corename Int2Float
-if {${::AESL::PGuard_autocg_gen} && (${::AESL::PGuard_autocg_fpip} || ${::AESL::PGuard_autocg_fpv6en} || ${::AESL::PGuard_autocg_hpen})} {
-if {[info proc ::AESL_LIB_XILINX_FPV6::fpv6_gen] == "::AESL_LIB_XILINX_FPV6::fpv6_gen"} {
-eval "::AESL_LIB_XILINX_FPV6::fpv6_gen { \
+set op mul
+set corename DSP48
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_dsp48] == "::AESL_LIB_VIRTEX::xil_gen_dsp48"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_dsp48 { \
     id ${id} \
     name ${name} \
     corename ${corename} \
     op ${op} \
     reset_level 1 \
     sync_rst true \
+    true_reset ${TrueReset} \
     stage_num ${stage_num} \
     max_latency ${max_latency} \
     registered_input ${registered_input} \
-    Futype4reduceCEFanout ${Futype4reduceCEFanout} \
-    clk_width ${clk_width} \
-    clk_signed ${clk_signed} \
-    reset_width ${reset_width} \
-    reset_signed ${reset_signed} \
-    in0_width ${in0_width} \
-    in0_signed ${in0_signed} \
-    ce_width ${ce_width} \
-    ce_signed ${ce_signed} \
-    out_width ${out_width} \
-}"
-} else {
-puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your platform lib"
-}
-}
-
-
-set id 6
-set name video_mandelbrot_generator_fcmp_32ns_32ns_1_2_1
-set corename simcore_fcmp
-set op fcmp
-set stage_num 2
-set max_latency -1
-set registered_input 1
-set Futype4reduceCEFanout 1
-set clk_width 1
-set clk_signed 0
-set reset_width 1
-set reset_signed 0
-set in0_width 32
-set in0_signed 0
-set in1_width 32
-set in1_signed 0
-set ce_width 1
-set ce_signed 0
-set opcode_width 5
-set opcode_signed 0
-set out_width 1
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_fcmp] == "ap_gen_simcore_fcmp"} {
-eval "ap_gen_simcore_fcmp { \
-    id ${id} \
-    name ${name} \
-    corename ${corename} \
-    op ${op} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${stage_num} \
-    max_latency ${max_latency} \
-    registered_input ${registered_input} \
-    Futype4reduceCEFanout ${Futype4reduceCEFanout} \
-    clk_width ${clk_width} \
-    clk_signed ${clk_signed} \
-    reset_width ${reset_width} \
-    reset_signed ${reset_signed} \
     in0_width ${in0_width} \
     in0_signed ${in0_signed} \
     in1_width ${in1_width} \
     in1_signed ${in1_signed} \
-    ce_width ${ce_width} \
-    ce_signed ${ce_signed} \
-    opcode_width ${opcode_width} \
-    opcode_signed ${opcode_signed} \
     out_width ${out_width} \
+    exp ${exp} \
+    arg_lists {${arg_lists}} \
 }"
 } else {
-puts "@W \[IMPL-100\] Cannot find ap_gen_simcore_fcmp, check your AutoPilot builtin lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler ${name}
-}
-
-
-set op fcmp
-set corename FCmp
-if {${::AESL::PGuard_autocg_gen} && (${::AESL::PGuard_autocg_fpip} || ${::AESL::PGuard_autocg_fpv6en} || ${::AESL::PGuard_autocg_hpen})} {
-if {[info proc ::AESL_LIB_XILINX_FPV6::fpv6_gen] == "::AESL_LIB_XILINX_FPV6::fpv6_gen"} {
-eval "::AESL_LIB_XILINX_FPV6::fpv6_gen { \
-    id ${id} \
-    name ${name} \
-    corename ${corename} \
-    op ${op} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${stage_num} \
-    max_latency ${max_latency} \
-    registered_input ${registered_input} \
-    Futype4reduceCEFanout ${Futype4reduceCEFanout} \
-    clk_width ${clk_width} \
-    clk_signed ${clk_signed} \
-    reset_width ${reset_width} \
-    reset_signed ${reset_signed} \
-    in0_width ${in0_width} \
-    in0_signed ${in0_signed} \
-    in1_width ${in1_width} \
-    in1_signed ${in1_signed} \
-    ce_width ${ce_width} \
-    ce_signed ${ce_signed} \
-    opcode_width ${opcode_width} \
-    opcode_signed ${opcode_signed} \
-    out_width ${out_width} \
-}"
-} else {
-puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your platform lib"
+puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_dsp48, check your platform lib"
 }
 }
 
@@ -468,25 +165,25 @@ ap_start { }
 ap_done { }
 ap_ready { }
 ap_idle { }
-moveX { 
+re_V { 
 	dir I
-	width 32
+	width 18
 	depth 1
 	mode ap_none
 	offset 16
 	offset_end 23
 }
-moveY { 
+im_V { 
 	dir I
-	width 32
+	width 18
 	depth 1
 	mode ap_none
 	offset 24
 	offset_end 31
 }
-zoom { 
+zoom_factor_V { 
 	dir I
-	width 32
+	width 18
 	depth 1
 	mode ap_none
 	offset 32
@@ -500,7 +197,7 @@ dict set axilite_register_dict cmd $port_cmd
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 12 \
+			id 8 \
 			corename video_mandelbrot_generator_cmd_axilite \
 			name video_mandelbrot_generator_cmd_s_axi \
 			ports {$port_cmd} \
@@ -520,7 +217,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 13 \
+    id 9 \
     name VIDEO_OUT_V_data_V \
     reset_level 0 \
     sync_rst true \
@@ -539,7 +236,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 14 \
+    id 10 \
     name VIDEO_OUT_V_keep_V \
     reset_level 0 \
     sync_rst true \
@@ -558,7 +255,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 15 \
+    id 11 \
     name VIDEO_OUT_V_strb_V \
     reset_level 0 \
     sync_rst true \
@@ -577,7 +274,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 16 \
+    id 12 \
     name VIDEO_OUT_V_user_V \
     reset_level 0 \
     sync_rst true \
@@ -596,7 +293,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 17 \
+    id 13 \
     name VIDEO_OUT_V_last_V \
     reset_level 0 \
     sync_rst true \
@@ -615,7 +312,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 18 \
+    id 14 \
     name VIDEO_OUT_V_id_V \
     reset_level 0 \
     sync_rst true \
@@ -634,7 +331,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 19 \
+    id 15 \
     name VIDEO_OUT_V_dest_V \
     reset_level 0 \
     sync_rst true \

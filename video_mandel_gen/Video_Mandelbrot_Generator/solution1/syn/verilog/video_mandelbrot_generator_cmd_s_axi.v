@@ -33,9 +33,9 @@ module video_mandelbrot_generator_cmd_s_axi
     input  wire                          ap_done,
     input  wire                          ap_ready,
     input  wire                          ap_idle,
-    output wire [31:0]                   moveX,
-    output wire [31:0]                   moveY,
-    output wire [31:0]                   zoom
+    output wire [17:0]                   re_V,
+    output wire [17:0]                   im_V,
+    output wire [17:0]                   zoom_factor_V
 );
 //------------------------Address Info-------------------
 // 0x00 : Control signals
@@ -56,36 +56,39 @@ module video_mandelbrot_generator_cmd_s_axi
 //        bit 0  - Channel 0 (ap_done)
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
-// 0x10 : Data signal of moveX
-//        bit 31~0 - moveX[31:0] (Read/Write)
+// 0x10 : Data signal of re_V
+//        bit 17~0 - re_V[17:0] (Read/Write)
+//        others   - reserved
 // 0x14 : reserved
-// 0x18 : Data signal of moveY
-//        bit 31~0 - moveY[31:0] (Read/Write)
+// 0x18 : Data signal of im_V
+//        bit 17~0 - im_V[17:0] (Read/Write)
+//        others   - reserved
 // 0x1c : reserved
-// 0x20 : Data signal of zoom
-//        bit 31~0 - zoom[31:0] (Read/Write)
+// 0x20 : Data signal of zoom_factor_V
+//        bit 17~0 - zoom_factor_V[17:0] (Read/Write)
+//        others   - reserved
 // 0x24 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL      = 6'h00,
-    ADDR_GIE          = 6'h04,
-    ADDR_IER          = 6'h08,
-    ADDR_ISR          = 6'h0c,
-    ADDR_MOVEX_DATA_0 = 6'h10,
-    ADDR_MOVEX_CTRL   = 6'h14,
-    ADDR_MOVEY_DATA_0 = 6'h18,
-    ADDR_MOVEY_CTRL   = 6'h1c,
-    ADDR_ZOOM_DATA_0  = 6'h20,
-    ADDR_ZOOM_CTRL    = 6'h24,
-    WRIDLE            = 2'd0,
-    WRDATA            = 2'd1,
-    WRRESP            = 2'd2,
-    WRRESET           = 2'd3,
-    RDIDLE            = 2'd0,
-    RDDATA            = 2'd1,
-    RDRESET           = 2'd2,
+    ADDR_AP_CTRL              = 6'h00,
+    ADDR_GIE                  = 6'h04,
+    ADDR_IER                  = 6'h08,
+    ADDR_ISR                  = 6'h0c,
+    ADDR_RE_V_DATA_0          = 6'h10,
+    ADDR_RE_V_CTRL            = 6'h14,
+    ADDR_IM_V_DATA_0          = 6'h18,
+    ADDR_IM_V_CTRL            = 6'h1c,
+    ADDR_ZOOM_FACTOR_V_DATA_0 = 6'h20,
+    ADDR_ZOOM_FACTOR_V_CTRL   = 6'h24,
+    WRIDLE                    = 2'd0,
+    WRDATA                    = 2'd1,
+    WRRESP                    = 2'd2,
+    WRRESET                   = 2'd3,
+    RDIDLE                    = 2'd0,
+    RDDATA                    = 2'd1,
+    RDRESET                   = 2'd2,
     ADDR_BITS         = 6;
 
 //------------------------Local signal-------------------
@@ -109,9 +112,9 @@ localparam
     reg                           int_gie = 1'b0;
     reg  [1:0]                    int_ier = 2'b0;
     reg  [1:0]                    int_isr = 2'b0;
-    reg  [31:0]                   int_moveX = 'b0;
-    reg  [31:0]                   int_moveY = 'b0;
-    reg  [31:0]                   int_zoom = 'b0;
+    reg  [17:0]                   int_re_V = 'b0;
+    reg  [17:0]                   int_im_V = 'b0;
+    reg  [17:0]                   int_zoom_factor_V = 'b0;
 
 //------------------------Instantiation------------------
 
@@ -219,14 +222,14 @@ always @(posedge ACLK) begin
                 ADDR_ISR: begin
                     rdata <= int_isr;
                 end
-                ADDR_MOVEX_DATA_0: begin
-                    rdata <= int_moveX[31:0];
+                ADDR_RE_V_DATA_0: begin
+                    rdata <= int_re_V[17:0];
                 end
-                ADDR_MOVEY_DATA_0: begin
-                    rdata <= int_moveY[31:0];
+                ADDR_IM_V_DATA_0: begin
+                    rdata <= int_im_V[17:0];
                 end
-                ADDR_ZOOM_DATA_0: begin
-                    rdata <= int_zoom[31:0];
+                ADDR_ZOOM_FACTOR_V_DATA_0: begin
+                    rdata <= int_zoom_factor_V[17:0];
                 end
             endcase
         end
@@ -235,11 +238,11 @@ end
 
 
 //------------------------Register logic-----------------
-assign interrupt = int_gie & (|int_isr);
-assign ap_start  = int_ap_start;
-assign moveX     = int_moveX;
-assign moveY     = int_moveY;
-assign zoom      = int_zoom;
+assign interrupt     = int_gie & (|int_isr);
+assign ap_start      = int_ap_start;
+assign re_V          = int_re_V;
+assign im_V          = int_im_V;
+assign zoom_factor_V = int_zoom_factor_V;
 // int_ap_start
 always @(posedge ACLK) begin
     if (ARESET)
@@ -336,33 +339,33 @@ always @(posedge ACLK) begin
     end
 end
 
-// int_moveX[31:0]
+// int_re_V[17:0]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_moveX[31:0] <= 0;
+        int_re_V[17:0] <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_MOVEX_DATA_0)
-            int_moveX[31:0] <= (WDATA[31:0] & wmask) | (int_moveX[31:0] & ~wmask);
+        if (w_hs && waddr == ADDR_RE_V_DATA_0)
+            int_re_V[17:0] <= (WDATA[31:0] & wmask) | (int_re_V[17:0] & ~wmask);
     end
 end
 
-// int_moveY[31:0]
+// int_im_V[17:0]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_moveY[31:0] <= 0;
+        int_im_V[17:0] <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_MOVEY_DATA_0)
-            int_moveY[31:0] <= (WDATA[31:0] & wmask) | (int_moveY[31:0] & ~wmask);
+        if (w_hs && waddr == ADDR_IM_V_DATA_0)
+            int_im_V[17:0] <= (WDATA[31:0] & wmask) | (int_im_V[17:0] & ~wmask);
     end
 end
 
-// int_zoom[31:0]
+// int_zoom_factor_V[17:0]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_zoom[31:0] <= 0;
+        int_zoom_factor_V[17:0] <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_ZOOM_DATA_0)
-            int_zoom[31:0] <= (WDATA[31:0] & wmask) | (int_zoom[31:0] & ~wmask);
+        if (w_hs && waddr == ADDR_ZOOM_FACTOR_V_DATA_0)
+            int_zoom_factor_V[17:0] <= (WDATA[31:0] & wmask) | (int_zoom_factor_V[17:0] & ~wmask);
     end
 end
 

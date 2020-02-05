@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="video_mandelbrot_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=1,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7a35t-cpg236-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.263000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=10,HLS_SYN_FF=1951,HLS_SYN_LUT=2335,HLS_VERSION=2019_1}" *)
+(* CORE_GENERATION_INFO="video_mandelbrot_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7a35t-cpg236-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.665750,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=5,HLS_SYN_FF=1164,HLS_SYN_LUT=2556,HLS_VERSION=2019_1}" *)
 
 module video_mandelbrot_generator (
         ap_clk,
@@ -41,90 +41,19 @@ module video_mandelbrot_generator (
         interrupt
 );
 
-parameter    ap_ST_fsm_state1 = 84'd1;
-parameter    ap_ST_fsm_state2 = 84'd2;
-parameter    ap_ST_fsm_state3 = 84'd4;
-parameter    ap_ST_fsm_state4 = 84'd8;
-parameter    ap_ST_fsm_state5 = 84'd16;
-parameter    ap_ST_fsm_state6 = 84'd32;
-parameter    ap_ST_fsm_state7 = 84'd64;
-parameter    ap_ST_fsm_state8 = 84'd128;
-parameter    ap_ST_fsm_state9 = 84'd256;
-parameter    ap_ST_fsm_state10 = 84'd512;
-parameter    ap_ST_fsm_state11 = 84'd1024;
-parameter    ap_ST_fsm_state12 = 84'd2048;
-parameter    ap_ST_fsm_state13 = 84'd4096;
-parameter    ap_ST_fsm_state14 = 84'd8192;
-parameter    ap_ST_fsm_state15 = 84'd16384;
-parameter    ap_ST_fsm_state16 = 84'd32768;
-parameter    ap_ST_fsm_state17 = 84'd65536;
-parameter    ap_ST_fsm_state18 = 84'd131072;
-parameter    ap_ST_fsm_state19 = 84'd262144;
-parameter    ap_ST_fsm_state20 = 84'd524288;
-parameter    ap_ST_fsm_state21 = 84'd1048576;
-parameter    ap_ST_fsm_state22 = 84'd2097152;
-parameter    ap_ST_fsm_state23 = 84'd4194304;
-parameter    ap_ST_fsm_state24 = 84'd8388608;
-parameter    ap_ST_fsm_state25 = 84'd16777216;
-parameter    ap_ST_fsm_state26 = 84'd33554432;
-parameter    ap_ST_fsm_state27 = 84'd67108864;
-parameter    ap_ST_fsm_state28 = 84'd134217728;
-parameter    ap_ST_fsm_state29 = 84'd268435456;
-parameter    ap_ST_fsm_state30 = 84'd536870912;
-parameter    ap_ST_fsm_state31 = 84'd1073741824;
-parameter    ap_ST_fsm_state32 = 84'd2147483648;
-parameter    ap_ST_fsm_state33 = 84'd4294967296;
-parameter    ap_ST_fsm_state34 = 84'd8589934592;
-parameter    ap_ST_fsm_state35 = 84'd17179869184;
-parameter    ap_ST_fsm_state36 = 84'd34359738368;
-parameter    ap_ST_fsm_state37 = 84'd68719476736;
-parameter    ap_ST_fsm_state38 = 84'd137438953472;
-parameter    ap_ST_fsm_state39 = 84'd274877906944;
-parameter    ap_ST_fsm_state40 = 84'd549755813888;
-parameter    ap_ST_fsm_state41 = 84'd1099511627776;
-parameter    ap_ST_fsm_state42 = 84'd2199023255552;
-parameter    ap_ST_fsm_state43 = 84'd4398046511104;
-parameter    ap_ST_fsm_state44 = 84'd8796093022208;
-parameter    ap_ST_fsm_state45 = 84'd17592186044416;
-parameter    ap_ST_fsm_state46 = 84'd35184372088832;
-parameter    ap_ST_fsm_state47 = 84'd70368744177664;
-parameter    ap_ST_fsm_state48 = 84'd140737488355328;
-parameter    ap_ST_fsm_state49 = 84'd281474976710656;
-parameter    ap_ST_fsm_state50 = 84'd562949953421312;
-parameter    ap_ST_fsm_state51 = 84'd1125899906842624;
-parameter    ap_ST_fsm_state52 = 84'd2251799813685248;
-parameter    ap_ST_fsm_state53 = 84'd4503599627370496;
-parameter    ap_ST_fsm_state54 = 84'd9007199254740992;
-parameter    ap_ST_fsm_state55 = 84'd18014398509481984;
-parameter    ap_ST_fsm_state56 = 84'd36028797018963968;
-parameter    ap_ST_fsm_state57 = 84'd72057594037927936;
-parameter    ap_ST_fsm_state58 = 84'd144115188075855872;
-parameter    ap_ST_fsm_state59 = 84'd288230376151711744;
-parameter    ap_ST_fsm_state60 = 84'd576460752303423488;
-parameter    ap_ST_fsm_state61 = 84'd1152921504606846976;
-parameter    ap_ST_fsm_state62 = 84'd2305843009213693952;
-parameter    ap_ST_fsm_state63 = 84'd4611686018427387904;
-parameter    ap_ST_fsm_state64 = 84'd9223372036854775808;
-parameter    ap_ST_fsm_state65 = 84'd18446744073709551616;
-parameter    ap_ST_fsm_state66 = 84'd36893488147419103232;
-parameter    ap_ST_fsm_state67 = 84'd73786976294838206464;
-parameter    ap_ST_fsm_state68 = 84'd147573952589676412928;
-parameter    ap_ST_fsm_state69 = 84'd295147905179352825856;
-parameter    ap_ST_fsm_state70 = 84'd590295810358705651712;
-parameter    ap_ST_fsm_state71 = 84'd1180591620717411303424;
-parameter    ap_ST_fsm_state72 = 84'd2361183241434822606848;
-parameter    ap_ST_fsm_state73 = 84'd4722366482869645213696;
-parameter    ap_ST_fsm_state74 = 84'd9444732965739290427392;
-parameter    ap_ST_fsm_state75 = 84'd18889465931478580854784;
-parameter    ap_ST_fsm_state76 = 84'd37778931862957161709568;
-parameter    ap_ST_fsm_state77 = 84'd75557863725914323419136;
-parameter    ap_ST_fsm_state78 = 84'd151115727451828646838272;
-parameter    ap_ST_fsm_state79 = 84'd302231454903657293676544;
-parameter    ap_ST_fsm_state80 = 84'd604462909807314587353088;
-parameter    ap_ST_fsm_state81 = 84'd1208925819614629174706176;
-parameter    ap_ST_fsm_state82 = 84'd2417851639229258349412352;
-parameter    ap_ST_fsm_state83 = 84'd4835703278458516698824704;
-parameter    ap_ST_fsm_state84 = 84'd9671406556917033397649408;
+parameter    ap_ST_fsm_state1 = 13'd1;
+parameter    ap_ST_fsm_state2 = 13'd2;
+parameter    ap_ST_fsm_state3 = 13'd4;
+parameter    ap_ST_fsm_state4 = 13'd8;
+parameter    ap_ST_fsm_state5 = 13'd16;
+parameter    ap_ST_fsm_state6 = 13'd32;
+parameter    ap_ST_fsm_state7 = 13'd64;
+parameter    ap_ST_fsm_state8 = 13'd128;
+parameter    ap_ST_fsm_state9 = 13'd256;
+parameter    ap_ST_fsm_state10 = 13'd512;
+parameter    ap_ST_fsm_state11 = 13'd1024;
+parameter    ap_ST_fsm_state12 = 13'd2048;
+parameter    ap_ST_fsm_state13 = 13'd4096;
 parameter    C_S_AXI_CMD_DATA_WIDTH = 32;
 parameter    C_S_AXI_CMD_ADDR_WIDTH = 6;
 parameter    C_S_AXI_DATA_WIDTH = 32;
@@ -166,7 +95,7 @@ output   interrupt;
 wire    ap_start;
 reg    ap_done;
 reg    ap_idle;
-(* fsm_encoding = "none" *) reg   [83:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [12:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    ap_ready;
 reg   [23:0] VIDEO_OUT_V_data_V_1_data_out;
@@ -239,145 +168,519 @@ wire    VIDEO_OUT_V_dest_V_1_ack_out;
 reg    VIDEO_OUT_V_dest_V_1_sel_rd;
 wire    VIDEO_OUT_V_dest_V_1_sel;
 reg   [1:0] VIDEO_OUT_V_dest_V_1_state;
-wire   [31:0] moveX;
-wire   [31:0] moveY;
-wire   [31:0] zoom;
+wire   [17:0] re_V;
+wire   [17:0] im_V;
+wire   [17:0] zoom_factor_V;
 reg    m_axis_video_TDATA_blk_n;
-wire    ap_CS_fsm_state60;
-wire   [0:0] and_ln51_fu_396_p2;
-wire    ap_CS_fsm_state84;
-wire   [31:0] grp_fu_253_p1;
-reg   [31:0] reg_261;
-wire    ap_CS_fsm_state7;
-wire    ap_CS_fsm_state31;
-wire   [31:0] grp_fu_225_p2;
-reg   [31:0] reg_266;
-wire    ap_CS_fsm_state12;
-wire    ap_CS_fsm_state25;
-wire   [31:0] grp_fu_242_p2;
-reg   [31:0] reg_272;
-wire    ap_CS_fsm_state16;
-wire    ap_CS_fsm_state20;
-wire    ap_CS_fsm_state40;
-wire    ap_CS_fsm_state44;
-wire    ap_CS_fsm_state48;
-reg   [31:0] reg_278;
-wire    ap_CS_fsm_state36;
-wire    ap_CS_fsm_state53;
-reg   [31:0] reg_284;
-wire    ap_CS_fsm_state58;
-wire    ap_CS_fsm_state64;
-wire    ap_CS_fsm_state69;
-wire    ap_CS_fsm_state79;
-wire   [31:0] grp_fu_235_p2;
-reg   [31:0] reg_292;
-reg   [31:0] zoom_read_reg_419;
-reg   [31:0] moveY_read_reg_424;
-reg   [31:0] moveX_read_reg_429;
-wire   [9:0] row_fu_304_p2;
-reg   [9:0] row_reg_437;
+wire    ap_CS_fsm_state8;
+wire   [0:0] and_ln61_fu_1703_p2;
+wire    ap_CS_fsm_state13;
+reg  signed [17:0] im_V_read_reg_2763;
+wire   [35:0] r_V_14_fu_353_p2;
+reg   [35:0] r_V_14_reg_2768;
+wire   [0:0] p_Result_11_fu_359_p3;
+reg   [0:0] p_Result_11_reg_2775;
+reg   [17:0] p_Val2_4_reg_2781;
+reg   [0:0] p_Result_12_reg_2786;
+wire   [0:0] xor_ln779_fu_393_p2;
+reg   [0:0] xor_ln779_reg_2791;
+wire   [0:0] xor_ln785_fu_399_p2;
+reg   [0:0] xor_ln785_reg_2796;
+wire  signed [35:0] sext_ln728_fu_413_p1;
+reg  signed [35:0] sext_ln728_reg_2802;
+wire   [34:0] r_V_16_fu_429_p2;
+reg   [34:0] r_V_16_reg_2807;
+wire   [0:0] p_Result_18_fu_436_p3;
+reg   [0:0] p_Result_18_reg_2817;
+wire   [0:0] grp_fu_322_p3;
+reg   [0:0] p_Result_19_reg_2823;
+wire   [0:0] xor_ln779_1_fu_452_p2;
+reg   [0:0] xor_ln779_1_reg_2828;
+wire   [0:0] xor_ln785_2_fu_458_p2;
+reg   [0:0] xor_ln785_2_reg_2833;
+wire  signed [18:0] rhs_V_1_fu_464_p1;
+reg  signed [18:0] rhs_V_1_reg_2839;
+wire   [14:0] add_ln25_fu_468_p2;
+reg   [14:0] add_ln25_reg_2844;
 wire    ap_CS_fsm_state2;
 reg    ap_block_state2;
-wire   [31:0] zext_ln44_fu_310_p1;
-wire   [0:0] icmp_ln24_fu_298_p2;
-wire   [0:0] tmp_last_V_fu_315_p2;
-reg   [0:0] tmp_last_V_reg_447;
-wire   [9:0] col_fu_327_p2;
-reg   [9:0] col_reg_455;
-wire    ap_CS_fsm_state26;
-wire   [0:0] tmp_user_V_fu_339_p2;
-reg   [0:0] tmp_user_V_reg_460;
-wire   [0:0] icmp_ln26_fu_321_p2;
-wire   [31:0] zext_ln40_fu_345_p1;
-wire   [0:0] icmp_ln51_1_fu_368_p2;
-reg   [0:0] icmp_ln51_1_reg_470;
-wire    ap_CS_fsm_state59;
-wire   [0:0] icmp_ln51_2_fu_374_p2;
-reg   [0:0] icmp_ln51_2_reg_475;
-wire   [7:0] iter_fu_402_p2;
-reg   [7:0] iter_reg_483;
-reg    ap_block_state60_io;
-wire   [23:0] pixel_out_V_fu_408_p4;
-reg   [31:0] y_reg_493;
-wire    ap_CS_fsm_state74;
-reg   [31:0] rsquare_reg_500;
-wire    ap_CS_fsm_state78;
-wire   [31:0] grp_fu_249_p2;
-reg   [31:0] isquare_reg_505;
-wire    ap_CS_fsm_state83;
-reg   [9:0] row_0_reg_155;
-reg   [9:0] col_0_reg_167;
-wire   [31:0] ap_phi_mux_rsquare_0_phi_fu_182_p4;
-reg   [31:0] rsquare_0_reg_178;
-wire   [31:0] ap_phi_mux_isquare_0_phi_fu_194_p4;
-reg   [31:0] isquare_0_reg_190;
-reg   [31:0] zsquare_0_reg_202;
-reg   [7:0] pixel_R_reg_214;
-reg   [31:0] grp_fu_225_p0;
-reg   [31:0] grp_fu_225_p1;
-wire    ap_CS_fsm_state8;
-wire    ap_CS_fsm_state21;
-wire    ap_CS_fsm_state32;
-wire    ap_CS_fsm_state49;
-wire    ap_CS_fsm_state54;
-wire    ap_CS_fsm_state65;
-wire    ap_CS_fsm_state70;
-wire    ap_CS_fsm_state75;
-reg   [31:0] grp_fu_235_p0;
-reg   [31:0] grp_fu_235_p1;
-reg   [31:0] grp_fu_242_p0;
-reg   [31:0] grp_fu_242_p1;
-wire    ap_CS_fsm_state13;
-wire    ap_CS_fsm_state17;
-wire    ap_CS_fsm_state37;
-wire    ap_CS_fsm_state41;
-wire    ap_CS_fsm_state45;
-wire    ap_CS_fsm_state80;
-reg   [31:0] grp_fu_253_p0;
-wire   [9:0] or_ln29_fu_333_p2;
-wire   [31:0] bitcast_ln51_fu_350_p1;
-wire   [7:0] tmp_1_fu_354_p4;
-wire   [22:0] trunc_ln51_fu_364_p1;
-wire   [0:0] or_ln51_fu_380_p2;
-wire   [0:0] grp_fu_256_p2;
-wire   [0:0] and_ln51_1_fu_384_p2;
-wire   [0:0] icmp_ln51_fu_390_p2;
-reg   [1:0] grp_fu_225_opcode;
-reg    grp_fu_225_ce;
-wire    ap_CS_fsm_state61;
-wire    ap_CS_fsm_state62;
-wire    ap_CS_fsm_state63;
-wire    ap_CS_fsm_state66;
-wire    ap_CS_fsm_state67;
-wire    ap_CS_fsm_state68;
+wire   [9:0] row_fu_480_p2;
+reg   [9:0] row_reg_2852;
+wire   [0:0] tmp_last_V_fu_486_p2;
+reg   [0:0] tmp_last_V_reg_2857;
+wire   [0:0] icmp_ln25_fu_474_p2;
+wire  signed [14:0] ret_V_13_fu_492_p2;
+reg  signed [14:0] ret_V_13_reg_2862;
+wire   [0:0] tmp_13_fu_498_p3;
+reg   [0:0] tmp_13_reg_2867;
+wire   [0:0] p_Result_17_fu_506_p2;
+reg   [0:0] p_Result_17_reg_2872;
+wire  signed [17:0] sext_ln703_1_fu_512_p1;
+reg  signed [17:0] sext_ln703_1_reg_2878;
+wire   [9:0] col_fu_522_p2;
+reg   [9:0] col_reg_2887;
 wire    ap_CS_fsm_state3;
+wire   [0:0] tmp_user_V_fu_534_p2;
+reg   [0:0] tmp_user_V_reg_2892;
+wire   [0:0] icmp_ln27_fu_516_p2;
+wire   [17:0] p_Val2_5_fu_558_p2;
+reg   [17:0] p_Val2_5_reg_2897;
+wire   [0:0] and_ln781_fu_647_p2;
+reg   [0:0] and_ln781_reg_2903;
+wire   [0:0] and_ln786_fu_670_p2;
+reg   [0:0] and_ln786_reg_2908;
+wire   [0:0] underflow_1_fu_688_p2;
+reg   [0:0] underflow_1_reg_2913;
+wire   [0:0] or_ln340_2_fu_693_p2;
+reg   [0:0] or_ln340_2_reg_2918;
+wire   [17:0] imag_top_V_fu_741_p3;
+reg  signed [17:0] imag_top_V_reg_2923;
+wire   [17:0] imag_btm_V_fu_926_p3;
+reg  signed [17:0] imag_btm_V_reg_2928;
+wire   [17:0] real_top_V_fu_1068_p3;
+reg  signed [17:0] real_top_V_reg_2933;
 wire    ap_CS_fsm_state4;
+wire   [17:0] real_btm_V_fu_1097_p3;
+reg  signed [17:0] real_btm_V_reg_2938;
+wire  signed [35:0] r_V_17_fu_2716_p2;
+reg  signed [35:0] r_V_17_reg_2943;
+reg   [0:0] p_Result_21_reg_2950;
+wire   [14:0] trunc_ln414_1_fu_1118_p1;
+reg   [14:0] trunc_ln414_1_reg_2957;
+reg   [1:0] p_Result_3_reg_2962;
+reg   [2:0] p_Result_4_reg_2967;
+wire  signed [35:0] r_V_15_fu_2726_p2;
+reg  signed [35:0] r_V_15_reg_2973;
 wire    ap_CS_fsm_state5;
+wire   [14:0] trunc_ln414_fu_1145_p1;
+reg   [14:0] trunc_ln414_reg_2978;
+wire   [17:0] p_Val2_15_fu_1178_p2;
+reg   [17:0] p_Val2_15_reg_2983;
+wire   [0:0] and_ln781_3_fu_1262_p2;
+reg   [0:0] and_ln781_3_reg_2989;
+wire   [0:0] xor_ln785_7_fu_1280_p2;
+reg   [0:0] xor_ln785_7_reg_2994;
+wire   [0:0] and_ln786_7_fu_1291_p2;
+reg   [0:0] and_ln786_7_reg_2999;
+wire   [0:0] underflow_5_fu_1309_p2;
+reg   [0:0] underflow_5_reg_3004;
+wire   [0:0] or_ln340_12_fu_1314_p2;
+reg   [0:0] or_ln340_12_reg_3009;
+wire   [0:0] p_Result_14_fu_1324_p3;
+reg   [0:0] p_Result_14_reg_3014;
 wire    ap_CS_fsm_state6;
-wire    ap_CS_fsm_state14;
-wire    ap_CS_fsm_state15;
-wire    ap_CS_fsm_state18;
-wire    ap_CS_fsm_state19;
-wire    ap_CS_fsm_state27;
-wire    ap_CS_fsm_state28;
-wire    ap_CS_fsm_state29;
-wire    ap_CS_fsm_state30;
-wire    ap_CS_fsm_state38;
-wire    ap_CS_fsm_state39;
-wire    ap_CS_fsm_state42;
-wire    ap_CS_fsm_state43;
-wire    ap_CS_fsm_state46;
-wire    ap_CS_fsm_state47;
-wire    ap_CS_fsm_state81;
-wire    ap_CS_fsm_state82;
-reg    grp_fu_235_ce;
-reg    grp_fu_253_ce;
-reg    grp_fu_256_ce;
-reg   [83:0] ap_NS_fsm;
+wire   [17:0] p_Val2_9_fu_1365_p2;
+reg   [17:0] p_Val2_9_reg_3020;
+wire   [0:0] carry_3_fu_1385_p2;
+reg   [0:0] carry_3_reg_3026;
+wire   [0:0] p_Result_16_fu_1391_p3;
+reg   [0:0] p_Result_16_reg_3032;
+wire   [0:0] Range1_all_ones_1_fu_1425_p2;
+reg   [0:0] Range1_all_ones_1_reg_3037;
+wire   [0:0] Range1_all_zeros_1_fu_1431_p2;
+reg   [0:0] Range1_all_zeros_1_reg_3043;
+wire   [0:0] and_ln786_2_fu_1465_p2;
+reg   [0:0] and_ln786_2_reg_3048;
+wire  signed [17:0] y0_V_fu_1576_p3;
+reg  signed [17:0] y0_V_reg_3054;
+wire  signed [17:0] x0_V_fu_1662_p3;
+reg  signed [17:0] x0_V_reg_3060;
+wire    ap_CS_fsm_state7;
+wire  signed [19:0] rhs_V_3_fu_1670_p1;
+reg  signed [19:0] rhs_V_3_reg_3065;
+wire  signed [19:0] sext_ln61_fu_1674_p1;
+reg  signed [19:0] sext_ln61_reg_3070;
+wire   [7:0] iter_fu_1709_p2;
+reg   [7:0] iter_reg_3078;
+reg    ap_block_state8_io;
+wire   [17:0] p_Val2_24_fu_1742_p2;
+reg   [17:0] p_Val2_24_reg_3083;
+wire   [0:0] overflow_5_fu_1783_p2;
+reg   [0:0] overflow_5_reg_3089;
+wire   [0:0] underflow_7_fu_1807_p2;
+reg   [0:0] underflow_7_reg_3095;
+wire   [17:0] p_Val2_30_fu_1854_p2;
+reg   [17:0] p_Val2_30_reg_3102;
+wire   [0:0] overflow_6_fu_1895_p2;
+reg   [0:0] overflow_6_reg_3108;
+wire   [0:0] underflow_8_fu_1919_p2;
+reg   [0:0] underflow_8_reg_3114;
+wire   [23:0] pixel_out_V_fu_1925_p4;
+wire  signed [17:0] x_V_fu_1963_p3;
+reg  signed [17:0] x_V_reg_3126;
+wire    ap_CS_fsm_state9;
+wire  signed [17:0] y_V_fu_1998_p3;
+reg  signed [17:0] y_V_reg_3131;
+wire   [18:0] ret_V_10_fu_2014_p2;
+reg   [18:0] ret_V_10_reg_3136;
+wire  signed [35:0] r_V_18_fu_2733_p2;
+reg  signed [35:0] r_V_18_reg_3141;
+wire    ap_CS_fsm_state10;
+reg   [0:0] p_Result_30_reg_3148;
+wire   [14:0] trunc_ln414_2_fu_2030_p1;
+reg   [14:0] trunc_ln414_2_reg_3155;
+reg   [1:0] p_Result_9_reg_3160;
+reg   [2:0] p_Result_s_11_reg_3165;
+wire  signed [35:0] r_V_19_fu_2743_p2;
+reg  signed [35:0] r_V_19_reg_3171;
+reg   [0:0] p_Result_33_reg_3178;
+wire   [14:0] trunc_ln414_3_fu_2061_p1;
+reg   [14:0] trunc_ln414_3_reg_3185;
+reg   [1:0] p_Result_6_reg_3190;
+reg   [2:0] p_Result_8_reg_3195;
+wire  signed [37:0] r_V_20_fu_2753_p2;
+reg  signed [37:0] r_V_20_reg_3201;
+reg   [0:0] p_Result_36_reg_3208;
+wire   [14:0] trunc_ln414_4_fu_2092_p1;
+reg   [14:0] trunc_ln414_4_reg_3215;
+reg   [3:0] p_Result_7_reg_3220;
+reg   [4:0] p_Result_10_reg_3225;
+wire   [17:0] p_Val2_33_fu_2143_p2;
+reg   [17:0] p_Val2_33_reg_3231;
+wire    ap_CS_fsm_state11;
+wire   [0:0] and_ln781_4_fu_2227_p2;
+reg   [0:0] and_ln781_4_reg_3237;
+wire   [0:0] xor_ln785_11_fu_2245_p2;
+reg   [0:0] xor_ln785_11_reg_3242;
+wire   [0:0] and_ln786_12_fu_2256_p2;
+reg   [0:0] and_ln786_12_reg_3247;
+wire   [0:0] underflow_9_fu_2274_p2;
+reg   [0:0] underflow_9_reg_3252;
+wire   [0:0] or_ln340_20_fu_2279_p2;
+reg   [0:0] or_ln340_20_reg_3257;
+wire   [17:0] p_Val2_36_fu_2315_p2;
+reg   [17:0] p_Val2_36_reg_3262;
+wire   [0:0] and_ln781_5_fu_2399_p2;
+reg   [0:0] and_ln781_5_reg_3268;
+wire   [0:0] xor_ln785_13_fu_2417_p2;
+reg   [0:0] xor_ln785_13_reg_3273;
+wire   [0:0] and_ln786_14_fu_2428_p2;
+reg   [0:0] and_ln786_14_reg_3278;
+wire   [0:0] underflow_10_fu_2446_p2;
+reg   [0:0] underflow_10_reg_3283;
+wire   [0:0] or_ln340_23_fu_2451_p2;
+reg   [0:0] or_ln340_23_reg_3288;
+wire   [17:0] p_Val2_41_fu_2487_p2;
+reg   [17:0] p_Val2_41_reg_3293;
+wire   [0:0] and_ln781_6_fu_2571_p2;
+reg   [0:0] and_ln781_6_reg_3299;
+wire   [0:0] xor_ln785_15_fu_2589_p2;
+reg   [0:0] xor_ln785_15_reg_3304;
+wire   [0:0] and_ln786_16_fu_2600_p2;
+reg   [0:0] and_ln786_16_reg_3309;
+wire   [0:0] underflow_11_fu_2618_p2;
+reg   [0:0] underflow_11_reg_3314;
+wire   [0:0] or_ln340_26_fu_2623_p2;
+reg   [0:0] or_ln340_26_reg_3319;
+wire   [17:0] rsquare_V_fu_2650_p3;
+wire    ap_CS_fsm_state12;
+wire   [17:0] isquare_V_fu_2679_p3;
+wire   [17:0] zsquare_V_fu_2708_p3;
+reg   [9:0] tmp_V_1_reg_243;
+reg   [14:0] phi_mul_reg_255;
+reg   [9:0] tmp_V_reg_266;
+reg   [17:0] p_Val2_19_reg_278;
+reg  signed [17:0] p_Val2_20_reg_289;
+reg   [17:0] p_Val2_25_reg_300;
+reg   [7:0] pixel_R_reg_311;
+reg   [34:0] grp_fu_322_p1;
+wire   [34:0] shl_ln1118_2_fu_329_p3;
+wire   [32:0] shl_ln1118_3_fu_341_p3;
+wire  signed [35:0] sext_ln1118_fu_337_p1;
+wire  signed [35:0] sext_ln1118_3_fu_349_p1;
+wire   [0:0] tmp_6_fu_385_p3;
+wire   [32:0] rhs_V_fu_405_p3;
+wire   [33:0] shl_ln1118_4_fu_417_p3;
+wire  signed [34:0] sext_ln1118_4_fu_425_p1;
+wire   [0:0] tmp_11_fu_444_p3;
+wire  signed [17:0] rhs_V_1_fu_464_p0;
+wire   [9:0] or_ln30_fu_528_p2;
+wire   [13:0] trunc_ln718_fu_540_p1;
+wire   [0:0] icmp_ln414_fu_543_p2;
+wire   [0:0] and_ln414_fu_549_p2;
+wire   [17:0] zext_ln415_fu_554_p1;
+wire   [0:0] tmp_17_fu_563_p3;
+wire   [0:0] xor_ln416_fu_571_p2;
+wire   [1:0] p_Result_1_fu_590_p4;
+wire   [2:0] p_Result_2_fu_605_p4;
+wire   [0:0] carry_1_fu_577_p2;
+wire   [0:0] Range1_all_ones_fu_614_p2;
+wire   [0:0] Range1_all_zeros_fu_620_p2;
+wire   [0:0] Range2_all_ones_fu_599_p2;
+wire   [0:0] and_ln779_fu_634_p2;
+wire   [0:0] deleted_zeros_fu_626_p3;
+wire   [0:0] p_Result_13_fu_582_p3;
+wire   [0:0] xor_ln785_1_fu_653_p2;
+wire   [0:0] or_ln785_1_fu_659_p2;
+wire   [0:0] deleted_ones_fu_639_p3;
+wire   [0:0] or_ln786_fu_676_p2;
+wire   [0:0] xor_ln786_fu_682_p2;
+wire   [0:0] overflow_1_fu_665_p2;
+wire   [0:0] tmp_24_fu_699_p3;
+wire   [0:0] xor_ln786_2_fu_706_p2;
+wire   [0:0] xor_ln340_fu_717_p2;
+wire   [0:0] underflow_3_fu_712_p2;
+wire   [0:0] or_ln340_8_fu_722_p2;
+wire   [17:0] select_ln340_3_fu_727_p3;
+wire   [17:0] select_ln388_3_fu_734_p3;
+wire   [13:0] trunc_ln718_1_fu_749_p1;
+wire   [0:0] icmp_ln414_2_fu_752_p2;
+wire   [16:0] tmp_4_fu_763_p4;
+wire   [0:0] and_ln414_1_fu_758_p2;
+wire   [0:0] tmp_25_fu_780_p3;
+wire   [0:0] xor_ln416_2_fu_787_p2;
+wire   [1:0] tmp_s_fu_805_p4;
+wire   [0:0] carry_5_fu_793_p2;
+wire   [0:0] Range1_all_ones_2_fu_814_p2;
+wire   [0:0] Range1_all_zeros_2_fu_820_p2;
+wire   [0:0] Range2_all_ones_2_fu_798_p3;
+wire   [0:0] and_ln779_2_fu_834_p2;
+wire   [0:0] deleted_zeros_2_fu_826_p3;
+wire   [0:0] xor_ln785_5_fu_853_p2;
+wire   [0:0] or_ln785_3_fu_859_p2;
+wire   [0:0] deleted_ones_2_fu_839_p3;
+wire   [0:0] and_ln781_2_fu_847_p2;
+wire   [0:0] and_ln786_5_fu_870_p2;
+wire   [0:0] or_ln786_4_fu_876_p2;
+wire   [0:0] xor_ln786_3_fu_882_p2;
+wire   [0:0] underflow_4_fu_888_p2;
+wire   [0:0] overflow_3_fu_865_p2;
+wire   [0:0] or_ln340_10_fu_899_p2;
+wire   [0:0] or_ln340_9_fu_893_p2;
+wire   [17:0] p_Val2_12_fu_772_p3;
+wire   [0:0] or_ln340_11_fu_904_p2;
+wire   [17:0] select_ln340_4_fu_910_p3;
+wire   [17:0] select_ln388_4_fu_918_p3;
+wire   [12:0] shl_ln1118_1_fu_942_p3;
+wire   [14:0] shl_ln_fu_934_p3;
+wire   [14:0] zext_ln1118_fu_950_p1;
+wire   [14:0] r_V_13_fu_954_p2;
+wire   [14:0] or_ln_fu_974_p4;
+wire  signed [14:0] p_Val2_2_fu_984_p2;
+wire   [14:0] ret_V_11_fu_960_p2;
+wire   [0:0] p_Result_s_fu_994_p3;
+wire   [0:0] tmp_16_fu_1002_p3;
+wire   [0:0] or_ln785_fu_1010_p2;
+wire   [0:0] tmp_14_fu_966_p3;
+wire   [0:0] and_ln786_1_fu_1022_p2;
+wire   [0:0] or_ln786_9_fu_1028_p2;
+wire   [0:0] overflow_fu_1016_p2;
+wire   [0:0] underflow_fu_1034_p2;
+wire   [0:0] or_ln340_fu_1040_p2;
+wire  signed [17:0] sext_ln703_2_fu_990_p1;
+wire   [0:0] or_ln340_1_fu_1046_p2;
+wire   [17:0] select_ln340_fu_1052_p3;
+wire   [17:0] select_ln388_fu_1060_p3;
+wire   [0:0] or_ln340_4_fu_1076_p2;
+wire   [0:0] or_ln340_3_fu_1080_p2;
+wire   [17:0] select_ln340_1_fu_1085_p3;
+wire   [17:0] select_ln388_1_fu_1091_p3;
+wire   [0:0] icmp_ln414_3_fu_1164_p2;
+wire   [0:0] and_ln700_1_fu_1169_p2;
+wire   [17:0] zext_ln415_2_fu_1174_p1;
+wire   [17:0] p_Val2_14_fu_1148_p4;
+wire   [0:0] tmp_30_fu_1184_p3;
+wire   [0:0] p_Result_22_fu_1157_p3;
+wire   [0:0] xor_ln416_3_fu_1192_p2;
+wire   [0:0] carry_7_fu_1198_p2;
+wire   [0:0] Range1_all_ones_3_fu_1217_p2;
+wire   [0:0] Range1_all_zeros_3_fu_1222_p2;
+wire   [0:0] tmp_32_fu_1235_p3;
+wire   [0:0] Range2_all_ones_3_fu_1212_p2;
+wire   [0:0] xor_ln779_3_fu_1242_p2;
+wire   [0:0] and_ln779_3_fu_1248_p2;
+wire   [0:0] deleted_zeros_3_fu_1227_p3;
+wire   [0:0] p_Result_23_fu_1204_p3;
+wire   [0:0] xor_ln785_6_fu_1268_p2;
+wire   [0:0] or_ln785_4_fu_1274_p2;
+wire   [0:0] deleted_ones_3_fu_1254_p3;
+wire   [0:0] or_ln786_5_fu_1297_p2;
+wire   [0:0] xor_ln786_4_fu_1303_p2;
+wire   [0:0] overflow_4_fu_1285_p2;
+(* use_dsp48 = "no" *) wire   [35:0] ret_V_12_fu_1320_p2;
+wire   [0:0] icmp_ln414_1_fu_1350_p2;
+wire   [0:0] and_ln700_fu_1355_p2;
+wire   [17:0] zext_ln415_1_fu_1361_p1;
+wire   [17:0] p_Val2_8_fu_1332_p4;
+wire   [0:0] tmp_21_fu_1371_p3;
+wire   [0:0] p_Result_15_fu_1342_p3;
+wire   [0:0] xor_ln416_1_fu_1379_p2;
+wire   [1:0] tmp_5_fu_1399_p4;
+wire   [2:0] tmp_7_fu_1415_p4;
+wire   [0:0] tmp_23_fu_1437_p3;
+wire   [0:0] Range2_all_ones_1_fu_1409_p2;
+wire   [0:0] xor_ln779_2_fu_1445_p2;
+wire   [0:0] and_ln779_1_fu_1451_p2;
+wire   [0:0] deleted_ones_1_fu_1457_p3;
+wire   [0:0] or_ln340_13_fu_1471_p2;
+wire   [0:0] or_ln340_14_fu_1475_p2;
+wire   [17:0] select_ln340_5_fu_1480_p3;
+wire   [17:0] select_ln388_5_fu_1486_p3;
+wire  signed [17:0] p_Val2_16_fu_1492_p3;
+wire  signed [18:0] lhs_V_fu_1500_p1;
+wire   [18:0] ret_V_14_fu_1504_p2;
+wire   [17:0] p_Val2_18_fu_1517_p2;
+wire   [0:0] p_Result_25_fu_1522_p3;
+wire   [0:0] p_Result_24_fu_1509_p3;
+wire   [0:0] xor_ln786_5_fu_1530_p2;
+wire   [0:0] xor_ln340_2_fu_1548_p2;
+wire   [0:0] xor_ln340_1_fu_1542_p2;
+wire   [0:0] underflow_6_fu_1536_p2;
+wire   [0:0] or_ln340_15_fu_1554_p2;
+wire   [17:0] select_ln340_6_fu_1560_p3;
+wire   [17:0] select_ln388_6_fu_1568_p3;
+wire   [0:0] deleted_zeros_1_fu_1584_p3;
+wire   [0:0] xor_ln785_3_fu_1593_p2;
+wire   [0:0] or_ln785_2_fu_1599_p2;
+wire   [0:0] xor_ln785_4_fu_1604_p2;
+wire   [0:0] and_ln781_1_fu_1589_p2;
+wire   [0:0] or_ln786_1_fu_1615_p2;
+wire   [0:0] xor_ln786_1_fu_1620_p2;
+wire   [0:0] underflow_2_fu_1626_p2;
+wire   [0:0] overflow_2_fu_1609_p2;
+wire   [0:0] or_ln340_7_fu_1637_p2;
+wire   [0:0] or_ln340_5_fu_1631_p2;
+wire   [0:0] or_ln340_6_fu_1642_p2;
+wire   [17:0] select_ln340_2_fu_1648_p3;
+wire   [17:0] select_ln388_2_fu_1655_p3;
+wire  signed [18:0] rhs_V_2_fu_1681_p1;
+wire  signed [18:0] lhs_V_6_fu_1677_p1;
+wire   [18:0] ret_V_fu_1685_p2;
+wire   [0:0] icmp_ln1495_fu_1691_p2;
+wire   [0:0] icmp_ln61_fu_1697_p2;
+wire  signed [18:0] ret_V_15_fu_1715_p2;
+wire  signed [19:0] lhs_V_2_fu_1721_p1;
+wire   [19:0] ret_V_16_fu_1729_p2;
+wire   [17:0] trunc_ln1192_fu_1725_p1;
+wire   [1:0] p_Result_5_fu_1755_p4;
+wire   [0:0] p_Result_27_fu_1747_p3;
+wire   [0:0] icmp_ln785_fu_1765_p2;
+wire   [0:0] p_Result_26_fu_1734_p3;
+wire   [0:0] or_ln785_5_fu_1771_p2;
+wire   [0:0] xor_ln785_8_fu_1777_p2;
+wire   [0:0] icmp_ln786_fu_1795_p2;
+wire   [0:0] xor_ln786_6_fu_1789_p2;
+wire   [0:0] or_ln786_2_fu_1801_p2;
+wire  signed [18:0] lhs_V_3_fu_1813_p1;
+wire   [18:0] ret_V_17_fu_1817_p2;
+wire  signed [19:0] lhs_V_4_fu_1823_p1;
+wire  signed [19:0] rhs_V_5_fu_1827_p1;
+wire   [19:0] ret_V_18_fu_1831_p2;
+wire   [19:0] ret_V_19_fu_1841_p2;
+wire   [17:0] trunc_ln1192_1_fu_1837_p1;
+wire   [1:0] tmp_2_fu_1867_p4;
+wire   [0:0] p_Result_29_fu_1859_p3;
+wire   [0:0] icmp_ln785_1_fu_1877_p2;
+wire   [0:0] p_Result_28_fu_1846_p3;
+wire   [0:0] or_ln785_6_fu_1883_p2;
+wire   [0:0] xor_ln785_9_fu_1889_p2;
+wire   [0:0] icmp_ln786_1_fu_1907_p2;
+wire   [0:0] xor_ln786_7_fu_1901_p2;
+wire   [0:0] or_ln786_3_fu_1913_p2;
+wire   [0:0] xor_ln340_3_fu_1940_p2;
+wire   [0:0] or_ln340_16_fu_1936_p2;
+wire   [0:0] or_ln340_17_fu_1945_p2;
+wire   [17:0] select_ln340_7_fu_1950_p3;
+wire   [17:0] select_ln388_7_fu_1957_p3;
+wire   [0:0] xor_ln340_4_fu_1975_p2;
+wire   [0:0] or_ln340_18_fu_1971_p2;
+wire   [0:0] or_ln340_19_fu_1980_p2;
+wire   [17:0] select_ln340_8_fu_1985_p3;
+wire   [17:0] select_ln388_8_fu_1992_p3;
+wire  signed [18:0] rhs_V_6_fu_2010_p1;
+wire  signed [18:0] lhs_V_5_fu_2006_p1;
+wire   [0:0] icmp_ln414_4_fu_2129_p2;
+wire   [0:0] and_ln700_2_fu_2134_p2;
+wire   [17:0] zext_ln415_3_fu_2139_p1;
+wire   [17:0] p_Val2_32_fu_2113_p4;
+wire   [0:0] tmp_41_fu_2149_p3;
+wire   [0:0] p_Result_31_fu_2122_p3;
+wire   [0:0] xor_ln416_4_fu_2157_p2;
+wire   [0:0] carry_9_fu_2163_p2;
+wire   [0:0] Range1_all_ones_5_fu_2182_p2;
+wire   [0:0] Range1_all_zeros_4_fu_2187_p2;
+wire   [0:0] tmp_43_fu_2200_p3;
+wire   [0:0] Range2_all_ones_4_fu_2177_p2;
+wire   [0:0] xor_ln779_4_fu_2207_p2;
+wire   [0:0] and_ln779_4_fu_2213_p2;
+wire   [0:0] deleted_zeros_4_fu_2192_p3;
+wire   [0:0] p_Result_32_fu_2169_p3;
+wire   [0:0] xor_ln785_10_fu_2233_p2;
+wire   [0:0] or_ln785_7_fu_2239_p2;
+wire   [0:0] deleted_ones_5_fu_2219_p3;
+wire   [0:0] or_ln786_6_fu_2262_p2;
+wire   [0:0] xor_ln786_8_fu_2268_p2;
+wire   [0:0] overflow_7_fu_2250_p2;
+wire   [0:0] icmp_ln414_5_fu_2301_p2;
+wire   [0:0] and_ln700_3_fu_2306_p2;
+wire   [17:0] zext_ln415_4_fu_2311_p1;
+wire   [17:0] p_Val2_35_fu_2285_p4;
+wire   [0:0] tmp_46_fu_2321_p3;
+wire   [0:0] p_Result_34_fu_2294_p3;
+wire   [0:0] xor_ln416_5_fu_2329_p2;
+wire   [0:0] carry_11_fu_2335_p2;
+wire   [0:0] Range1_all_ones_6_fu_2354_p2;
+wire   [0:0] Range1_all_zeros_5_fu_2359_p2;
+wire   [0:0] tmp_48_fu_2372_p3;
+wire   [0:0] Range2_all_ones_5_fu_2349_p2;
+wire   [0:0] xor_ln779_5_fu_2379_p2;
+wire   [0:0] and_ln779_5_fu_2385_p2;
+wire   [0:0] deleted_zeros_5_fu_2364_p3;
+wire   [0:0] p_Result_35_fu_2341_p3;
+wire   [0:0] xor_ln785_12_fu_2405_p2;
+wire   [0:0] or_ln785_8_fu_2411_p2;
+wire   [0:0] deleted_ones_6_fu_2391_p3;
+wire   [0:0] or_ln786_7_fu_2434_p2;
+wire   [0:0] xor_ln786_9_fu_2440_p2;
+wire   [0:0] overflow_8_fu_2422_p2;
+wire   [0:0] icmp_ln414_6_fu_2473_p2;
+wire   [0:0] and_ln700_4_fu_2478_p2;
+wire   [17:0] zext_ln415_5_fu_2483_p1;
+wire   [17:0] p_Val2_40_fu_2457_p4;
+wire   [0:0] tmp_51_fu_2493_p3;
+wire   [0:0] p_Result_37_fu_2466_p3;
+wire   [0:0] xor_ln416_6_fu_2501_p2;
+wire   [0:0] carry_13_fu_2507_p2;
+wire   [0:0] Range1_all_ones_7_fu_2526_p2;
+wire   [0:0] Range1_all_zeros_6_fu_2531_p2;
+wire   [0:0] tmp_53_fu_2544_p3;
+wire   [0:0] Range2_all_ones_6_fu_2521_p2;
+wire   [0:0] xor_ln779_6_fu_2551_p2;
+wire   [0:0] and_ln779_6_fu_2557_p2;
+wire   [0:0] deleted_zeros_6_fu_2536_p3;
+wire   [0:0] p_Result_38_fu_2513_p3;
+wire   [0:0] xor_ln785_14_fu_2577_p2;
+wire   [0:0] or_ln785_9_fu_2583_p2;
+wire   [0:0] deleted_ones_7_fu_2563_p3;
+wire   [0:0] or_ln786_8_fu_2606_p2;
+wire   [0:0] xor_ln786_10_fu_2612_p2;
+wire   [0:0] overflow_9_fu_2594_p2;
+wire   [0:0] or_ln340_21_fu_2629_p2;
+wire   [0:0] or_ln340_22_fu_2633_p2;
+wire   [17:0] select_ln340_9_fu_2638_p3;
+wire   [17:0] select_ln388_9_fu_2644_p3;
+wire   [0:0] or_ln340_24_fu_2658_p2;
+wire   [0:0] or_ln340_25_fu_2662_p2;
+wire   [17:0] select_ln340_10_fu_2667_p3;
+wire   [17:0] select_ln388_10_fu_2673_p3;
+wire   [0:0] or_ln340_27_fu_2687_p2;
+wire   [0:0] or_ln340_28_fu_2691_p2;
+wire   [17:0] select_ln340_11_fu_2696_p3;
+wire   [17:0] select_ln388_11_fu_2702_p3;
+wire  signed [17:0] r_V_18_fu_2733_p0;
+wire  signed [35:0] r_V_7_fu_2020_p1;
+wire  signed [17:0] r_V_18_fu_2733_p1;
+wire  signed [17:0] r_V_19_fu_2743_p0;
+wire  signed [35:0] r_V_9_fu_2051_p1;
+wire  signed [17:0] r_V_19_fu_2743_p1;
+wire  signed [18:0] r_V_20_fu_2753_p0;
+wire  signed [37:0] r_V_11_fu_2082_p1;
+wire  signed [18:0] r_V_20_fu_2753_p1;
+reg   [12:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 84'd1;
+#0 ap_CS_fsm = 13'd1;
 #0 VIDEO_OUT_V_data_V_1_sel_rd = 1'b0;
 #0 VIDEO_OUT_V_data_V_1_sel_wr = 1'b0;
 #0 VIDEO_OUT_V_data_V_1_state = 2'd0;
@@ -426,99 +729,69 @@ video_mandelbrot_generator_cmd_s_axi_U(
     .ap_ready(ap_ready),
     .ap_done(ap_done),
     .ap_idle(ap_idle),
-    .moveX(moveX),
-    .moveY(moveY),
-    .zoom(zoom)
+    .re_V(re_V),
+    .im_V(im_V),
+    .zoom_factor_V(zoom_factor_V)
 );
 
-video_mandelbrot_generator_faddfsub_32ns_32ns_32_5_full_dsp_1 #(
+video_mandelbrot_generator_mul_mul_18s_18s_36_1_1 #(
     .ID( 1 ),
-    .NUM_STAGE( 5 ),
-    .din0_WIDTH( 32 ),
-    .din1_WIDTH( 32 ),
-    .dout_WIDTH( 32 ))
-video_mandelbrot_generator_faddfsub_32ns_32ns_32_5_full_dsp_1_U1(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .din0(grp_fu_225_p0),
-    .din1(grp_fu_225_p1),
-    .opcode(grp_fu_225_opcode),
-    .ce(grp_fu_225_ce),
-    .dout(grp_fu_225_p2)
+    .NUM_STAGE( 1 ),
+    .din0_WIDTH( 18 ),
+    .din1_WIDTH( 18 ),
+    .dout_WIDTH( 36 ))
+video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U1(
+    .din0(imag_btm_V_reg_2928),
+    .din1(imag_top_V_reg_2923),
+    .dout(r_V_17_fu_2716_p2)
 );
 
-video_mandelbrot_generator_fsub_32ns_32ns_32_5_full_dsp_1 #(
+video_mandelbrot_generator_mul_mul_18s_18s_36_1_1 #(
     .ID( 1 ),
-    .NUM_STAGE( 5 ),
-    .din0_WIDTH( 32 ),
-    .din1_WIDTH( 32 ),
-    .dout_WIDTH( 32 ))
-video_mandelbrot_generator_fsub_32ns_32ns_32_5_full_dsp_1_U2(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .din0(grp_fu_235_p0),
-    .din1(grp_fu_235_p1),
-    .ce(grp_fu_235_ce),
-    .dout(grp_fu_235_p2)
+    .NUM_STAGE( 1 ),
+    .din0_WIDTH( 18 ),
+    .din1_WIDTH( 18 ),
+    .dout_WIDTH( 36 ))
+video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U2(
+    .din0(real_btm_V_reg_2938),
+    .din1(real_top_V_reg_2933),
+    .dout(r_V_15_fu_2726_p2)
 );
 
-video_mandelbrot_generator_fmul_32ns_32ns_32_4_max_dsp_1 #(
+video_mandelbrot_generator_mul_mul_18s_18s_36_1_1 #(
     .ID( 1 ),
-    .NUM_STAGE( 4 ),
-    .din0_WIDTH( 32 ),
-    .din1_WIDTH( 32 ),
-    .dout_WIDTH( 32 ))
-video_mandelbrot_generator_fmul_32ns_32ns_32_4_max_dsp_1_U3(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .din0(grp_fu_242_p0),
-    .din1(grp_fu_242_p1),
-    .ce(1'b1),
-    .dout(grp_fu_242_p2)
+    .NUM_STAGE( 1 ),
+    .din0_WIDTH( 18 ),
+    .din1_WIDTH( 18 ),
+    .dout_WIDTH( 36 ))
+video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U3(
+    .din0(r_V_18_fu_2733_p0),
+    .din1(r_V_18_fu_2733_p1),
+    .dout(r_V_18_fu_2733_p2)
 );
 
-video_mandelbrot_generator_fmul_32ns_32ns_32_4_max_dsp_1 #(
+video_mandelbrot_generator_mul_mul_18s_18s_36_1_1 #(
     .ID( 1 ),
-    .NUM_STAGE( 4 ),
-    .din0_WIDTH( 32 ),
-    .din1_WIDTH( 32 ),
-    .dout_WIDTH( 32 ))
-video_mandelbrot_generator_fmul_32ns_32ns_32_4_max_dsp_1_U4(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .din0(y_reg_493),
-    .din1(y_reg_493),
-    .ce(1'b1),
-    .dout(grp_fu_249_p2)
+    .NUM_STAGE( 1 ),
+    .din0_WIDTH( 18 ),
+    .din1_WIDTH( 18 ),
+    .dout_WIDTH( 36 ))
+video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U4(
+    .din0(r_V_19_fu_2743_p0),
+    .din1(r_V_19_fu_2743_p1),
+    .dout(r_V_19_fu_2743_p2)
 );
 
-video_mandelbrot_generator_uitofp_32ns_32_6_1 #(
+video_mandelbrot_generator_mul_mul_19s_19s_38_1_1 #(
     .ID( 1 ),
-    .NUM_STAGE( 6 ),
-    .din0_WIDTH( 32 ),
-    .dout_WIDTH( 32 ))
-video_mandelbrot_generator_uitofp_32ns_32_6_1_U5(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .din0(grp_fu_253_p0),
-    .ce(grp_fu_253_ce),
-    .dout(grp_fu_253_p1)
-);
-
-video_mandelbrot_generator_fcmp_32ns_32ns_1_2_1 #(
-    .ID( 1 ),
-    .NUM_STAGE( 2 ),
-    .din0_WIDTH( 32 ),
-    .din1_WIDTH( 32 ),
-    .dout_WIDTH( 1 ))
-video_mandelbrot_generator_fcmp_32ns_32ns_1_2_1_U6(
-    .clk(ap_clk),
-    .reset(ap_rst_n_inv),
-    .din0(reg_284),
-    .din1(32'd1082130432),
-    .ce(grp_fu_256_ce),
-    .opcode(5'd4),
-    .dout(grp_fu_256_p2)
+    .NUM_STAGE( 1 ),
+    .din0_WIDTH( 19 ),
+    .din1_WIDTH( 19 ),
+    .dout_WIDTH( 38 ))
+video_mandelbrot_generator_mul_mul_19s_19s_38_1_1_U5(
+    .din0(r_V_20_fu_2753_p0),
+    .din1(r_V_20_fu_2753_p1),
+    .dout(r_V_20_fu_2753_p2)
 );
 
 always @ (posedge ap_clk) begin
@@ -545,11 +818,11 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         VIDEO_OUT_V_data_V_1_state <= 2'd0;
     end else begin
-        if ((((1'b0 == VIDEO_OUT_V_data_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_data_V_1_state)) | ((1'b0 == VIDEO_OUT_V_data_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_data_V_1_ack_out) & (2'd3 == VIDEO_OUT_V_data_V_1_state)))) begin
+        if ((((2'd2 == VIDEO_OUT_V_data_V_1_state) & (1'b0 == VIDEO_OUT_V_data_V_1_vld_in)) | ((2'd3 == VIDEO_OUT_V_data_V_1_state) & (1'b0 == VIDEO_OUT_V_data_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_data_V_1_ack_out)))) begin
             VIDEO_OUT_V_data_V_1_state <= 2'd2;
-        end else if ((((m_axis_video_TREADY == 1'b0) & (2'd1 == VIDEO_OUT_V_data_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_data_V_1_vld_in) & (2'd3 == VIDEO_OUT_V_data_V_1_state)))) begin
+        end else if ((((2'd1 == VIDEO_OUT_V_data_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_data_V_1_state) & (m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_data_V_1_vld_in)))) begin
             VIDEO_OUT_V_data_V_1_state <= 2'd1;
-        end else if (((~((1'b0 == VIDEO_OUT_V_data_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_data_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_data_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_data_V_1_state)) | ((1'b1 == VIDEO_OUT_V_data_V_1_ack_out) & (2'd1 == VIDEO_OUT_V_data_V_1_state)) | ((1'b1 == VIDEO_OUT_V_data_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_data_V_1_state)))) begin
+        end else if (((~((1'b0 == VIDEO_OUT_V_data_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_data_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_data_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_data_V_1_state)) | ((2'd1 == VIDEO_OUT_V_data_V_1_state) & (1'b1 == VIDEO_OUT_V_data_V_1_ack_out)) | ((2'd2 == VIDEO_OUT_V_data_V_1_state) & (1'b1 == VIDEO_OUT_V_data_V_1_vld_in)))) begin
             VIDEO_OUT_V_data_V_1_state <= 2'd3;
         end else begin
             VIDEO_OUT_V_data_V_1_state <= 2'd2;
@@ -571,11 +844,11 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         VIDEO_OUT_V_dest_V_1_state <= 2'd0;
     end else begin
-        if ((((1'b0 == VIDEO_OUT_V_dest_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_dest_V_1_state)) | ((1'b0 == VIDEO_OUT_V_dest_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_dest_V_1_ack_out) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)))) begin
+        if ((((2'd2 == VIDEO_OUT_V_dest_V_1_state) & (1'b0 == VIDEO_OUT_V_dest_V_1_vld_in)) | ((2'd3 == VIDEO_OUT_V_dest_V_1_state) & (1'b0 == VIDEO_OUT_V_dest_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_dest_V_1_ack_out)))) begin
             VIDEO_OUT_V_dest_V_1_state <= 2'd2;
-        end else if ((((m_axis_video_TREADY == 1'b0) & (2'd1 == VIDEO_OUT_V_dest_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_dest_V_1_vld_in) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)))) begin
+        end else if ((((2'd1 == VIDEO_OUT_V_dest_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_dest_V_1_state) & (m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_dest_V_1_vld_in)))) begin
             VIDEO_OUT_V_dest_V_1_state <= 2'd1;
-        end else if (((~((1'b0 == VIDEO_OUT_V_dest_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_dest_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_dest_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)) | ((1'b1 == VIDEO_OUT_V_dest_V_1_ack_out) & (2'd1 == VIDEO_OUT_V_dest_V_1_state)) | ((1'b1 == VIDEO_OUT_V_dest_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_dest_V_1_state)))) begin
+        end else if (((~((1'b0 == VIDEO_OUT_V_dest_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_dest_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_dest_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)) | ((2'd1 == VIDEO_OUT_V_dest_V_1_state) & (1'b1 == VIDEO_OUT_V_dest_V_1_ack_out)) | ((2'd2 == VIDEO_OUT_V_dest_V_1_state) & (1'b1 == VIDEO_OUT_V_dest_V_1_vld_in)))) begin
             VIDEO_OUT_V_dest_V_1_state <= 2'd3;
         end else begin
             VIDEO_OUT_V_dest_V_1_state <= 2'd2;
@@ -597,11 +870,11 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         VIDEO_OUT_V_id_V_1_state <= 2'd0;
     end else begin
-        if ((((1'b0 == VIDEO_OUT_V_id_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_id_V_1_state)) | ((1'b0 == VIDEO_OUT_V_id_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_id_V_1_ack_out) & (2'd3 == VIDEO_OUT_V_id_V_1_state)))) begin
+        if ((((2'd2 == VIDEO_OUT_V_id_V_1_state) & (1'b0 == VIDEO_OUT_V_id_V_1_vld_in)) | ((2'd3 == VIDEO_OUT_V_id_V_1_state) & (1'b0 == VIDEO_OUT_V_id_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_id_V_1_ack_out)))) begin
             VIDEO_OUT_V_id_V_1_state <= 2'd2;
-        end else if ((((m_axis_video_TREADY == 1'b0) & (2'd1 == VIDEO_OUT_V_id_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_id_V_1_vld_in) & (2'd3 == VIDEO_OUT_V_id_V_1_state)))) begin
+        end else if ((((2'd1 == VIDEO_OUT_V_id_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_id_V_1_state) & (m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_id_V_1_vld_in)))) begin
             VIDEO_OUT_V_id_V_1_state <= 2'd1;
-        end else if (((~((1'b0 == VIDEO_OUT_V_id_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_id_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_id_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_id_V_1_state)) | ((1'b1 == VIDEO_OUT_V_id_V_1_ack_out) & (2'd1 == VIDEO_OUT_V_id_V_1_state)) | ((1'b1 == VIDEO_OUT_V_id_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_id_V_1_state)))) begin
+        end else if (((~((1'b0 == VIDEO_OUT_V_id_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_id_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_id_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_id_V_1_state)) | ((2'd1 == VIDEO_OUT_V_id_V_1_state) & (1'b1 == VIDEO_OUT_V_id_V_1_ack_out)) | ((2'd2 == VIDEO_OUT_V_id_V_1_state) & (1'b1 == VIDEO_OUT_V_id_V_1_vld_in)))) begin
             VIDEO_OUT_V_id_V_1_state <= 2'd3;
         end else begin
             VIDEO_OUT_V_id_V_1_state <= 2'd2;
@@ -623,11 +896,11 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         VIDEO_OUT_V_keep_V_1_state <= 2'd0;
     end else begin
-        if ((((1'b0 == VIDEO_OUT_V_keep_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_keep_V_1_state)) | ((1'b0 == VIDEO_OUT_V_keep_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_keep_V_1_ack_out) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)))) begin
+        if ((((2'd2 == VIDEO_OUT_V_keep_V_1_state) & (1'b0 == VIDEO_OUT_V_keep_V_1_vld_in)) | ((2'd3 == VIDEO_OUT_V_keep_V_1_state) & (1'b0 == VIDEO_OUT_V_keep_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_keep_V_1_ack_out)))) begin
             VIDEO_OUT_V_keep_V_1_state <= 2'd2;
-        end else if ((((m_axis_video_TREADY == 1'b0) & (2'd1 == VIDEO_OUT_V_keep_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_keep_V_1_vld_in) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)))) begin
+        end else if ((((2'd1 == VIDEO_OUT_V_keep_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_keep_V_1_state) & (m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_keep_V_1_vld_in)))) begin
             VIDEO_OUT_V_keep_V_1_state <= 2'd1;
-        end else if (((~((1'b0 == VIDEO_OUT_V_keep_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_keep_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_keep_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)) | ((1'b1 == VIDEO_OUT_V_keep_V_1_ack_out) & (2'd1 == VIDEO_OUT_V_keep_V_1_state)) | ((1'b1 == VIDEO_OUT_V_keep_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_keep_V_1_state)))) begin
+        end else if (((~((1'b0 == VIDEO_OUT_V_keep_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_keep_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_keep_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)) | ((2'd1 == VIDEO_OUT_V_keep_V_1_state) & (1'b1 == VIDEO_OUT_V_keep_V_1_ack_out)) | ((2'd2 == VIDEO_OUT_V_keep_V_1_state) & (1'b1 == VIDEO_OUT_V_keep_V_1_vld_in)))) begin
             VIDEO_OUT_V_keep_V_1_state <= 2'd3;
         end else begin
             VIDEO_OUT_V_keep_V_1_state <= 2'd2;
@@ -659,11 +932,11 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         VIDEO_OUT_V_last_V_1_state <= 2'd0;
     end else begin
-        if ((((1'b0 == VIDEO_OUT_V_last_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_last_V_1_state)) | ((1'b0 == VIDEO_OUT_V_last_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_last_V_1_ack_out) & (2'd3 == VIDEO_OUT_V_last_V_1_state)))) begin
+        if ((((2'd2 == VIDEO_OUT_V_last_V_1_state) & (1'b0 == VIDEO_OUT_V_last_V_1_vld_in)) | ((2'd3 == VIDEO_OUT_V_last_V_1_state) & (1'b0 == VIDEO_OUT_V_last_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_last_V_1_ack_out)))) begin
             VIDEO_OUT_V_last_V_1_state <= 2'd2;
-        end else if ((((m_axis_video_TREADY == 1'b0) & (2'd1 == VIDEO_OUT_V_last_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_last_V_1_vld_in) & (2'd3 == VIDEO_OUT_V_last_V_1_state)))) begin
+        end else if ((((2'd1 == VIDEO_OUT_V_last_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_last_V_1_state) & (m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_last_V_1_vld_in)))) begin
             VIDEO_OUT_V_last_V_1_state <= 2'd1;
-        end else if (((~((1'b0 == VIDEO_OUT_V_last_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_last_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_last_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_last_V_1_state)) | ((1'b1 == VIDEO_OUT_V_last_V_1_ack_out) & (2'd1 == VIDEO_OUT_V_last_V_1_state)) | ((1'b1 == VIDEO_OUT_V_last_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_last_V_1_state)))) begin
+        end else if (((~((1'b0 == VIDEO_OUT_V_last_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_last_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_last_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_last_V_1_state)) | ((2'd1 == VIDEO_OUT_V_last_V_1_state) & (1'b1 == VIDEO_OUT_V_last_V_1_ack_out)) | ((2'd2 == VIDEO_OUT_V_last_V_1_state) & (1'b1 == VIDEO_OUT_V_last_V_1_vld_in)))) begin
             VIDEO_OUT_V_last_V_1_state <= 2'd3;
         end else begin
             VIDEO_OUT_V_last_V_1_state <= 2'd2;
@@ -685,11 +958,11 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         VIDEO_OUT_V_strb_V_1_state <= 2'd0;
     end else begin
-        if ((((1'b0 == VIDEO_OUT_V_strb_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_strb_V_1_state)) | ((1'b0 == VIDEO_OUT_V_strb_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_strb_V_1_ack_out) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)))) begin
+        if ((((2'd2 == VIDEO_OUT_V_strb_V_1_state) & (1'b0 == VIDEO_OUT_V_strb_V_1_vld_in)) | ((2'd3 == VIDEO_OUT_V_strb_V_1_state) & (1'b0 == VIDEO_OUT_V_strb_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_strb_V_1_ack_out)))) begin
             VIDEO_OUT_V_strb_V_1_state <= 2'd2;
-        end else if ((((m_axis_video_TREADY == 1'b0) & (2'd1 == VIDEO_OUT_V_strb_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_strb_V_1_vld_in) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)))) begin
+        end else if ((((2'd1 == VIDEO_OUT_V_strb_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_strb_V_1_state) & (m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_strb_V_1_vld_in)))) begin
             VIDEO_OUT_V_strb_V_1_state <= 2'd1;
-        end else if (((~((1'b0 == VIDEO_OUT_V_strb_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_strb_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_strb_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)) | ((1'b1 == VIDEO_OUT_V_strb_V_1_ack_out) & (2'd1 == VIDEO_OUT_V_strb_V_1_state)) | ((1'b1 == VIDEO_OUT_V_strb_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_strb_V_1_state)))) begin
+        end else if (((~((1'b0 == VIDEO_OUT_V_strb_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_strb_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_strb_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)) | ((2'd1 == VIDEO_OUT_V_strb_V_1_state) & (1'b1 == VIDEO_OUT_V_strb_V_1_ack_out)) | ((2'd2 == VIDEO_OUT_V_strb_V_1_state) & (1'b1 == VIDEO_OUT_V_strb_V_1_vld_in)))) begin
             VIDEO_OUT_V_strb_V_1_state <= 2'd3;
         end else begin
             VIDEO_OUT_V_strb_V_1_state <= 2'd2;
@@ -721,11 +994,11 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         VIDEO_OUT_V_user_V_1_state <= 2'd0;
     end else begin
-        if ((((1'b0 == VIDEO_OUT_V_user_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_user_V_1_state)) | ((1'b0 == VIDEO_OUT_V_user_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_user_V_1_ack_out) & (2'd3 == VIDEO_OUT_V_user_V_1_state)))) begin
+        if ((((2'd2 == VIDEO_OUT_V_user_V_1_state) & (1'b0 == VIDEO_OUT_V_user_V_1_vld_in)) | ((2'd3 == VIDEO_OUT_V_user_V_1_state) & (1'b0 == VIDEO_OUT_V_user_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_user_V_1_ack_out)))) begin
             VIDEO_OUT_V_user_V_1_state <= 2'd2;
-        end else if ((((m_axis_video_TREADY == 1'b0) & (2'd1 == VIDEO_OUT_V_user_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_user_V_1_vld_in) & (2'd3 == VIDEO_OUT_V_user_V_1_state)))) begin
+        end else if ((((2'd1 == VIDEO_OUT_V_user_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_user_V_1_state) & (m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_user_V_1_vld_in)))) begin
             VIDEO_OUT_V_user_V_1_state <= 2'd1;
-        end else if (((~((1'b0 == VIDEO_OUT_V_user_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_user_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_user_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_user_V_1_state)) | ((1'b1 == VIDEO_OUT_V_user_V_1_ack_out) & (2'd1 == VIDEO_OUT_V_user_V_1_state)) | ((1'b1 == VIDEO_OUT_V_user_V_1_vld_in) & (2'd2 == VIDEO_OUT_V_user_V_1_state)))) begin
+        end else if (((~((1'b0 == VIDEO_OUT_V_user_V_1_vld_in) & (1'b1 == VIDEO_OUT_V_user_V_1_ack_out)) & ~((m_axis_video_TREADY == 1'b0) & (1'b1 == VIDEO_OUT_V_user_V_1_vld_in)) & (2'd3 == VIDEO_OUT_V_user_V_1_state)) | ((2'd1 == VIDEO_OUT_V_user_V_1_state) & (1'b1 == VIDEO_OUT_V_user_V_1_ack_out)) | ((2'd2 == VIDEO_OUT_V_user_V_1_state) & (1'b1 == VIDEO_OUT_V_user_V_1_vld_in)))) begin
             VIDEO_OUT_V_user_V_1_state <= 2'd3;
         end else begin
             VIDEO_OUT_V_user_V_1_state <= 2'd2;
@@ -742,180 +1015,263 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state84) & (1'b1 == VIDEO_OUT_V_data_V_1_ack_in))) begin
-        col_0_reg_167 <= col_reg_455;
-    end else if ((1'b1 == ap_CS_fsm_state25)) begin
-        col_0_reg_167 <= 10'd0;
+    if ((1'b1 == ap_CS_fsm_state12)) begin
+        p_Val2_19_reg_278 <= rsquare_V_fu_2650_p3;
+    end else if ((1'b1 == ap_CS_fsm_state7)) begin
+        p_Val2_19_reg_278 <= 18'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state83)) begin
-        isquare_0_reg_190 <= isquare_reg_505;
-    end else if ((1'b1 == ap_CS_fsm_state53)) begin
-        isquare_0_reg_190 <= 32'd0;
+    if ((1'b1 == ap_CS_fsm_state12)) begin
+        p_Val2_20_reg_289 <= isquare_V_fu_2679_p3;
+    end else if ((1'b1 == ap_CS_fsm_state7)) begin
+        p_Val2_20_reg_289 <= 18'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state83)) begin
-        pixel_R_reg_214 <= iter_reg_483;
-    end else if ((1'b1 == ap_CS_fsm_state53)) begin
-        pixel_R_reg_214 <= 8'd0;
+    if ((1'b1 == ap_CS_fsm_state12)) begin
+        p_Val2_25_reg_300 <= zsquare_V_fu_2708_p3;
+    end else if ((1'b1 == ap_CS_fsm_state7)) begin
+        p_Val2_25_reg_300 <= 18'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state26) & (icmp_ln26_fu_321_p2 == 1'd1))) begin
-        row_0_reg_155 <= row_reg_437;
+    if (((icmp_ln27_fu_516_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
+        phi_mul_reg_255 <= add_ln25_reg_2844;
     end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        row_0_reg_155 <= 10'd0;
+        phi_mul_reg_255 <= 15'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state83)) begin
-        rsquare_0_reg_178 <= rsquare_reg_500;
-    end else if ((1'b1 == ap_CS_fsm_state53)) begin
-        rsquare_0_reg_178 <= 32'd0;
+    if ((1'b1 == ap_CS_fsm_state12)) begin
+        pixel_R_reg_311 <= iter_reg_3078;
+    end else if ((1'b1 == ap_CS_fsm_state7)) begin
+        pixel_R_reg_311 <= 8'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state83)) begin
-        zsquare_0_reg_202 <= grp_fu_242_p2;
-    end else if ((1'b1 == ap_CS_fsm_state53)) begin
-        zsquare_0_reg_202 <= 32'd0;
+    if (((icmp_ln27_fu_516_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
+        tmp_V_1_reg_243 <= row_reg_2852;
+    end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+        tmp_V_1_reg_243 <= 10'd0;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == VIDEO_OUT_V_data_V_1_ack_in) & (1'b1 == ap_CS_fsm_state13))) begin
+        tmp_V_reg_266 <= col_reg_2887;
+    end else if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((2'd3 == VIDEO_OUT_V_data_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_dest_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_id_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_last_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_user_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_strb_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_keep_V_1_state) & (m_axis_video_TREADY == 1'b0))) & (icmp_ln25_fu_474_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+        tmp_V_reg_266 <= 10'd0;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        Range1_all_ones_1_reg_3037 <= Range1_all_ones_1_fu_1425_p2;
+        Range1_all_zeros_1_reg_3043 <= Range1_all_zeros_1_fu_1431_p2;
+        and_ln786_2_reg_3048 <= and_ln786_2_fu_1465_p2;
+        carry_3_reg_3026 <= carry_3_fu_1385_p2;
+        p_Result_14_reg_3014 <= ret_V_12_fu_1320_p2[32'd35];
+        p_Result_16_reg_3032 <= p_Val2_9_fu_1365_p2[32'd17];
+        p_Val2_9_reg_3020 <= p_Val2_9_fu_1365_p2;
+        y0_V_reg_3054 <= y0_V_fu_1576_p3;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == VIDEO_OUT_V_data_V_1_load_A)) begin
-        VIDEO_OUT_V_data_V_1_payload_A <= pixel_out_V_fu_408_p4;
+        VIDEO_OUT_V_data_V_1_payload_A <= pixel_out_V_fu_1925_p4;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == VIDEO_OUT_V_data_V_1_load_B)) begin
-        VIDEO_OUT_V_data_V_1_payload_B <= pixel_out_V_fu_408_p4;
+        VIDEO_OUT_V_data_V_1_payload_B <= pixel_out_V_fu_1925_p4;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == VIDEO_OUT_V_last_V_1_load_A)) begin
-        VIDEO_OUT_V_last_V_1_payload_A <= tmp_last_V_reg_447;
+        VIDEO_OUT_V_last_V_1_payload_A <= tmp_last_V_reg_2857;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == VIDEO_OUT_V_last_V_1_load_B)) begin
-        VIDEO_OUT_V_last_V_1_payload_B <= tmp_last_V_reg_447;
+        VIDEO_OUT_V_last_V_1_payload_B <= tmp_last_V_reg_2857;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == VIDEO_OUT_V_user_V_1_load_A)) begin
-        VIDEO_OUT_V_user_V_1_payload_A <= tmp_user_V_reg_460;
+        VIDEO_OUT_V_user_V_1_payload_A <= tmp_user_V_reg_2892;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == VIDEO_OUT_V_user_V_1_load_B)) begin
-        VIDEO_OUT_V_user_V_1_payload_B <= tmp_user_V_reg_460;
+        VIDEO_OUT_V_user_V_1_payload_B <= tmp_user_V_reg_2892;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state26)) begin
-        col_reg_455 <= col_fu_327_p2;
+    if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((2'd3 == VIDEO_OUT_V_data_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_dest_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_id_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_last_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_user_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_strb_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_keep_V_1_state) & (m_axis_video_TREADY == 1'b0))) & (1'b1 == ap_CS_fsm_state2))) begin
+        add_ln25_reg_2844 <= add_ln25_fu_468_p2;
+        row_reg_2852 <= row_fu_480_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state59)) begin
-        icmp_ln51_1_reg_470 <= icmp_ln51_1_fu_368_p2;
-        icmp_ln51_2_reg_475 <= icmp_ln51_2_fu_374_p2;
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        and_ln781_3_reg_2989 <= and_ln781_3_fu_1262_p2;
+        and_ln786_7_reg_2999 <= and_ln786_7_fu_1291_p2;
+        or_ln340_12_reg_3009 <= or_ln340_12_fu_1314_p2;
+        p_Val2_15_reg_2983 <= p_Val2_15_fu_1178_p2;
+        r_V_15_reg_2973 <= r_V_15_fu_2726_p2;
+        trunc_ln414_reg_2978 <= trunc_ln414_fu_1145_p1;
+        underflow_5_reg_3004 <= underflow_5_fu_1309_p2;
+        xor_ln785_7_reg_2994 <= xor_ln785_7_fu_1280_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state78)) begin
-        isquare_reg_505 <= grp_fu_249_p2;
-        rsquare_reg_500 <= grp_fu_242_p2;
+    if ((1'b1 == ap_CS_fsm_state11)) begin
+        and_ln781_4_reg_3237 <= and_ln781_4_fu_2227_p2;
+        and_ln781_5_reg_3268 <= and_ln781_5_fu_2399_p2;
+        and_ln781_6_reg_3299 <= and_ln781_6_fu_2571_p2;
+        and_ln786_12_reg_3247 <= and_ln786_12_fu_2256_p2;
+        and_ln786_14_reg_3278 <= and_ln786_14_fu_2428_p2;
+        and_ln786_16_reg_3309 <= and_ln786_16_fu_2600_p2;
+        or_ln340_20_reg_3257 <= or_ln340_20_fu_2279_p2;
+        or_ln340_23_reg_3288 <= or_ln340_23_fu_2451_p2;
+        or_ln340_26_reg_3319 <= or_ln340_26_fu_2623_p2;
+        p_Val2_33_reg_3231 <= p_Val2_33_fu_2143_p2;
+        p_Val2_36_reg_3262 <= p_Val2_36_fu_2315_p2;
+        p_Val2_41_reg_3293 <= p_Val2_41_fu_2487_p2;
+        underflow_10_reg_3283 <= underflow_10_fu_2446_p2;
+        underflow_11_reg_3314 <= underflow_11_fu_2618_p2;
+        underflow_9_reg_3252 <= underflow_9_fu_2274_p2;
+        xor_ln785_11_reg_3242 <= xor_ln785_11_fu_2245_p2;
+        xor_ln785_13_reg_3273 <= xor_ln785_13_fu_2417_p2;
+        xor_ln785_15_reg_3304 <= xor_ln785_15_fu_2589_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60))) begin
-        iter_reg_483 <= iter_fu_402_p2;
+    if (((icmp_ln27_fu_516_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+        and_ln781_reg_2903 <= and_ln781_fu_647_p2;
+        and_ln786_reg_2908 <= and_ln786_fu_670_p2;
+        imag_btm_V_reg_2928 <= imag_btm_V_fu_926_p3;
+        imag_top_V_reg_2923 <= imag_top_V_fu_741_p3;
+        or_ln340_2_reg_2918 <= or_ln340_2_fu_693_p2;
+        p_Val2_5_reg_2897 <= p_Val2_5_fu_558_p2;
+        tmp_user_V_reg_2892 <= tmp_user_V_fu_534_p2;
+        underflow_1_reg_2913 <= underflow_1_fu_688_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        col_reg_2887 <= col_fu_522_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        moveX_read_reg_429 <= moveX;
-        moveY_read_reg_424 <= moveY;
-        zoom_read_reg_419 <= zoom;
+        im_V_read_reg_2763 <= im_V;
+        p_Result_11_reg_2775 <= r_V_14_fu_353_p2[32'd35];
+        p_Result_12_reg_2786 <= r_V_14_fu_353_p2[32'd32];
+        p_Result_18_reg_2817 <= r_V_16_fu_429_p2[32'd34];
+        p_Result_19_reg_2823 <= grp_fu_322_p1[32'd32];
+        p_Val2_4_reg_2781 <= {{r_V_14_fu_353_p2[32:15]}};
+        r_V_14_reg_2768[35 : 15] <= r_V_14_fu_353_p2[35 : 15];
+        r_V_16_reg_2807[34 : 16] <= r_V_16_fu_429_p2[34 : 16];
+        rhs_V_1_reg_2839 <= rhs_V_1_fu_464_p1;
+        sext_ln728_reg_2802[35 : 15] <= sext_ln728_fu_413_p1[35 : 15];
+        xor_ln779_1_reg_2828 <= xor_ln779_1_fu_452_p2;
+        xor_ln779_reg_2791 <= xor_ln779_fu_393_p2;
+        xor_ln785_2_reg_2833 <= xor_ln785_2_fu_458_p2;
+        xor_ln785_reg_2796 <= xor_ln785_fu_399_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state31) | (1'b1 == ap_CS_fsm_state7))) begin
-        reg_261 <= grp_fu_253_p1;
+    if (((1'b0 == ap_block_state8_io) & (1'b1 == ap_CS_fsm_state8))) begin
+        iter_reg_3078 <= iter_fu_1709_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state25) | (1'b1 == ap_CS_fsm_state12))) begin
-        reg_266 <= grp_fu_225_p2;
+    if (((1'b0 == ap_block_state8_io) & (1'd1 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8))) begin
+        overflow_5_reg_3089 <= overflow_5_fu_1783_p2;
+        overflow_6_reg_3108 <= overflow_6_fu_1895_p2;
+        p_Val2_24_reg_3083 <= p_Val2_24_fu_1742_p2;
+        p_Val2_30_reg_3102 <= p_Val2_30_fu_1854_p2;
+        underflow_7_reg_3095 <= underflow_7_fu_1807_p2;
+        underflow_8_reg_3114 <= underflow_8_fu_1919_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state48) | (1'b1 == ap_CS_fsm_state44) | (1'b1 == ap_CS_fsm_state40) | (1'b1 == ap_CS_fsm_state20) | (1'b1 == ap_CS_fsm_state16))) begin
-        reg_272 <= grp_fu_242_p2;
+    if ((1'b1 == ap_CS_fsm_state10)) begin
+        p_Result_10_reg_3225 <= {{r_V_20_fu_2753_p2[37:33]}};
+        p_Result_30_reg_3148 <= r_V_18_fu_2733_p2[32'd35];
+        p_Result_33_reg_3178 <= r_V_19_fu_2743_p2[32'd35];
+        p_Result_36_reg_3208 <= r_V_20_fu_2753_p2[32'd37];
+        p_Result_6_reg_3190 <= {{r_V_19_fu_2743_p2[35:34]}};
+        p_Result_7_reg_3220 <= {{r_V_20_fu_2753_p2[37:34]}};
+        p_Result_8_reg_3195 <= {{r_V_19_fu_2743_p2[35:33]}};
+        p_Result_9_reg_3160 <= {{r_V_18_fu_2733_p2[35:34]}};
+        p_Result_s_11_reg_3165 <= {{r_V_18_fu_2733_p2[35:33]}};
+        r_V_18_reg_3141 <= r_V_18_fu_2733_p2;
+        r_V_19_reg_3171 <= r_V_19_fu_2743_p2;
+        r_V_20_reg_3201 <= r_V_20_fu_2753_p2;
+        trunc_ln414_2_reg_3155 <= trunc_ln414_2_fu_2030_p1;
+        trunc_ln414_3_reg_3185 <= trunc_ln414_3_fu_2061_p1;
+        trunc_ln414_4_reg_3215 <= trunc_ln414_4_fu_2092_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state53) | (1'b1 == ap_CS_fsm_state36))) begin
-        reg_278 <= grp_fu_225_p2;
+    if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((2'd3 == VIDEO_OUT_V_data_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_dest_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_id_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_last_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_user_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_strb_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_keep_V_1_state) & (m_axis_video_TREADY == 1'b0))) & (icmp_ln25_fu_474_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+        p_Result_17_reg_2872 <= p_Result_17_fu_506_p2;
+        ret_V_13_reg_2862 <= ret_V_13_fu_492_p2;
+        sext_ln703_1_reg_2878 <= sext_ln703_1_fu_512_p1;
+        tmp_13_reg_2867 <= phi_mul_reg_255[32'd14];
+        tmp_last_V_reg_2857 <= tmp_last_V_fu_486_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state79) | (1'b1 == ap_CS_fsm_state69) | (1'b1 == ap_CS_fsm_state64) | (1'b1 == ap_CS_fsm_state58))) begin
-        reg_284 <= grp_fu_225_p2;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        p_Result_21_reg_2950 <= r_V_17_fu_2716_p2[32'd35];
+        p_Result_3_reg_2962 <= {{r_V_17_fu_2716_p2[35:34]}};
+        p_Result_4_reg_2967 <= {{r_V_17_fu_2716_p2[35:33]}};
+        r_V_17_reg_2943 <= r_V_17_fu_2716_p2;
+        real_btm_V_reg_2938 <= real_btm_V_fu_1097_p3;
+        real_top_V_reg_2933 <= real_top_V_fu_1068_p3;
+        trunc_ln414_1_reg_2957 <= trunc_ln414_1_fu_1118_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state69) | (1'b1 == ap_CS_fsm_state64))) begin
-        reg_292 <= grp_fu_235_p2;
+    if ((1'b1 == ap_CS_fsm_state9)) begin
+        ret_V_10_reg_3136 <= ret_V_10_fu_2014_p2;
+        x_V_reg_3126 <= x_V_fu_1963_p3;
+        y_V_reg_3131 <= y_V_fu_1998_p3;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_id_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_last_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_user_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_data_V_1_state))) & (1'b1 == ap_CS_fsm_state2))) begin
-        row_reg_437 <= row_fu_304_p2;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state25)) begin
-        tmp_last_V_reg_447 <= tmp_last_V_fu_315_p2;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state26) & (icmp_ln26_fu_321_p2 == 1'd0))) begin
-        tmp_user_V_reg_460 <= tmp_user_V_fu_339_p2;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state74)) begin
-        y_reg_493 <= grp_fu_225_p2;
+    if ((1'b1 == ap_CS_fsm_state7)) begin
+        rhs_V_3_reg_3065 <= rhs_V_3_fu_1670_p1;
+        sext_ln61_reg_3070 <= sext_ln61_fu_1674_p1;
+        x0_V_reg_3060 <= x0_V_fu_1662_p3;
     end
 end
 
@@ -928,7 +1284,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60) & (1'd0 == and_ln51_fu_396_p2))) begin
+    if (((1'b0 == ap_block_state8_io) & (1'd0 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8))) begin
         VIDEO_OUT_V_data_V_1_vld_in = 1'b1;
     end else begin
         VIDEO_OUT_V_data_V_1_vld_in = 1'b0;
@@ -936,7 +1292,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60) & (1'd0 == and_ln51_fu_396_p2))) begin
+    if (((1'b0 == ap_block_state8_io) & (1'd0 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8))) begin
         VIDEO_OUT_V_dest_V_1_vld_in = 1'b1;
     end else begin
         VIDEO_OUT_V_dest_V_1_vld_in = 1'b0;
@@ -944,7 +1300,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60) & (1'd0 == and_ln51_fu_396_p2))) begin
+    if (((1'b0 == ap_block_state8_io) & (1'd0 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8))) begin
         VIDEO_OUT_V_id_V_1_vld_in = 1'b1;
     end else begin
         VIDEO_OUT_V_id_V_1_vld_in = 1'b0;
@@ -952,7 +1308,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60) & (1'd0 == and_ln51_fu_396_p2))) begin
+    if (((1'b0 == ap_block_state8_io) & (1'd0 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8))) begin
         VIDEO_OUT_V_keep_V_1_vld_in = 1'b1;
     end else begin
         VIDEO_OUT_V_keep_V_1_vld_in = 1'b0;
@@ -968,7 +1324,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60) & (1'd0 == and_ln51_fu_396_p2))) begin
+    if (((1'b0 == ap_block_state8_io) & (1'd0 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8))) begin
         VIDEO_OUT_V_last_V_1_vld_in = 1'b1;
     end else begin
         VIDEO_OUT_V_last_V_1_vld_in = 1'b0;
@@ -976,7 +1332,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60) & (1'd0 == and_ln51_fu_396_p2))) begin
+    if (((1'b0 == ap_block_state8_io) & (1'd0 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8))) begin
         VIDEO_OUT_V_strb_V_1_vld_in = 1'b1;
     end else begin
         VIDEO_OUT_V_strb_V_1_vld_in = 1'b0;
@@ -992,7 +1348,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60) & (1'd0 == and_ln51_fu_396_p2))) begin
+    if (((1'b0 == ap_block_state8_io) & (1'd0 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8))) begin
         VIDEO_OUT_V_user_V_1_vld_in = 1'b1;
     end else begin
         VIDEO_OUT_V_user_V_1_vld_in = 1'b0;
@@ -1000,7 +1356,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_id_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_last_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_user_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_data_V_1_state))) & (1'b1 == ap_CS_fsm_state2) & (icmp_ln24_fu_298_p2 == 1'd1))) begin
+    if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((2'd3 == VIDEO_OUT_V_data_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_dest_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_id_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_last_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_user_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_strb_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_keep_V_1_state) & (m_axis_video_TREADY == 1'b0))) & (icmp_ln25_fu_474_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -1016,7 +1372,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_id_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_last_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_user_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_data_V_1_state))) & (1'b1 == ap_CS_fsm_state2) & (icmp_ln24_fu_298_p2 == 1'd1))) begin
+    if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((2'd3 == VIDEO_OUT_V_data_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_dest_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_id_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_last_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_user_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_strb_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_keep_V_1_state) & (m_axis_video_TREADY == 1'b0))) & (icmp_ln25_fu_474_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -1024,151 +1380,17 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state1) | (1'b1 == ap_CS_fsm_state80) | (1'b1 == ap_CS_fsm_state45) | (1'b1 == ap_CS_fsm_state41) | (1'b1 == ap_CS_fsm_state37) | (1'b1 == ap_CS_fsm_state17) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state83) | (1'b1 == ap_CS_fsm_state59) | (1'b1 == ap_CS_fsm_state26) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state48) | (1'b1 == ap_CS_fsm_state44) | (1'b1 == ap_CS_fsm_state40) | (1'b1 == ap_CS_fsm_state20) | (1'b1 == ap_CS_fsm_state16) | (1'b1 == ap_CS_fsm_state31) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state84) | (1'b1 == ap_CS_fsm_state82) | (1'b1 == ap_CS_fsm_state81) | (1'b1 == ap_CS_fsm_state47) | (1'b1 == ap_CS_fsm_state46) | (1'b1 == ap_CS_fsm_state43) | (1'b1 == ap_CS_fsm_state42) | (1'b1 == ap_CS_fsm_state39) | (1'b1 == ap_CS_fsm_state38) | (1'b1 == ap_CS_fsm_state30) | (1'b1 == ap_CS_fsm_state29) | (1'b1 == ap_CS_fsm_state28) | (1'b1 == ap_CS_fsm_state27) | (1'b1 == ap_CS_fsm_state19) | (1'b1 == ap_CS_fsm_state18) | (1'b1 == ap_CS_fsm_state15) | (1'b1 == ap_CS_fsm_state14) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | ((1'b1 == ap_CS_fsm_state60) & (1'b1 == ap_block_state60_io)))) begin
-        grp_fu_225_ce = 1'b0;
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        grp_fu_322_p1 = r_V_16_reg_2807;
+    end else if ((1'b1 == ap_CS_fsm_state1)) begin
+        grp_fu_322_p1 = r_V_16_fu_429_p2;
     end else begin
-        grp_fu_225_ce = 1'b1;
+        grp_fu_322_p1 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state60) & (1'd1 == and_ln51_fu_396_p2))) begin
-        grp_fu_225_opcode = 2'd1;
-    end else if (((1'b1 == ap_CS_fsm_state75) | (1'b1 == ap_CS_fsm_state70) | (1'b1 == ap_CS_fsm_state65) | (1'b1 == ap_CS_fsm_state54) | (1'b1 == ap_CS_fsm_state49) | (1'b1 == ap_CS_fsm_state32) | (1'b1 == ap_CS_fsm_state21) | (1'b1 == ap_CS_fsm_state8))) begin
-        grp_fu_225_opcode = 2'd0;
-    end else begin
-        grp_fu_225_opcode = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state70)) begin
-        grp_fu_225_p0 = reg_292;
-    end else if (((1'b1 == ap_CS_fsm_state75) | (1'b1 == ap_CS_fsm_state65))) begin
-        grp_fu_225_p0 = reg_284;
-    end else if ((1'b1 == ap_CS_fsm_state60)) begin
-        grp_fu_225_p0 = rsquare_0_reg_178;
-    end else if ((1'b1 == ap_CS_fsm_state54)) begin
-        grp_fu_225_p0 = ap_phi_mux_rsquare_0_phi_fu_182_p4;
-    end else if (((1'b1 == ap_CS_fsm_state49) | (1'b1 == ap_CS_fsm_state21))) begin
-        grp_fu_225_p0 = reg_272;
-    end else if (((1'b1 == ap_CS_fsm_state32) | (1'b1 == ap_CS_fsm_state8))) begin
-        grp_fu_225_p0 = reg_261;
-    end else begin
-        grp_fu_225_p0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state75)) begin
-        grp_fu_225_p1 = y_reg_493;
-    end else if ((1'b1 == ap_CS_fsm_state70)) begin
-        grp_fu_225_p1 = reg_266;
-    end else if ((1'b1 == ap_CS_fsm_state65)) begin
-        grp_fu_225_p1 = reg_278;
-    end else if ((1'b1 == ap_CS_fsm_state60)) begin
-        grp_fu_225_p1 = isquare_0_reg_190;
-    end else if ((1'b1 == ap_CS_fsm_state54)) begin
-        grp_fu_225_p1 = ap_phi_mux_isquare_0_phi_fu_194_p4;
-    end else if ((1'b1 == ap_CS_fsm_state49)) begin
-        grp_fu_225_p1 = moveX_read_reg_429;
-    end else if ((1'b1 == ap_CS_fsm_state32)) begin
-        grp_fu_225_p1 = 32'd3290028190;
-    end else if ((1'b1 == ap_CS_fsm_state21)) begin
-        grp_fu_225_p1 = moveY_read_reg_424;
-    end else if ((1'b1 == ap_CS_fsm_state8)) begin
-        grp_fu_225_p1 = 32'd3281387520;
-    end else begin
-        grp_fu_225_p1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state65) | (1'b1 == ap_CS_fsm_state69) | (1'b1 == ap_CS_fsm_state64) | (1'b1 == ap_CS_fsm_state68) | (1'b1 == ap_CS_fsm_state67) | (1'b1 == ap_CS_fsm_state66) | (1'b1 == ap_CS_fsm_state63) | (1'b1 == ap_CS_fsm_state62) | (1'b1 == ap_CS_fsm_state61) | ((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60)))) begin
-        grp_fu_235_ce = 1'b1;
-    end else begin
-        grp_fu_235_ce = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state65)) begin
-        grp_fu_235_p0 = reg_292;
-    end else if ((1'b1 == ap_CS_fsm_state60)) begin
-        grp_fu_235_p0 = zsquare_0_reg_202;
-    end else begin
-        grp_fu_235_p0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state65)) begin
-        grp_fu_235_p1 = isquare_0_reg_190;
-    end else if ((1'b1 == ap_CS_fsm_state60)) begin
-        grp_fu_235_p1 = rsquare_0_reg_178;
-    end else begin
-        grp_fu_235_p1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state80) | (1'b1 == ap_CS_fsm_state75))) begin
-        grp_fu_242_p0 = reg_284;
-    end else if ((1'b1 == ap_CS_fsm_state37)) begin
-        grp_fu_242_p0 = reg_278;
-    end else if (((1'b1 == ap_CS_fsm_state45) | (1'b1 == ap_CS_fsm_state41) | (1'b1 == ap_CS_fsm_state17))) begin
-        grp_fu_242_p0 = reg_272;
-    end else if ((1'b1 == ap_CS_fsm_state13)) begin
-        grp_fu_242_p0 = reg_266;
-    end else begin
-        grp_fu_242_p0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state80) | (1'b1 == ap_CS_fsm_state75))) begin
-        grp_fu_242_p1 = reg_284;
-    end else if ((1'b1 == ap_CS_fsm_state45)) begin
-        grp_fu_242_p1 = 32'd1069547520;
-    end else if ((1'b1 == ap_CS_fsm_state37)) begin
-        grp_fu_242_p1 = 32'd992204554;
-    end else if (((1'b1 == ap_CS_fsm_state41) | (1'b1 == ap_CS_fsm_state17))) begin
-        grp_fu_242_p1 = zoom_read_reg_419;
-    end else if ((1'b1 == ap_CS_fsm_state13)) begin
-        grp_fu_242_p1 = 32'd995783694;
-    end else begin
-        grp_fu_242_p1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state26) | (1'b1 == ap_CS_fsm_state31) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state30) | (1'b1 == ap_CS_fsm_state29) | (1'b1 == ap_CS_fsm_state28) | (1'b1 == ap_CS_fsm_state27) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | (~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_id_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_last_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_user_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_data_V_1_state))) & (1'b1 == ap_CS_fsm_state2)))) begin
-        grp_fu_253_ce = 1'b1;
-    end else begin
-        grp_fu_253_ce = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state26)) begin
-        grp_fu_253_p0 = zext_ln40_fu_345_p1;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        grp_fu_253_p0 = zext_ln44_fu_310_p1;
-    end else begin
-        grp_fu_253_p0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state59) | ((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60)))) begin
-        grp_fu_256_ce = 1'b1;
-    end else begin
-        grp_fu_256_ce = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state84) | ((1'b1 == ap_CS_fsm_state60) & (1'd0 == and_ln51_fu_396_p2)))) begin
+    if (((1'b1 == ap_CS_fsm_state13) | ((1'd0 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8)))) begin
         m_axis_video_TDATA_blk_n = VIDEO_OUT_V_data_V_1_state[1'd1];
     end else begin
         m_axis_video_TDATA_blk_n = 1'b1;
@@ -1185,16 +1407,20 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_id_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_last_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_user_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_data_V_1_state))) & (1'b1 == ap_CS_fsm_state2) & (icmp_ln24_fu_298_p2 == 1'd1))) begin
+            if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((2'd3 == VIDEO_OUT_V_data_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_dest_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_id_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_last_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_user_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_strb_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_keep_V_1_state) & (m_axis_video_TREADY == 1'b0))) & (icmp_ln25_fu_474_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
-            end else if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_id_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_last_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_user_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_data_V_1_state))) & (1'b1 == ap_CS_fsm_state2) & (icmp_ln24_fu_298_p2 == 1'd0))) begin
+            end else if ((~((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((2'd3 == VIDEO_OUT_V_data_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_dest_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_id_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_last_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_user_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_strb_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_keep_V_1_state) & (m_axis_video_TREADY == 1'b0))) & (icmp_ln25_fu_474_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end
         end
         ap_ST_fsm_state3 : begin
-            ap_NS_fsm = ap_ST_fsm_state4;
+            if (((icmp_ln27_fu_516_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
+                ap_NS_fsm = ap_ST_fsm_state2;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state4;
+            end
         end
         ap_ST_fsm_state4 : begin
             ap_NS_fsm = ap_ST_fsm_state5;
@@ -1209,7 +1435,13 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state8;
         end
         ap_ST_fsm_state8 : begin
-            ap_NS_fsm = ap_ST_fsm_state9;
+            if (((1'b0 == ap_block_state8_io) & (1'd0 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8))) begin
+                ap_NS_fsm = ap_ST_fsm_state13;
+            end else if (((1'b0 == ap_block_state8_io) & (1'd1 == and_ln61_fu_1703_p2) & (1'b1 == ap_CS_fsm_state8))) begin
+                ap_NS_fsm = ap_ST_fsm_state9;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state8;
+            end
         end
         ap_ST_fsm_state9 : begin
             ap_NS_fsm = ap_ST_fsm_state10;
@@ -1221,236 +1453,13 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state12;
         end
         ap_ST_fsm_state12 : begin
-            ap_NS_fsm = ap_ST_fsm_state13;
+            ap_NS_fsm = ap_ST_fsm_state8;
         end
         ap_ST_fsm_state13 : begin
-            ap_NS_fsm = ap_ST_fsm_state14;
-        end
-        ap_ST_fsm_state14 : begin
-            ap_NS_fsm = ap_ST_fsm_state15;
-        end
-        ap_ST_fsm_state15 : begin
-            ap_NS_fsm = ap_ST_fsm_state16;
-        end
-        ap_ST_fsm_state16 : begin
-            ap_NS_fsm = ap_ST_fsm_state17;
-        end
-        ap_ST_fsm_state17 : begin
-            ap_NS_fsm = ap_ST_fsm_state18;
-        end
-        ap_ST_fsm_state18 : begin
-            ap_NS_fsm = ap_ST_fsm_state19;
-        end
-        ap_ST_fsm_state19 : begin
-            ap_NS_fsm = ap_ST_fsm_state20;
-        end
-        ap_ST_fsm_state20 : begin
-            ap_NS_fsm = ap_ST_fsm_state21;
-        end
-        ap_ST_fsm_state21 : begin
-            ap_NS_fsm = ap_ST_fsm_state22;
-        end
-        ap_ST_fsm_state22 : begin
-            ap_NS_fsm = ap_ST_fsm_state23;
-        end
-        ap_ST_fsm_state23 : begin
-            ap_NS_fsm = ap_ST_fsm_state24;
-        end
-        ap_ST_fsm_state24 : begin
-            ap_NS_fsm = ap_ST_fsm_state25;
-        end
-        ap_ST_fsm_state25 : begin
-            ap_NS_fsm = ap_ST_fsm_state26;
-        end
-        ap_ST_fsm_state26 : begin
-            if (((1'b1 == ap_CS_fsm_state26) & (icmp_ln26_fu_321_p2 == 1'd1))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
+            if (((1'b1 == VIDEO_OUT_V_data_V_1_ack_in) & (1'b1 == ap_CS_fsm_state13))) begin
+                ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state27;
-            end
-        end
-        ap_ST_fsm_state27 : begin
-            ap_NS_fsm = ap_ST_fsm_state28;
-        end
-        ap_ST_fsm_state28 : begin
-            ap_NS_fsm = ap_ST_fsm_state29;
-        end
-        ap_ST_fsm_state29 : begin
-            ap_NS_fsm = ap_ST_fsm_state30;
-        end
-        ap_ST_fsm_state30 : begin
-            ap_NS_fsm = ap_ST_fsm_state31;
-        end
-        ap_ST_fsm_state31 : begin
-            ap_NS_fsm = ap_ST_fsm_state32;
-        end
-        ap_ST_fsm_state32 : begin
-            ap_NS_fsm = ap_ST_fsm_state33;
-        end
-        ap_ST_fsm_state33 : begin
-            ap_NS_fsm = ap_ST_fsm_state34;
-        end
-        ap_ST_fsm_state34 : begin
-            ap_NS_fsm = ap_ST_fsm_state35;
-        end
-        ap_ST_fsm_state35 : begin
-            ap_NS_fsm = ap_ST_fsm_state36;
-        end
-        ap_ST_fsm_state36 : begin
-            ap_NS_fsm = ap_ST_fsm_state37;
-        end
-        ap_ST_fsm_state37 : begin
-            ap_NS_fsm = ap_ST_fsm_state38;
-        end
-        ap_ST_fsm_state38 : begin
-            ap_NS_fsm = ap_ST_fsm_state39;
-        end
-        ap_ST_fsm_state39 : begin
-            ap_NS_fsm = ap_ST_fsm_state40;
-        end
-        ap_ST_fsm_state40 : begin
-            ap_NS_fsm = ap_ST_fsm_state41;
-        end
-        ap_ST_fsm_state41 : begin
-            ap_NS_fsm = ap_ST_fsm_state42;
-        end
-        ap_ST_fsm_state42 : begin
-            ap_NS_fsm = ap_ST_fsm_state43;
-        end
-        ap_ST_fsm_state43 : begin
-            ap_NS_fsm = ap_ST_fsm_state44;
-        end
-        ap_ST_fsm_state44 : begin
-            ap_NS_fsm = ap_ST_fsm_state45;
-        end
-        ap_ST_fsm_state45 : begin
-            ap_NS_fsm = ap_ST_fsm_state46;
-        end
-        ap_ST_fsm_state46 : begin
-            ap_NS_fsm = ap_ST_fsm_state47;
-        end
-        ap_ST_fsm_state47 : begin
-            ap_NS_fsm = ap_ST_fsm_state48;
-        end
-        ap_ST_fsm_state48 : begin
-            ap_NS_fsm = ap_ST_fsm_state49;
-        end
-        ap_ST_fsm_state49 : begin
-            ap_NS_fsm = ap_ST_fsm_state50;
-        end
-        ap_ST_fsm_state50 : begin
-            ap_NS_fsm = ap_ST_fsm_state51;
-        end
-        ap_ST_fsm_state51 : begin
-            ap_NS_fsm = ap_ST_fsm_state52;
-        end
-        ap_ST_fsm_state52 : begin
-            ap_NS_fsm = ap_ST_fsm_state53;
-        end
-        ap_ST_fsm_state53 : begin
-            ap_NS_fsm = ap_ST_fsm_state54;
-        end
-        ap_ST_fsm_state54 : begin
-            ap_NS_fsm = ap_ST_fsm_state55;
-        end
-        ap_ST_fsm_state55 : begin
-            ap_NS_fsm = ap_ST_fsm_state56;
-        end
-        ap_ST_fsm_state56 : begin
-            ap_NS_fsm = ap_ST_fsm_state57;
-        end
-        ap_ST_fsm_state57 : begin
-            ap_NS_fsm = ap_ST_fsm_state58;
-        end
-        ap_ST_fsm_state58 : begin
-            ap_NS_fsm = ap_ST_fsm_state59;
-        end
-        ap_ST_fsm_state59 : begin
-            ap_NS_fsm = ap_ST_fsm_state60;
-        end
-        ap_ST_fsm_state60 : begin
-            if (((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60) & (1'd0 == and_ln51_fu_396_p2))) begin
-                ap_NS_fsm = ap_ST_fsm_state84;
-            end else if (((1'b0 == ap_block_state60_io) & (1'b1 == ap_CS_fsm_state60) & (1'd1 == and_ln51_fu_396_p2))) begin
-                ap_NS_fsm = ap_ST_fsm_state61;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state60;
-            end
-        end
-        ap_ST_fsm_state61 : begin
-            ap_NS_fsm = ap_ST_fsm_state62;
-        end
-        ap_ST_fsm_state62 : begin
-            ap_NS_fsm = ap_ST_fsm_state63;
-        end
-        ap_ST_fsm_state63 : begin
-            ap_NS_fsm = ap_ST_fsm_state64;
-        end
-        ap_ST_fsm_state64 : begin
-            ap_NS_fsm = ap_ST_fsm_state65;
-        end
-        ap_ST_fsm_state65 : begin
-            ap_NS_fsm = ap_ST_fsm_state66;
-        end
-        ap_ST_fsm_state66 : begin
-            ap_NS_fsm = ap_ST_fsm_state67;
-        end
-        ap_ST_fsm_state67 : begin
-            ap_NS_fsm = ap_ST_fsm_state68;
-        end
-        ap_ST_fsm_state68 : begin
-            ap_NS_fsm = ap_ST_fsm_state69;
-        end
-        ap_ST_fsm_state69 : begin
-            ap_NS_fsm = ap_ST_fsm_state70;
-        end
-        ap_ST_fsm_state70 : begin
-            ap_NS_fsm = ap_ST_fsm_state71;
-        end
-        ap_ST_fsm_state71 : begin
-            ap_NS_fsm = ap_ST_fsm_state72;
-        end
-        ap_ST_fsm_state72 : begin
-            ap_NS_fsm = ap_ST_fsm_state73;
-        end
-        ap_ST_fsm_state73 : begin
-            ap_NS_fsm = ap_ST_fsm_state74;
-        end
-        ap_ST_fsm_state74 : begin
-            ap_NS_fsm = ap_ST_fsm_state75;
-        end
-        ap_ST_fsm_state75 : begin
-            ap_NS_fsm = ap_ST_fsm_state76;
-        end
-        ap_ST_fsm_state76 : begin
-            ap_NS_fsm = ap_ST_fsm_state77;
-        end
-        ap_ST_fsm_state77 : begin
-            ap_NS_fsm = ap_ST_fsm_state78;
-        end
-        ap_ST_fsm_state78 : begin
-            ap_NS_fsm = ap_ST_fsm_state79;
-        end
-        ap_ST_fsm_state79 : begin
-            ap_NS_fsm = ap_ST_fsm_state80;
-        end
-        ap_ST_fsm_state80 : begin
-            ap_NS_fsm = ap_ST_fsm_state81;
-        end
-        ap_ST_fsm_state81 : begin
-            ap_NS_fsm = ap_ST_fsm_state82;
-        end
-        ap_ST_fsm_state82 : begin
-            ap_NS_fsm = ap_ST_fsm_state83;
-        end
-        ap_ST_fsm_state83 : begin
-            ap_NS_fsm = ap_ST_fsm_state54;
-        end
-        ap_ST_fsm_state84 : begin
-            if (((1'b1 == ap_CS_fsm_state84) & (1'b1 == VIDEO_OUT_V_data_V_1_ack_in))) begin
-                ap_NS_fsm = ap_ST_fsm_state26;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state84;
+                ap_NS_fsm = ap_ST_fsm_state13;
             end
         end
         default : begin
@@ -1458,6 +1467,48 @@ always @ (*) begin
         end
     endcase
 end
+
+assign Range1_all_ones_1_fu_1425_p2 = ((tmp_7_fu_1415_p4 == 3'd7) ? 1'b1 : 1'b0);
+
+assign Range1_all_ones_2_fu_814_p2 = ((tmp_s_fu_805_p4 == 2'd3) ? 1'b1 : 1'b0);
+
+assign Range1_all_ones_3_fu_1217_p2 = ((p_Result_4_reg_2967 == 3'd7) ? 1'b1 : 1'b0);
+
+assign Range1_all_ones_5_fu_2182_p2 = ((p_Result_s_11_reg_3165 == 3'd7) ? 1'b1 : 1'b0);
+
+assign Range1_all_ones_6_fu_2354_p2 = ((p_Result_8_reg_3195 == 3'd7) ? 1'b1 : 1'b0);
+
+assign Range1_all_ones_7_fu_2526_p2 = ((p_Result_10_reg_3225 == 5'd31) ? 1'b1 : 1'b0);
+
+assign Range1_all_ones_fu_614_p2 = ((p_Result_2_fu_605_p4 == 3'd7) ? 1'b1 : 1'b0);
+
+assign Range1_all_zeros_1_fu_1431_p2 = ((tmp_7_fu_1415_p4 == 3'd0) ? 1'b1 : 1'b0);
+
+assign Range1_all_zeros_2_fu_820_p2 = ((tmp_s_fu_805_p4 == 2'd0) ? 1'b1 : 1'b0);
+
+assign Range1_all_zeros_3_fu_1222_p2 = ((p_Result_4_reg_2967 == 3'd0) ? 1'b1 : 1'b0);
+
+assign Range1_all_zeros_4_fu_2187_p2 = ((p_Result_s_11_reg_3165 == 3'd0) ? 1'b1 : 1'b0);
+
+assign Range1_all_zeros_5_fu_2359_p2 = ((p_Result_8_reg_3195 == 3'd0) ? 1'b1 : 1'b0);
+
+assign Range1_all_zeros_6_fu_2531_p2 = ((p_Result_10_reg_3225 == 5'd0) ? 1'b1 : 1'b0);
+
+assign Range1_all_zeros_fu_620_p2 = ((p_Result_2_fu_605_p4 == 3'd0) ? 1'b1 : 1'b0);
+
+assign Range2_all_ones_1_fu_1409_p2 = ((tmp_5_fu_1399_p4 == 2'd3) ? 1'b1 : 1'b0);
+
+assign Range2_all_ones_2_fu_798_p3 = r_V_16_reg_2807[32'd34];
+
+assign Range2_all_ones_3_fu_1212_p2 = ((p_Result_3_reg_2962 == 2'd3) ? 1'b1 : 1'b0);
+
+assign Range2_all_ones_4_fu_2177_p2 = ((p_Result_9_reg_3160 == 2'd3) ? 1'b1 : 1'b0);
+
+assign Range2_all_ones_5_fu_2349_p2 = ((p_Result_6_reg_3190 == 2'd3) ? 1'b1 : 1'b0);
+
+assign Range2_all_ones_6_fu_2521_p2 = ((p_Result_7_reg_3220 == 4'd15) ? 1'b1 : 1'b0);
+
+assign Range2_all_ones_fu_599_p2 = ((p_Result_1_fu_590_p4 == 2'd3) ? 1'b1 : 1'b0);
 
 assign VIDEO_OUT_V_data_V_1_ack_in = VIDEO_OUT_V_data_V_1_state[1'd1];
 
@@ -1533,169 +1584,201 @@ assign VIDEO_OUT_V_user_V_1_state_cmp_full = ((VIDEO_OUT_V_user_V_1_state != 2'd
 
 assign VIDEO_OUT_V_user_V_1_vld_out = VIDEO_OUT_V_user_V_1_state[1'd0];
 
-assign and_ln51_1_fu_384_p2 = (or_ln51_fu_380_p2 & grp_fu_256_p2);
+assign add_ln25_fu_468_p2 = (phi_mul_reg_255 + 15'd54);
 
-assign and_ln51_fu_396_p2 = (icmp_ln51_fu_390_p2 & and_ln51_1_fu_384_p2);
+assign and_ln414_1_fu_758_p2 = (p_Result_18_reg_2817 & icmp_ln414_2_fu_752_p2);
+
+assign and_ln414_fu_549_p2 = (p_Result_11_reg_2775 & icmp_ln414_fu_543_p2);
+
+assign and_ln61_fu_1703_p2 = (icmp_ln61_fu_1697_p2 & icmp_ln1495_fu_1691_p2);
+
+assign and_ln700_1_fu_1169_p2 = (p_Result_21_reg_2950 & icmp_ln414_3_fu_1164_p2);
+
+assign and_ln700_2_fu_2134_p2 = (p_Result_30_reg_3148 & icmp_ln414_4_fu_2129_p2);
+
+assign and_ln700_3_fu_2306_p2 = (p_Result_33_reg_3178 & icmp_ln414_5_fu_2301_p2);
+
+assign and_ln700_4_fu_2478_p2 = (p_Result_36_reg_3208 & icmp_ln414_6_fu_2473_p2);
+
+assign and_ln700_fu_1355_p2 = (p_Result_14_fu_1324_p3 & icmp_ln414_1_fu_1350_p2);
+
+assign and_ln779_1_fu_1451_p2 = (xor_ln779_2_fu_1445_p2 & Range2_all_ones_1_fu_1409_p2);
+
+assign and_ln779_2_fu_834_p2 = (xor_ln779_1_reg_2828 & Range2_all_ones_2_fu_798_p3);
+
+assign and_ln779_3_fu_1248_p2 = (xor_ln779_3_fu_1242_p2 & Range2_all_ones_3_fu_1212_p2);
+
+assign and_ln779_4_fu_2213_p2 = (xor_ln779_4_fu_2207_p2 & Range2_all_ones_4_fu_2177_p2);
+
+assign and_ln779_5_fu_2385_p2 = (xor_ln779_5_fu_2379_p2 & Range2_all_ones_5_fu_2349_p2);
+
+assign and_ln779_6_fu_2557_p2 = (xor_ln779_6_fu_2551_p2 & Range2_all_ones_6_fu_2521_p2);
+
+assign and_ln779_fu_634_p2 = (xor_ln779_reg_2791 & Range2_all_ones_fu_599_p2);
+
+assign and_ln781_1_fu_1589_p2 = (carry_3_reg_3026 & Range1_all_ones_1_reg_3037);
+
+assign and_ln781_2_fu_847_p2 = (carry_5_fu_793_p2 & Range1_all_ones_2_fu_814_p2);
+
+assign and_ln781_3_fu_1262_p2 = (carry_7_fu_1198_p2 & Range1_all_ones_3_fu_1217_p2);
+
+assign and_ln781_4_fu_2227_p2 = (carry_9_fu_2163_p2 & Range1_all_ones_5_fu_2182_p2);
+
+assign and_ln781_5_fu_2399_p2 = (carry_11_fu_2335_p2 & Range1_all_ones_6_fu_2354_p2);
+
+assign and_ln781_6_fu_2571_p2 = (carry_13_fu_2507_p2 & Range1_all_ones_7_fu_2526_p2);
+
+assign and_ln781_fu_647_p2 = (carry_1_fu_577_p2 & Range1_all_ones_fu_614_p2);
+
+assign and_ln786_12_fu_2256_p2 = (p_Result_32_fu_2169_p3 & deleted_ones_5_fu_2219_p3);
+
+assign and_ln786_14_fu_2428_p2 = (p_Result_35_fu_2341_p3 & deleted_ones_6_fu_2391_p3);
+
+assign and_ln786_16_fu_2600_p2 = (p_Result_38_fu_2513_p3 & deleted_ones_7_fu_2563_p3);
+
+assign and_ln786_1_fu_1022_p2 = (tmp_16_fu_1002_p3 & p_Result_s_fu_994_p3);
+
+assign and_ln786_2_fu_1465_p2 = (p_Result_16_fu_1391_p3 & deleted_ones_1_fu_1457_p3);
+
+assign and_ln786_5_fu_870_p2 = (grp_fu_322_p3 & deleted_ones_2_fu_839_p3);
+
+assign and_ln786_7_fu_1291_p2 = (p_Result_23_fu_1204_p3 & deleted_ones_3_fu_1254_p3);
+
+assign and_ln786_fu_670_p2 = (p_Result_13_fu_582_p3 & deleted_ones_fu_639_p3);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
+
+assign ap_CS_fsm_state10 = ap_CS_fsm[32'd9];
+
+assign ap_CS_fsm_state11 = ap_CS_fsm[32'd10];
 
 assign ap_CS_fsm_state12 = ap_CS_fsm[32'd11];
 
 assign ap_CS_fsm_state13 = ap_CS_fsm[32'd12];
 
-assign ap_CS_fsm_state14 = ap_CS_fsm[32'd13];
-
-assign ap_CS_fsm_state15 = ap_CS_fsm[32'd14];
-
-assign ap_CS_fsm_state16 = ap_CS_fsm[32'd15];
-
-assign ap_CS_fsm_state17 = ap_CS_fsm[32'd16];
-
-assign ap_CS_fsm_state18 = ap_CS_fsm[32'd17];
-
-assign ap_CS_fsm_state19 = ap_CS_fsm[32'd18];
-
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
-
-assign ap_CS_fsm_state20 = ap_CS_fsm[32'd19];
-
-assign ap_CS_fsm_state21 = ap_CS_fsm[32'd20];
-
-assign ap_CS_fsm_state25 = ap_CS_fsm[32'd24];
-
-assign ap_CS_fsm_state26 = ap_CS_fsm[32'd25];
-
-assign ap_CS_fsm_state27 = ap_CS_fsm[32'd26];
-
-assign ap_CS_fsm_state28 = ap_CS_fsm[32'd27];
-
-assign ap_CS_fsm_state29 = ap_CS_fsm[32'd28];
 
 assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
-assign ap_CS_fsm_state30 = ap_CS_fsm[32'd29];
-
-assign ap_CS_fsm_state31 = ap_CS_fsm[32'd30];
-
-assign ap_CS_fsm_state32 = ap_CS_fsm[32'd31];
-
-assign ap_CS_fsm_state36 = ap_CS_fsm[32'd35];
-
-assign ap_CS_fsm_state37 = ap_CS_fsm[32'd36];
-
-assign ap_CS_fsm_state38 = ap_CS_fsm[32'd37];
-
-assign ap_CS_fsm_state39 = ap_CS_fsm[32'd38];
-
 assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
-
-assign ap_CS_fsm_state40 = ap_CS_fsm[32'd39];
-
-assign ap_CS_fsm_state41 = ap_CS_fsm[32'd40];
-
-assign ap_CS_fsm_state42 = ap_CS_fsm[32'd41];
-
-assign ap_CS_fsm_state43 = ap_CS_fsm[32'd42];
-
-assign ap_CS_fsm_state44 = ap_CS_fsm[32'd43];
-
-assign ap_CS_fsm_state45 = ap_CS_fsm[32'd44];
-
-assign ap_CS_fsm_state46 = ap_CS_fsm[32'd45];
-
-assign ap_CS_fsm_state47 = ap_CS_fsm[32'd46];
-
-assign ap_CS_fsm_state48 = ap_CS_fsm[32'd47];
-
-assign ap_CS_fsm_state49 = ap_CS_fsm[32'd48];
 
 assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
 
-assign ap_CS_fsm_state53 = ap_CS_fsm[32'd52];
-
-assign ap_CS_fsm_state54 = ap_CS_fsm[32'd53];
-
-assign ap_CS_fsm_state58 = ap_CS_fsm[32'd57];
-
-assign ap_CS_fsm_state59 = ap_CS_fsm[32'd58];
-
 assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
-
-assign ap_CS_fsm_state60 = ap_CS_fsm[32'd59];
-
-assign ap_CS_fsm_state61 = ap_CS_fsm[32'd60];
-
-assign ap_CS_fsm_state62 = ap_CS_fsm[32'd61];
-
-assign ap_CS_fsm_state63 = ap_CS_fsm[32'd62];
-
-assign ap_CS_fsm_state64 = ap_CS_fsm[32'd63];
-
-assign ap_CS_fsm_state65 = ap_CS_fsm[32'd64];
-
-assign ap_CS_fsm_state66 = ap_CS_fsm[32'd65];
-
-assign ap_CS_fsm_state67 = ap_CS_fsm[32'd66];
-
-assign ap_CS_fsm_state68 = ap_CS_fsm[32'd67];
-
-assign ap_CS_fsm_state69 = ap_CS_fsm[32'd68];
 
 assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
 
-assign ap_CS_fsm_state70 = ap_CS_fsm[32'd69];
-
-assign ap_CS_fsm_state74 = ap_CS_fsm[32'd73];
-
-assign ap_CS_fsm_state75 = ap_CS_fsm[32'd74];
-
-assign ap_CS_fsm_state78 = ap_CS_fsm[32'd77];
-
-assign ap_CS_fsm_state79 = ap_CS_fsm[32'd78];
-
 assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 
-assign ap_CS_fsm_state80 = ap_CS_fsm[32'd79];
-
-assign ap_CS_fsm_state81 = ap_CS_fsm[32'd80];
-
-assign ap_CS_fsm_state82 = ap_CS_fsm[32'd81];
-
-assign ap_CS_fsm_state83 = ap_CS_fsm[32'd82];
-
-assign ap_CS_fsm_state84 = ap_CS_fsm[32'd83];
+assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
 
 always @ (*) begin
-    ap_block_state2 = ((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_dest_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_id_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_last_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_user_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_strb_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_keep_V_1_state)) | ((m_axis_video_TREADY == 1'b0) & (2'd3 == VIDEO_OUT_V_data_V_1_state)));
+    ap_block_state2 = ((2'd1 == VIDEO_OUT_V_dest_V_1_state) | (2'd1 == VIDEO_OUT_V_id_V_1_state) | (2'd1 == VIDEO_OUT_V_last_V_1_state) | (2'd1 == VIDEO_OUT_V_user_V_1_state) | (2'd1 == VIDEO_OUT_V_strb_V_1_state) | (2'd1 == VIDEO_OUT_V_keep_V_1_state) | (2'd1 == VIDEO_OUT_V_data_V_1_state) | ((2'd3 == VIDEO_OUT_V_data_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_dest_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_id_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_last_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_user_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_strb_V_1_state) & (m_axis_video_TREADY == 1'b0)) | ((2'd3 == VIDEO_OUT_V_keep_V_1_state) & (m_axis_video_TREADY == 1'b0)));
 end
 
 always @ (*) begin
-    ap_block_state60_io = ((1'b0 == VIDEO_OUT_V_data_V_1_ack_in) & (1'd0 == and_ln51_fu_396_p2));
+    ap_block_state8_io = ((1'd0 == and_ln61_fu_1703_p2) & (1'b0 == VIDEO_OUT_V_data_V_1_ack_in));
 end
-
-assign ap_phi_mux_isquare_0_phi_fu_194_p4 = isquare_0_reg_190;
-
-assign ap_phi_mux_rsquare_0_phi_fu_182_p4 = rsquare_0_reg_178;
 
 always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
-assign bitcast_ln51_fu_350_p1 = reg_284;
+assign carry_11_fu_2335_p2 = (xor_ln416_5_fu_2329_p2 & p_Result_34_fu_2294_p3);
 
-assign col_fu_327_p2 = (col_0_reg_167 + 10'd1);
+assign carry_13_fu_2507_p2 = (xor_ln416_6_fu_2501_p2 & p_Result_37_fu_2466_p3);
 
-assign icmp_ln24_fu_298_p2 = ((row_0_reg_155 == 10'd600) ? 1'b1 : 1'b0);
+assign carry_1_fu_577_p2 = (xor_ln416_fu_571_p2 & p_Result_12_reg_2786);
 
-assign icmp_ln26_fu_321_p2 = ((col_0_reg_167 == 10'd800) ? 1'b1 : 1'b0);
+assign carry_3_fu_1385_p2 = (xor_ln416_1_fu_1379_p2 & p_Result_15_fu_1342_p3);
 
-assign icmp_ln51_1_fu_368_p2 = ((tmp_1_fu_354_p4 != 8'd255) ? 1'b1 : 1'b0);
+assign carry_5_fu_793_p2 = (xor_ln416_2_fu_787_p2 & p_Result_19_reg_2823);
 
-assign icmp_ln51_2_fu_374_p2 = ((trunc_ln51_fu_364_p1 == 23'd0) ? 1'b1 : 1'b0);
+assign carry_7_fu_1198_p2 = (xor_ln416_3_fu_1192_p2 & p_Result_22_fu_1157_p3);
 
-assign icmp_ln51_fu_390_p2 = ((pixel_R_reg_214 != 8'd255) ? 1'b1 : 1'b0);
+assign carry_9_fu_2163_p2 = (xor_ln416_4_fu_2157_p2 & p_Result_31_fu_2122_p3);
 
-assign iter_fu_402_p2 = (8'd1 + pixel_R_reg_214);
+assign col_fu_522_p2 = (tmp_V_reg_266 + 10'd1);
+
+assign deleted_ones_1_fu_1457_p3 = ((carry_3_fu_1385_p2[0:0] === 1'b1) ? and_ln779_1_fu_1451_p2 : Range1_all_ones_1_fu_1425_p2);
+
+assign deleted_ones_2_fu_839_p3 = ((carry_5_fu_793_p2[0:0] === 1'b1) ? and_ln779_2_fu_834_p2 : Range1_all_ones_2_fu_814_p2);
+
+assign deleted_ones_3_fu_1254_p3 = ((carry_7_fu_1198_p2[0:0] === 1'b1) ? and_ln779_3_fu_1248_p2 : Range1_all_ones_3_fu_1217_p2);
+
+assign deleted_ones_5_fu_2219_p3 = ((carry_9_fu_2163_p2[0:0] === 1'b1) ? and_ln779_4_fu_2213_p2 : Range1_all_ones_5_fu_2182_p2);
+
+assign deleted_ones_6_fu_2391_p3 = ((carry_11_fu_2335_p2[0:0] === 1'b1) ? and_ln779_5_fu_2385_p2 : Range1_all_ones_6_fu_2354_p2);
+
+assign deleted_ones_7_fu_2563_p3 = ((carry_13_fu_2507_p2[0:0] === 1'b1) ? and_ln779_6_fu_2557_p2 : Range1_all_ones_7_fu_2526_p2);
+
+assign deleted_ones_fu_639_p3 = ((carry_1_fu_577_p2[0:0] === 1'b1) ? and_ln779_fu_634_p2 : Range1_all_ones_fu_614_p2);
+
+assign deleted_zeros_1_fu_1584_p3 = ((carry_3_reg_3026[0:0] === 1'b1) ? Range1_all_ones_1_reg_3037 : Range1_all_zeros_1_reg_3043);
+
+assign deleted_zeros_2_fu_826_p3 = ((carry_5_fu_793_p2[0:0] === 1'b1) ? Range1_all_ones_2_fu_814_p2 : Range1_all_zeros_2_fu_820_p2);
+
+assign deleted_zeros_3_fu_1227_p3 = ((carry_7_fu_1198_p2[0:0] === 1'b1) ? Range1_all_ones_3_fu_1217_p2 : Range1_all_zeros_3_fu_1222_p2);
+
+assign deleted_zeros_4_fu_2192_p3 = ((carry_9_fu_2163_p2[0:0] === 1'b1) ? Range1_all_ones_5_fu_2182_p2 : Range1_all_zeros_4_fu_2187_p2);
+
+assign deleted_zeros_5_fu_2364_p3 = ((carry_11_fu_2335_p2[0:0] === 1'b1) ? Range1_all_ones_6_fu_2354_p2 : Range1_all_zeros_5_fu_2359_p2);
+
+assign deleted_zeros_6_fu_2536_p3 = ((carry_13_fu_2507_p2[0:0] === 1'b1) ? Range1_all_ones_7_fu_2526_p2 : Range1_all_zeros_6_fu_2531_p2);
+
+assign deleted_zeros_fu_626_p3 = ((carry_1_fu_577_p2[0:0] === 1'b1) ? Range1_all_ones_fu_614_p2 : Range1_all_zeros_fu_620_p2);
+
+assign grp_fu_322_p3 = grp_fu_322_p1[32'd32];
+
+assign icmp_ln1495_fu_1691_p2 = (($signed(ret_V_fu_1685_p2) < $signed(19'd131071)) ? 1'b1 : 1'b0);
+
+assign icmp_ln25_fu_474_p2 = ((tmp_V_1_reg_243 == 10'd600) ? 1'b1 : 1'b0);
+
+assign icmp_ln27_fu_516_p2 = ((tmp_V_reg_266 == 10'd800) ? 1'b1 : 1'b0);
+
+assign icmp_ln414_1_fu_1350_p2 = ((trunc_ln414_reg_2978 != 15'd0) ? 1'b1 : 1'b0);
+
+assign icmp_ln414_2_fu_752_p2 = ((trunc_ln718_1_fu_749_p1 != 14'd0) ? 1'b1 : 1'b0);
+
+assign icmp_ln414_3_fu_1164_p2 = ((trunc_ln414_1_reg_2957 != 15'd0) ? 1'b1 : 1'b0);
+
+assign icmp_ln414_4_fu_2129_p2 = ((trunc_ln414_2_reg_3155 != 15'd0) ? 1'b1 : 1'b0);
+
+assign icmp_ln414_5_fu_2301_p2 = ((trunc_ln414_3_reg_3185 != 15'd0) ? 1'b1 : 1'b0);
+
+assign icmp_ln414_6_fu_2473_p2 = ((trunc_ln414_4_reg_3215 != 15'd0) ? 1'b1 : 1'b0);
+
+assign icmp_ln414_fu_543_p2 = ((trunc_ln718_fu_540_p1 != 14'd0) ? 1'b1 : 1'b0);
+
+assign icmp_ln61_fu_1697_p2 = ((pixel_R_reg_311 != 8'd255) ? 1'b1 : 1'b0);
+
+assign icmp_ln785_1_fu_1877_p2 = ((tmp_2_fu_1867_p4 != 2'd0) ? 1'b1 : 1'b0);
+
+assign icmp_ln785_fu_1765_p2 = ((p_Result_5_fu_1755_p4 != 2'd0) ? 1'b1 : 1'b0);
+
+assign icmp_ln786_1_fu_1907_p2 = ((tmp_2_fu_1867_p4 != 2'd3) ? 1'b1 : 1'b0);
+
+assign icmp_ln786_fu_1795_p2 = ((p_Result_5_fu_1755_p4 != 2'd3) ? 1'b1 : 1'b0);
+
+assign imag_btm_V_fu_926_p3 = ((or_ln340_11_fu_904_p2[0:0] === 1'b1) ? select_ln340_4_fu_910_p3 : select_ln388_4_fu_918_p3);
+
+assign imag_top_V_fu_741_p3 = ((or_ln340_8_fu_722_p2[0:0] === 1'b1) ? select_ln340_3_fu_727_p3 : select_ln388_3_fu_734_p3);
+
+assign isquare_V_fu_2679_p3 = ((or_ln340_25_fu_2662_p2[0:0] === 1'b1) ? select_ln340_10_fu_2667_p3 : select_ln388_10_fu_2673_p3);
+
+assign iter_fu_1709_p2 = (pixel_R_reg_311 + 8'd1);
+
+assign lhs_V_2_fu_1721_p1 = ret_V_15_fu_1715_p2;
+
+assign lhs_V_3_fu_1813_p1 = $signed(p_Val2_25_reg_300);
+
+assign lhs_V_4_fu_1823_p1 = $signed(ret_V_17_fu_1817_p2);
+
+assign lhs_V_5_fu_2006_p1 = x_V_fu_1963_p3;
+
+assign lhs_V_6_fu_1677_p1 = $signed(p_Val2_19_reg_278);
+
+assign lhs_V_fu_1500_p1 = p_Val2_16_fu_1492_p3;
 
 assign m_axis_video_TDATA = VIDEO_OUT_V_data_V_1_data_out;
 
@@ -1713,24 +1796,566 @@ assign m_axis_video_TUSER = VIDEO_OUT_V_user_V_1_data_out;
 
 assign m_axis_video_TVALID = VIDEO_OUT_V_dest_V_1_state[1'd0];
 
-assign or_ln29_fu_333_p2 = (row_0_reg_155 | col_0_reg_167);
+assign or_ln30_fu_528_p2 = (tmp_V_reg_266 | tmp_V_1_reg_243);
 
-assign or_ln51_fu_380_p2 = (icmp_ln51_2_reg_475 | icmp_ln51_1_reg_470);
+assign or_ln340_10_fu_899_p2 = (xor_ln785_2_reg_2833 | and_ln786_5_fu_870_p2);
 
-assign pixel_out_V_fu_408_p4 = {{{pixel_R_reg_214}, {pixel_R_reg_214}}, {8'd255}};
+assign or_ln340_11_fu_904_p2 = (or_ln340_10_fu_899_p2 | and_ln781_2_fu_847_p2);
 
-assign row_fu_304_p2 = (row_0_reg_155 + 10'd1);
+assign or_ln340_12_fu_1314_p2 = (underflow_5_fu_1309_p2 | overflow_4_fu_1285_p2);
 
-assign tmp_1_fu_354_p4 = {{bitcast_ln51_fu_350_p1[30:23]}};
+assign or_ln340_13_fu_1471_p2 = (xor_ln785_7_reg_2994 | and_ln786_7_reg_2999);
 
-assign tmp_last_V_fu_315_p2 = ((row_0_reg_155 == 10'd799) ? 1'b1 : 1'b0);
+assign or_ln340_14_fu_1475_p2 = (or_ln340_13_fu_1471_p2 | and_ln781_3_reg_2989);
 
-assign tmp_user_V_fu_339_p2 = ((or_ln29_fu_333_p2 == 10'd0) ? 1'b1 : 1'b0);
+assign or_ln340_15_fu_1554_p2 = (xor_ln340_2_fu_1548_p2 | p_Result_25_fu_1522_p3);
 
-assign trunc_ln51_fu_364_p1 = bitcast_ln51_fu_350_p1[22:0];
+assign or_ln340_16_fu_1936_p2 = (underflow_7_reg_3095 | overflow_5_reg_3089);
 
-assign zext_ln40_fu_345_p1 = col_0_reg_167;
+assign or_ln340_17_fu_1945_p2 = (xor_ln340_3_fu_1940_p2 | overflow_5_reg_3089);
 
-assign zext_ln44_fu_310_p1 = row_0_reg_155;
+assign or_ln340_18_fu_1971_p2 = (underflow_8_reg_3114 | overflow_6_reg_3108);
+
+assign or_ln340_19_fu_1980_p2 = (xor_ln340_4_fu_1975_p2 | overflow_6_reg_3108);
+
+assign or_ln340_1_fu_1046_p2 = (tmp_14_fu_966_p3 | and_ln786_1_fu_1022_p2);
+
+assign or_ln340_20_fu_2279_p2 = (underflow_9_fu_2274_p2 | overflow_7_fu_2250_p2);
+
+assign or_ln340_21_fu_2629_p2 = (xor_ln785_11_reg_3242 | and_ln786_12_reg_3247);
+
+assign or_ln340_22_fu_2633_p2 = (or_ln340_21_fu_2629_p2 | and_ln781_4_reg_3237);
+
+assign or_ln340_23_fu_2451_p2 = (underflow_10_fu_2446_p2 | overflow_8_fu_2422_p2);
+
+assign or_ln340_24_fu_2658_p2 = (xor_ln785_13_reg_3273 | and_ln786_14_reg_3278);
+
+assign or_ln340_25_fu_2662_p2 = (or_ln340_24_fu_2658_p2 | and_ln781_5_reg_3268);
+
+assign or_ln340_26_fu_2623_p2 = (underflow_11_fu_2618_p2 | overflow_9_fu_2594_p2);
+
+assign or_ln340_27_fu_2687_p2 = (xor_ln785_15_reg_3304 | and_ln786_16_reg_3309);
+
+assign or_ln340_28_fu_2691_p2 = (or_ln340_27_fu_2687_p2 | and_ln781_6_reg_3299);
+
+assign or_ln340_2_fu_693_p2 = (underflow_1_fu_688_p2 | overflow_1_fu_665_p2);
+
+assign or_ln340_3_fu_1080_p2 = (or_ln340_4_fu_1076_p2 | and_ln781_reg_2903);
+
+assign or_ln340_4_fu_1076_p2 = (xor_ln785_reg_2796 | and_ln786_reg_2908);
+
+assign or_ln340_5_fu_1631_p2 = (underflow_2_fu_1626_p2 | overflow_2_fu_1609_p2);
+
+assign or_ln340_6_fu_1642_p2 = (or_ln340_7_fu_1637_p2 | and_ln781_1_fu_1589_p2);
+
+assign or_ln340_7_fu_1637_p2 = (xor_ln785_4_fu_1604_p2 | and_ln786_2_reg_3048);
+
+assign or_ln340_8_fu_722_p2 = (tmp_24_fu_699_p3 | tmp_13_reg_2867);
+
+assign or_ln340_9_fu_893_p2 = (underflow_4_fu_888_p2 | overflow_3_fu_865_p2);
+
+assign or_ln340_fu_1040_p2 = (underflow_fu_1034_p2 | overflow_fu_1016_p2);
+
+assign or_ln785_1_fu_659_p2 = (xor_ln785_1_fu_653_p2 | p_Result_13_fu_582_p3);
+
+assign or_ln785_2_fu_1599_p2 = (xor_ln785_3_fu_1593_p2 | p_Result_16_reg_3032);
+
+assign or_ln785_3_fu_859_p2 = (xor_ln785_5_fu_853_p2 | grp_fu_322_p3);
+
+assign or_ln785_4_fu_1274_p2 = (xor_ln785_6_fu_1268_p2 | p_Result_23_fu_1204_p3);
+
+assign or_ln785_5_fu_1771_p2 = (p_Result_27_fu_1747_p3 | icmp_ln785_fu_1765_p2);
+
+assign or_ln785_6_fu_1883_p2 = (p_Result_29_fu_1859_p3 | icmp_ln785_1_fu_1877_p2);
+
+assign or_ln785_7_fu_2239_p2 = (xor_ln785_10_fu_2233_p2 | p_Result_32_fu_2169_p3);
+
+assign or_ln785_8_fu_2411_p2 = (xor_ln785_12_fu_2405_p2 | p_Result_35_fu_2341_p3);
+
+assign or_ln785_9_fu_2583_p2 = (xor_ln785_14_fu_2577_p2 | p_Result_38_fu_2513_p3);
+
+assign or_ln785_fu_1010_p2 = (tmp_16_fu_1002_p3 | p_Result_s_fu_994_p3);
+
+assign or_ln786_1_fu_1615_p2 = (and_ln786_2_reg_3048 | and_ln781_1_fu_1589_p2);
+
+assign or_ln786_2_fu_1801_p2 = (xor_ln786_6_fu_1789_p2 | icmp_ln786_fu_1795_p2);
+
+assign or_ln786_3_fu_1913_p2 = (xor_ln786_7_fu_1901_p2 | icmp_ln786_1_fu_1907_p2);
+
+assign or_ln786_4_fu_876_p2 = (and_ln786_5_fu_870_p2 | and_ln781_2_fu_847_p2);
+
+assign or_ln786_5_fu_1297_p2 = (and_ln786_7_fu_1291_p2 | and_ln781_3_fu_1262_p2);
+
+assign or_ln786_6_fu_2262_p2 = (and_ln786_12_fu_2256_p2 | and_ln781_4_fu_2227_p2);
+
+assign or_ln786_7_fu_2434_p2 = (and_ln786_14_fu_2428_p2 | and_ln781_5_fu_2399_p2);
+
+assign or_ln786_8_fu_2606_p2 = (and_ln786_16_fu_2600_p2 | and_ln781_6_fu_2571_p2);
+
+assign or_ln786_9_fu_1028_p2 = (tmp_14_fu_966_p3 | and_ln786_1_fu_1022_p2);
+
+assign or_ln786_fu_676_p2 = (and_ln786_fu_670_p2 | and_ln781_fu_647_p2);
+
+assign or_ln_fu_974_p4 = {{{{2'd2}, {tmp_V_reg_266}}}, {3'd0}};
+
+assign overflow_1_fu_665_p2 = (xor_ln785_reg_2796 & or_ln785_1_fu_659_p2);
+
+assign overflow_2_fu_1609_p2 = (xor_ln785_4_fu_1604_p2 & or_ln785_2_fu_1599_p2);
+
+assign overflow_3_fu_865_p2 = (xor_ln785_2_reg_2833 & or_ln785_3_fu_859_p2);
+
+assign overflow_4_fu_1285_p2 = (xor_ln785_7_fu_1280_p2 & or_ln785_4_fu_1274_p2);
+
+assign overflow_5_fu_1783_p2 = (xor_ln785_8_fu_1777_p2 & or_ln785_5_fu_1771_p2);
+
+assign overflow_6_fu_1895_p2 = (xor_ln785_9_fu_1889_p2 & or_ln785_6_fu_1883_p2);
+
+assign overflow_7_fu_2250_p2 = (xor_ln785_11_fu_2245_p2 & or_ln785_7_fu_2239_p2);
+
+assign overflow_8_fu_2422_p2 = (xor_ln785_13_fu_2417_p2 & or_ln785_8_fu_2411_p2);
+
+assign overflow_9_fu_2594_p2 = (xor_ln785_15_fu_2589_p2 & or_ln785_9_fu_2583_p2);
+
+assign overflow_fu_1016_p2 = (tmp_14_fu_966_p3 & or_ln785_fu_1010_p2);
+
+assign p_Result_11_fu_359_p3 = r_V_14_fu_353_p2[32'd35];
+
+assign p_Result_13_fu_582_p3 = p_Val2_5_fu_558_p2[32'd17];
+
+assign p_Result_14_fu_1324_p3 = ret_V_12_fu_1320_p2[32'd35];
+
+assign p_Result_15_fu_1342_p3 = ret_V_12_fu_1320_p2[32'd32];
+
+assign p_Result_16_fu_1391_p3 = p_Val2_9_fu_1365_p2[32'd17];
+
+assign p_Result_17_fu_506_p2 = (tmp_13_fu_498_p3 ^ 1'd1);
+
+assign p_Result_18_fu_436_p3 = r_V_16_fu_429_p2[32'd34];
+
+assign p_Result_1_fu_590_p4 = {{r_V_14_reg_2768[35:34]}};
+
+assign p_Result_22_fu_1157_p3 = r_V_17_reg_2943[32'd32];
+
+assign p_Result_23_fu_1204_p3 = p_Val2_15_fu_1178_p2[32'd17];
+
+assign p_Result_24_fu_1509_p3 = ret_V_14_fu_1504_p2[32'd18];
+
+assign p_Result_25_fu_1522_p3 = p_Val2_18_fu_1517_p2[32'd17];
+
+assign p_Result_26_fu_1734_p3 = ret_V_16_fu_1729_p2[32'd19];
+
+assign p_Result_27_fu_1747_p3 = p_Val2_24_fu_1742_p2[32'd17];
+
+assign p_Result_28_fu_1846_p3 = ret_V_19_fu_1841_p2[32'd19];
+
+assign p_Result_29_fu_1859_p3 = p_Val2_30_fu_1854_p2[32'd17];
+
+assign p_Result_2_fu_605_p4 = {{r_V_14_reg_2768[35:33]}};
+
+assign p_Result_31_fu_2122_p3 = r_V_18_reg_3141[32'd32];
+
+assign p_Result_32_fu_2169_p3 = p_Val2_33_fu_2143_p2[32'd17];
+
+assign p_Result_34_fu_2294_p3 = r_V_19_reg_3171[32'd32];
+
+assign p_Result_35_fu_2341_p3 = p_Val2_36_fu_2315_p2[32'd17];
+
+assign p_Result_37_fu_2466_p3 = r_V_20_reg_3201[32'd32];
+
+assign p_Result_38_fu_2513_p3 = p_Val2_41_fu_2487_p2[32'd17];
+
+assign p_Result_5_fu_1755_p4 = {{ret_V_16_fu_1729_p2[19:18]}};
+
+assign p_Result_s_fu_994_p3 = p_Val2_2_fu_984_p2[32'd14];
+
+assign p_Val2_12_fu_772_p3 = {{tmp_4_fu_763_p4}, {and_ln414_1_fu_758_p2}};
+
+assign p_Val2_14_fu_1148_p4 = {{r_V_17_reg_2943[32:15]}};
+
+assign p_Val2_15_fu_1178_p2 = (zext_ln415_2_fu_1174_p1 + p_Val2_14_fu_1148_p4);
+
+assign p_Val2_16_fu_1492_p3 = ((or_ln340_14_fu_1475_p2[0:0] === 1'b1) ? select_ln340_5_fu_1480_p3 : select_ln388_5_fu_1486_p3);
+
+assign p_Val2_18_fu_1517_p2 = ($signed(p_Val2_16_fu_1492_p3) + $signed(im_V_read_reg_2763));
+
+assign p_Val2_24_fu_1742_p2 = ($signed(trunc_ln1192_fu_1725_p1) + $signed(x0_V_reg_3060));
+
+assign p_Val2_2_fu_984_p2 = (shl_ln_fu_934_p3 + or_ln_fu_974_p4);
+
+assign p_Val2_30_fu_1854_p2 = ($signed(trunc_ln1192_1_fu_1837_p1) + $signed(y0_V_reg_3054));
+
+assign p_Val2_32_fu_2113_p4 = {{r_V_18_reg_3141[32:15]}};
+
+assign p_Val2_33_fu_2143_p2 = (zext_ln415_3_fu_2139_p1 + p_Val2_32_fu_2113_p4);
+
+assign p_Val2_35_fu_2285_p4 = {{r_V_19_reg_3171[32:15]}};
+
+assign p_Val2_36_fu_2315_p2 = (zext_ln415_4_fu_2311_p1 + p_Val2_35_fu_2285_p4);
+
+assign p_Val2_40_fu_2457_p4 = {{r_V_20_reg_3201[32:15]}};
+
+assign p_Val2_41_fu_2487_p2 = (zext_ln415_5_fu_2483_p1 + p_Val2_40_fu_2457_p4);
+
+assign p_Val2_5_fu_558_p2 = (zext_ln415_fu_554_p1 + p_Val2_4_reg_2781);
+
+assign p_Val2_8_fu_1332_p4 = {{ret_V_12_fu_1320_p2[32:15]}};
+
+assign p_Val2_9_fu_1365_p2 = (zext_ln415_1_fu_1361_p1 + p_Val2_8_fu_1332_p4);
+
+assign pixel_out_V_fu_1925_p4 = {{{pixel_R_reg_311}, {pixel_R_reg_311}}, {8'd255}};
+
+assign r_V_11_fu_2082_p1 = $signed(ret_V_10_reg_3136);
+
+assign r_V_13_fu_954_p2 = (shl_ln_fu_934_p3 + zext_ln1118_fu_950_p1);
+
+assign r_V_14_fu_353_p2 = ($signed(sext_ln1118_fu_337_p1) - $signed(sext_ln1118_3_fu_349_p1));
+
+assign r_V_16_fu_429_p2 = ($signed(35'd0) - $signed(sext_ln1118_4_fu_425_p1));
+
+assign r_V_18_fu_2733_p0 = r_V_7_fu_2020_p1;
+
+assign r_V_18_fu_2733_p1 = r_V_7_fu_2020_p1;
+
+assign r_V_19_fu_2743_p0 = r_V_9_fu_2051_p1;
+
+assign r_V_19_fu_2743_p1 = r_V_9_fu_2051_p1;
+
+assign r_V_20_fu_2753_p0 = r_V_11_fu_2082_p1;
+
+assign r_V_20_fu_2753_p1 = r_V_11_fu_2082_p1;
+
+assign r_V_7_fu_2020_p1 = x_V_reg_3126;
+
+assign r_V_9_fu_2051_p1 = y_V_reg_3131;
+
+assign real_btm_V_fu_1097_p3 = ((or_ln340_3_fu_1080_p2[0:0] === 1'b1) ? select_ln340_1_fu_1085_p3 : select_ln388_1_fu_1091_p3);
+
+assign real_top_V_fu_1068_p3 = ((or_ln340_1_fu_1046_p2[0:0] === 1'b1) ? select_ln340_fu_1052_p3 : select_ln388_fu_1060_p3);
+
+assign ret_V_10_fu_2014_p2 = ($signed(rhs_V_6_fu_2010_p1) + $signed(lhs_V_5_fu_2006_p1));
+
+assign ret_V_11_fu_960_p2 = (r_V_13_fu_954_p2 ^ 15'd16384);
+
+assign ret_V_12_fu_1320_p2 = ($signed(r_V_15_reg_2973) + $signed(sext_ln728_reg_2802));
+
+assign ret_V_13_fu_492_p2 = (phi_mul_reg_255 ^ 15'd16384);
+
+assign ret_V_14_fu_1504_p2 = ($signed(lhs_V_fu_1500_p1) + $signed(rhs_V_1_reg_2839));
+
+assign ret_V_15_fu_1715_p2 = ($signed(lhs_V_6_fu_1677_p1) - $signed(rhs_V_2_fu_1681_p1));
+
+assign ret_V_16_fu_1729_p2 = ($signed(rhs_V_3_reg_3065) + $signed(lhs_V_2_fu_1721_p1));
+
+assign ret_V_17_fu_1817_p2 = ($signed(lhs_V_3_fu_1813_p1) - $signed(lhs_V_6_fu_1677_p1));
+
+assign ret_V_18_fu_1831_p2 = ($signed(lhs_V_4_fu_1823_p1) - $signed(rhs_V_5_fu_1827_p1));
+
+assign ret_V_19_fu_1841_p2 = ($signed(sext_ln61_reg_3070) + $signed(ret_V_18_fu_1831_p2));
+
+assign ret_V_fu_1685_p2 = ($signed(rhs_V_2_fu_1681_p1) + $signed(lhs_V_6_fu_1677_p1));
+
+assign rhs_V_1_fu_464_p0 = im_V;
+
+assign rhs_V_1_fu_464_p1 = rhs_V_1_fu_464_p0;
+
+assign rhs_V_2_fu_1681_p1 = p_Val2_20_reg_289;
+
+assign rhs_V_3_fu_1670_p1 = x0_V_fu_1662_p3;
+
+assign rhs_V_5_fu_1827_p1 = p_Val2_20_reg_289;
+
+assign rhs_V_6_fu_2010_p1 = y_V_fu_1998_p3;
+
+assign rhs_V_fu_405_p3 = {{re_V}, {15'd0}};
+
+assign row_fu_480_p2 = (tmp_V_1_reg_243 + 10'd1);
+
+assign rsquare_V_fu_2650_p3 = ((or_ln340_22_fu_2633_p2[0:0] === 1'b1) ? select_ln340_9_fu_2638_p3 : select_ln388_9_fu_2644_p3);
+
+assign select_ln340_10_fu_2667_p3 = ((or_ln340_23_reg_3288[0:0] === 1'b1) ? 18'd131071 : p_Val2_36_reg_3262);
+
+assign select_ln340_11_fu_2696_p3 = ((or_ln340_26_reg_3319[0:0] === 1'b1) ? 18'd131071 : p_Val2_41_reg_3293);
+
+assign select_ln340_1_fu_1085_p3 = ((or_ln340_2_reg_2918[0:0] === 1'b1) ? 18'd131071 : p_Val2_5_reg_2897);
+
+assign select_ln340_2_fu_1648_p3 = ((or_ln340_5_fu_1631_p2[0:0] === 1'b1) ? 18'd131071 : p_Val2_9_reg_3020);
+
+assign select_ln340_3_fu_727_p3 = ((xor_ln340_fu_717_p2[0:0] === 1'b1) ? 18'd131071 : sext_ln703_1_reg_2878);
+
+assign select_ln340_4_fu_910_p3 = ((or_ln340_9_fu_893_p2[0:0] === 1'b1) ? 18'd131071 : p_Val2_12_fu_772_p3);
+
+assign select_ln340_5_fu_1480_p3 = ((or_ln340_12_reg_3009[0:0] === 1'b1) ? 18'd131071 : p_Val2_15_reg_2983);
+
+assign select_ln340_6_fu_1560_p3 = ((xor_ln340_1_fu_1542_p2[0:0] === 1'b1) ? 18'd131071 : p_Val2_18_fu_1517_p2);
+
+assign select_ln340_7_fu_1950_p3 = ((or_ln340_16_fu_1936_p2[0:0] === 1'b1) ? 18'd131071 : p_Val2_24_reg_3083);
+
+assign select_ln340_8_fu_1985_p3 = ((or_ln340_18_fu_1971_p2[0:0] === 1'b1) ? 18'd131071 : p_Val2_30_reg_3102);
+
+assign select_ln340_9_fu_2638_p3 = ((or_ln340_20_reg_3257[0:0] === 1'b1) ? 18'd131071 : p_Val2_33_reg_3231);
+
+assign select_ln340_fu_1052_p3 = ((or_ln340_fu_1040_p2[0:0] === 1'b1) ? 18'd131071 : sext_ln703_2_fu_990_p1);
+
+assign select_ln388_10_fu_2673_p3 = ((underflow_10_reg_3283[0:0] === 1'b1) ? 18'd131072 : p_Val2_36_reg_3262);
+
+assign select_ln388_11_fu_2702_p3 = ((underflow_11_reg_3314[0:0] === 1'b1) ? 18'd131072 : p_Val2_41_reg_3293);
+
+assign select_ln388_1_fu_1091_p3 = ((underflow_1_reg_2913[0:0] === 1'b1) ? 18'd131072 : p_Val2_5_reg_2897);
+
+assign select_ln388_2_fu_1655_p3 = ((underflow_2_fu_1626_p2[0:0] === 1'b1) ? 18'd131072 : p_Val2_9_reg_3020);
+
+assign select_ln388_3_fu_734_p3 = ((underflow_3_fu_712_p2[0:0] === 1'b1) ? 18'd131072 : sext_ln703_1_reg_2878);
+
+assign select_ln388_4_fu_918_p3 = ((underflow_4_fu_888_p2[0:0] === 1'b1) ? 18'd131072 : p_Val2_12_fu_772_p3);
+
+assign select_ln388_5_fu_1486_p3 = ((underflow_5_reg_3004[0:0] === 1'b1) ? 18'd131072 : p_Val2_15_reg_2983);
+
+assign select_ln388_6_fu_1568_p3 = ((underflow_6_fu_1536_p2[0:0] === 1'b1) ? 18'd131072 : p_Val2_18_fu_1517_p2);
+
+assign select_ln388_7_fu_1957_p3 = ((underflow_7_reg_3095[0:0] === 1'b1) ? 18'd131072 : p_Val2_24_reg_3083);
+
+assign select_ln388_8_fu_1992_p3 = ((underflow_8_reg_3114[0:0] === 1'b1) ? 18'd131072 : p_Val2_30_reg_3102);
+
+assign select_ln388_9_fu_2644_p3 = ((underflow_9_reg_3252[0:0] === 1'b1) ? 18'd131072 : p_Val2_33_reg_3231);
+
+assign select_ln388_fu_1060_p3 = ((or_ln786_9_fu_1028_p2[0:0] === 1'b1) ? sext_ln703_2_fu_990_p1 : 18'd131072);
+
+assign sext_ln1118_3_fu_349_p1 = $signed(shl_ln1118_3_fu_341_p3);
+
+assign sext_ln1118_4_fu_425_p1 = $signed(shl_ln1118_4_fu_417_p3);
+
+assign sext_ln1118_fu_337_p1 = $signed(shl_ln1118_2_fu_329_p3);
+
+assign sext_ln61_fu_1674_p1 = y0_V_reg_3054;
+
+assign sext_ln703_1_fu_512_p1 = ret_V_13_fu_492_p2;
+
+assign sext_ln703_2_fu_990_p1 = p_Val2_2_fu_984_p2;
+
+assign sext_ln728_fu_413_p1 = $signed(rhs_V_fu_405_p3);
+
+assign shl_ln1118_1_fu_942_p3 = {{tmp_V_reg_266}, {3'd0}};
+
+assign shl_ln1118_2_fu_329_p3 = {{zoom_factor_V}, {17'd0}};
+
+assign shl_ln1118_3_fu_341_p3 = {{zoom_factor_V}, {15'd0}};
+
+assign shl_ln1118_4_fu_417_p3 = {{zoom_factor_V}, {16'd0}};
+
+assign shl_ln_fu_934_p3 = {{tmp_V_reg_266}, {5'd0}};
+
+assign tmp_11_fu_444_p3 = r_V_16_fu_429_p2[32'd33];
+
+assign tmp_13_fu_498_p3 = phi_mul_reg_255[32'd14];
+
+assign tmp_14_fu_966_p3 = r_V_13_fu_954_p2[32'd14];
+
+assign tmp_16_fu_1002_p3 = ret_V_11_fu_960_p2[32'd14];
+
+assign tmp_17_fu_563_p3 = p_Val2_5_fu_558_p2[32'd17];
+
+assign tmp_21_fu_1371_p3 = p_Val2_9_fu_1365_p2[32'd17];
+
+assign tmp_23_fu_1437_p3 = ret_V_12_fu_1320_p2[32'd33];
+
+assign tmp_24_fu_699_p3 = ret_V_13_reg_2862[32'd14];
+
+assign tmp_25_fu_780_p3 = r_V_16_reg_2807[32'd32];
+
+assign tmp_2_fu_1867_p4 = {{ret_V_19_fu_1841_p2[19:18]}};
+
+assign tmp_30_fu_1184_p3 = p_Val2_15_fu_1178_p2[32'd17];
+
+assign tmp_32_fu_1235_p3 = r_V_17_reg_2943[32'd33];
+
+assign tmp_41_fu_2149_p3 = p_Val2_33_fu_2143_p2[32'd17];
+
+assign tmp_43_fu_2200_p3 = r_V_18_reg_3141[32'd33];
+
+assign tmp_46_fu_2321_p3 = p_Val2_36_fu_2315_p2[32'd17];
+
+assign tmp_48_fu_2372_p3 = r_V_19_reg_3171[32'd33];
+
+assign tmp_4_fu_763_p4 = {{r_V_16_reg_2807[32:16]}};
+
+assign tmp_51_fu_2493_p3 = p_Val2_41_fu_2487_p2[32'd17];
+
+assign tmp_53_fu_2544_p3 = r_V_20_reg_3201[32'd33];
+
+assign tmp_5_fu_1399_p4 = {{ret_V_12_fu_1320_p2[35:34]}};
+
+assign tmp_6_fu_385_p3 = r_V_14_fu_353_p2[32'd33];
+
+assign tmp_7_fu_1415_p4 = {{ret_V_12_fu_1320_p2[35:33]}};
+
+assign tmp_last_V_fu_486_p2 = ((tmp_V_1_reg_243 == 10'd799) ? 1'b1 : 1'b0);
+
+assign tmp_s_fu_805_p4 = {{r_V_16_reg_2807[34:33]}};
+
+assign tmp_user_V_fu_534_p2 = ((or_ln30_fu_528_p2 == 10'd0) ? 1'b1 : 1'b0);
+
+assign trunc_ln1192_1_fu_1837_p1 = ret_V_18_fu_1831_p2[17:0];
+
+assign trunc_ln1192_fu_1725_p1 = ret_V_15_fu_1715_p2[17:0];
+
+assign trunc_ln414_1_fu_1118_p1 = r_V_17_fu_2716_p2[14:0];
+
+assign trunc_ln414_2_fu_2030_p1 = r_V_18_fu_2733_p2[14:0];
+
+assign trunc_ln414_3_fu_2061_p1 = r_V_19_fu_2743_p2[14:0];
+
+assign trunc_ln414_4_fu_2092_p1 = r_V_20_fu_2753_p2[14:0];
+
+assign trunc_ln414_fu_1145_p1 = r_V_15_fu_2726_p2[14:0];
+
+assign trunc_ln718_1_fu_749_p1 = r_V_16_reg_2807[13:0];
+
+assign trunc_ln718_fu_540_p1 = r_V_14_reg_2768[13:0];
+
+assign underflow_10_fu_2446_p2 = (xor_ln786_9_fu_2440_p2 & p_Result_33_reg_3178);
+
+assign underflow_11_fu_2618_p2 = (xor_ln786_10_fu_2612_p2 & p_Result_36_reg_3208);
+
+assign underflow_1_fu_688_p2 = (xor_ln786_fu_682_p2 & p_Result_11_reg_2775);
+
+assign underflow_2_fu_1626_p2 = (xor_ln786_1_fu_1620_p2 & p_Result_14_reg_3014);
+
+assign underflow_3_fu_712_p2 = (xor_ln786_2_fu_706_p2 & p_Result_17_reg_2872);
+
+assign underflow_4_fu_888_p2 = (xor_ln786_3_fu_882_p2 & p_Result_18_reg_2817);
+
+assign underflow_5_fu_1309_p2 = (xor_ln786_4_fu_1303_p2 & p_Result_21_reg_2950);
+
+assign underflow_6_fu_1536_p2 = (xor_ln786_5_fu_1530_p2 & p_Result_24_fu_1509_p3);
+
+assign underflow_7_fu_1807_p2 = (p_Result_26_fu_1734_p3 & or_ln786_2_fu_1801_p2);
+
+assign underflow_8_fu_1919_p2 = (p_Result_28_fu_1846_p3 & or_ln786_3_fu_1913_p2);
+
+assign underflow_9_fu_2274_p2 = (xor_ln786_8_fu_2268_p2 & p_Result_30_reg_3148);
+
+assign underflow_fu_1034_p2 = (or_ln786_9_fu_1028_p2 ^ 1'd1);
+
+assign x0_V_fu_1662_p3 = ((or_ln340_6_fu_1642_p2[0:0] === 1'b1) ? select_ln340_2_fu_1648_p3 : select_ln388_2_fu_1655_p3);
+
+assign x_V_fu_1963_p3 = ((or_ln340_17_fu_1945_p2[0:0] === 1'b1) ? select_ln340_7_fu_1950_p3 : select_ln388_7_fu_1957_p3);
+
+assign xor_ln340_1_fu_1542_p2 = (p_Result_25_fu_1522_p3 ^ p_Result_24_fu_1509_p3);
+
+assign xor_ln340_2_fu_1548_p2 = (p_Result_24_fu_1509_p3 ^ 1'd1);
+
+assign xor_ln340_3_fu_1940_p2 = (underflow_7_reg_3095 ^ 1'd1);
+
+assign xor_ln340_4_fu_1975_p2 = (underflow_8_reg_3114 ^ 1'd1);
+
+assign xor_ln340_fu_717_p2 = (tmp_24_fu_699_p3 ^ p_Result_17_reg_2872);
+
+assign xor_ln416_1_fu_1379_p2 = (tmp_21_fu_1371_p3 ^ 1'd1);
+
+assign xor_ln416_2_fu_787_p2 = (tmp_25_fu_780_p3 ^ 1'd1);
+
+assign xor_ln416_3_fu_1192_p2 = (tmp_30_fu_1184_p3 ^ 1'd1);
+
+assign xor_ln416_4_fu_2157_p2 = (tmp_41_fu_2149_p3 ^ 1'd1);
+
+assign xor_ln416_5_fu_2329_p2 = (tmp_46_fu_2321_p3 ^ 1'd1);
+
+assign xor_ln416_6_fu_2501_p2 = (tmp_51_fu_2493_p3 ^ 1'd1);
+
+assign xor_ln416_fu_571_p2 = (tmp_17_fu_563_p3 ^ 1'd1);
+
+assign xor_ln779_1_fu_452_p2 = (tmp_11_fu_444_p3 ^ 1'd1);
+
+assign xor_ln779_2_fu_1445_p2 = (tmp_23_fu_1437_p3 ^ 1'd1);
+
+assign xor_ln779_3_fu_1242_p2 = (tmp_32_fu_1235_p3 ^ 1'd1);
+
+assign xor_ln779_4_fu_2207_p2 = (tmp_43_fu_2200_p3 ^ 1'd1);
+
+assign xor_ln779_5_fu_2379_p2 = (tmp_48_fu_2372_p3 ^ 1'd1);
+
+assign xor_ln779_6_fu_2551_p2 = (tmp_53_fu_2544_p3 ^ 1'd1);
+
+assign xor_ln779_fu_393_p2 = (tmp_6_fu_385_p3 ^ 1'd1);
+
+assign xor_ln785_10_fu_2233_p2 = (deleted_zeros_4_fu_2192_p3 ^ 1'd1);
+
+assign xor_ln785_11_fu_2245_p2 = (p_Result_30_reg_3148 ^ 1'd1);
+
+assign xor_ln785_12_fu_2405_p2 = (deleted_zeros_5_fu_2364_p3 ^ 1'd1);
+
+assign xor_ln785_13_fu_2417_p2 = (p_Result_33_reg_3178 ^ 1'd1);
+
+assign xor_ln785_14_fu_2577_p2 = (deleted_zeros_6_fu_2536_p3 ^ 1'd1);
+
+assign xor_ln785_15_fu_2589_p2 = (p_Result_36_reg_3208 ^ 1'd1);
+
+assign xor_ln785_1_fu_653_p2 = (deleted_zeros_fu_626_p3 ^ 1'd1);
+
+assign xor_ln785_2_fu_458_p2 = (p_Result_18_fu_436_p3 ^ 1'd1);
+
+assign xor_ln785_3_fu_1593_p2 = (deleted_zeros_1_fu_1584_p3 ^ 1'd1);
+
+assign xor_ln785_4_fu_1604_p2 = (p_Result_14_reg_3014 ^ 1'd1);
+
+assign xor_ln785_5_fu_853_p2 = (deleted_zeros_2_fu_826_p3 ^ 1'd1);
+
+assign xor_ln785_6_fu_1268_p2 = (deleted_zeros_3_fu_1227_p3 ^ 1'd1);
+
+assign xor_ln785_7_fu_1280_p2 = (p_Result_21_reg_2950 ^ 1'd1);
+
+assign xor_ln785_8_fu_1777_p2 = (p_Result_26_fu_1734_p3 ^ 1'd1);
+
+assign xor_ln785_9_fu_1889_p2 = (p_Result_28_fu_1846_p3 ^ 1'd1);
+
+assign xor_ln785_fu_399_p2 = (p_Result_11_fu_359_p3 ^ 1'd1);
+
+assign xor_ln786_10_fu_2612_p2 = (or_ln786_8_fu_2606_p2 ^ 1'd1);
+
+assign xor_ln786_1_fu_1620_p2 = (or_ln786_1_fu_1615_p2 ^ 1'd1);
+
+assign xor_ln786_2_fu_706_p2 = (tmp_24_fu_699_p3 ^ 1'd1);
+
+assign xor_ln786_3_fu_882_p2 = (or_ln786_4_fu_876_p2 ^ 1'd1);
+
+assign xor_ln786_4_fu_1303_p2 = (or_ln786_5_fu_1297_p2 ^ 1'd1);
+
+assign xor_ln786_5_fu_1530_p2 = (p_Result_25_fu_1522_p3 ^ 1'd1);
+
+assign xor_ln786_6_fu_1789_p2 = (p_Result_27_fu_1747_p3 ^ 1'd1);
+
+assign xor_ln786_7_fu_1901_p2 = (p_Result_29_fu_1859_p3 ^ 1'd1);
+
+assign xor_ln786_8_fu_2268_p2 = (or_ln786_6_fu_2262_p2 ^ 1'd1);
+
+assign xor_ln786_9_fu_2440_p2 = (or_ln786_7_fu_2434_p2 ^ 1'd1);
+
+assign xor_ln786_fu_682_p2 = (or_ln786_fu_676_p2 ^ 1'd1);
+
+assign y0_V_fu_1576_p3 = ((or_ln340_15_fu_1554_p2[0:0] === 1'b1) ? select_ln340_6_fu_1560_p3 : select_ln388_6_fu_1568_p3);
+
+assign y_V_fu_1998_p3 = ((or_ln340_19_fu_1980_p2[0:0] === 1'b1) ? select_ln340_8_fu_1985_p3 : select_ln388_8_fu_1992_p3);
+
+assign zext_ln1118_fu_950_p1 = shl_ln1118_1_fu_942_p3;
+
+assign zext_ln415_1_fu_1361_p1 = and_ln700_fu_1355_p2;
+
+assign zext_ln415_2_fu_1174_p1 = and_ln700_1_fu_1169_p2;
+
+assign zext_ln415_3_fu_2139_p1 = and_ln700_2_fu_2134_p2;
+
+assign zext_ln415_4_fu_2311_p1 = and_ln700_3_fu_2306_p2;
+
+assign zext_ln415_5_fu_2483_p1 = and_ln700_4_fu_2478_p2;
+
+assign zext_ln415_fu_554_p1 = and_ln414_fu_549_p2;
+
+assign zsquare_V_fu_2708_p3 = ((or_ln340_28_fu_2691_p2[0:0] === 1'b1) ? select_ln340_11_fu_2696_p3 : select_ln388_11_fu_2702_p3);
+
+always @ (posedge ap_clk) begin
+    r_V_14_reg_2768[14:0] <= 15'b000000000000000;
+    sext_ln728_reg_2802[14:0] <= 15'b000000000000000;
+    r_V_16_reg_2807[15:0] <= 16'b0000000000000000;
+end
 
 endmodule //video_mandelbrot_generator
