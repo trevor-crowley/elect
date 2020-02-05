@@ -12,7 +12,7 @@ zoom_factor = 0.01;
 screenX = 0:WIDTH-1;
 screenY = 0:HEIGHT-1;
 
-
+% optimize below for verilog
 cartX = +3.0 * (screenX - WIDTH/1.28) .* (zoom_factor * 1/WIDTH)  + cartXoffset;
 cartY = -2.0 * (screenY - HEIGHT/2.0) .* (zoom_factor * 1/HEIGHT) + cartYoffset;
 
