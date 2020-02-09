@@ -12,3 +12,4 @@
 start_gui
 source open_wave.tcl
 open_wave_config /home/trevor/dev/myelect/video_mandel_gen/Video_Mandelbrot_Generator/solution3_pipline_mandel/sim/verilog/video_mandelbrot_generator.wcfg
+close_sim

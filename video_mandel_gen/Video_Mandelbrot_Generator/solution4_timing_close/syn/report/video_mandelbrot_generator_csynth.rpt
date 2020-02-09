@@ -1,0 +1,166 @@
+
+
+================================================================
+== Vivado HLS Report for 'video_mandelbrot_generator'
+================================================================
+* Date:           Sun Feb  9 17:08:11 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        Video_Mandelbrot_Generator
+* Solution:       solution4_timing_close
+* Product family: zynq
+* Target device:  xc7z020i-clg484-1L
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.516|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-------+-----+-------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    | min |  max  | min |  max  |   Type  |
+    +-----+-------+-----+-------+---------+
+    |  494|  49262|  494|  49262|   none  |
+    +-----+-------+-----+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------+----------------------+-----+------+-----+------+----------+
+        |                         |                      |   Latency  |  Interval  | Pipeline |
+        |         Instance        |        Module        | min |  max | min |  max |   Type   |
+        +-------------------------+----------------------+-----+------+-----+------+----------+
+        |dataflow_in_loop_out_U0  |dataflow_in_loop_out  |   81|  8209|   82|  8210| dataflow |
+        +-------------------------+----------------------+-----+------+-----+------+----------+
+
+        * Loop: 
+        +----------+-----+-------+-----------+-----------+-----------+------+----------+
+        |          |   Latency   | Iteration |  Initiation Interval  | Trip |          |
+        | Loop Name| min |  max  |  Latency  |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-------+-----------+-----------+-----------+------+----------+
+        |- out     |  492|  49260| 83 ~ 8211 |          -|          -|     6|    no    |
+        +----------+-----+-------+-----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|     36|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        0|      6|     994|   2390|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|     18|    -|
+|Register         |        -|      -|       6|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      6|    1000|   2444|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      2|   ~0   |      4|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------------+--------------------------------------+---------+-------+-----+------+-----+
+    |                Instance                |                Module                | BRAM_18K| DSP48E|  FF |  LUT | URAM|
+    +----------------------------------------+--------------------------------------+---------+-------+-----+------+-----+
+    |dataflow_in_loop_out_U0                 |dataflow_in_loop_out                  |        0|      6|  886|  2242|    0|
+    |video_mandelbrot_generator_cmd_s_axi_U  |video_mandelbrot_generator_cmd_s_axi  |        0|      0|  108|   148|    0|
+    +----------------------------------------+--------------------------------------+---------+-------+-----+------+-----+
+    |Total                                   |                                      |        0|      6|  994|  2390|    0|
+    +----------------------------------------+--------------------------------------+---------+-------+-----+------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------+----------+-------+---+----+------------+------------+
+    |        Variable Name       | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------+----------+-------+---+----+------------+------------+
+    |loop_dataflow_input_count   |     +    |      0|  0|  12|           3|           1|
+    |loop_dataflow_output_count  |     +    |      0|  0|  12|           3|           1|
+    |bound_minus_1               |     -    |      0|  0|  12|           3|           1|
+    +----------------------------+----------+-------+---+----+------------+------------+
+    |Total                       |          |      0|  0|  36|           9|           3|
+    +----------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------+----+-----------+-----+-----------+
+    |            Name            | LUT| Input Size| Bits| Total Bits|
+    +----------------------------+----+-----------+-----+-----------+
+    |loop_dataflow_input_count   |   9|          2|    3|          6|
+    |loop_dataflow_output_count  |   9|          2|    3|          6|
+    +----------------------------+----+-----------+-----+-----------+
+    |Total                       |  18|          4|    6|         12|
+    +----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------+---+----+-----+-----------+
+    |            Name            | FF| LUT| Bits| Const Bits|
+    +----------------------------+---+----+-----+-----------+
+    |loop_dataflow_input_count   |  3|   0|    3|          0|
+    |loop_dataflow_output_count  |  3|   0|    3|          0|
+    +----------------------------+---+----+-----+-----------+
+    |Total                       |  6|   0|    6|          0|
+    +----------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------+-----+-----+------------+----------------------------+--------------+
+|      RTL Ports      | Dir | Bits|  Protocol  |        Source Object       |    C Type    |
++---------------------+-----+-----+------------+----------------------------+--------------+
+|s_axi_cmd_AWVALID    |  in |    1|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_AWREADY    | out |    1|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_AWADDR     |  in |    6|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_WVALID     |  in |    1|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_WREADY     | out |    1|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_WDATA      |  in |   32|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_WSTRB      |  in |    4|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_ARVALID    |  in |    1|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_ARREADY    | out |    1|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_ARADDR     |  in |    6|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_RVALID     | out |    1|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_RREADY     |  in |    1|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_RDATA      | out |   32|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_RRESP      | out |    2|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_BVALID     | out |    1|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_BREADY     |  in |    1|    s_axi   |             cmd            |    scalar    |
+|s_axi_cmd_BRESP      | out |    2|    s_axi   |             cmd            |    scalar    |
+|ap_clk               |  in |    1| ap_ctrl_hs | video_mandelbrot_generator | return value |
+|ap_rst_n             |  in |    1| ap_ctrl_hs | video_mandelbrot_generator | return value |
+|interrupt            | out |    1| ap_ctrl_hs | video_mandelbrot_generator | return value |
+|m_axis_video_TDATA   | out |   24|    axis    |    m_axis_video_V_data_V   |    pointer   |
+|m_axis_video_TKEEP   | out |    3|    axis    |    m_axis_video_V_keep_V   |    pointer   |
+|m_axis_video_TSTRB   | out |    3|    axis    |    m_axis_video_V_strb_V   |    pointer   |
+|m_axis_video_TUSER   | out |    1|    axis    |    m_axis_video_V_user_V   |    pointer   |
+|m_axis_video_TLAST   | out |    1|    axis    |    m_axis_video_V_last_V   |    pointer   |
+|m_axis_video_TID     | out |    1|    axis    |     m_axis_video_V_id_V    |    pointer   |
+|m_axis_video_TDEST   | out |    1|    axis    |    m_axis_video_V_dest_V   |    pointer   |
+|m_axis_video_TVALID  | out |    1|    axis    |    m_axis_video_V_dest_V   |    pointer   |
+|m_axis_video_TREADY  |  in |    1|    axis    |    m_axis_video_V_dest_V   |    pointer   |
++---------------------+-----+-----+------------+----------------------------+--------------+
+

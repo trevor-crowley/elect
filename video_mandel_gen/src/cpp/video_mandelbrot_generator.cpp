@@ -4,11 +4,11 @@
 //Top Level Function
 void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_point im, fixed_point zoom_factor)
 {
+#pragma HLS INTERFACE axis register both port=m_axis_video
 #pragma HLS INTERFACE s_axilite port=return bundle=cmd
 #pragma HLS INTERFACE s_axilite port=re bundle=cmd
 #pragma HLS INTERFACE s_axilite port=im bundle=cmd
 #pragma HLS INTERFACE s_axilite port=zoom_factor bundle=cmd
-#pragma HLS INTERFACE axis port=m_axis_video bundle=VIDEO_OUT
 
 
 	ap_axiu<24, 1, 1, 1> video;
@@ -77,6 +77,17 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 
 // */
 			// Assign the pixel value to the data output
+
+		    // test
+//			pixel.R = 0;
+		    pixel.R = iter;
+			pixel.B = 0;
+			pixel.G = col;
+
+//			pixel.R = iter;
+//			pixel.B = iter;
+//			pixel.G = 255;
+
 			// test frame start here ***
 			// Start of frame, assert tuser
 			if((col==0)&&(row==0))
@@ -90,17 +101,8 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 			else
 				video.last = 0;
 
-
-		    // test
-//			pixel.R = 0;
-		    pixel.R = iter;
-			pixel.B = 0;
-			pixel.G = col;
-
-//			pixel.R = iter;
-//			pixel.B = iter;
-//			pixel.G = 255;
 			video.data = set_rgb_8_pixel_value(pixel);
+
 
 			//Send video to stream
 			m_axis_video << video;
