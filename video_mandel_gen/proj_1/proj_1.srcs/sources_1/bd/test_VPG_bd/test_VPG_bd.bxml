@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="37">
   <CompositeFile CompositeFileTopName="test_VPG_bd" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1580092435"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1580092435"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1580092435"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1580092435"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1581209590"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1581209590"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1581209590"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1581209590"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/test_VPG_bd_video_mandelbrot_gen_0_0/test_VPG_bd_video_mandelbrot_gen_0_0.xci" Type="IP">
         <Instance HierarchyPath="video_mandelbrot_gen_0"/>

@@ -18,13 +18,16 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 	fixed_point real_btm, imag_btm;
 	fixed_point x0, y0, rsquare, isquare, zsquare;
 	fixed_point x,y;
-	unsigned int iter;
+	fixed_point newRe, newIm, oldRe, oldIm;
+	int row, col, iter;
 
 	
 	//Add code for output video generation here
-	outer:for(unsigned int row = 0; row < HEIGHT; row++)
+	out:for(row = 0; row < HEIGHT; row++)
 	{
-		inner:for(unsigned int col= 0; col < WIDTH; col++)
+
+
+		inner:for(col= 0; col < WIDTH; col++)
 		{
 			// Start of frame, assert tuser
 			if((col==0)&&(row==0))
@@ -39,11 +42,11 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 				video.last = 0;
 
 			// work2
-			real_top = col * (const fixed_point)(1.0 / WIDTH) - (fixed_point)0.5;
+			real_top = (fixed_point)col * (const fixed_point)(1.0 / WIDTH) - (fixed_point)0.5;
 			real_btm = (fixed_point)3.0 * zoom_factor;
 			x0 = (fixed_point)real_top * real_btm + re;
 
-			imag_top = row * (const fixed_point)(1.0 / HEIGHT) - (fixed_point)0.5;
+			imag_top = (fixed_point)row * (const fixed_point)(1.0 / HEIGHT) - (fixed_point)0.5;
 			imag_btm = (fixed_point)-2.0 * zoom_factor;
 			y0 = (fixed_point)(imag_top * imag_btm) + im;
 
@@ -57,14 +60,31 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 
 	        iter =0;
 	        rsquare = isquare = zsquare = 0;
+	        newRe = newIm = oldRe = oldIm = 0;
+//		    mandel_calc:for (iter=0; iter < MAXITER && ((rsquare + isquare) <= (fixed_point)4); iter++) {
+		    mandel_calc:for (iter=0; iter < MAXITER && ((rsquare + isquare) <= (fixed_point)4); iter++) {
+//		    mandel_calc:while ((rsquare + isquare < (fixed_point)4) && (iter < MAXITER)) {
 
-		    mandel_calc:while ((rsquare + isquare < (fixed_point)4) && (iter < MAXITER)) {
-		        x = rsquare - isquare + x0;
+/*
+		    	oldRe = newRe;
+		    	oldIm = newIm;
+		    	newRe = oldRe * oldRe - oldIm * oldIm + x0;
+		    	newIm = (fixed_point)2.0 * oldRe * oldIm + y0;
+		    	if((newRe * newRe + newIm * newIm) > (fixed_point)4) break;
+*/
+
+
 		        y = zsquare - rsquare - isquare + y0;
+		    	x = rsquare - isquare + x0;
+
 		        rsquare = (fixed_point)(x * x);
 		        isquare = (fixed_point)(y * y);
-		        zsquare = (fixed_point)((x + y) * (x + y));
-		        iter = iter + 1;
+
+		    	zsquare = (fixed_point)((x + y) * (x + y));
+
+
+//		        if ((rsquare + isquare) > (fixed_point)4)
+//		        	break;
 		    }
 
 			pixel.R = iter;

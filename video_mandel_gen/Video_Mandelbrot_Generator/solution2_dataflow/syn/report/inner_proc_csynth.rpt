@@ -1,0 +1,150 @@
+
+
+================================================================
+== Vivado HLS Report for 'inner_proc'
+================================================================
+* Date:           Sat Feb  8 14:51:54 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        Video_Mandelbrot_Generator
+* Solution:       solution2_dataflow
+* Product family: artix7
+* Target device:  xc7a35t-cpg236-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     2.123|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  801|  801|  801|  801|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- inner   |  800|  800|         1|          -|          -|   800|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+-------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF  |  LUT  | URAM|
++-----------------+---------+-------+-------+-------+-----+
+|DSP              |        -|      -|      -|      -|    -|
+|Expression       |        -|      -|      0|     70|    -|
+|FIFO             |        -|      -|      -|      -|    -|
+|Instance         |        -|      -|      -|      -|    -|
+|Memory           |        -|      -|      -|      -|    -|
+|Multiplexer      |        -|      -|      -|     42|    -|
+|Register         |        -|      -|     14|      -|    -|
++-----------------+---------+-------+-------+-------+-----+
+|Total            |        0|      0|     14|    112|    0|
++-----------------+---------+-------+-------+-------+-----+
+|Available        |      100|     90|  41600|  20800|    0|
++-----------------+---------+-------+-------+-------+-----+
+|Utilization (%)  |        0|      0|   ~0  |   ~0  |    0|
++-----------------+---------+-------+-------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |col_fu_113_p2         |     +    |      0|  0|  17|          10|           1|
+    |ap_block_state2_io    |    and   |      0|  0|   2|           1|           1|
+    |icmp_ln30_fu_107_p2   |   icmp   |      0|  0|  13|          10|           9|
+    |m_axis_video_TUSER    |   icmp   |      0|  0|  13|          10|           1|
+    |tmp_last_V_fu_101_p2  |   icmp   |      0|  0|  13|          10|           9|
+    |ap_block_state1       |    or    |      0|  0|   2|           1|           1|
+    |or_ln33_fu_119_p2     |    or    |      0|  0|  10|          10|          10|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |Total                 |          |      0|  0|  70|          52|          32|
+    +----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------+----+-----------+-----+-----------+
+    |           Name           | LUT| Input Size| Bits| Total Bits|
+    +--------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                 |  15|          3|    1|          3|
+    |ap_done                   |   9|          2|    1|          2|
+    |m_axis_video_TDATA_blk_n  |   9|          2|    1|          2|
+    |tmp_V_reg_90              |   9|          2|   10|         20|
+    +--------------------------+----+-----------+-----+-----------+
+    |Total                     |  42|          9|   13|         27|
+    +--------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------+----+----+-----+-----------+
+    |        Name        | FF | LUT| Bits| Const Bits|
+    +--------------------+----+----+-----+-----------+
+    |ap_CS_fsm           |   2|   0|    2|          0|
+    |ap_done_reg         |   1|   0|    1|          0|
+    |tmp_V_reg_90        |  10|   0|   10|          0|
+    |tmp_last_V_reg_136  |   1|   0|    1|          0|
+    +--------------------+----+----+-----+-----------+
+    |Total               |  14|   0|   14|          0|
+    +--------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------+-----+-----+------------+-----------------------+--------------+
+|      RTL Ports      | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++---------------------+-----+-----+------------+-----------------------+--------------+
+|ap_clk               |  in |    1| ap_ctrl_hs |       inner_proc      | return value |
+|ap_rst               |  in |    1| ap_ctrl_hs |       inner_proc      | return value |
+|ap_start             |  in |    1| ap_ctrl_hs |       inner_proc      | return value |
+|ap_done              | out |    1| ap_ctrl_hs |       inner_proc      | return value |
+|ap_continue          |  in |    1| ap_ctrl_hs |       inner_proc      | return value |
+|ap_idle              | out |    1| ap_ctrl_hs |       inner_proc      | return value |
+|ap_ready             | out |    1| ap_ctrl_hs |       inner_proc      | return value |
+|i_op_assign_1        |  in |   10|   ap_none  |     i_op_assign_1     |    scalar    |
+|m_axis_video_TDATA   | out |   24|    axis    | m_axis_video_V_data_V |    pointer   |
+|m_axis_video_TREADY  |  in |    1|    axis    | m_axis_video_V_data_V |    pointer   |
+|m_axis_video_TVALID  | out |    1|    axis    | m_axis_video_V_dest_V |    pointer   |
+|m_axis_video_TDEST   | out |    1|    axis    | m_axis_video_V_dest_V |    pointer   |
+|m_axis_video_TKEEP   | out |    3|    axis    | m_axis_video_V_keep_V |    pointer   |
+|m_axis_video_TSTRB   | out |    3|    axis    | m_axis_video_V_strb_V |    pointer   |
+|m_axis_video_TUSER   | out |    1|    axis    | m_axis_video_V_user_V |    pointer   |
+|m_axis_video_TLAST   | out |    1|    axis    | m_axis_video_V_last_V |    pointer   |
+|m_axis_video_TID     | out |    1|    axis    |  m_axis_video_V_id_V  |    pointer   |
++---------------------+-----+-----+------------+-----------------------+--------------+
+

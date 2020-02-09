@@ -1,0 +1,4 @@
+video_mandelbrot_generator_cmd_s_axi
+inner_proc
+dataflow_in_loop_out
+video_mandelbrot_generator

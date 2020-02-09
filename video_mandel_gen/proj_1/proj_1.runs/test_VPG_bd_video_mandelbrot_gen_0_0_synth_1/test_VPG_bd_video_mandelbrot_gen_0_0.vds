@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Sun Jan 26 21:33:57 2020
-# Process ID: 27385
+# Start of session at: Sat Feb  8 19:53:12 2020
+# Process ID: 4239
 # Current directory: /home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.runs/test_VPG_bd_video_mandelbrot_gen_0_0_synth_1
 # Command line: vivado -log test_VPG_bd_video_mandelbrot_gen_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source test_VPG_bd_video_mandelbrot_gen_0_0.tcl
 # Log file: /home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.runs/test_VPG_bd_video_mandelbrot_gen_0_0_synth_1/test_VPG_bd_video_mandelbrot_gen_0_0.vds
@@ -19,9 +19,9 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 27453 
+INFO: Helper process launched with PID 4295 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1711.621 ; gain = 152.719 ; free physical = 6802 ; free virtual = 27483
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1711.688 ; gain = 152.719 ; free physical = 2907 ; free virtual = 27805
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'test_VPG_bd_video_mandelbrot_gen_0_0' [/home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.srcs/sources_1/bd/test_VPG_bd/ip/test_VPG_bd_video_mandelbrot_gen_0_0/synth/test_VPG_bd_video_mandelbrot_gen_0_0.v:58]
 INFO: [Synth 8-6157] synthesizing module 'video_mandelbrot_generator' [/home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.srcs/sources_1/bd/test_VPG_bd/ipshared/38bb/hdl/verilog/video_mandelbrot_generator.v:12]
@@ -32,7 +32,7 @@ INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/trevo
 INFO: [Synth 8-6155] done synthesizing module 'video_mandelbrot_generator' (1#1) [/home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.srcs/sources_1/bd/test_VPG_bd/ipshared/38bb/hdl/verilog/video_mandelbrot_generator.v:12]
 INFO: [Synth 8-6155] done synthesizing module 'test_VPG_bd_video_mandelbrot_gen_0_0' (2#1) [/home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.srcs/sources_1/bd/test_VPG_bd/ip/test_VPG_bd_video_mandelbrot_gen_0_0/synth/test_VPG_bd_video_mandelbrot_gen_0_0.v:58]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1764.371 ; gain = 205.469 ; free physical = 6807 ; free virtual = 27488
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1764.438 ; gain = 205.469 ; free physical = 2921 ; free virtual = 27821
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -45,10 +45,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1770.309 ; gain = 211.406 ; free physical = 6808 ; free virtual = 27489
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1770.375 ; gain = 211.406 ; free physical = 2916 ; free virtual = 27817
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1770.309 ; gain = 211.406 ; free physical = 6808 ; free virtual = 27489
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1770.375 ; gain = 211.406 ; free physical = 2916 ; free virtual = 27817
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -60,31 +60,31 @@ Parsing XDC File [/home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.runs/t
 Finished Parsing XDC File [/home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.runs/test_VPG_bd_video_mandelbrot_gen_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1931.996 ; gain = 0.000 ; free physical = 6690 ; free virtual = 27372
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1933.062 ; gain = 0.000 ; free physical = 2771 ; free virtual = 27687
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1937.934 ; gain = 5.938 ; free physical = 6688 ; free virtual = 27370
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1939.000 ; gain = 5.938 ; free physical = 2770 ; free virtual = 27686
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6788 ; free virtual = 27470
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2873 ; free virtual = 27790
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6788 ; free virtual = 27470
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2873 ; free virtual = 27790
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for inst. (constraint file  /home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.runs/test_VPG_bd_video_mandelbrot_gen_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6788 ; free virtual = 27470
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2874 ; free virtual = 27790
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6779 ; free virtual = 27462
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2864 ; free virtual = 27781
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -138,7 +138,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6768 ; free virtual = 27453
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2851 ; free virtual = 27772
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -150,13 +150,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6640 ; free virtual = 27325
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2720 ; free virtual = 27649
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6639 ; free virtual = 27323
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2717 ; free virtual = 27646
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -168,7 +168,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6639 ; free virtual = 27323
+Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2717 ; free virtual = 27646
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -192,7 +192,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6622 ; free virtual = 27306
+Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2717 ; free virtual = 27646
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -205,7 +205,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6622 ; free virtual = 27306
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2717 ; free virtual = 27646
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -217,25 +217,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6622 ; free virtual = 27306
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2717 ; free virtual = 27646
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6622 ; free virtual = 27306
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2717 ; free virtual = 27646
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6622 ; free virtual = 27306
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2717 ; free virtual = 27646
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6622 ; free virtual = 27306
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2717 ; free virtual = 27646
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -268,31 +268,31 @@ Report Instance Areas:
 |2     |  inst   |video_mandelbrot_generator |    73|
 +------+---------+---------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6622 ; free virtual = 27306
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2717 ; free virtual = 27646
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1937.934 ; gain = 211.406 ; free physical = 6674 ; free virtual = 27359
-Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1937.934 ; gain = 379.031 ; free physical = 6674 ; free virtual = 27359
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1939.000 ; gain = 211.406 ; free physical = 2767 ; free virtual = 27697
+Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1939.000 ; gain = 380.031 ; free physical = 2768 ; free virtual = 27697
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1940.902 ; gain = 0.000 ; free physical = 6628 ; free virtual = 27312
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1939.000 ; gain = 0.000 ; free physical = 2712 ; free virtual = 27641
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 18 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1940.902 ; gain = 539.477 ; free physical = 6723 ; free virtual = 27407
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1940.902 ; gain = 0.000 ; free physical = 6723 ; free virtual = 27407
+synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1939.000 ; gain = 536.570 ; free physical = 2808 ; free virtual = 27737
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1939.000 ; gain = 0.000 ; free physical = 2808 ; free virtual = 27737
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.runs/test_VPG_bd_video_mandelbrot_gen_0_0_synth_1/test_VPG_bd_video_mandelbrot_gen_0_0.dcp' has been generated.
 WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
 INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP test_VPG_bd_video_mandelbrot_gen_0_0, cache-ID = dea3191f8ea399be
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1964.914 ; gain = 0.000 ; free physical = 6721 ; free virtual = 27406
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1963.012 ; gain = 0.000 ; free physical = 2811 ; free virtual = 27741
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/trevor/dev/myelect/video_mandel_gen/proj_1/proj_1.runs/test_VPG_bd_video_mandelbrot_gen_0_0_synth_1/test_VPG_bd_video_mandelbrot_gen_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file test_VPG_bd_video_mandelbrot_gen_0_0_utilization_synth.rpt -pb test_VPG_bd_video_mandelbrot_gen_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Jan 26 21:34:24 2020...
+INFO: [Common 17-206] Exiting Vivado at Sat Feb  8 19:53:38 2020...

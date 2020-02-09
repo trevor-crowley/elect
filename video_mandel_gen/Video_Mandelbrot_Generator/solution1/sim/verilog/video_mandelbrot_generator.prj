@@ -1,6 +1,0 @@
-sv work "glbl.v"
-sv xil_defaultlib "video_mandelbrot_generator.autotb.v"
-sv xil_defaultlib "AESL_fifo.v"
-sv xil_defaultlib "AESL_axi_s_m_axis_video.v"
-sv xil_defaultlib "video_mandelbrot_generator.v"
-
