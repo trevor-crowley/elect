@@ -20,9 +20,8 @@ const sc_lv<24> video_mandelbrot_generator::ap_const_lv24_0 = "00000000000000000
 const sc_lv<3> video_mandelbrot_generator::ap_const_lv3_0 = "000";
 const sc_lv<1> video_mandelbrot_generator::ap_const_lv1_0 = "0";
 const bool video_mandelbrot_generator::ap_const_boolean_1 = true;
-const sc_lv<10> video_mandelbrot_generator::ap_const_lv10_258 = "1001011000";
-const sc_lv<10> video_mandelbrot_generator::ap_const_lv10_0 = "0000000000";
-const sc_lv<10> video_mandelbrot_generator::ap_const_lv10_1 = "1";
+const sc_lv<3> video_mandelbrot_generator::ap_const_lv3_6 = "110";
+const sc_lv<3> video_mandelbrot_generator::ap_const_lv3_1 = "1";
 const sc_logic video_mandelbrot_generator::ap_const_logic_0 = sc_dt::Log_0;
 
 video_mandelbrot_generator::video_mandelbrot_generator(sc_module_name name) : sc_module(name), mVcdFile(0) {
@@ -154,8 +153,8 @@ video_mandelbrot_generator::video_mandelbrot_generator(sc_module_name name) : sc
 
     SC_THREAD(thread_ap_var_for_const1);
 
-    loop_dataflow_input_count = "0000000000";
-    loop_dataflow_output_count = "0000000000";
+    loop_dataflow_input_count = "000";
+    loop_dataflow_output_count = "000";
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "video_mandelbrot_generator_sc_trace_" << apTFileNum ++;
@@ -253,36 +252,36 @@ void video_mandelbrot_generator::thread_ap_var_for_const1() {
 
 void video_mandelbrot_generator::thread_ap_clk_no_reset_() {
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        loop_dataflow_input_count = ap_const_lv10_0;
+        loop_dataflow_input_count = ap_const_lv3_0;
     } else {
         if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_start.read()) && 
              esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_ready.read()) && 
-             !esl_seteq<1,10,10>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
-            loop_dataflow_input_count = (!loop_dataflow_input_count.read().is_01() || !ap_const_lv10_1.is_01())? sc_lv<10>(): (sc_biguint<10>(loop_dataflow_input_count.read()) + sc_biguint<10>(ap_const_lv10_1));
+             !esl_seteq<1,3,3>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
+            loop_dataflow_input_count = (!loop_dataflow_input_count.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(loop_dataflow_input_count.read()) + sc_biguint<3>(ap_const_lv3_1));
         } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_start.read()) && 
                     esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_ready.read()) && 
-                    esl_seteq<1,10,10>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
-            loop_dataflow_input_count = ap_const_lv10_0;
+                    esl_seteq<1,3,3>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
+            loop_dataflow_input_count = ap_const_lv3_0;
         }
     }
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        loop_dataflow_output_count = ap_const_lv10_0;
+        loop_dataflow_output_count = ap_const_lv3_0;
     } else {
         if ((esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_done.read()) && 
              esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_continue.read()) && 
-             !esl_seteq<1,10,10>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
-            loop_dataflow_output_count = (!loop_dataflow_output_count.read().is_01() || !ap_const_lv10_1.is_01())? sc_lv<10>(): (sc_biguint<10>(loop_dataflow_output_count.read()) + sc_biguint<10>(ap_const_lv10_1));
+             !esl_seteq<1,3,3>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
+            loop_dataflow_output_count = (!loop_dataflow_output_count.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(loop_dataflow_output_count.read()) + sc_biguint<3>(ap_const_lv3_1));
         } else if ((esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_done.read()) && 
                     esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_continue.read()) && 
-                    esl_seteq<1,10,10>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
-            loop_dataflow_output_count = ap_const_lv10_0;
+                    esl_seteq<1,3,3>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
+            loop_dataflow_output_count = ap_const_lv3_0;
         }
     }
 }
 
 void video_mandelbrot_generator::thread_ap_done() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_done.read()) && 
-         esl_seteq<1,10,10>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
+         esl_seteq<1,3,3>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
         ap_done = ap_const_logic_1;
     } else {
         ap_done = ap_const_logic_0;
@@ -290,7 +289,7 @@ void video_mandelbrot_generator::thread_ap_done() {
 }
 
 void video_mandelbrot_generator::thread_ap_idle() {
-    if ((esl_seteq<1,10,10>(loop_dataflow_output_count.read(), ap_const_lv10_0) && 
+    if ((esl_seteq<1,3,3>(ap_const_lv3_0, loop_dataflow_output_count.read()) && 
          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0) && 
          esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_idle.read()))) {
         ap_idle = ap_const_logic_1;
@@ -302,7 +301,7 @@ void video_mandelbrot_generator::thread_ap_idle() {
 void video_mandelbrot_generator::thread_ap_ready() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_start.read()) && 
          esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_ready.read()) && 
-         esl_seteq<1,10,10>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
+         esl_seteq<1,3,3>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
         ap_ready = ap_const_logic_1;
     } else {
         ap_ready = ap_const_logic_0;
@@ -326,7 +325,7 @@ void video_mandelbrot_generator::thread_ap_sync_ready() {
 }
 
 void video_mandelbrot_generator::thread_bound_minus_1() {
-    bound_minus_1 = (!ap_const_lv10_258.is_01() || !ap_const_lv10_1.is_01())? sc_lv<10>(): (sc_biguint<10>(ap_const_lv10_258) - sc_biguint<10>(ap_const_lv10_1));
+    bound_minus_1 = (!ap_const_lv3_6.is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(ap_const_lv3_6) - sc_biguint<3>(ap_const_lv3_1));
 }
 
 void video_mandelbrot_generator::thread_dataflow_in_loop_out_U0_ap_continue() {

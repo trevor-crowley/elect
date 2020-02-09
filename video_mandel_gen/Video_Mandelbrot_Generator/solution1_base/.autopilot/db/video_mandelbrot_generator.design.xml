@@ -13,50 +13,28 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
-<EstimatedClockPeriod>8.666</EstimatedClockPeriod>
+<EstimatedClockPeriod>1.777</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>6241201</Best-caseLatency>
-<Average-caseLatency>311041201</Average-caseLatency>
-<Worst-caseLatency>615841201</Worst-caseLatency>
-<PipelineInitiationInterval>6241202 ~ 615841202</PipelineInitiationInterval>
+<Best-caseLatency>109</Best-caseLatency>
+<Average-caseLatency>109</Average-caseLatency>
+<Worst-caseLatency>109</Worst-caseLatency>
+<PipelineInitiationInterval>110</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <out>
 <Name>out</Name>
-<TripCount>600</TripCount>
-<Latency>6241200 ~ 615841200</Latency>
-<IterationLatency>
-<range>
-<min>10402</min>
-<max>1026402</max>
-</range>
-</IterationLatency>
-<PipelineDepth>10402 ~ 1026402</PipelineDepth>
+<TripCount>6</TripCount>
+<Latency>108</Latency>
+<IterationLatency>18</IterationLatency>
+<PipelineDepth>18</PipelineDepth>
 <inner>
 <Name>inner</Name>
-<TripCount>800</TripCount>
-<Latency>10400 ~ 1026400</Latency>
-<IterationLatency>
-<range>
-<min>13</min>
-<max>1283</max>
-</range>
-</IterationLatency>
-<PipelineDepth>13 ~ 1283</PipelineDepth>
-<mandel_calc>
-<Name>mandel_calc</Name>
-<TripCount>
-<range>
-<min>1</min>
-<max>255</max>
-</range>
-</TripCount>
-<Latency>5 ~ 1275</Latency>
-<IterationLatency>5</IterationLatency>
-<PipelineDepth>5</PipelineDepth>
-</mandel_calc>
+<TripCount>8</TripCount>
+<Latency>16</Latency>
+<IterationLatency>2</IterationLatency>
+<PipelineDepth>2</PipelineDepth>
 </inner>
 </out>
 </SummaryOfLoopLatency>
@@ -64,9 +42,9 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>0</BRAM_18K>
-<DSP48E>6</DSP48E>
-<FF>1200</FF>
-<LUT>2625</LUT>
+<FF>202</FF>
+<LUT>440</LUT>
+<DSP48E>0</DSP48E>
 <URAM>0</URAM>
 </Resources>
 </AreaEstimates>

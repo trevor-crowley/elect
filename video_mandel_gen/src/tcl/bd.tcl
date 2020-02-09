@@ -110,7 +110,7 @@ set bCheckIPsPassed 1
 set bCheckIPs 1
 if { $bCheckIPs == 1 } {
    set list_check_ips "\ 
-xilinx.com:hls:video_mandelbrot_generator:1.0\
+xilinx.com:hls:video_mandelbrot_generator:1.1\
 "
 
    set list_ips_missing ""
@@ -190,7 +190,7 @@ proc create_root_design { parentCell } {
   set aresetn_0 [ create_bd_port -dir I -type rst aresetn_0 ]
 
   # Create instance: video_mandelbrot_gen_0, and set properties
-  set video_mandelbrot_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:video_mandelbrot_generator:1.0 video_mandelbrot_gen_0 ]
+  set video_mandelbrot_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:video_mandelbrot_generator:1.1 video_mandelbrot_gen_0 ]
 
   # Create interface connections
   connect_bd_intf_net -intf_net video_mandelbrot_gen_0_m_axis_video [get_bd_intf_ports AXIS_out] [get_bd_intf_pins video_mandelbrot_gen_0/m_axis_video]

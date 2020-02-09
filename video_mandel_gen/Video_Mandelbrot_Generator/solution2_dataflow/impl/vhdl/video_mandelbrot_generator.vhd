@@ -49,7 +49,7 @@ end;
 architecture behav of video_mandelbrot_generator is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "video_mandelbrot_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7a35t-cpg236-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.122750,HLS_SYN_LAT=481202,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=143,HLS_SYN_LUT=329,HLS_VERSION=2019_1}";
+    "video_mandelbrot_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7a35t-cpg236-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.687000,HLS_SYN_LAT=31028,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=6,HLS_SYN_FF=1081,HLS_SYN_LUT=2405,HLS_VERSION=2019_1}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant C_S_AXI_WSTRB_WIDTH : INTEGER range 63 downto 0 := 4;
     constant C_S_AXI_ADDR_WIDTH : INTEGER range 63 downto 0 := 20;
@@ -57,11 +57,10 @@ architecture behav of video_mandelbrot_generator is
     constant ap_const_lv24_0 : STD_LOGIC_VECTOR (23 downto 0) := "000000000000000000000000";
     constant ap_const_lv3_0 : STD_LOGIC_VECTOR (2 downto 0) := "000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
-    constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_const_boolean_1 : BOOLEAN := true;
-    constant ap_const_lv10_258 : STD_LOGIC_VECTOR (9 downto 0) := "1001011000";
-    constant ap_const_lv10_0 : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
-    constant ap_const_lv10_1 : STD_LOGIC_VECTOR (9 downto 0) := "0000000001";
+    constant ap_const_lv3_6 : STD_LOGIC_VECTOR (2 downto 0) := "110";
+    constant ap_const_lv3_1 : STD_LOGIC_VECTOR (2 downto 0) := "001";
+    constant ap_const_logic_0 : STD_LOGIC := '0';
 
     signal ap_rst_n_inv : STD_LOGIC;
     signal ap_start : STD_LOGIC;
@@ -84,19 +83,18 @@ architecture behav of video_mandelbrot_generator is
     signal dataflow_in_loop_out_U0_ap_ready : STD_LOGIC;
     signal dataflow_in_loop_out_U0_ap_idle : STD_LOGIC;
     signal dataflow_in_loop_out_U0_ap_continue : STD_LOGIC;
-    signal ap_sync_reg_dataflow_in_loop_out_U0_ap_start : STD_LOGIC := '0';
     signal ap_sync_continue : STD_LOGIC;
     signal ap_sync_done : STD_LOGIC;
     signal ap_sync_ready : STD_LOGIC;
-    signal loop_dataflow_input_count : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
-    signal loop_dataflow_output_count : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
-    signal bound_minus_1 : STD_LOGIC_VECTOR (9 downto 0);
+    signal loop_dataflow_input_count : STD_LOGIC_VECTOR (2 downto 0) := "000";
+    signal loop_dataflow_output_count : STD_LOGIC_VECTOR (2 downto 0) := "000";
+    signal bound_minus_1 : STD_LOGIC_VECTOR (2 downto 0);
     signal dataflow_in_loop_out_U0_start_full_n : STD_LOGIC;
     signal dataflow_in_loop_out_U0_start_write : STD_LOGIC;
 
     component dataflow_in_loop_out IS
     port (
-        i_op_assign_1 : IN STD_LOGIC_VECTOR (9 downto 0);
+        v_assign : IN STD_LOGIC_VECTOR (2 downto 0);
         m_axis_video_TDATA : OUT STD_LOGIC_VECTOR (23 downto 0);
         m_axis_video_TKEEP : OUT STD_LOGIC_VECTOR (2 downto 0);
         m_axis_video_TSTRB : OUT STD_LOGIC_VECTOR (2 downto 0);
@@ -104,11 +102,17 @@ architecture behav of video_mandelbrot_generator is
         m_axis_video_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
         m_axis_video_TID : OUT STD_LOGIC_VECTOR (0 downto 0);
         m_axis_video_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        im_V : IN STD_LOGIC_VECTOR (17 downto 0);
+        re_V : IN STD_LOGIC_VECTOR (17 downto 0);
+        zoom_factor_V : IN STD_LOGIC_VECTOR (17 downto 0);
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
-        i_op_assign_1_ap_vld : IN STD_LOGIC;
+        v_assign_ap_vld : IN STD_LOGIC;
         m_axis_video_TVALID : OUT STD_LOGIC;
         m_axis_video_TREADY : IN STD_LOGIC;
+        im_V_ap_vld : IN STD_LOGIC;
+        re_V_ap_vld : IN STD_LOGIC;
+        zoom_factor_V_ap_vld : IN STD_LOGIC;
         ap_start : IN STD_LOGIC;
         ap_done : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
@@ -191,7 +195,7 @@ begin
 
     dataflow_in_loop_out_U0 : component dataflow_in_loop_out
     port map (
-        i_op_assign_1 => loop_dataflow_input_count,
+        v_assign => loop_dataflow_input_count,
         m_axis_video_TDATA => dataflow_in_loop_out_U0_m_axis_video_TDATA,
         m_axis_video_TKEEP => dataflow_in_loop_out_U0_m_axis_video_TKEEP,
         m_axis_video_TSTRB => dataflow_in_loop_out_U0_m_axis_video_TSTRB,
@@ -199,11 +203,17 @@ begin
         m_axis_video_TLAST => dataflow_in_loop_out_U0_m_axis_video_TLAST,
         m_axis_video_TID => dataflow_in_loop_out_U0_m_axis_video_TID,
         m_axis_video_TDEST => dataflow_in_loop_out_U0_m_axis_video_TDEST,
+        im_V => im_V,
+        re_V => re_V,
+        zoom_factor_V => zoom_factor_V,
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        i_op_assign_1_ap_vld => ap_const_logic_0,
+        v_assign_ap_vld => ap_const_logic_0,
         m_axis_video_TVALID => dataflow_in_loop_out_U0_m_axis_video_TVALID,
         m_axis_video_TREADY => m_axis_video_TREADY,
+        im_V_ap_vld => ap_const_logic_1,
+        re_V_ap_vld => ap_const_logic_1,
+        zoom_factor_V_ap_vld => ap_const_logic_1,
         ap_start => dataflow_in_loop_out_U0_ap_start,
         ap_done => dataflow_in_loop_out_U0_ap_done,
         ap_ready => dataflow_in_loop_out_U0_ap_ready,
@@ -214,30 +224,16 @@ begin
 
 
 
-    ap_sync_reg_dataflow_in_loop_out_U0_ap_start_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_sync_reg_dataflow_in_loop_out_U0_ap_start <= ap_const_logic_0;
-            else
-                if ((ap_start = ap_const_logic_1)) then 
-                    ap_sync_reg_dataflow_in_loop_out_U0_ap_start <= ap_const_logic_1;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
     loop_dataflow_input_count_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                loop_dataflow_input_count <= ap_const_lv10_0;
+                loop_dataflow_input_count <= ap_const_lv3_0;
             else
                 if ((not((loop_dataflow_input_count = bound_minus_1)) and (dataflow_in_loop_out_U0_ap_ready = ap_const_logic_1) and (ap_start = ap_const_logic_1))) then 
-                    loop_dataflow_input_count <= std_logic_vector(unsigned(loop_dataflow_input_count) + unsigned(ap_const_lv10_1));
+                    loop_dataflow_input_count <= std_logic_vector(unsigned(loop_dataflow_input_count) + unsigned(ap_const_lv3_1));
                 elsif (((loop_dataflow_input_count = bound_minus_1) and (dataflow_in_loop_out_U0_ap_ready = ap_const_logic_1) and (ap_start = ap_const_logic_1))) then 
-                    loop_dataflow_input_count <= ap_const_lv10_0;
+                    loop_dataflow_input_count <= ap_const_lv3_0;
                 end if; 
             end if;
         end if;
@@ -248,12 +244,12 @@ begin
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                loop_dataflow_output_count <= ap_const_lv10_0;
+                loop_dataflow_output_count <= ap_const_lv3_0;
             else
                 if ((not((loop_dataflow_output_count = bound_minus_1)) and (dataflow_in_loop_out_U0_ap_continue = ap_const_logic_1) and (dataflow_in_loop_out_U0_ap_done = ap_const_logic_1))) then 
-                    loop_dataflow_output_count <= std_logic_vector(unsigned(loop_dataflow_output_count) + unsigned(ap_const_lv10_1));
+                    loop_dataflow_output_count <= std_logic_vector(unsigned(loop_dataflow_output_count) + unsigned(ap_const_lv3_1));
                 elsif (((loop_dataflow_output_count = bound_minus_1) and (dataflow_in_loop_out_U0_ap_continue = ap_const_logic_1) and (dataflow_in_loop_out_U0_ap_done = ap_const_logic_1))) then 
-                    loop_dataflow_output_count <= ap_const_lv10_0;
+                    loop_dataflow_output_count <= ap_const_lv3_0;
                 end if; 
             end if;
         end if;
@@ -272,7 +268,7 @@ begin
 
     ap_idle_assign_proc : process(ap_start, dataflow_in_loop_out_U0_ap_idle, loop_dataflow_output_count)
     begin
-        if (((loop_dataflow_output_count = ap_const_lv10_0) and (ap_start = ap_const_logic_0) and (dataflow_in_loop_out_U0_ap_idle = ap_const_logic_1))) then 
+        if (((loop_dataflow_output_count = ap_const_lv3_0) and (ap_start = ap_const_logic_0) and (dataflow_in_loop_out_U0_ap_idle = ap_const_logic_1))) then 
             ap_idle <= ap_const_logic_1;
         else 
             ap_idle <= ap_const_logic_0;
@@ -297,8 +293,8 @@ begin
 
     ap_sync_continue <= ap_const_logic_1;
     ap_sync_done <= dataflow_in_loop_out_U0_ap_done;
-    ap_sync_ready <= ap_sync_done;
-    bound_minus_1 <= std_logic_vector(unsigned(ap_const_lv10_258) - unsigned(ap_const_lv10_1));
+    ap_sync_ready <= dataflow_in_loop_out_U0_ap_ready;
+    bound_minus_1 <= std_logic_vector(unsigned(ap_const_lv3_6) - unsigned(ap_const_lv3_1));
     dataflow_in_loop_out_U0_ap_continue <= ap_const_logic_1;
     dataflow_in_loop_out_U0_ap_start <= ap_start;
     dataflow_in_loop_out_U0_start_full_n <= ap_const_logic_1;

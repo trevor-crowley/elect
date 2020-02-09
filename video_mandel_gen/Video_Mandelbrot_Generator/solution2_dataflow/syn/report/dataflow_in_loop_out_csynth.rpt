@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'dataflow_in_loop_out'
 ================================================================
-* Date:           Sat Feb  8 14:51:54 2020
+* Date:           Sat Feb  8 22:19:37 2020
 
 * Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
 * Project:        Video_Mandelbrot_Generator
@@ -20,26 +20,26 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|     2.123|        1.25|
+    |ap_clk  |  10.00|     8.687|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
     * Summary: 
-    +-----+-----+-----+-----+----------+
-    |  Latency  |  Interval | Pipeline |
-    | min | max | min | max |   Type   |
-    +-----+-----+-----+-----+----------+
-    |  801|  801|  802|  802| dataflow |
-    +-----+-----+-----+-----+----------+
+    +-----+-------+-----+-------+----------+
+    |   Latency   |   Interval  | Pipeline |
+    | min |  max  | min |  max  |   Type   |
+    +-----+-------+-----+-------+----------+
+    |   90|  10250|   91|  10251| dataflow |
+    +-----+-------+-----+-------+----------+
 
     + Detail: 
         * Instance: 
-        +---------------+------------+-----+-----+-----+-----+---------+
-        |               |            |  Latency  |  Interval | Pipeline|
-        |    Instance   |   Module   | min | max | min | max |   Type  |
-        +---------------+------------+-----+-----+-----+-----+---------+
-        |inner_proc_U0  |inner_proc  |  801|  801|  801|  801|   none  |
-        +---------------+------------+-----+-----+-----+-----+---------+
+        +---------------+------------+-----+-------+-----+-------+---------+
+        |               |            |   Latency   |   Interval  | Pipeline|
+        |    Instance   |   Module   | min |  max  | min |  max  |   Type  |
+        +---------------+------------+-----+-------+-----+-------+---------+
+        |inner_proc_U0  |inner_proc  |   90|  10250|   90|  10250|   none  |
+        +---------------+------------+-----+-------+-----+-------+---------+
 
         * Loop: 
         N/A
@@ -56,27 +56,27 @@
 |DSP              |        -|      -|      -|      -|    -|
 |Expression       |        -|      -|      -|      -|    -|
 |FIFO             |        -|      -|      -|      -|    -|
-|Instance         |        -|      -|     14|    112|    -|
+|Instance         |        -|      6|    967|   2203|    -|
 |Memory           |        -|      -|      -|      -|    -|
 |Multiplexer      |        -|      -|      -|      -|    -|
 |Register         |        -|      -|      -|      -|    -|
 +-----------------+---------+-------+-------+-------+-----+
-|Total            |        0|      0|     14|    112|    0|
+|Total            |        0|      6|    967|   2203|    0|
 +-----------------+---------+-------+-------+-------+-----+
 |Available        |      100|     90|  41600|  20800|    0|
 +-----------------+---------+-------+-------+-------+-----+
-|Utilization (%)  |        0|      0|   ~0  |   ~0  |    0|
+|Utilization (%)  |        0|      6|      2|     10|    0|
 +-----------------+---------+-------+-------+-------+-----+
 
 + Detail: 
     * Instance: 
-    +---------------+------------+---------+-------+----+-----+-----+
-    |    Instance   |   Module   | BRAM_18K| DSP48E| FF | LUT | URAM|
-    +---------------+------------+---------+-------+----+-----+-----+
-    |inner_proc_U0  |inner_proc  |        0|      0|  14|  112|    0|
-    +---------------+------------+---------+-------+----+-----+-----+
-    |Total          |            |        0|      0|  14|  112|    0|
-    +---------------+------------+---------+-------+----+-----+-----+
+    +---------------+------------+---------+-------+-----+------+-----+
+    |    Instance   |   Module   | BRAM_18K| DSP48E|  FF |  LUT | URAM|
+    +---------------+------------+---------+-------+-----+------+-----+
+    |inner_proc_U0  |inner_proc  |        0|      6|  967|  2203|    0|
+    +---------------+------------+---------+-------+-----+------+-----+
+    |Total          |            |        0|      6|  967|  2203|    0|
+    +---------------+------------+---------+-------+-----+------+-----+
 
     * DSP48E: 
     N/A
@@ -105,8 +105,8 @@
 +----------------------+-----+-----+------------+-----------------------+--------------+
 |       RTL Ports      | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
 +----------------------+-----+-----+------------+-----------------------+--------------+
-|i_op_assign_1         |  in |   10|   ap_none  |     i_op_assign_1     |    scalar    |
-|i_op_assign_1_ap_vld  |  in |    1|   ap_none  |     i_op_assign_1     |    scalar    |
+|v_assign              |  in |    3|   ap_none  |        v_assign       |    scalar    |
+|v_assign_ap_vld       |  in |    1|   ap_none  |        v_assign       |    scalar    |
 |m_axis_video_TDATA    | out |   24|    axis    | m_axis_video_V_data_V |    pointer   |
 |m_axis_video_TKEEP    | out |    3|    axis    | m_axis_video_V_keep_V |    pointer   |
 |m_axis_video_TSTRB    | out |    3|    axis    | m_axis_video_V_strb_V |    pointer   |
@@ -116,6 +116,12 @@
 |m_axis_video_TDEST    | out |    1|    axis    | m_axis_video_V_dest_V |    pointer   |
 |m_axis_video_TVALID   | out |    1|    axis    | m_axis_video_V_dest_V |    pointer   |
 |m_axis_video_TREADY   |  in |    1|    axis    | m_axis_video_V_dest_V |    pointer   |
+|im_V                  |  in |   18|   ap_none  |          im_V         |    scalar    |
+|im_V_ap_vld           |  in |    1|   ap_none  |          im_V         |    scalar    |
+|re_V                  |  in |   18|   ap_none  |          re_V         |    scalar    |
+|re_V_ap_vld           |  in |    1|   ap_none  |          re_V         |    scalar    |
+|zoom_factor_V         |  in |   18|   ap_none  |     zoom_factor_V     |    scalar    |
+|zoom_factor_V_ap_vld  |  in |    1|   ap_none  |     zoom_factor_V     |    scalar    |
 |ap_clk                |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
 |ap_rst                |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
 |ap_start              |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |

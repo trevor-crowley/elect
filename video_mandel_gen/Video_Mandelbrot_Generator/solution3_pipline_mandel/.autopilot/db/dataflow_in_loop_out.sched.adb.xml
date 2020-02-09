@@ -68,9 +68,9 @@ entry:4  %im_V_read = call i18 @_ssdm_op_Read.ap_auto.i18(i18 %im_V)
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="17" bw="10" op_0_bw="10" op_1_bw="10">
+<Node id="17" bw="3" op_0_bw="3" op_1_bw="3">
 <![CDATA[
-entry:5  %v_assign_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %v_assign)
+entry:5  %v_assign_read = call i3 @_ssdm_op_Read.ap_auto.i3(i3 %v_assign)
 
 ]]></Node>
 <StgValue><ssdm name="v_assign_read"/></StgValue>
@@ -83,9 +83,9 @@ entry:5  %v_assign_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %v_assign)
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="18" bw="0" op_0_bw="0" op_1_bw="10" op_2_bw="24" op_3_bw="3" op_4_bw="3" op_5_bw="1" op_6_bw="1" op_7_bw="1" op_8_bw="1" op_9_bw="18" op_10_bw="18" op_11_bw="18">
+<Node id="18" bw="0" op_0_bw="0" op_1_bw="3" op_2_bw="24" op_3_bw="3" op_4_bw="3" op_5_bw="1" op_6_bw="1" op_7_bw="1" op_8_bw="1" op_9_bw="18" op_10_bw="18" op_11_bw="18">
 <![CDATA[
-entry:6  call fastcc void @inner_proc(i10 %v_assign_read, i24* %m_axis_video_V_data_V, i3* %m_axis_video_V_keep_V, i3* %m_axis_video_V_strb_V, i1* %m_axis_video_V_user_V, i1* %m_axis_video_V_last_V, i1* %m_axis_video_V_id_V, i1* %m_axis_video_V_dest_V, i18 %im_V_read, i18 %re_V_read, i18 %zoom_factor_V_read)
+entry:6  call fastcc void @inner_proc(i3 %v_assign_read, i24* %m_axis_video_V_data_V, i3* %m_axis_video_V_keep_V, i3* %m_axis_video_V_strb_V, i1* %m_axis_video_V_user_V, i1* %m_axis_video_V_last_V, i1* %m_axis_video_V_id_V, i1* %m_axis_video_V_dest_V, i18 %im_V_read, i18 %re_V_read, i18 %zoom_factor_V_read)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln0"/></StgValue>
@@ -121,7 +121,7 @@ entry:0  call void (...)* @_ssdm_op_SpecInterface(i1* %m_axis_video_V_dest_V, i1
 entry:1  call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, i32 0, [1 x i8]* @p_str1) nounwind
 
 ]]></Node>
-<StgValue><ssdm name="specdataflowpipeline_ln28"/></StgValue>
+<StgValue><ssdm name="specdataflowpipeline_ln27"/></StgValue>
 </operation>
 
 <operation id="10" st_id="2" stage="1" lat="2">
@@ -131,9 +131,9 @@ entry:1  call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, i32 0, [1 x i8]
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="18" bw="0" op_0_bw="0" op_1_bw="10" op_2_bw="24" op_3_bw="3" op_4_bw="3" op_5_bw="1" op_6_bw="1" op_7_bw="1" op_8_bw="1" op_9_bw="18" op_10_bw="18" op_11_bw="18">
+<Node id="18" bw="0" op_0_bw="0" op_1_bw="3" op_2_bw="24" op_3_bw="3" op_4_bw="3" op_5_bw="1" op_6_bw="1" op_7_bw="1" op_8_bw="1" op_9_bw="18" op_10_bw="18" op_11_bw="18">
 <![CDATA[
-entry:6  call fastcc void @inner_proc(i10 %v_assign_read, i24* %m_axis_video_V_data_V, i3* %m_axis_video_V_keep_V, i3* %m_axis_video_V_strb_V, i1* %m_axis_video_V_user_V, i1* %m_axis_video_V_last_V, i1* %m_axis_video_V_id_V, i1* %m_axis_video_V_dest_V, i18 %im_V_read, i18 %re_V_read, i18 %zoom_factor_V_read)
+entry:6  call fastcc void @inner_proc(i3 %v_assign_read, i24* %m_axis_video_V_data_V, i3* %m_axis_video_V_keep_V, i3* %m_axis_video_V_strb_V, i1* %m_axis_video_V_user_V, i1* %m_axis_video_V_last_V, i1* %m_axis_video_V_id_V, i1* %m_axis_video_V_dest_V, i18 %im_V_read, i18 %re_V_read, i18 %zoom_factor_V_read)
 
 ]]></Node>
 <StgValue><ssdm name="call_ln0"/></StgValue>

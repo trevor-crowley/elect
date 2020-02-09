@@ -39,7 +39,7 @@ set ExportMCPathFlag 0
 set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
-set TargetInfo xc7a35t:-cpg236:-1
+set TargetInfo xc7z020i:-clg484:-1L
 set SourceFiles {sc {} c ../../src/cpp/video_mandelbrot_generator.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /home/trevor/dev/myelect/video_mandel_gen/Video_Mandelbrot_Generator/solution3_pipline_mandel/solution3_pipline_mandel.directive
@@ -59,5 +59,5 @@ set DefaultPlatform DefaultPlatform
 set multiClockList {}
 set SCPortClockMap {}
 set intNbAccess 0
-set PlatformFiles {{DefaultPlatform {xilinx/artix7/artix7 xilinx/artix7/artix7_fpv6}}}
+set PlatformFiles {{DefaultPlatform {xilinx/zynq/zynq xilinx/zynq/zynq_fpv6}}}
 set HPFPO 0

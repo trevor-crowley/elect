@@ -35,7 +35,7 @@ module dataflow_in_loop_out (
 );
 
 
-input  [9:0] v_assign;
+input  [2:0] v_assign;
 output  [23:0] m_axis_video_TDATA;
 output  [2:0] m_axis_video_TKEEP;
 output  [2:0] m_axis_video_TSTRB;

@@ -18,17 +18,16 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 	fixed_point real_btm, imag_btm;
 	fixed_point x0, y0, rsquare, isquare, zsquare;
 	fixed_point x,y;
-	fixed_point newRe, newIm, oldRe, oldIm;
-	int row, col, iter;
+	uint16_t row, col, iter;
 
-	
+
 	//Add code for output video generation here
 	out:for(row = 0; row < HEIGHT; row++)
 	{
-
-
 		inner:for(col= 0; col < WIDTH; col++)
 		{
+/*
+			// Org frame start here ***
 			// Start of frame, assert tuser
 			if((col==0)&&(row==0))
 				video.user=1;
@@ -36,11 +35,14 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 				video.user=0;
 
 			//End of line, assert tlast
-			if(row==WIDTH-1)
+			if(col==WIDTH-1)
 				video.last = 1;
 			else
 				video.last = 0;
+*/
 
+// /*
+ 	 		// begin test ***
 			// work2
 			real_top = (fixed_point)col * (const fixed_point)(1.0 / WIDTH) - (fixed_point)0.5;
 			real_btm = (fixed_point)3.0 * zoom_factor;
@@ -50,7 +52,6 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 			imag_btm = (fixed_point)-2.0 * zoom_factor;
 			y0 = (fixed_point)(imag_top * imag_btm) + im;
 
-
 			//	org
 			// x0 = +3.0 * (col - WIDTH/2.0) * (zoom_factor * 1/WIDTH)  + re;
 			// y0 = -2.0 * (row - HEIGHT/2.0) * (zoom_factor * 1/HEIGHT) + im;
@@ -58,40 +59,47 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 			//cartX = +3.0 * (screenX - WIDTH/1.28) .* (zoom_factor * 1/WIDTH)  + cartXoffset;
 
 
-	        iter =0;
+//	        iter =0;
 	        rsquare = isquare = zsquare = 0;
-	        newRe = newIm = oldRe = oldIm = 0;
-//		    mandel_calc:for (iter=0; iter < MAXITER && ((rsquare + isquare) <= (fixed_point)4); iter++) {
 		    mandel_calc:for (iter=0; iter < MAXITER && ((rsquare + isquare) <= (fixed_point)4); iter++) {
-//		    mandel_calc:while ((rsquare + isquare < (fixed_point)4) && (iter < MAXITER)) {
 
-/*
-		    	oldRe = newRe;
-		    	oldIm = newIm;
-		    	newRe = oldRe * oldRe - oldIm * oldIm + x0;
-		    	newIm = (fixed_point)2.0 * oldRe * oldIm + y0;
-		    	if((newRe * newRe + newIm * newIm) > (fixed_point)4) break;
-*/
-
-
-		        y = zsquare - rsquare - isquare + y0;
 		    	x = rsquare - isquare + x0;
+		        y = zsquare - rsquare - isquare + y0;
 
 		        rsquare = (fixed_point)(x * x);
 		        isquare = (fixed_point)(y * y);
 
 		    	zsquare = (fixed_point)((x + y) * (x + y));
 
-
-//		        if ((rsquare + isquare) > (fixed_point)4)
-//		        	break;
 		    }
 
-			pixel.R = iter;
-			pixel.B = iter;
-			pixel.G = 255;
+ 	 	 	// end test
 
+// */
 			// Assign the pixel value to the data output
+			// test frame start here ***
+			// Start of frame, assert tuser
+			if((col==0)&&(row==0))
+				video.user=1;
+			else
+				video.user=0;
+
+			//End of line, assert tlast
+			if(col==WIDTH-1)
+				video.last = 1;
+			else
+				video.last = 0;
+
+
+		    // test
+//			pixel.R = 0;
+		    pixel.R = iter;
+			pixel.B = 0;
+			pixel.G = col;
+
+//			pixel.R = iter;
+//			pixel.B = iter;
+//			pixel.G = 255;
 			video.data = set_rgb_8_pixel_value(pixel);
 
 			//Send video to stream

@@ -21,9 +21,9 @@ set C_modelArgList {
 	{ VIDEO_OUT_V_last_V int 1 regular {axi_s 1 volatile  { m_axis_video Last } }  }
 	{ VIDEO_OUT_V_id_V int 1 regular {axi_s 1 volatile  { m_axis_video ID } }  }
 	{ VIDEO_OUT_V_dest_V int 1 regular {axi_s 1 volatile  { m_axis_video Dest } }  }
-	{ re_V int 18 regular {axi_slave 0}  }
-	{ im_V int 18 regular {axi_slave 0}  }
-	{ zoom_factor_V int 18 regular {axi_slave 0}  }
+	{ re_V int 18 unused {axi_slave 0}  }
+	{ im_V int 18 unused {axi_slave 0}  }
+	{ zoom_factor_V int 18 unused {axi_slave 0}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "VIDEO_OUT_V_data_V", "interface" : "axis", "bitwidth" : 24, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":23,"cElement": [{"cName": "m_axis_video.V.data.V","cData": "uint24","bit_use": { "low": 0,"up": 23},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
@@ -101,13 +101,13 @@ set NewPortList {[
  	{ "name": "m_axis_video_TDEST", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "VIDEO_OUT_V_dest_V", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],
 		"CDFG" : "video_mandelbrot_generator",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6241201", "EstimateLatencyMax" : "615841201",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "109", "EstimateLatencyMax" : "109",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -127,33 +127,27 @@ set RtlHierarchyInfo {[
 			{"Name" : "re_V", "Type" : "None", "Direction" : "I"},
 			{"Name" : "im_V", "Type" : "None", "Direction" : "I"},
 			{"Name" : "zoom_factor_V", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_cmd_s_axi_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_17ns_7ns_24_1_1_U1", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U2", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U3", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U4", "Parent" : "0"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U5", "Parent" : "0"},
-	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_19s_19s_38_1_1_U6", "Parent" : "0"}]}
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_cmd_s_axi_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	video_mandelbrot_generator {
-		VIDEO_OUT_V_data_V {Type O LastRead -1 FirstWrite 8}
-		VIDEO_OUT_V_keep_V {Type O LastRead -1 FirstWrite 8}
-		VIDEO_OUT_V_strb_V {Type O LastRead -1 FirstWrite 8}
-		VIDEO_OUT_V_user_V {Type O LastRead -1 FirstWrite 8}
-		VIDEO_OUT_V_last_V {Type O LastRead -1 FirstWrite 8}
-		VIDEO_OUT_V_id_V {Type O LastRead -1 FirstWrite 8}
-		VIDEO_OUT_V_dest_V {Type O LastRead -1 FirstWrite 8}
-		re_V {Type I LastRead 0 FirstWrite -1}
-		im_V {Type I LastRead 0 FirstWrite -1}
-		zoom_factor_V {Type I LastRead 0 FirstWrite -1}}}
+		VIDEO_OUT_V_data_V {Type O LastRead -1 FirstWrite 2}
+		VIDEO_OUT_V_keep_V {Type O LastRead -1 FirstWrite 2}
+		VIDEO_OUT_V_strb_V {Type O LastRead -1 FirstWrite 2}
+		VIDEO_OUT_V_user_V {Type O LastRead -1 FirstWrite 2}
+		VIDEO_OUT_V_last_V {Type O LastRead -1 FirstWrite 2}
+		VIDEO_OUT_V_id_V {Type O LastRead -1 FirstWrite 2}
+		VIDEO_OUT_V_dest_V {Type O LastRead -1 FirstWrite 2}
+		re_V {Type I LastRead -1 FirstWrite -1}
+		im_V {Type I LastRead -1 FirstWrite -1}
+		zoom_factor_V {Type I LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "6241201", "Max" : "615841201"}
-	, {"Name" : "Interval", "Min" : "6241202", "Max" : "615841202"}
+	{"Name" : "Latency", "Min" : "109", "Max" : "109"}
+	, {"Name" : "Interval", "Min" : "110", "Max" : "110"}
 ]}
 
 set PipelineEnableSignalInfo {[

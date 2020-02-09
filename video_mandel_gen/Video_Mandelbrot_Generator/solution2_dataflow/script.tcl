@@ -14,7 +14,7 @@ config_export -format ip_catalog -rtl verilog -vivado_optimization_level 2 -viva
 config_sdx -optimization_level none -target none
 set_clock_uncertainty 12.5%
 source "./Video_Mandelbrot_Generator/solution2_dataflow/directives.tcl"
-csim_design -clean
+csim_design
 csynth_design
 cosim_design -trace_level port -tool xsim
 export_design -rtl verilog -format ip_catalog

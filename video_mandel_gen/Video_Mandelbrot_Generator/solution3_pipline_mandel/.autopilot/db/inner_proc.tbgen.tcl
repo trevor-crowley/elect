@@ -14,7 +14,7 @@ set isEnableWaveformDebug 1
 set C_modelName {inner_proc}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ v_assign int 10 regular  }
+	{ v_assign int 3 regular  }
 	{ m_axis_video_V_data_V int 24 regular {axi_s 1 volatile  { m_axis_video Data } }  }
 	{ m_axis_video_V_keep_V int 3 regular {axi_s 1 volatile  { m_axis_video Keep } }  }
 	{ m_axis_video_V_strb_V int 3 regular {axi_s 1 volatile  { m_axis_video Strb } }  }
@@ -27,7 +27,7 @@ set C_modelArgList {
 	{ zoom_factor_V int 18 regular  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "v_assign", "interface" : "wire", "bitwidth" : 10, "direction" : "READONLY"} , 
+	{ "Name" : "v_assign", "interface" : "wire", "bitwidth" : 3, "direction" : "READONLY"} , 
  	{ "Name" : "m_axis_video_V_data_V", "interface" : "axis", "bitwidth" : 24, "direction" : "WRITEONLY"} , 
  	{ "Name" : "m_axis_video_V_keep_V", "interface" : "axis", "bitwidth" : 3, "direction" : "WRITEONLY"} , 
  	{ "Name" : "m_axis_video_V_strb_V", "interface" : "axis", "bitwidth" : 3, "direction" : "WRITEONLY"} , 
@@ -48,7 +48,7 @@ set portList {
 	{ ap_continue sc_in sc_logic 1 continue -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ v_assign sc_in sc_lv 10 signal 0 } 
+	{ v_assign sc_in sc_lv 3 signal 0 } 
 	{ m_axis_video_TDATA sc_out sc_lv 24 signal 1 } 
 	{ m_axis_video_TVALID sc_out sc_logic 1 outvld 7 } 
 	{ m_axis_video_TREADY sc_in sc_logic 1 outacc 1 } 
@@ -70,7 +70,7 @@ set NewPortList {[
  	{ "name": "ap_continue", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "continue", "bundle":{"name": "ap_continue", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "v_assign", "direction": "in", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "v_assign", "role": "default" }} , 
+ 	{ "name": "v_assign", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "v_assign", "role": "default" }} , 
  	{ "name": "m_axis_video_TDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":24, "type": "signal", "bundle":{"name": "m_axis_video_V_data_V", "role": "default" }} , 
  	{ "name": "m_axis_video_TVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "m_axis_video_V_dest_V", "role": "default" }} , 
  	{ "name": "m_axis_video_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "m_axis_video_V_data_V", "role": "default" }} , 
@@ -91,7 +91,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "10401", "EstimateLatencyMax" : "1026401",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "81", "EstimateLatencyMax" : "369",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -112,7 +112,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "im_V", "Type" : "None", "Direction" : "I"},
 			{"Name" : "re_V", "Type" : "None", "Direction" : "I"},
 			{"Name" : "zoom_factor_V", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_17ns_7ns_24_1_1_U1", "Parent" : "0"},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_14ns_17ns_31_1_1_U1", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U2", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U3", "Parent" : "0"},
 	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U4", "Parent" : "0"},
@@ -123,13 +123,13 @@ set RtlHierarchyInfo {[
 set ArgLastReadFirstWriteLatency {
 	inner_proc {
 		v_assign {Type I LastRead 0 FirstWrite -1}
-		m_axis_video_V_data_V {Type O LastRead -1 FirstWrite 8}
-		m_axis_video_V_keep_V {Type O LastRead -1 FirstWrite 8}
-		m_axis_video_V_strb_V {Type O LastRead -1 FirstWrite 8}
-		m_axis_video_V_user_V {Type O LastRead -1 FirstWrite 8}
-		m_axis_video_V_last_V {Type O LastRead -1 FirstWrite 8}
-		m_axis_video_V_id_V {Type O LastRead -1 FirstWrite 8}
-		m_axis_video_V_dest_V {Type O LastRead -1 FirstWrite 8}
+		m_axis_video_V_data_V {Type O LastRead -1 FirstWrite 6}
+		m_axis_video_V_keep_V {Type O LastRead -1 FirstWrite 6}
+		m_axis_video_V_strb_V {Type O LastRead -1 FirstWrite 6}
+		m_axis_video_V_user_V {Type O LastRead -1 FirstWrite 6}
+		m_axis_video_V_last_V {Type O LastRead -1 FirstWrite 6}
+		m_axis_video_V_id_V {Type O LastRead -1 FirstWrite 6}
+		m_axis_video_V_dest_V {Type O LastRead -1 FirstWrite 6}
 		im_V {Type I LastRead 0 FirstWrite -1}
 		re_V {Type I LastRead 0 FirstWrite -1}
 		zoom_factor_V {Type I LastRead 0 FirstWrite -1}}}
@@ -137,15 +137,16 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "10401", "Max" : "1026401"}
-	, {"Name" : "Interval", "Min" : "10401", "Max" : "1026401"}
+	{"Name" : "Latency", "Min" : "81", "Max" : "369"}
+	, {"Name" : "Interval", "Min" : "81", "Max" : "369"}
 ]}
 
 set PipelineEnableSignalInfo {[
+	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 
-	v_assign { ap_none {  { v_assign in_data 0 10 } } }
+	v_assign { ap_none {  { v_assign in_data 0 3 } } }
 	m_axis_video_V_data_V { axis {  { m_axis_video_TDATA out_data 1 24 }  { m_axis_video_TREADY out_acc 0 1 } } }
 	m_axis_video_V_keep_V { axis {  { m_axis_video_TKEEP out_data 1 3 } } }
 	m_axis_video_V_strb_V { axis {  { m_axis_video_TSTRB out_data 1 3 } } }

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'video_mandelbrot_generator'" level="0">
-<item name = "Date">Sat Feb  8 14:51:54 2020
+<item name = "Date">Sat Feb  8 22:19:37 2020
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">Video_Mandelbrot_Generator</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 2.123, 1.25</column>
+<column name="ap_clk">10.00, 8.687, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,19 +24,19 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">481202, 481202, 481202, 481202, none</column>
+<column name="">548, 61508, 548, 61508, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="dataflow_in_loop_out_U0">dataflow_in_loop_out, 801, 801, 802, 802, dataflow</column>
+<column name="dataflow_in_loop_out_U0">dataflow_in_loop_out, 90, 10250, 91, 10251, dataflow</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- out">481200, 481200, 803, -, -, 600, no</column>
+<column name="- out">546, 61506, 92 ~ 10252, -, -, 6, no</column>
 </table>
 </item>
 </section>
@@ -49,21 +49,21 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 51, -</column>
+<column name="Expression">-, -, 0, 36, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">0, -, 122, 260, -</column>
+<column name="Instance">0, 6, 1075, 2351, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 18, -</column>
-<column name="Register">-, -, 21, -, -</column>
+<column name="Register">-, -, 6, -, -</column>
 <specialColumn name="Available">100, 90, 41600, 20800, 0</specialColumn>
-<specialColumn name="Utilization (%)">0, 0, ~0, 1, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 6, 2, 11, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="dataflow_in_loop_out_U0">dataflow_in_loop_out, 0, 0, 14, 112, 0</column>
+<column name="dataflow_in_loop_out_U0">dataflow_in_loop_out, 0, 6, 967, 2203, 0</column>
 <column name="video_mandelbrot_generator_cmd_s_axi_U">video_mandelbrot_generator_cmd_s_axi, 0, 0, 108, 148, 0</column>
 </table>
 </item>
@@ -81,22 +81,21 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="loop_dataflow_input_count">+, 0, 0, 17, 10, 1</column>
-<column name="loop_dataflow_output_count">+, 0, 0, 17, 10, 1</column>
-<column name="bound_minus_1">-, 0, 0, 17, 10, 1</column>
+<column name="loop_dataflow_input_count">+, 0, 0, 12, 3, 1</column>
+<column name="loop_dataflow_output_count">+, 0, 0, 12, 3, 1</column>
+<column name="bound_minus_1">-, 0, 0, 12, 3, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="loop_dataflow_input_count">9, 2, 10, 20</column>
-<column name="loop_dataflow_output_count">9, 2, 10, 20</column>
+<column name="loop_dataflow_input_count">9, 2, 3, 6</column>
+<column name="loop_dataflow_output_count">9, 2, 3, 6</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_sync_reg_dataflow_in_loop_out_U0_ap_start">1, 0, 1, 0</column>
-<column name="loop_dataflow_input_count">10, 0, 10, 0</column>
-<column name="loop_dataflow_output_count">10, 0, 10, 0</column>
+<column name="loop_dataflow_input_count">3, 0, 3, 0</column>
+<column name="loop_dataflow_output_count">3, 0, 3, 0</column>
 </table>
 </item>
 </section>

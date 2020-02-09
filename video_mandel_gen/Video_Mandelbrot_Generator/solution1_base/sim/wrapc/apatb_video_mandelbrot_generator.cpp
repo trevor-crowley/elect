@@ -77,12 +77,6 @@ using namespace sc_dt;
 #define AUTOTB_TVIN_VIDEO_OUT_V_dest_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_dest_V.dat"
 #define WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_dest_V  "../tv/stream_size/stream_size_out_VIDEO_OUT_V_dest_V.dat"
 #define WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_dest_V  "../tv/stream_size/stream_egress_status_VIDEO_OUT_V_dest_V.dat"
-// wrapc file define: "re_V"
-#define AUTOTB_TVIN_re_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_re_V.dat"
-// wrapc file define: "im_V"
-#define AUTOTB_TVIN_im_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_im_V.dat"
-// wrapc file define: "zoom_factor_V"
-#define AUTOTB_TVIN_zoom_factor_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_zoom_factor_V.dat"
 
 #define INTER_TCL  "../tv/cdatafile/ref.tcl"
 
@@ -112,9 +106,6 @@ class INTER_TCL_FILE {
 			VIDEO_OUT_V_last_V_depth = 0;
 			VIDEO_OUT_V_id_V_depth = 0;
 			VIDEO_OUT_V_dest_V_depth = 0;
-			re_V_depth = 0;
-			im_V_depth = 0;
-			zoom_factor_V_depth = 0;
 			trans_num =0;
 		}
 
@@ -141,9 +132,6 @@ class INTER_TCL_FILE {
 			total_list << "{VIDEO_OUT_V_last_V " << VIDEO_OUT_V_last_V_depth << "}\n";
 			total_list << "{VIDEO_OUT_V_id_V " << VIDEO_OUT_V_id_V_depth << "}\n";
 			total_list << "{VIDEO_OUT_V_dest_V " << VIDEO_OUT_V_dest_V_depth << "}\n";
-			total_list << "{re_V " << re_V_depth << "}\n";
-			total_list << "{im_V " << im_V_depth << "}\n";
-			total_list << "{zoom_factor_V " << zoom_factor_V_depth << "}\n";
 			return total_list.str();
 		}
 
@@ -158,9 +146,6 @@ class INTER_TCL_FILE {
 		int VIDEO_OUT_V_last_V_depth;
 		int VIDEO_OUT_V_id_V_depth;
 		int VIDEO_OUT_V_dest_V_depth;
-		int re_V_depth;
-		int im_V_depth;
-		int zoom_factor_V_depth;
 		int trans_num;
 
 	private:
@@ -1392,18 +1377,6 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		char* wrapc_stream_egress_status_VIDEO_OUT_V_dest_V = new char[50];
 		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_dest_V);
 
-		// "re_V"
-		char* tvin_re_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_re_V);
-
-		// "im_V"
-		char* tvin_im_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_im_V);
-
-		// "zoom_factor_V"
-		char* tvin_zoom_factor_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_zoom_factor_V);
-
 		CodeState = DUMP_INPUTS;
 		static INTER_TCL_FILE tcl_file(INTER_TCL);
 		int leading_zero;
@@ -1416,132 +1389,6 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			aesl_tmp_0.push_back(m_axis_video.read());
 			aesl_tmp_1++;
 		}
-
-		// [[transaction]]
-		sprintf(tvin_re_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVIN_re_V, tvin_re_V);
-
-		sc_bv<18> re_V_tvin_wrapc_buffer;
-
-		// RTL Name: re_V
-		{
-			// bitslice(17, 0)
-			{
-				// celement: re.V(17, 0)
-				{
-					// carray: (0) => (0) @ (0)
-					{
-						// sub                   : 
-						// ori_name              : re
-						// sub_1st_elem          : 
-						// ori_name_1st_elem     : re
-						// regulate_c_name       : re_V
-						// input_type_conversion : (re).range().to_string(SC_BIN).c_str()
-						if (&(re) != NULL) // check the null address if the c port is array or others
-						{
-							sc_lv<18> re_V_tmp_mem;
-							re_V_tmp_mem = (re).range().to_string(SC_BIN).c_str();
-							re_V_tvin_wrapc_buffer.range(17, 0) = re_V_tmp_mem.range(17, 0);
-						}
-					}
-				}
-			}
-		}
-
-		// dump tv to file
-		for (int i = 0; i < 1; i++)
-		{
-			sprintf(tvin_re_V, "%s\n", (re_V_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVIN_re_V, tvin_re_V);
-		}
-
-		tcl_file.set_num(1, &tcl_file.re_V_depth);
-		sprintf(tvin_re_V, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVIN_re_V, tvin_re_V);
-
-		// [[transaction]]
-		sprintf(tvin_im_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVIN_im_V, tvin_im_V);
-
-		sc_bv<18> im_V_tvin_wrapc_buffer;
-
-		// RTL Name: im_V
-		{
-			// bitslice(17, 0)
-			{
-				// celement: im.V(17, 0)
-				{
-					// carray: (0) => (0) @ (0)
-					{
-						// sub                   : 
-						// ori_name              : im
-						// sub_1st_elem          : 
-						// ori_name_1st_elem     : im
-						// regulate_c_name       : im_V
-						// input_type_conversion : (im).range().to_string(SC_BIN).c_str()
-						if (&(im) != NULL) // check the null address if the c port is array or others
-						{
-							sc_lv<18> im_V_tmp_mem;
-							im_V_tmp_mem = (im).range().to_string(SC_BIN).c_str();
-							im_V_tvin_wrapc_buffer.range(17, 0) = im_V_tmp_mem.range(17, 0);
-						}
-					}
-				}
-			}
-		}
-
-		// dump tv to file
-		for (int i = 0; i < 1; i++)
-		{
-			sprintf(tvin_im_V, "%s\n", (im_V_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVIN_im_V, tvin_im_V);
-		}
-
-		tcl_file.set_num(1, &tcl_file.im_V_depth);
-		sprintf(tvin_im_V, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVIN_im_V, tvin_im_V);
-
-		// [[transaction]]
-		sprintf(tvin_zoom_factor_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVIN_zoom_factor_V, tvin_zoom_factor_V);
-
-		sc_bv<18> zoom_factor_V_tvin_wrapc_buffer;
-
-		// RTL Name: zoom_factor_V
-		{
-			// bitslice(17, 0)
-			{
-				// celement: zoom_factor.V(17, 0)
-				{
-					// carray: (0) => (0) @ (0)
-					{
-						// sub                   : 
-						// ori_name              : zoom_factor
-						// sub_1st_elem          : 
-						// ori_name_1st_elem     : zoom_factor
-						// regulate_c_name       : zoom_factor_V
-						// input_type_conversion : (zoom_factor).range().to_string(SC_BIN).c_str()
-						if (&(zoom_factor) != NULL) // check the null address if the c port is array or others
-						{
-							sc_lv<18> zoom_factor_V_tmp_mem;
-							zoom_factor_V_tmp_mem = (zoom_factor).range().to_string(SC_BIN).c_str();
-							zoom_factor_V_tvin_wrapc_buffer.range(17, 0) = zoom_factor_V_tmp_mem.range(17, 0);
-						}
-					}
-				}
-			}
-		}
-
-		// dump tv to file
-		for (int i = 0; i < 1; i++)
-		{
-			sprintf(tvin_zoom_factor_V, "%s\n", (zoom_factor_V_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVIN_zoom_factor_V, tvin_zoom_factor_V);
-		}
-
-		tcl_file.set_num(1, &tcl_file.zoom_factor_V_depth);
-		sprintf(tvin_zoom_factor_V, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVIN_zoom_factor_V, tvin_zoom_factor_V);
 
 		// push back input stream: "m_axis_video"
 		for (int i = 0; i < aesl_tmp_1; i++)
@@ -2020,12 +1867,6 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		delete [] tvout_VIDEO_OUT_V_dest_V;
 		delete [] tvin_VIDEO_OUT_V_dest_V;
 		delete [] wrapc_stream_size_out_VIDEO_OUT_V_dest_V;
-		// release memory allocation: "re_V"
-		delete [] tvin_re_V;
-		// release memory allocation: "im_V"
-		delete [] tvin_im_V;
-		// release memory allocation: "zoom_factor_V"
-		delete [] tvin_zoom_factor_V;
 
 		AESL_transaction++;
 

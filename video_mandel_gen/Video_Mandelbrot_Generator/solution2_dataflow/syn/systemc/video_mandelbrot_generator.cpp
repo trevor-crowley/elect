@@ -19,11 +19,10 @@ const sc_logic video_mandelbrot_generator::ap_const_logic_1 = sc_dt::Log_1;
 const sc_lv<24> video_mandelbrot_generator::ap_const_lv24_0 = "000000000000000000000000";
 const sc_lv<3> video_mandelbrot_generator::ap_const_lv3_0 = "000";
 const sc_lv<1> video_mandelbrot_generator::ap_const_lv1_0 = "0";
-const sc_logic video_mandelbrot_generator::ap_const_logic_0 = sc_dt::Log_0;
 const bool video_mandelbrot_generator::ap_const_boolean_1 = true;
-const sc_lv<10> video_mandelbrot_generator::ap_const_lv10_258 = "1001011000";
-const sc_lv<10> video_mandelbrot_generator::ap_const_lv10_0 = "0000000000";
-const sc_lv<10> video_mandelbrot_generator::ap_const_lv10_1 = "1";
+const sc_lv<3> video_mandelbrot_generator::ap_const_lv3_6 = "110";
+const sc_lv<3> video_mandelbrot_generator::ap_const_lv3_1 = "1";
+const sc_logic video_mandelbrot_generator::ap_const_logic_0 = sc_dt::Log_0;
 
 video_mandelbrot_generator::video_mandelbrot_generator(sc_module_name name) : sc_module(name), mVcdFile(0) {
     video_mandelbrot_generator_cmd_s_axi_U = new video_mandelbrot_generator_cmd_s_axi<C_S_AXI_CMD_ADDR_WIDTH,C_S_AXI_CMD_DATA_WIDTH>("video_mandelbrot_generator_cmd_s_axi_U");
@@ -56,7 +55,7 @@ video_mandelbrot_generator::video_mandelbrot_generator(sc_module_name name) : sc
     video_mandelbrot_generator_cmd_s_axi_U->im_V(im_V);
     video_mandelbrot_generator_cmd_s_axi_U->zoom_factor_V(zoom_factor_V);
     dataflow_in_loop_out_U0 = new dataflow_in_loop_out("dataflow_in_loop_out_U0");
-    dataflow_in_loop_out_U0->i_op_assign_1(loop_dataflow_input_count);
+    dataflow_in_loop_out_U0->v_assign(loop_dataflow_input_count);
     dataflow_in_loop_out_U0->m_axis_video_TDATA(dataflow_in_loop_out_U0_m_axis_video_TDATA);
     dataflow_in_loop_out_U0->m_axis_video_TKEEP(dataflow_in_loop_out_U0_m_axis_video_TKEEP);
     dataflow_in_loop_out_U0->m_axis_video_TSTRB(dataflow_in_loop_out_U0_m_axis_video_TSTRB);
@@ -64,11 +63,17 @@ video_mandelbrot_generator::video_mandelbrot_generator(sc_module_name name) : sc
     dataflow_in_loop_out_U0->m_axis_video_TLAST(dataflow_in_loop_out_U0_m_axis_video_TLAST);
     dataflow_in_loop_out_U0->m_axis_video_TID(dataflow_in_loop_out_U0_m_axis_video_TID);
     dataflow_in_loop_out_U0->m_axis_video_TDEST(dataflow_in_loop_out_U0_m_axis_video_TDEST);
+    dataflow_in_loop_out_U0->im_V(im_V);
+    dataflow_in_loop_out_U0->re_V(re_V);
+    dataflow_in_loop_out_U0->zoom_factor_V(zoom_factor_V);
     dataflow_in_loop_out_U0->ap_clk(ap_clk);
     dataflow_in_loop_out_U0->ap_rst(ap_rst_n_inv);
-    dataflow_in_loop_out_U0->i_op_assign_1_ap_vld(ap_var_for_const1);
+    dataflow_in_loop_out_U0->v_assign_ap_vld(ap_var_for_const1);
     dataflow_in_loop_out_U0->m_axis_video_TVALID(dataflow_in_loop_out_U0_m_axis_video_TVALID);
     dataflow_in_loop_out_U0->m_axis_video_TREADY(m_axis_video_TREADY);
+    dataflow_in_loop_out_U0->im_V_ap_vld(ap_var_for_const0);
+    dataflow_in_loop_out_U0->re_V_ap_vld(ap_var_for_const0);
+    dataflow_in_loop_out_U0->zoom_factor_V_ap_vld(ap_var_for_const0);
     dataflow_in_loop_out_U0->ap_start(dataflow_in_loop_out_U0_ap_start);
     dataflow_in_loop_out_U0->ap_done(dataflow_in_loop_out_U0_ap_done);
     dataflow_in_loop_out_U0->ap_ready(dataflow_in_loop_out_U0_ap_ready);
@@ -104,7 +109,7 @@ video_mandelbrot_generator::video_mandelbrot_generator(sc_module_name name) : sc
     sensitive << ( dataflow_in_loop_out_U0_ap_done );
 
     SC_METHOD(thread_ap_sync_ready);
-    sensitive << ( ap_sync_done );
+    sensitive << ( dataflow_in_loop_out_U0_ap_ready );
 
     SC_METHOD(thread_bound_minus_1);
 
@@ -148,9 +153,8 @@ video_mandelbrot_generator::video_mandelbrot_generator(sc_module_name name) : sc
 
     SC_THREAD(thread_ap_var_for_const1);
 
-    ap_sync_reg_dataflow_in_loop_out_U0_ap_start = SC_LOGIC_0;
-    loop_dataflow_input_count = "0000000000";
-    loop_dataflow_output_count = "0000000000";
+    loop_dataflow_input_count = "000";
+    loop_dataflow_output_count = "000";
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "video_mandelbrot_generator_sc_trace_" << apTFileNum ++;
@@ -211,7 +215,6 @@ video_mandelbrot_generator::video_mandelbrot_generator(sc_module_name name) : sc
     sc_trace(mVcdFile, dataflow_in_loop_out_U0_ap_ready, "dataflow_in_loop_out_U0_ap_ready");
     sc_trace(mVcdFile, dataflow_in_loop_out_U0_ap_idle, "dataflow_in_loop_out_U0_ap_idle");
     sc_trace(mVcdFile, dataflow_in_loop_out_U0_ap_continue, "dataflow_in_loop_out_U0_ap_continue");
-    sc_trace(mVcdFile, ap_sync_reg_dataflow_in_loop_out_U0_ap_start, "ap_sync_reg_dataflow_in_loop_out_U0_ap_start");
     sc_trace(mVcdFile, ap_sync_continue, "ap_sync_continue");
     sc_trace(mVcdFile, ap_sync_done, "ap_sync_done");
     sc_trace(mVcdFile, ap_sync_ready, "ap_sync_ready");
@@ -249,43 +252,36 @@ void video_mandelbrot_generator::thread_ap_var_for_const1() {
 
 void video_mandelbrot_generator::thread_ap_clk_no_reset_() {
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        ap_sync_reg_dataflow_in_loop_out_U0_ap_start = ap_const_logic_0;
-    } else {
-        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_start.read())) {
-            ap_sync_reg_dataflow_in_loop_out_U0_ap_start = ap_const_logic_1;
-        }
-    }
-    if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        loop_dataflow_input_count = ap_const_lv10_0;
+        loop_dataflow_input_count = ap_const_lv3_0;
     } else {
         if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_start.read()) && 
              esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_ready.read()) && 
-             !esl_seteq<1,10,10>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
-            loop_dataflow_input_count = (!loop_dataflow_input_count.read().is_01() || !ap_const_lv10_1.is_01())? sc_lv<10>(): (sc_biguint<10>(loop_dataflow_input_count.read()) + sc_biguint<10>(ap_const_lv10_1));
+             !esl_seteq<1,3,3>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
+            loop_dataflow_input_count = (!loop_dataflow_input_count.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(loop_dataflow_input_count.read()) + sc_biguint<3>(ap_const_lv3_1));
         } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_start.read()) && 
                     esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_ready.read()) && 
-                    esl_seteq<1,10,10>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
-            loop_dataflow_input_count = ap_const_lv10_0;
+                    esl_seteq<1,3,3>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
+            loop_dataflow_input_count = ap_const_lv3_0;
         }
     }
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        loop_dataflow_output_count = ap_const_lv10_0;
+        loop_dataflow_output_count = ap_const_lv3_0;
     } else {
         if ((esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_done.read()) && 
              esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_continue.read()) && 
-             !esl_seteq<1,10,10>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
-            loop_dataflow_output_count = (!loop_dataflow_output_count.read().is_01() || !ap_const_lv10_1.is_01())? sc_lv<10>(): (sc_biguint<10>(loop_dataflow_output_count.read()) + sc_biguint<10>(ap_const_lv10_1));
+             !esl_seteq<1,3,3>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
+            loop_dataflow_output_count = (!loop_dataflow_output_count.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(loop_dataflow_output_count.read()) + sc_biguint<3>(ap_const_lv3_1));
         } else if ((esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_done.read()) && 
                     esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_continue.read()) && 
-                    esl_seteq<1,10,10>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
-            loop_dataflow_output_count = ap_const_lv10_0;
+                    esl_seteq<1,3,3>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
+            loop_dataflow_output_count = ap_const_lv3_0;
         }
     }
 }
 
 void video_mandelbrot_generator::thread_ap_done() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_done.read()) && 
-         esl_seteq<1,10,10>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
+         esl_seteq<1,3,3>(loop_dataflow_output_count.read(), bound_minus_1.read()))) {
         ap_done = ap_const_logic_1;
     } else {
         ap_done = ap_const_logic_0;
@@ -293,7 +289,7 @@ void video_mandelbrot_generator::thread_ap_done() {
 }
 
 void video_mandelbrot_generator::thread_ap_idle() {
-    if ((esl_seteq<1,10,10>(loop_dataflow_output_count.read(), ap_const_lv10_0) && 
+    if ((esl_seteq<1,3,3>(ap_const_lv3_0, loop_dataflow_output_count.read()) && 
          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0) && 
          esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_idle.read()))) {
         ap_idle = ap_const_logic_1;
@@ -305,7 +301,7 @@ void video_mandelbrot_generator::thread_ap_idle() {
 void video_mandelbrot_generator::thread_ap_ready() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_start.read()) && 
          esl_seteq<1,1,1>(ap_const_logic_1, dataflow_in_loop_out_U0_ap_ready.read()) && 
-         esl_seteq<1,10,10>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
+         esl_seteq<1,3,3>(loop_dataflow_input_count.read(), bound_minus_1.read()))) {
         ap_ready = ap_const_logic_1;
     } else {
         ap_ready = ap_const_logic_0;
@@ -325,11 +321,11 @@ void video_mandelbrot_generator::thread_ap_sync_done() {
 }
 
 void video_mandelbrot_generator::thread_ap_sync_ready() {
-    ap_sync_ready = ap_sync_done.read();
+    ap_sync_ready = dataflow_in_loop_out_U0_ap_ready.read();
 }
 
 void video_mandelbrot_generator::thread_bound_minus_1() {
-    bound_minus_1 = (!ap_const_lv10_258.is_01() || !ap_const_lv10_1.is_01())? sc_lv<10>(): (sc_biguint<10>(ap_const_lv10_258) - sc_biguint<10>(ap_const_lv10_1));
+    bound_minus_1 = (!ap_const_lv3_6.is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(ap_const_lv3_6) - sc_biguint<3>(ap_const_lv3_1));
 }
 
 void video_mandelbrot_generator::thread_dataflow_in_loop_out_U0_ap_continue() {

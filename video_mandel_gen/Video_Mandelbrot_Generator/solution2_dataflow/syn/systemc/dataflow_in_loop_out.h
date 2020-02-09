@@ -16,8 +16,8 @@
 namespace ap_rtl {
 
 struct dataflow_in_loop_out : public sc_module {
-    // Port declarations 18
-    sc_in< sc_lv<10> > i_op_assign_1;
+    // Port declarations 24
+    sc_in< sc_lv<3> > v_assign;
     sc_out< sc_lv<24> > m_axis_video_TDATA;
     sc_out< sc_lv<3> > m_axis_video_TKEEP;
     sc_out< sc_lv<3> > m_axis_video_TSTRB;
@@ -25,11 +25,17 @@ struct dataflow_in_loop_out : public sc_module {
     sc_out< sc_lv<1> > m_axis_video_TLAST;
     sc_out< sc_lv<1> > m_axis_video_TID;
     sc_out< sc_lv<1> > m_axis_video_TDEST;
+    sc_in< sc_lv<18> > im_V;
+    sc_in< sc_lv<18> > re_V;
+    sc_in< sc_lv<18> > zoom_factor_V;
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst;
-    sc_in< sc_logic > i_op_assign_1_ap_vld;
+    sc_in< sc_logic > v_assign_ap_vld;
     sc_out< sc_logic > m_axis_video_TVALID;
     sc_in< sc_logic > m_axis_video_TREADY;
+    sc_in< sc_logic > im_V_ap_vld;
+    sc_in< sc_logic > re_V_ap_vld;
+    sc_in< sc_logic > zoom_factor_V_ap_vld;
     sc_in< sc_logic > ap_start;
     sc_out< sc_logic > ap_done;
     sc_out< sc_logic > ap_ready;

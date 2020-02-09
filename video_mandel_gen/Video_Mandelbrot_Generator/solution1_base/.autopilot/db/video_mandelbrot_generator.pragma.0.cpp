@@ -36060,7 +36060,7 @@ _ssdm_op_SpecDataflowPipeline(-1, 0, "");
 }
 # 70 "/opt/Xilinx/Vivado/2019.1/common/technology/autopilot/hls_video.h" 2
 # 5 "src/cpp/video_mandelbrot_generator.h" 2
-# 15 "src/cpp/video_mandelbrot_generator.h"
+# 20 "src/cpp/video_mandelbrot_generator.h"
  typedef hls::stream<ap_axiu<24,1,1,1> > AXI_STREAM;
 
 
@@ -36094,16 +36094,13 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
  fixed_point real_btm, imag_btm;
  fixed_point x0, y0, rsquare, isquare, zsquare;
  fixed_point x,y;
- fixed_point newRe, newIm, oldRe, oldIm;
- int row, col, iter;
+ uint16_t row, col, iter;
 
 
 
- out:for(row = 0; row < 600; row++)
+ out:for(row = 0; row < 6; row++)
  {
-
-
-  inner:for(col= 0; col < 800; col++)
+  inner:for(col= 0; col < 8; col++)
   {
 
    if((col==0)&&(row==0))
@@ -36112,42 +36109,45 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
     video.user=0;
 
 
-   if(row==800 -1)
+   if(col==8 -1)
     video.last = 1;
    else
     video.last = 0;
 
 
-   real_top = (fixed_point)col * (const fixed_point)(1.0 / 800) - (fixed_point)0.5;
+
+   real_top = (fixed_point)col * (const fixed_point)(1.0 / 8) - (fixed_point)0.5;
    real_btm = (fixed_point)3.0 * zoom_factor;
    x0 = (fixed_point)real_top * real_btm + re;
 
-   imag_top = (fixed_point)row * (const fixed_point)(1.0 / 600) - (fixed_point)0.5;
+   imag_top = (fixed_point)row * (const fixed_point)(1.0 / 6) - (fixed_point)0.5;
    imag_btm = (fixed_point)-2.0 * zoom_factor;
    y0 = (fixed_point)(imag_top * imag_btm) + im;
-# 61 "src/cpp/video_mandelbrot_generator.cpp"
-         iter =0;
+# 59 "src/cpp/video_mandelbrot_generator.cpp"
          rsquare = isquare = zsquare = 0;
-         newRe = newIm = oldRe = oldIm = 0;
+      mandel_calc:for (iter=0; iter < 10 && ((rsquare + isquare) <= (fixed_point)4); iter++) {
 
-      mandel_calc:for (iter=0; iter < 255 && ((rsquare + isquare) <= (fixed_point)4); iter++) {
-# 77 "src/cpp/video_mandelbrot_generator.cpp"
-          y = zsquare - rsquare - isquare + y0;
        x = rsquare - isquare + x0;
+          y = zsquare - rsquare - isquare + y0;
 
           rsquare = (fixed_point)(x * x);
           isquare = (fixed_point)(y * y);
 
        zsquare = (fixed_point)((x + y) * (x + y));
 
-
-
-
       }
 
-   pixel.R = iter;
-   pixel.B = iter;
-   pixel.G = 255;
+
+
+
+
+
+   pixel.R = 0;
+
+   pixel.B = 0;
+   pixel.G = col;
+
+
 
 
    video.data = set_rgb_8_pixel_value(pixel);

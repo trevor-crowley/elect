@@ -11,7 +11,7 @@ use IEEE.numeric_std.all;
 
 entity dataflow_in_loop_out is
 port (
-    v_assign : IN STD_LOGIC_VECTOR (9 downto 0);
+    v_assign : IN STD_LOGIC_VECTOR (2 downto 0);
     m_axis_video_TDATA : OUT STD_LOGIC_VECTOR (23 downto 0);
     m_axis_video_TKEEP : OUT STD_LOGIC_VECTOR (2 downto 0);
     m_axis_video_TSTRB : OUT STD_LOGIC_VECTOR (2 downto 0);
@@ -73,7 +73,7 @@ architecture behav of dataflow_in_loop_out is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        v_assign : IN STD_LOGIC_VECTOR (9 downto 0);
+        v_assign : IN STD_LOGIC_VECTOR (2 downto 0);
         m_axis_video_TDATA : OUT STD_LOGIC_VECTOR (23 downto 0);
         m_axis_video_TVALID : OUT STD_LOGIC;
         m_axis_video_TREADY : IN STD_LOGIC;

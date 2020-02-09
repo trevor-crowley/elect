@@ -27,7 +27,7 @@ dataflow_in_loop_out::dataflow_in_loop_out(sc_module_name name) : sc_module(name
     inner_proc_U0->ap_continue(inner_proc_U0_ap_continue);
     inner_proc_U0->ap_idle(inner_proc_U0_ap_idle);
     inner_proc_U0->ap_ready(inner_proc_U0_ap_ready);
-    inner_proc_U0->i_op_assign_1(i_op_assign_1);
+    inner_proc_U0->v_assign(v_assign);
     inner_proc_U0->m_axis_video_TDATA(inner_proc_U0_m_axis_video_TDATA);
     inner_proc_U0->m_axis_video_TVALID(inner_proc_U0_m_axis_video_TVALID);
     inner_proc_U0->m_axis_video_TREADY(m_axis_video_TREADY);
@@ -37,6 +37,9 @@ dataflow_in_loop_out::dataflow_in_loop_out(sc_module_name name) : sc_module(name
     inner_proc_U0->m_axis_video_TLAST(inner_proc_U0_m_axis_video_TLAST);
     inner_proc_U0->m_axis_video_TID(inner_proc_U0_m_axis_video_TID);
     inner_proc_U0->m_axis_video_TDEST(inner_proc_U0_m_axis_video_TDEST);
+    inner_proc_U0->im_V(im_V);
+    inner_proc_U0->re_V(re_V);
+    inner_proc_U0->zoom_factor_V(zoom_factor_V);
 
     SC_METHOD(thread_ap_done);
     sensitive << ( inner_proc_U0_ap_done );
@@ -98,7 +101,7 @@ dataflow_in_loop_out::dataflow_in_loop_out(sc_module_name name) : sc_module(name
     mVcdFile->set_time_unit(1, SC_PS);
     if (1) {
 #ifdef __HLS_TRACE_LEVEL_PORT_HIER__
-    sc_trace(mVcdFile, i_op_assign_1, "(port)i_op_assign_1");
+    sc_trace(mVcdFile, v_assign, "(port)v_assign");
     sc_trace(mVcdFile, m_axis_video_TDATA, "(port)m_axis_video_TDATA");
     sc_trace(mVcdFile, m_axis_video_TKEEP, "(port)m_axis_video_TKEEP");
     sc_trace(mVcdFile, m_axis_video_TSTRB, "(port)m_axis_video_TSTRB");
@@ -106,11 +109,17 @@ dataflow_in_loop_out::dataflow_in_loop_out(sc_module_name name) : sc_module(name
     sc_trace(mVcdFile, m_axis_video_TLAST, "(port)m_axis_video_TLAST");
     sc_trace(mVcdFile, m_axis_video_TID, "(port)m_axis_video_TID");
     sc_trace(mVcdFile, m_axis_video_TDEST, "(port)m_axis_video_TDEST");
+    sc_trace(mVcdFile, im_V, "(port)im_V");
+    sc_trace(mVcdFile, re_V, "(port)re_V");
+    sc_trace(mVcdFile, zoom_factor_V, "(port)zoom_factor_V");
     sc_trace(mVcdFile, ap_clk, "(port)ap_clk");
     sc_trace(mVcdFile, ap_rst, "(port)ap_rst");
-    sc_trace(mVcdFile, i_op_assign_1_ap_vld, "(port)i_op_assign_1_ap_vld");
+    sc_trace(mVcdFile, v_assign_ap_vld, "(port)v_assign_ap_vld");
     sc_trace(mVcdFile, m_axis_video_TVALID, "(port)m_axis_video_TVALID");
     sc_trace(mVcdFile, m_axis_video_TREADY, "(port)m_axis_video_TREADY");
+    sc_trace(mVcdFile, im_V_ap_vld, "(port)im_V_ap_vld");
+    sc_trace(mVcdFile, re_V_ap_vld, "(port)re_V_ap_vld");
+    sc_trace(mVcdFile, zoom_factor_V_ap_vld, "(port)zoom_factor_V_ap_vld");
     sc_trace(mVcdFile, ap_start, "(port)ap_start");
     sc_trace(mVcdFile, ap_done, "(port)ap_done");
     sc_trace(mVcdFile, ap_ready, "(port)ap_ready");

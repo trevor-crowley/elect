@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="video_mandelbrot_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7a35t-cpg236-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.122750,HLS_SYN_LAT=481202,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=143,HLS_SYN_LUT=329,HLS_VERSION=2019_1}" *)
+(* CORE_GENERATION_INFO="video_mandelbrot_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7a35t-cpg236-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.687000,HLS_SYN_LAT=31028,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=6,HLS_SYN_FF=1081,HLS_SYN_LUT=2405,HLS_VERSION=2019_1}" *)
 
 module video_mandelbrot_generator (
         s_axi_cmd_AWVALID,
@@ -100,21 +100,19 @@ wire    dataflow_in_loop_out_U0_ap_done;
 wire    dataflow_in_loop_out_U0_ap_ready;
 wire    dataflow_in_loop_out_U0_ap_idle;
 wire    dataflow_in_loop_out_U0_ap_continue;
-reg    ap_sync_reg_dataflow_in_loop_out_U0_ap_start;
 wire    ap_sync_continue;
 wire    ap_sync_done;
 wire    ap_sync_ready;
-reg   [9:0] loop_dataflow_input_count;
-reg   [9:0] loop_dataflow_output_count;
-wire   [9:0] bound_minus_1;
+reg   [2:0] loop_dataflow_input_count;
+reg   [2:0] loop_dataflow_output_count;
+wire   [2:0] bound_minus_1;
 wire    dataflow_in_loop_out_U0_start_full_n;
 wire    dataflow_in_loop_out_U0_start_write;
 
 // power-on initialization
 initial begin
-#0 ap_sync_reg_dataflow_in_loop_out_U0_ap_start = 1'b0;
-#0 loop_dataflow_input_count = 10'd0;
-#0 loop_dataflow_output_count = 10'd0;
+#0 loop_dataflow_input_count = 3'd0;
+#0 loop_dataflow_output_count = 3'd0;
 end
 
 video_mandelbrot_generator_cmd_s_axi #(
@@ -152,7 +150,7 @@ video_mandelbrot_generator_cmd_s_axi_U(
 );
 
 dataflow_in_loop_out dataflow_in_loop_out_U0(
-    .i_op_assign_1(loop_dataflow_input_count),
+    .v_assign(loop_dataflow_input_count),
     .m_axis_video_TDATA(dataflow_in_loop_out_U0_m_axis_video_TDATA),
     .m_axis_video_TKEEP(dataflow_in_loop_out_U0_m_axis_video_TKEEP),
     .m_axis_video_TSTRB(dataflow_in_loop_out_U0_m_axis_video_TSTRB),
@@ -160,11 +158,17 @@ dataflow_in_loop_out dataflow_in_loop_out_U0(
     .m_axis_video_TLAST(dataflow_in_loop_out_U0_m_axis_video_TLAST),
     .m_axis_video_TID(dataflow_in_loop_out_U0_m_axis_video_TID),
     .m_axis_video_TDEST(dataflow_in_loop_out_U0_m_axis_video_TDEST),
+    .im_V(im_V),
+    .re_V(re_V),
+    .zoom_factor_V(zoom_factor_V),
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .i_op_assign_1_ap_vld(1'b0),
+    .v_assign_ap_vld(1'b0),
     .m_axis_video_TVALID(dataflow_in_loop_out_U0_m_axis_video_TVALID),
     .m_axis_video_TREADY(m_axis_video_TREADY),
+    .im_V_ap_vld(1'b1),
+    .re_V_ap_vld(1'b1),
+    .zoom_factor_V_ap_vld(1'b1),
     .ap_start(dataflow_in_loop_out_U0_ap_start),
     .ap_done(dataflow_in_loop_out_U0_ap_done),
     .ap_ready(dataflow_in_loop_out_U0_ap_ready),
@@ -174,34 +178,24 @@ dataflow_in_loop_out dataflow_in_loop_out_U0(
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        ap_sync_reg_dataflow_in_loop_out_U0_ap_start <= 1'b0;
-    end else begin
-        if ((ap_start == 1'b1)) begin
-            ap_sync_reg_dataflow_in_loop_out_U0_ap_start <= 1'b1;
-        end
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (ap_rst_n_inv == 1'b1) begin
-        loop_dataflow_input_count <= 10'd0;
+        loop_dataflow_input_count <= 3'd0;
     end else begin
         if ((~(loop_dataflow_input_count == bound_minus_1) & (dataflow_in_loop_out_U0_ap_ready == 1'b1) & (ap_start == 1'b1))) begin
-            loop_dataflow_input_count <= (loop_dataflow_input_count + 10'd1);
+            loop_dataflow_input_count <= (loop_dataflow_input_count + 3'd1);
         end else if (((loop_dataflow_input_count == bound_minus_1) & (dataflow_in_loop_out_U0_ap_ready == 1'b1) & (ap_start == 1'b1))) begin
-            loop_dataflow_input_count <= 10'd0;
+            loop_dataflow_input_count <= 3'd0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        loop_dataflow_output_count <= 10'd0;
+        loop_dataflow_output_count <= 3'd0;
     end else begin
         if ((~(loop_dataflow_output_count == bound_minus_1) & (dataflow_in_loop_out_U0_ap_continue == 1'b1) & (dataflow_in_loop_out_U0_ap_done == 1'b1))) begin
-            loop_dataflow_output_count <= (loop_dataflow_output_count + 10'd1);
+            loop_dataflow_output_count <= (loop_dataflow_output_count + 3'd1);
         end else if (((loop_dataflow_output_count == bound_minus_1) & (dataflow_in_loop_out_U0_ap_continue == 1'b1) & (dataflow_in_loop_out_U0_ap_done == 1'b1))) begin
-            loop_dataflow_output_count <= 10'd0;
+            loop_dataflow_output_count <= 3'd0;
         end
     end
 end
@@ -215,7 +209,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((loop_dataflow_output_count == 10'd0) & (ap_start == 1'b0) & (dataflow_in_loop_out_U0_ap_idle == 1'b1))) begin
+    if (((loop_dataflow_output_count == 3'd0) & (ap_start == 1'b0) & (dataflow_in_loop_out_U0_ap_idle == 1'b1))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -240,9 +234,9 @@ assign ap_sync_continue = 1'b1;
 
 assign ap_sync_done = dataflow_in_loop_out_U0_ap_done;
 
-assign ap_sync_ready = ap_sync_done;
+assign ap_sync_ready = dataflow_in_loop_out_U0_ap_ready;
 
-assign bound_minus_1 = (10'd600 - 10'd1);
+assign bound_minus_1 = (3'd6 - 3'd1);
 
 assign dataflow_in_loop_out_U0_ap_start = ap_start;
 

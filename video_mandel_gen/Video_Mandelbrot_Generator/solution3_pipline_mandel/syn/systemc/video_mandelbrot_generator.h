@@ -89,9 +89,9 @@ struct video_mandelbrot_generator : public sc_module {
     sc_signal< sc_logic > ap_sync_continue;
     sc_signal< sc_logic > ap_sync_done;
     sc_signal< sc_logic > ap_sync_ready;
-    sc_signal< sc_lv<10> > loop_dataflow_input_count;
-    sc_signal< sc_lv<10> > loop_dataflow_output_count;
-    sc_signal< sc_lv<10> > bound_minus_1;
+    sc_signal< sc_lv<3> > loop_dataflow_input_count;
+    sc_signal< sc_lv<3> > loop_dataflow_output_count;
+    sc_signal< sc_lv<3> > bound_minus_1;
     sc_signal< sc_logic > dataflow_in_loop_out_U0_start_full_n;
     sc_signal< sc_logic > dataflow_in_loop_out_U0_start_write;
     static const int C_S_AXI_DATA_WIDTH;
@@ -102,9 +102,8 @@ struct video_mandelbrot_generator : public sc_module {
     static const sc_lv<3> ap_const_lv3_0;
     static const sc_lv<1> ap_const_lv1_0;
     static const bool ap_const_boolean_1;
-    static const sc_lv<10> ap_const_lv10_258;
-    static const sc_lv<10> ap_const_lv10_0;
-    static const sc_lv<10> ap_const_lv10_1;
+    static const sc_lv<3> ap_const_lv3_6;
+    static const sc_lv<3> ap_const_lv3_1;
     static const sc_logic ap_const_logic_0;
     // Thread declarations
     void thread_ap_var_for_const0();

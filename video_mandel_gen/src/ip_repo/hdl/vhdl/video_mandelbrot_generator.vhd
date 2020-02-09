@@ -10,158 +10,256 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity video_mandelbrot_generator is
+generic (
+    C_S_AXI_CMD_ADDR_WIDTH : INTEGER := 6;
+    C_S_AXI_CMD_DATA_WIDTH : INTEGER := 32 );
 port (
+    s_axi_cmd_AWVALID : IN STD_LOGIC;
+    s_axi_cmd_AWREADY : OUT STD_LOGIC;
+    s_axi_cmd_AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_CMD_ADDR_WIDTH-1 downto 0);
+    s_axi_cmd_WVALID : IN STD_LOGIC;
+    s_axi_cmd_WREADY : OUT STD_LOGIC;
+    s_axi_cmd_WDATA : IN STD_LOGIC_VECTOR (C_S_AXI_CMD_DATA_WIDTH-1 downto 0);
+    s_axi_cmd_WSTRB : IN STD_LOGIC_VECTOR (C_S_AXI_CMD_DATA_WIDTH/8-1 downto 0);
+    s_axi_cmd_ARVALID : IN STD_LOGIC;
+    s_axi_cmd_ARREADY : OUT STD_LOGIC;
+    s_axi_cmd_ARADDR : IN STD_LOGIC_VECTOR (C_S_AXI_CMD_ADDR_WIDTH-1 downto 0);
+    s_axi_cmd_RVALID : OUT STD_LOGIC;
+    s_axi_cmd_RREADY : IN STD_LOGIC;
+    s_axi_cmd_RDATA : OUT STD_LOGIC_VECTOR (C_S_AXI_CMD_DATA_WIDTH-1 downto 0);
+    s_axi_cmd_RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+    s_axi_cmd_BVALID : OUT STD_LOGIC;
+    s_axi_cmd_BREADY : IN STD_LOGIC;
+    s_axi_cmd_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
     ap_clk : IN STD_LOGIC;
     ap_rst_n : IN STD_LOGIC;
-    ap_start : IN STD_LOGIC;
-    ap_done : OUT STD_LOGIC;
-    ap_idle : OUT STD_LOGIC;
-    ap_ready : OUT STD_LOGIC;
+    interrupt : OUT STD_LOGIC;
     m_axis_video_TDATA : OUT STD_LOGIC_VECTOR (23 downto 0);
-    m_axis_video_TVALID : OUT STD_LOGIC;
-    m_axis_video_TREADY : IN STD_LOGIC;
     m_axis_video_TKEEP : OUT STD_LOGIC_VECTOR (2 downto 0);
     m_axis_video_TSTRB : OUT STD_LOGIC_VECTOR (2 downto 0);
     m_axis_video_TUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
     m_axis_video_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
     m_axis_video_TID : OUT STD_LOGIC_VECTOR (0 downto 0);
-    m_axis_video_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0) );
+    m_axis_video_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    m_axis_video_TVALID : OUT STD_LOGIC;
+    m_axis_video_TREADY : IN STD_LOGIC );
 end;
 
 
 architecture behav of video_mandelbrot_generator is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "video_mandelbrot_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=1.770500,HLS_SYN_LAT=481201,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=33,HLS_SYN_LUT=140,HLS_VERSION=2019_1}";
+    "video_mandelbrot_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020i-clg484-1L,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.516375,HLS_SYN_LAT=249601202,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=6,HLS_SYN_FF=1042,HLS_SYN_LUT=2437,HLS_VERSION=2019_1}";
+    constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
+    constant C_S_AXI_WSTRB_WIDTH : INTEGER range 63 downto 0 := 4;
+    constant C_S_AXI_ADDR_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_logic_1 : STD_LOGIC := '1';
-    constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (2 downto 0) := "001";
-    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (2 downto 0) := "010";
-    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (2 downto 0) := "100";
-    constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
-    constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
-    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
-    constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
-    constant ap_const_boolean_0 : BOOLEAN := false;
-    constant ap_const_lv10_0 : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
-    constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
+    constant ap_const_lv24_0 : STD_LOGIC_VECTOR (23 downto 0) := "000000000000000000000000";
     constant ap_const_lv3_0 : STD_LOGIC_VECTOR (2 downto 0) := "000";
-    constant ap_const_lv10_258 : STD_LOGIC_VECTOR (9 downto 0) := "1001011000";
-    constant ap_const_lv10_1 : STD_LOGIC_VECTOR (9 downto 0) := "0000000001";
-    constant ap_const_lv10_320 : STD_LOGIC_VECTOR (9 downto 0) := "1100100000";
-    constant ap_const_lv10_31F : STD_LOGIC_VECTOR (9 downto 0) := "1100011111";
+    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_boolean_1 : BOOLEAN := true;
+    constant ap_const_lv10_258 : STD_LOGIC_VECTOR (9 downto 0) := "1001011000";
+    constant ap_const_lv10_0 : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
+    constant ap_const_lv10_1 : STD_LOGIC_VECTOR (9 downto 0) := "0000000001";
+    constant ap_const_logic_0 : STD_LOGIC := '0';
 
     signal ap_rst_n_inv : STD_LOGIC;
-    signal ap_CS_fsm : STD_LOGIC_VECTOR (2 downto 0) := "001";
-    attribute fsm_encoding : string;
-    attribute fsm_encoding of ap_CS_fsm : signal is "none";
-    signal ap_CS_fsm_state1 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
-    signal m_axis_video_TDATA_blk_n : STD_LOGIC;
-    signal ap_CS_fsm_state3 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
-    signal icmp_ln16_fu_124_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal i_fu_118_p2 : STD_LOGIC_VECTOR (9 downto 0);
-    signal i_reg_164 : STD_LOGIC_VECTOR (9 downto 0);
-    signal ap_CS_fsm_state2 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal j_fu_130_p2 : STD_LOGIC_VECTOR (9 downto 0);
-    signal ap_block_state3_io : BOOLEAN;
-    signal i_0_reg_89 : STD_LOGIC_VECTOR (9 downto 0);
-    signal j_0_reg_101 : STD_LOGIC_VECTOR (9 downto 0);
-    signal icmp_ln14_fu_112_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal or_ln19_fu_136_p2 : STD_LOGIC_VECTOR (9 downto 0);
-    signal ap_NS_fsm : STD_LOGIC_VECTOR (2 downto 0);
+    signal ap_start : STD_LOGIC;
+    signal ap_ready : STD_LOGIC;
+    signal ap_done : STD_LOGIC;
+    signal ap_idle : STD_LOGIC;
+    signal re_V : STD_LOGIC_VECTOR (17 downto 0);
+    signal im_V : STD_LOGIC_VECTOR (17 downto 0);
+    signal zoom_factor_V : STD_LOGIC_VECTOR (17 downto 0);
+    signal dataflow_in_loop_out_U0_m_axis_video_TDATA : STD_LOGIC_VECTOR (23 downto 0);
+    signal dataflow_in_loop_out_U0_m_axis_video_TKEEP : STD_LOGIC_VECTOR (2 downto 0);
+    signal dataflow_in_loop_out_U0_m_axis_video_TSTRB : STD_LOGIC_VECTOR (2 downto 0);
+    signal dataflow_in_loop_out_U0_m_axis_video_TUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal dataflow_in_loop_out_U0_m_axis_video_TLAST : STD_LOGIC_VECTOR (0 downto 0);
+    signal dataflow_in_loop_out_U0_m_axis_video_TID : STD_LOGIC_VECTOR (0 downto 0);
+    signal dataflow_in_loop_out_U0_m_axis_video_TDEST : STD_LOGIC_VECTOR (0 downto 0);
+    signal dataflow_in_loop_out_U0_m_axis_video_TVALID : STD_LOGIC;
+    signal dataflow_in_loop_out_U0_ap_start : STD_LOGIC;
+    signal dataflow_in_loop_out_U0_ap_done : STD_LOGIC;
+    signal dataflow_in_loop_out_U0_ap_ready : STD_LOGIC;
+    signal dataflow_in_loop_out_U0_ap_idle : STD_LOGIC;
+    signal dataflow_in_loop_out_U0_ap_continue : STD_LOGIC;
+    signal ap_sync_continue : STD_LOGIC;
+    signal ap_sync_done : STD_LOGIC;
+    signal ap_sync_ready : STD_LOGIC;
+    signal loop_dataflow_input_count : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
+    signal loop_dataflow_output_count : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
+    signal bound_minus_1 : STD_LOGIC_VECTOR (9 downto 0);
+    signal dataflow_in_loop_out_U0_start_full_n : STD_LOGIC;
+    signal dataflow_in_loop_out_U0_start_write : STD_LOGIC;
+
+    component dataflow_in_loop_out IS
+    port (
+        v_assign : IN STD_LOGIC_VECTOR (9 downto 0);
+        m_axis_video_TDATA : OUT STD_LOGIC_VECTOR (23 downto 0);
+        m_axis_video_TKEEP : OUT STD_LOGIC_VECTOR (2 downto 0);
+        m_axis_video_TSTRB : OUT STD_LOGIC_VECTOR (2 downto 0);
+        m_axis_video_TUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
+        m_axis_video_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        m_axis_video_TID : OUT STD_LOGIC_VECTOR (0 downto 0);
+        m_axis_video_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        im_V : IN STD_LOGIC_VECTOR (17 downto 0);
+        re_V : IN STD_LOGIC_VECTOR (17 downto 0);
+        zoom_factor_V : IN STD_LOGIC_VECTOR (17 downto 0);
+        ap_clk : IN STD_LOGIC;
+        ap_rst : IN STD_LOGIC;
+        v_assign_ap_vld : IN STD_LOGIC;
+        m_axis_video_TVALID : OUT STD_LOGIC;
+        m_axis_video_TREADY : IN STD_LOGIC;
+        im_V_ap_vld : IN STD_LOGIC;
+        re_V_ap_vld : IN STD_LOGIC;
+        zoom_factor_V_ap_vld : IN STD_LOGIC;
+        ap_start : IN STD_LOGIC;
+        ap_done : OUT STD_LOGIC;
+        ap_ready : OUT STD_LOGIC;
+        ap_idle : OUT STD_LOGIC;
+        ap_continue : IN STD_LOGIC );
+    end component;
+
+
+    component video_mandelbrot_generator_cmd_s_axi IS
+    generic (
+        C_S_AXI_ADDR_WIDTH : INTEGER;
+        C_S_AXI_DATA_WIDTH : INTEGER );
+    port (
+        AWVALID : IN STD_LOGIC;
+        AWREADY : OUT STD_LOGIC;
+        AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_ADDR_WIDTH-1 downto 0);
+        WVALID : IN STD_LOGIC;
+        WREADY : OUT STD_LOGIC;
+        WDATA : IN STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH-1 downto 0);
+        WSTRB : IN STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH/8-1 downto 0);
+        ARVALID : IN STD_LOGIC;
+        ARREADY : OUT STD_LOGIC;
+        ARADDR : IN STD_LOGIC_VECTOR (C_S_AXI_ADDR_WIDTH-1 downto 0);
+        RVALID : OUT STD_LOGIC;
+        RREADY : IN STD_LOGIC;
+        RDATA : OUT STD_LOGIC_VECTOR (C_S_AXI_DATA_WIDTH-1 downto 0);
+        RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+        BVALID : OUT STD_LOGIC;
+        BREADY : IN STD_LOGIC;
+        BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+        ACLK : IN STD_LOGIC;
+        ARESET : IN STD_LOGIC;
+        ACLK_EN : IN STD_LOGIC;
+        ap_start : OUT STD_LOGIC;
+        interrupt : OUT STD_LOGIC;
+        ap_ready : IN STD_LOGIC;
+        ap_done : IN STD_LOGIC;
+        ap_idle : IN STD_LOGIC;
+        re_V : OUT STD_LOGIC_VECTOR (17 downto 0);
+        im_V : OUT STD_LOGIC_VECTOR (17 downto 0);
+        zoom_factor_V : OUT STD_LOGIC_VECTOR (17 downto 0) );
+    end component;
+
 
 
 begin
+    video_mandelbrot_generator_cmd_s_axi_U : component video_mandelbrot_generator_cmd_s_axi
+    generic map (
+        C_S_AXI_ADDR_WIDTH => C_S_AXI_CMD_ADDR_WIDTH,
+        C_S_AXI_DATA_WIDTH => C_S_AXI_CMD_DATA_WIDTH)
+    port map (
+        AWVALID => s_axi_cmd_AWVALID,
+        AWREADY => s_axi_cmd_AWREADY,
+        AWADDR => s_axi_cmd_AWADDR,
+        WVALID => s_axi_cmd_WVALID,
+        WREADY => s_axi_cmd_WREADY,
+        WDATA => s_axi_cmd_WDATA,
+        WSTRB => s_axi_cmd_WSTRB,
+        ARVALID => s_axi_cmd_ARVALID,
+        ARREADY => s_axi_cmd_ARREADY,
+        ARADDR => s_axi_cmd_ARADDR,
+        RVALID => s_axi_cmd_RVALID,
+        RREADY => s_axi_cmd_RREADY,
+        RDATA => s_axi_cmd_RDATA,
+        RRESP => s_axi_cmd_RRESP,
+        BVALID => s_axi_cmd_BVALID,
+        BREADY => s_axi_cmd_BREADY,
+        BRESP => s_axi_cmd_BRESP,
+        ACLK => ap_clk,
+        ARESET => ap_rst_n_inv,
+        ACLK_EN => ap_const_logic_1,
+        ap_start => ap_start,
+        interrupt => interrupt,
+        ap_ready => ap_ready,
+        ap_done => ap_done,
+        ap_idle => ap_idle,
+        re_V => re_V,
+        im_V => im_V,
+        zoom_factor_V => zoom_factor_V);
+
+    dataflow_in_loop_out_U0 : component dataflow_in_loop_out
+    port map (
+        v_assign => loop_dataflow_input_count,
+        m_axis_video_TDATA => dataflow_in_loop_out_U0_m_axis_video_TDATA,
+        m_axis_video_TKEEP => dataflow_in_loop_out_U0_m_axis_video_TKEEP,
+        m_axis_video_TSTRB => dataflow_in_loop_out_U0_m_axis_video_TSTRB,
+        m_axis_video_TUSER => dataflow_in_loop_out_U0_m_axis_video_TUSER,
+        m_axis_video_TLAST => dataflow_in_loop_out_U0_m_axis_video_TLAST,
+        m_axis_video_TID => dataflow_in_loop_out_U0_m_axis_video_TID,
+        m_axis_video_TDEST => dataflow_in_loop_out_U0_m_axis_video_TDEST,
+        im_V => im_V,
+        re_V => re_V,
+        zoom_factor_V => zoom_factor_V,
+        ap_clk => ap_clk,
+        ap_rst => ap_rst_n_inv,
+        v_assign_ap_vld => ap_const_logic_0,
+        m_axis_video_TVALID => dataflow_in_loop_out_U0_m_axis_video_TVALID,
+        m_axis_video_TREADY => m_axis_video_TREADY,
+        im_V_ap_vld => ap_const_logic_1,
+        re_V_ap_vld => ap_const_logic_1,
+        zoom_factor_V_ap_vld => ap_const_logic_1,
+        ap_start => dataflow_in_loop_out_U0_ap_start,
+        ap_done => dataflow_in_loop_out_U0_ap_done,
+        ap_ready => dataflow_in_loop_out_U0_ap_ready,
+        ap_idle => dataflow_in_loop_out_U0_ap_idle,
+        ap_continue => dataflow_in_loop_out_U0_ap_continue);
 
 
 
 
-    ap_CS_fsm_assign_proc : process(ap_clk)
+
+    loop_dataflow_input_count_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                ap_CS_fsm <= ap_ST_fsm_state1;
+                loop_dataflow_input_count <= ap_const_lv10_0;
             else
-                ap_CS_fsm <= ap_NS_fsm;
+                if ((not((loop_dataflow_input_count = bound_minus_1)) and (dataflow_in_loop_out_U0_ap_ready = ap_const_logic_1) and (ap_start = ap_const_logic_1))) then 
+                    loop_dataflow_input_count <= std_logic_vector(unsigned(loop_dataflow_input_count) + unsigned(ap_const_lv10_1));
+                elsif (((loop_dataflow_input_count = bound_minus_1) and (dataflow_in_loop_out_U0_ap_ready = ap_const_logic_1) and (ap_start = ap_const_logic_1))) then 
+                    loop_dataflow_input_count <= ap_const_lv10_0;
+                end if; 
             end if;
         end if;
     end process;
 
 
-    i_0_reg_89_assign_proc : process (ap_clk)
+    loop_dataflow_output_count_assign_proc : process(ap_clk)
     begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_boolean_0 = ap_block_state3_io) and (icmp_ln16_fu_124_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state3))) then 
-                i_0_reg_89 <= i_reg_164;
-            elsif (((ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_1))) then 
-                i_0_reg_89 <= ap_const_lv10_0;
-            end if; 
-        end if;
-    end process;
-
-    j_0_reg_101_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_boolean_0 = ap_block_state3_io) and (icmp_ln16_fu_124_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state3))) then 
-                j_0_reg_101 <= j_fu_130_p2;
-            elsif (((icmp_ln14_fu_112_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-                j_0_reg_101 <= ap_const_lv10_0;
-            end if; 
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state2)) then
-                i_reg_164 <= i_fu_118_p2;
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst_n_inv = '1') then
+                loop_dataflow_output_count <= ap_const_lv10_0;
+            else
+                if ((not((loop_dataflow_output_count = bound_minus_1)) and (dataflow_in_loop_out_U0_ap_continue = ap_const_logic_1) and (dataflow_in_loop_out_U0_ap_done = ap_const_logic_1))) then 
+                    loop_dataflow_output_count <= std_logic_vector(unsigned(loop_dataflow_output_count) + unsigned(ap_const_lv10_1));
+                elsif (((loop_dataflow_output_count = bound_minus_1) and (dataflow_in_loop_out_U0_ap_continue = ap_const_logic_1) and (dataflow_in_loop_out_U0_ap_done = ap_const_logic_1))) then 
+                    loop_dataflow_output_count <= ap_const_lv10_0;
+                end if; 
             end if;
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, ap_CS_fsm_state3, icmp_ln16_fu_124_p2, ap_CS_fsm_state2, ap_block_state3_io, icmp_ln14_fu_112_p2)
-    begin
-        case ap_CS_fsm is
-            when ap_ST_fsm_state1 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_1))) then
-                    ap_NS_fsm <= ap_ST_fsm_state2;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state1;
-                end if;
-            when ap_ST_fsm_state2 => 
-                if (((icmp_ln14_fu_112_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then
-                    ap_NS_fsm <= ap_ST_fsm_state1;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state3;
-                end if;
-            when ap_ST_fsm_state3 => 
-                if (((ap_const_boolean_0 = ap_block_state3_io) and (icmp_ln16_fu_124_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state3))) then
-                    ap_NS_fsm <= ap_ST_fsm_state2;
-                elsif (((ap_const_boolean_0 = ap_block_state3_io) and (icmp_ln16_fu_124_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state3))) then
-                    ap_NS_fsm <= ap_ST_fsm_state3;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state3;
-                end if;
-            when others =>  
-                ap_NS_fsm <= "XXX";
-        end case;
-    end process;
-    ap_CS_fsm_state1 <= ap_CS_fsm(0);
-    ap_CS_fsm_state2 <= ap_CS_fsm(1);
-    ap_CS_fsm_state3 <= ap_CS_fsm(2);
 
-    ap_block_state3_io_assign_proc : process(m_axis_video_TREADY, icmp_ln16_fu_124_p2)
+    ap_done_assign_proc : process(dataflow_in_loop_out_U0_ap_done, loop_dataflow_output_count, bound_minus_1)
     begin
-                ap_block_state3_io <= ((icmp_ln16_fu_124_p2 = ap_const_lv1_0) and (m_axis_video_TREADY = ap_const_logic_0));
-    end process;
-
-
-    ap_done_assign_proc : process(ap_CS_fsm_state2, icmp_ln14_fu_112_p2)
-    begin
-        if (((icmp_ln14_fu_112_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+        if (((loop_dataflow_output_count = bound_minus_1) and (dataflow_in_loop_out_U0_ap_done = ap_const_logic_1))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_const_logic_0;
@@ -169,9 +267,9 @@ begin
     end process;
 
 
-    ap_idle_assign_proc : process(ap_start, ap_CS_fsm_state1)
+    ap_idle_assign_proc : process(ap_start, dataflow_in_loop_out_U0_ap_idle, loop_dataflow_output_count)
     begin
-        if (((ap_start = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if (((loop_dataflow_output_count = ap_const_lv10_0) and (ap_start = ap_const_logic_0) and (dataflow_in_loop_out_U0_ap_idle = ap_const_logic_1))) then 
             ap_idle <= ap_const_logic_1;
         else 
             ap_idle <= ap_const_logic_0;
@@ -179,9 +277,9 @@ begin
     end process;
 
 
-    ap_ready_assign_proc : process(ap_CS_fsm_state2, icmp_ln14_fu_112_p2)
+    ap_ready_assign_proc : process(ap_start, dataflow_in_loop_out_U0_ap_ready, loop_dataflow_input_count, bound_minus_1)
     begin
-        if (((icmp_ln14_fu_112_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+        if (((loop_dataflow_input_count = bound_minus_1) and (dataflow_in_loop_out_U0_ap_ready = ap_const_logic_1) and (ap_start = ap_const_logic_1))) then 
             ap_ready <= ap_const_logic_1;
         else 
             ap_ready <= ap_const_logic_0;
@@ -194,36 +292,20 @@ begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
-    i_fu_118_p2 <= std_logic_vector(unsigned(i_0_reg_89) + unsigned(ap_const_lv10_1));
-    icmp_ln14_fu_112_p2 <= "1" when (i_0_reg_89 = ap_const_lv10_258) else "0";
-    icmp_ln16_fu_124_p2 <= "1" when (j_0_reg_101 = ap_const_lv10_320) else "0";
-    j_fu_130_p2 <= std_logic_vector(unsigned(j_0_reg_101) + unsigned(ap_const_lv10_1));
-    m_axis_video_TDATA <= std_logic_vector(IEEE.numeric_std.resize(unsigned(j_0_reg_101),24));
-
-    m_axis_video_TDATA_blk_n_assign_proc : process(m_axis_video_TREADY, ap_CS_fsm_state3, icmp_ln16_fu_124_p2)
-    begin
-        if (((icmp_ln16_fu_124_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state3))) then 
-            m_axis_video_TDATA_blk_n <= m_axis_video_TREADY;
-        else 
-            m_axis_video_TDATA_blk_n <= ap_const_logic_1;
-        end if; 
-    end process;
-
-    m_axis_video_TDEST <= ap_const_lv1_0;
-    m_axis_video_TID <= ap_const_lv1_0;
-    m_axis_video_TKEEP <= ap_const_lv3_0;
-    m_axis_video_TLAST <= "1" when (j_0_reg_101 = ap_const_lv10_31F) else "0";
-    m_axis_video_TSTRB <= ap_const_lv3_0;
-    m_axis_video_TUSER <= "1" when (or_ln19_fu_136_p2 = ap_const_lv10_0) else "0";
-
-    m_axis_video_TVALID_assign_proc : process(ap_CS_fsm_state3, icmp_ln16_fu_124_p2, ap_block_state3_io)
-    begin
-        if (((ap_const_boolean_0 = ap_block_state3_io) and (icmp_ln16_fu_124_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state3))) then 
-            m_axis_video_TVALID <= ap_const_logic_1;
-        else 
-            m_axis_video_TVALID <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    or_ln19_fu_136_p2 <= (j_0_reg_101 or i_0_reg_89);
+    ap_sync_continue <= ap_const_logic_1;
+    ap_sync_done <= dataflow_in_loop_out_U0_ap_done;
+    ap_sync_ready <= dataflow_in_loop_out_U0_ap_ready;
+    bound_minus_1 <= std_logic_vector(unsigned(ap_const_lv10_258) - unsigned(ap_const_lv10_1));
+    dataflow_in_loop_out_U0_ap_continue <= ap_const_logic_1;
+    dataflow_in_loop_out_U0_ap_start <= ap_start;
+    dataflow_in_loop_out_U0_start_full_n <= ap_const_logic_1;
+    dataflow_in_loop_out_U0_start_write <= ap_const_logic_0;
+    m_axis_video_TDATA <= dataflow_in_loop_out_U0_m_axis_video_TDATA;
+    m_axis_video_TDEST <= dataflow_in_loop_out_U0_m_axis_video_TDEST;
+    m_axis_video_TID <= dataflow_in_loop_out_U0_m_axis_video_TID;
+    m_axis_video_TKEEP <= dataflow_in_loop_out_U0_m_axis_video_TKEEP;
+    m_axis_video_TLAST <= dataflow_in_loop_out_U0_m_axis_video_TLAST;
+    m_axis_video_TSTRB <= dataflow_in_loop_out_U0_m_axis_video_TSTRB;
+    m_axis_video_TUSER <= dataflow_in_loop_out_U0_m_axis_video_TUSER;
+    m_axis_video_TVALID <= dataflow_in_loop_out_U0_m_axis_video_TVALID;
 end behav;

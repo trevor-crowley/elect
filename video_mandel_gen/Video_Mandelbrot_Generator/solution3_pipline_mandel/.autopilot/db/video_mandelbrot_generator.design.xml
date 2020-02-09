@@ -29,37 +29,37 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
-<EstimatedClockPeriod>8.666</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.516</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>10401</Best-caseLatency>
-<Average-caseLatency>518401</Average-caseLatency>
-<Worst-caseLatency>1026401</Worst-caseLatency>
-<PipelineInitiationInterval>10401 ~ 1026401</PipelineInitiationInterval>
+<Best-caseLatency>81</Best-caseLatency>
+<Average-caseLatency>209</Average-caseLatency>
+<Worst-caseLatency>369</Worst-caseLatency>
+<PipelineInitiationInterval>81 ~ 369</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <inner>
 <Name>inner</Name>
-<TripCount>800</TripCount>
-<Latency>10400 ~ 1026400</Latency>
+<TripCount>8</TripCount>
+<Latency>80 ~ 368</Latency>
 <IterationLatency>
 <range>
-<min>13</min>
-<max>1283</max>
+<min>10</min>
+<max>46</max>
 </range>
 </IterationLatency>
-<PipelineDepth>13 ~ 1283</PipelineDepth>
+<PipelineDepth>10 ~ 46</PipelineDepth>
 <mandel_calc>
 <Name>mandel_calc</Name>
 <TripCount>
 <range>
 <min>1</min>
-<max>255</max>
+<max>10</max>
 </range>
 </TripCount>
-<Latency>5 ~ 1275</Latency>
-<PipelineII>5</PipelineII>
+<Latency>4 ~ 40</Latency>
+<PipelineII>4</PipelineII>
 <PipelineDepth>5</PipelineDepth>
 </mandel_calc>
 </inner>
@@ -68,8 +68,8 @@
 <AreaEstimates>
 <Resources>
 <DSP48E>6</DSP48E>
-<FF>935</FF>
-<LUT>2187</LUT>
+<FF>878</FF>
+<LUT>2238</LUT>
 <BRAM_18K>0</BRAM_18K>
 <URAM>0</URAM>
 </Resources>
@@ -160,7 +160,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>10</Bits>
+<Bits>3</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -303,27 +303,27 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
-<EstimatedClockPeriod>8.666</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.516</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>10401</Best-caseLatency>
-<Average-caseLatency>518401</Average-caseLatency>
-<Worst-caseLatency>1026401</Worst-caseLatency>
+<Best-caseLatency>81</Best-caseLatency>
+<Average-caseLatency>209</Average-caseLatency>
+<Worst-caseLatency>369</Worst-caseLatency>
 <DataflowPipelineThroughput>
 <range>
-<min>10402</min>
-<max>1026402</max>
+<min>82</min>
+<max>370</max>
 </range>
 </DataflowPipelineThroughput>
-<PipelineInitiationInterval>10402 ~ 1026402</PipelineInitiationInterval>
+<PipelineInitiationInterval>82 ~ 370</PipelineInitiationInterval>
 <PipelineType>dataflow</PipelineType>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
 <DSP48E>6</DSP48E>
-<FF>935</FF>
-<LUT>2187</LUT>
+<FF>878</FF>
+<LUT>2238</LUT>
 <BRAM_18K>0</BRAM_18K>
 <URAM>0</URAM>
 </Resources>
@@ -337,7 +337,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>10</Bits>
+<Bits>3</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -601,27 +601,27 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
-<EstimatedClockPeriod>8.666</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.516</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>6241202</Best-caseLatency>
-<Average-caseLatency>311041202</Average-caseLatency>
-<Worst-caseLatency>615841202</Worst-caseLatency>
-<PipelineInitiationInterval>6241203 ~ 615841203</PipelineInitiationInterval>
+<Best-caseLatency>494</Best-caseLatency>
+<Average-caseLatency>1262</Average-caseLatency>
+<Worst-caseLatency>2222</Worst-caseLatency>
+<PipelineInitiationInterval>495 ~ 2223</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <out>
 <Name>out</Name>
-<TripCount>600</TripCount>
-<Latency>6241200 ~ 615841200</Latency>
+<TripCount>6</TripCount>
+<Latency>492 ~ 2220</Latency>
 <DataflowPipelineThroughput>
 <range>
-<min>10402</min>
-<max>1026402</max>
+<min>82</min>
+<max>370</max>
 </range>
 </DataflowPipelineThroughput>
-<PipelineDepth>6241200 ~ 615841200</PipelineDepth>
+<PipelineDepth>492 ~ 2220</PipelineDepth>
 </out>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
@@ -629,8 +629,8 @@
 <Resources>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>6</DSP48E>
-<FF>1063</FF>
-<LUT>2404</LUT>
+<FF>992</FF>
+<LUT>2440</LUT>
 <URAM>0</URAM>
 </Resources>
 </AreaEstimates>

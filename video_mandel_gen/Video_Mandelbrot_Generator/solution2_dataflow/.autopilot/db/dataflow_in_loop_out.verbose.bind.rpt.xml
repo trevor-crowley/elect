@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'dataflow_in_loop_out'" level="0">
-<item name = "Date">Sat Feb  8 14:51:54 2020
+<item name = "Date">Sat Feb  8 22:19:35 2020
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">Video_Mandelbrot_Generator</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 2.123, 1.25</column>
+<column name="ap_clk">10.00, 8.687, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">801, 801, 802, 802, dataflow</column>
+<column name="">90, 10250, 91, 10251, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_inner_proc_fu_42">inner_proc, 801, 801, 801, 801, none</column>
+<column name="grp_inner_proc_fu_68">inner_proc, 90, 10250, 90, 10250, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

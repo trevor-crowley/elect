@@ -8,10 +8,15 @@
 
 //	#define HEIGHT 	720
 //	#define WIDTH  	1280
-	#define HEIGHT 	600
-	#define WIDTH  	800
-	#define MAXITER	255
-	
+
+	#define HEIGHT 	6
+	#define WIDTH  	8
+	#define MAXITER	10
+
+//	#define HEIGHT 	600
+//	#define WIDTH  	800
+//	#define MAXITER	255
+
 	typedef hls::stream<ap_axiu<24,1,1,1> >		AXI_STREAM;
 
 //	typedef float fixed_point;

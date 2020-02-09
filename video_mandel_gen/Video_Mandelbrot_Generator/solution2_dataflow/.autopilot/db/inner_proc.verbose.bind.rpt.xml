@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'inner_proc'" level="0">
-<item name = "Date">Sat Feb  8 14:51:54 2020
+<item name = "Date">Sat Feb  8 22:19:34 2020
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">Video_Mandelbrot_Generator</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 2.123, 1.25</column>
+<column name="ap_clk">10.00, 8.687, 1.25</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">801, 801, 801, 801, none</column>
+<column name="">90, 10250, 90, 10250, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,8 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- inner">800, 800, 1, -, -, 800, no</column>
+<column name="- inner">88, 10248, 11 ~ 1281, -, -, 8, no</column>
+<column name=" + mandel_calc">5, 1275, 5, -, -, 1 ~ 255, no</column>
 </table>
 </item>
 </section>

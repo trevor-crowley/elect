@@ -151,7 +151,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_v_assign \
     op interface \
-    ports { v_assign { I 10 vector } v_assign_ap_vld { I 1 bit } } \
+    ports { v_assign { I 3 vector } v_assign_ap_vld { I 1 bit } } \
 } "
 }
 

@@ -8,7 +8,7 @@
 `timescale 1 ns / 1 ps 
 
 module dataflow_in_loop_out (
-        i_op_assign_1,
+        v_assign,
         m_axis_video_TDATA,
         m_axis_video_TKEEP,
         m_axis_video_TSTRB,
@@ -16,11 +16,17 @@ module dataflow_in_loop_out (
         m_axis_video_TLAST,
         m_axis_video_TID,
         m_axis_video_TDEST,
+        im_V,
+        re_V,
+        zoom_factor_V,
         ap_clk,
         ap_rst,
-        i_op_assign_1_ap_vld,
+        v_assign_ap_vld,
         m_axis_video_TVALID,
         m_axis_video_TREADY,
+        im_V_ap_vld,
+        re_V_ap_vld,
+        zoom_factor_V_ap_vld,
         ap_start,
         ap_done,
         ap_ready,
@@ -29,7 +35,7 @@ module dataflow_in_loop_out (
 );
 
 
-input  [9:0] i_op_assign_1;
+input  [2:0] v_assign;
 output  [23:0] m_axis_video_TDATA;
 output  [2:0] m_axis_video_TKEEP;
 output  [2:0] m_axis_video_TSTRB;
@@ -37,11 +43,17 @@ output  [0:0] m_axis_video_TUSER;
 output  [0:0] m_axis_video_TLAST;
 output  [0:0] m_axis_video_TID;
 output  [0:0] m_axis_video_TDEST;
+input  [17:0] im_V;
+input  [17:0] re_V;
+input  [17:0] zoom_factor_V;
 input   ap_clk;
 input   ap_rst;
-input   i_op_assign_1_ap_vld;
+input   v_assign_ap_vld;
 output   m_axis_video_TVALID;
 input   m_axis_video_TREADY;
+input   im_V_ap_vld;
+input   re_V_ap_vld;
+input   zoom_factor_V_ap_vld;
 input   ap_start;
 output   ap_done;
 output   ap_ready;
@@ -75,7 +87,7 @@ inner_proc inner_proc_U0(
     .ap_continue(inner_proc_U0_ap_continue),
     .ap_idle(inner_proc_U0_ap_idle),
     .ap_ready(inner_proc_U0_ap_ready),
-    .i_op_assign_1(i_op_assign_1),
+    .v_assign(v_assign),
     .m_axis_video_TDATA(inner_proc_U0_m_axis_video_TDATA),
     .m_axis_video_TVALID(inner_proc_U0_m_axis_video_TVALID),
     .m_axis_video_TREADY(m_axis_video_TREADY),
@@ -84,7 +96,10 @@ inner_proc inner_proc_U0(
     .m_axis_video_TUSER(inner_proc_U0_m_axis_video_TUSER),
     .m_axis_video_TLAST(inner_proc_U0_m_axis_video_TLAST),
     .m_axis_video_TID(inner_proc_U0_m_axis_video_TID),
-    .m_axis_video_TDEST(inner_proc_U0_m_axis_video_TDEST)
+    .m_axis_video_TDEST(inner_proc_U0_m_axis_video_TDEST),
+    .im_V(im_V),
+    .re_V(re_V),
+    .zoom_factor_V(zoom_factor_V)
 );
 
 assign ap_done = inner_proc_U0_ap_done;

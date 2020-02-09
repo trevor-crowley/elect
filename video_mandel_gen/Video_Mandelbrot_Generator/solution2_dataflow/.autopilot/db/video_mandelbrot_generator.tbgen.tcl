@@ -21,9 +21,9 @@ set C_modelArgList {
 	{ VIDEO_OUT_V_last_V int 1 regular {axi_s 1 volatile  { m_axis_video Last } }  }
 	{ VIDEO_OUT_V_id_V int 1 regular {axi_s 1 volatile  { m_axis_video ID } }  }
 	{ VIDEO_OUT_V_dest_V int 1 regular {axi_s 1 volatile  { m_axis_video Dest } }  }
-	{ re_V int 18 unused {axi_slave 0}  }
-	{ im_V int 18 unused {axi_slave 0}  }
-	{ zoom_factor_V int 18 unused {axi_slave 0}  }
+	{ re_V int 18 regular {axi_slave 0}  }
+	{ im_V int 18 regular {axi_slave 0}  }
+	{ zoom_factor_V int 18 regular {axi_slave 0}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "VIDEO_OUT_V_data_V", "interface" : "axis", "bitwidth" : 24, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":23,"cElement": [{"cName": "m_axis_video.V.data.V","cData": "uint24","bit_use": { "low": 0,"up": 23},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}]} , 
@@ -107,14 +107,15 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "Dataflow", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "481202", "EstimateLatencyMax" : "481202",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "548", "EstimateLatencyMax" : "61508",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
 		"HasSubDataflow" : "1",
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
-		"InputProcess" : [],
+		"InputProcess" : [
+			{"ID" : "2", "Name" : "dataflow_in_loop_out_U0"}],
 		"OutputProcess" : [
 			{"ID" : "2", "Name" : "dataflow_in_loop_out_U0"}],
 		"Port" : [
@@ -149,7 +150,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1",
 		"Pipeline" : "Dataflow", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "801", "EstimateLatencyMax" : "801",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "90", "EstimateLatencyMax" : "10250",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -161,7 +162,7 @@ set RtlHierarchyInfo {[
 		"OutputProcess" : [
 			{"ID" : "3", "Name" : "inner_proc_U0"}],
 		"Port" : [
-			{"Name" : "i_op_assign_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "v_assign", "Type" : "None", "Direction" : "I"},
 			{"Name" : "m_axis_video_V_data_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "inner_proc_U0", "Port" : "m_axis_video_V_data_V"}]},
@@ -182,14 +183,17 @@ set RtlHierarchyInfo {[
 					{"ID" : "3", "SubInstance" : "inner_proc_U0", "Port" : "m_axis_video_V_id_V"}]},
 			{"Name" : "m_axis_video_V_dest_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "inner_proc_U0", "Port" : "m_axis_video_V_dest_V"}]}]},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.dataflow_in_loop_out_U0.inner_proc_U0", "Parent" : "2",
+					{"ID" : "3", "SubInstance" : "inner_proc_U0", "Port" : "m_axis_video_V_dest_V"}]},
+			{"Name" : "im_V", "Type" : "None", "Direction" : "I"},
+			{"Name" : "re_V", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zoom_factor_V", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.dataflow_in_loop_out_U0.inner_proc_U0", "Parent" : "2", "Child" : ["4", "5", "6", "7", "8", "9"],
 		"CDFG" : "inner_proc",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "801", "EstimateLatencyMax" : "801",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "90", "EstimateLatencyMax" : "10250",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -197,7 +201,7 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "1",
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
-			{"Name" : "i_op_assign_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "v_assign", "Type" : "None", "Direction" : "I"},
 			{"Name" : "m_axis_video_V_data_V", "Type" : "Axis", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "m_axis_video_TDATA_blk_n", "Type" : "RtlSignal"}]},
@@ -206,45 +210,60 @@ set RtlHierarchyInfo {[
 			{"Name" : "m_axis_video_V_user_V", "Type" : "Axis", "Direction" : "O"},
 			{"Name" : "m_axis_video_V_last_V", "Type" : "Axis", "Direction" : "O"},
 			{"Name" : "m_axis_video_V_id_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "m_axis_video_V_dest_V", "Type" : "Axis", "Direction" : "O"}]}]}
+			{"Name" : "m_axis_video_V_dest_V", "Type" : "Axis", "Direction" : "O"},
+			{"Name" : "im_V", "Type" : "None", "Direction" : "I"},
+			{"Name" : "re_V", "Type" : "None", "Direction" : "I"},
+			{"Name" : "zoom_factor_V", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "4", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.dataflow_in_loop_out_U0.inner_proc_U0.video_mandelbrot_generator_mul_mul_14ns_17ns_31_1_1_U1", "Parent" : "3"},
+	{"ID" : "5", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.dataflow_in_loop_out_U0.inner_proc_U0.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U2", "Parent" : "3"},
+	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.dataflow_in_loop_out_U0.inner_proc_U0.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U3", "Parent" : "3"},
+	{"ID" : "7", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.dataflow_in_loop_out_U0.inner_proc_U0.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U4", "Parent" : "3"},
+	{"ID" : "8", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.dataflow_in_loop_out_U0.inner_proc_U0.video_mandelbrot_generator_mul_mul_18s_18s_36_1_1_U5", "Parent" : "3"},
+	{"ID" : "9", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.dataflow_in_loop_out_U0.inner_proc_U0.video_mandelbrot_generator_mul_mul_19s_19s_38_1_1_U6", "Parent" : "3"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	video_mandelbrot_generator {
-		VIDEO_OUT_V_data_V {Type O LastRead -1 FirstWrite 1}
-		VIDEO_OUT_V_keep_V {Type O LastRead -1 FirstWrite 1}
-		VIDEO_OUT_V_strb_V {Type O LastRead -1 FirstWrite 1}
-		VIDEO_OUT_V_user_V {Type O LastRead -1 FirstWrite 1}
-		VIDEO_OUT_V_last_V {Type O LastRead -1 FirstWrite 1}
-		VIDEO_OUT_V_id_V {Type O LastRead -1 FirstWrite 1}
-		VIDEO_OUT_V_dest_V {Type O LastRead -1 FirstWrite 1}
-		re_V {Type I LastRead -1 FirstWrite -1}
-		im_V {Type I LastRead -1 FirstWrite -1}
-		zoom_factor_V {Type I LastRead -1 FirstWrite -1}}
+		VIDEO_OUT_V_data_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_keep_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_strb_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_user_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_last_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_id_V {Type O LastRead -1 FirstWrite 7}
+		VIDEO_OUT_V_dest_V {Type O LastRead -1 FirstWrite 7}
+		re_V {Type I LastRead 0 FirstWrite -1}
+		im_V {Type I LastRead 0 FirstWrite -1}
+		zoom_factor_V {Type I LastRead 0 FirstWrite -1}}
 	dataflow_in_loop_out {
-		i_op_assign_1 {Type I LastRead 0 FirstWrite -1}
-		m_axis_video_V_data_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_keep_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_strb_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_user_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_last_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_id_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_dest_V {Type O LastRead -1 FirstWrite 1}}
+		v_assign {Type I LastRead 0 FirstWrite -1}
+		m_axis_video_V_data_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_keep_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_strb_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_user_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_last_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_id_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_dest_V {Type O LastRead -1 FirstWrite 7}
+		im_V {Type I LastRead 0 FirstWrite -1}
+		re_V {Type I LastRead 0 FirstWrite -1}
+		zoom_factor_V {Type I LastRead 0 FirstWrite -1}}
 	inner_proc {
-		i_op_assign_1 {Type I LastRead 0 FirstWrite -1}
-		m_axis_video_V_data_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_keep_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_strb_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_user_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_last_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_id_V {Type O LastRead -1 FirstWrite 1}
-		m_axis_video_V_dest_V {Type O LastRead -1 FirstWrite 1}}}
+		v_assign {Type I LastRead 0 FirstWrite -1}
+		m_axis_video_V_data_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_keep_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_strb_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_user_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_last_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_id_V {Type O LastRead -1 FirstWrite 7}
+		m_axis_video_V_dest_V {Type O LastRead -1 FirstWrite 7}
+		im_V {Type I LastRead 1 FirstWrite -1}
+		re_V {Type I LastRead 1 FirstWrite -1}
+		zoom_factor_V {Type I LastRead 1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "481202", "Max" : "481202"}
-	, {"Name" : "Interval", "Min" : "481203", "Max" : "481203"}
+	{"Name" : "Latency", "Min" : "548", "Max" : "61508"}
+	, {"Name" : "Interval", "Min" : "549", "Max" : "61509"}
 ]}
 
 set PipelineEnableSignalInfo {[

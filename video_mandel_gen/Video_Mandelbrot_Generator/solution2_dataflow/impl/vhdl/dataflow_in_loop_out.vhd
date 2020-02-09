@@ -11,7 +11,7 @@ use IEEE.numeric_std.all;
 
 entity dataflow_in_loop_out is
 port (
-    i_op_assign_1 : IN STD_LOGIC_VECTOR (9 downto 0);
+    v_assign : IN STD_LOGIC_VECTOR (2 downto 0);
     m_axis_video_TDATA : OUT STD_LOGIC_VECTOR (23 downto 0);
     m_axis_video_TKEEP : OUT STD_LOGIC_VECTOR (2 downto 0);
     m_axis_video_TSTRB : OUT STD_LOGIC_VECTOR (2 downto 0);
@@ -19,11 +19,17 @@ port (
     m_axis_video_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
     m_axis_video_TID : OUT STD_LOGIC_VECTOR (0 downto 0);
     m_axis_video_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    im_V : IN STD_LOGIC_VECTOR (17 downto 0);
+    re_V : IN STD_LOGIC_VECTOR (17 downto 0);
+    zoom_factor_V : IN STD_LOGIC_VECTOR (17 downto 0);
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
-    i_op_assign_1_ap_vld : IN STD_LOGIC;
+    v_assign_ap_vld : IN STD_LOGIC;
     m_axis_video_TVALID : OUT STD_LOGIC;
     m_axis_video_TREADY : IN STD_LOGIC;
+    im_V_ap_vld : IN STD_LOGIC;
+    re_V_ap_vld : IN STD_LOGIC;
+    zoom_factor_V_ap_vld : IN STD_LOGIC;
     ap_start : IN STD_LOGIC;
     ap_done : OUT STD_LOGIC;
     ap_ready : OUT STD_LOGIC;
@@ -67,7 +73,7 @@ architecture behav of dataflow_in_loop_out is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        i_op_assign_1 : IN STD_LOGIC_VECTOR (9 downto 0);
+        v_assign : IN STD_LOGIC_VECTOR (2 downto 0);
         m_axis_video_TDATA : OUT STD_LOGIC_VECTOR (23 downto 0);
         m_axis_video_TVALID : OUT STD_LOGIC;
         m_axis_video_TREADY : IN STD_LOGIC;
@@ -76,7 +82,10 @@ architecture behav of dataflow_in_loop_out is
         m_axis_video_TUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
         m_axis_video_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
         m_axis_video_TID : OUT STD_LOGIC_VECTOR (0 downto 0);
-        m_axis_video_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0) );
+        m_axis_video_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        im_V : IN STD_LOGIC_VECTOR (17 downto 0);
+        re_V : IN STD_LOGIC_VECTOR (17 downto 0);
+        zoom_factor_V : IN STD_LOGIC_VECTOR (17 downto 0) );
     end component;
 
 
@@ -91,7 +100,7 @@ begin
         ap_continue => inner_proc_U0_ap_continue,
         ap_idle => inner_proc_U0_ap_idle,
         ap_ready => inner_proc_U0_ap_ready,
-        i_op_assign_1 => i_op_assign_1,
+        v_assign => v_assign,
         m_axis_video_TDATA => inner_proc_U0_m_axis_video_TDATA,
         m_axis_video_TVALID => inner_proc_U0_m_axis_video_TVALID,
         m_axis_video_TREADY => m_axis_video_TREADY,
@@ -100,7 +109,10 @@ begin
         m_axis_video_TUSER => inner_proc_U0_m_axis_video_TUSER,
         m_axis_video_TLAST => inner_proc_U0_m_axis_video_TLAST,
         m_axis_video_TID => inner_proc_U0_m_axis_video_TID,
-        m_axis_video_TDEST => inner_proc_U0_m_axis_video_TDEST);
+        m_axis_video_TDEST => inner_proc_U0_m_axis_video_TDEST,
+        im_V => im_V,
+        re_V => re_V,
+        zoom_factor_V => zoom_factor_V);
 
 
 

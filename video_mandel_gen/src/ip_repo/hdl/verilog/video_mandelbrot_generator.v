@@ -7,105 +7,201 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="video_mandelbrot_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=1.770500,HLS_SYN_LAT=481201,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=33,HLS_SYN_LUT=140,HLS_VERSION=2019_1}" *)
+(* CORE_GENERATION_INFO="video_mandelbrot_generator,hls_ip_2019_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020i-clg484-1L,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.516375,HLS_SYN_LAT=249601202,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=6,HLS_SYN_FF=1042,HLS_SYN_LUT=2437,HLS_VERSION=2019_1}" *)
 
 module video_mandelbrot_generator (
+        s_axi_cmd_AWVALID,
+        s_axi_cmd_AWREADY,
+        s_axi_cmd_AWADDR,
+        s_axi_cmd_WVALID,
+        s_axi_cmd_WREADY,
+        s_axi_cmd_WDATA,
+        s_axi_cmd_WSTRB,
+        s_axi_cmd_ARVALID,
+        s_axi_cmd_ARREADY,
+        s_axi_cmd_ARADDR,
+        s_axi_cmd_RVALID,
+        s_axi_cmd_RREADY,
+        s_axi_cmd_RDATA,
+        s_axi_cmd_RRESP,
+        s_axi_cmd_BVALID,
+        s_axi_cmd_BREADY,
+        s_axi_cmd_BRESP,
         ap_clk,
         ap_rst_n,
-        ap_start,
-        ap_done,
-        ap_idle,
-        ap_ready,
+        interrupt,
         m_axis_video_TDATA,
-        m_axis_video_TVALID,
-        m_axis_video_TREADY,
         m_axis_video_TKEEP,
         m_axis_video_TSTRB,
         m_axis_video_TUSER,
         m_axis_video_TLAST,
         m_axis_video_TID,
-        m_axis_video_TDEST
+        m_axis_video_TDEST,
+        m_axis_video_TVALID,
+        m_axis_video_TREADY
 );
 
-parameter    ap_ST_fsm_state1 = 3'd1;
-parameter    ap_ST_fsm_state2 = 3'd2;
-parameter    ap_ST_fsm_state3 = 3'd4;
+parameter    C_S_AXI_CMD_DATA_WIDTH = 32;
+parameter    C_S_AXI_CMD_ADDR_WIDTH = 6;
+parameter    C_S_AXI_DATA_WIDTH = 32;
+parameter    C_S_AXI_ADDR_WIDTH = 32;
 
+parameter C_S_AXI_CMD_WSTRB_WIDTH = (32 / 8);
+parameter C_S_AXI_WSTRB_WIDTH = (32 / 8);
+
+input   s_axi_cmd_AWVALID;
+output   s_axi_cmd_AWREADY;
+input  [C_S_AXI_CMD_ADDR_WIDTH - 1:0] s_axi_cmd_AWADDR;
+input   s_axi_cmd_WVALID;
+output   s_axi_cmd_WREADY;
+input  [C_S_AXI_CMD_DATA_WIDTH - 1:0] s_axi_cmd_WDATA;
+input  [C_S_AXI_CMD_WSTRB_WIDTH - 1:0] s_axi_cmd_WSTRB;
+input   s_axi_cmd_ARVALID;
+output   s_axi_cmd_ARREADY;
+input  [C_S_AXI_CMD_ADDR_WIDTH - 1:0] s_axi_cmd_ARADDR;
+output   s_axi_cmd_RVALID;
+input   s_axi_cmd_RREADY;
+output  [C_S_AXI_CMD_DATA_WIDTH - 1:0] s_axi_cmd_RDATA;
+output  [1:0] s_axi_cmd_RRESP;
+output   s_axi_cmd_BVALID;
+input   s_axi_cmd_BREADY;
+output  [1:0] s_axi_cmd_BRESP;
 input   ap_clk;
 input   ap_rst_n;
-input   ap_start;
-output   ap_done;
-output   ap_idle;
-output   ap_ready;
+output   interrupt;
 output  [23:0] m_axis_video_TDATA;
-output   m_axis_video_TVALID;
-input   m_axis_video_TREADY;
 output  [2:0] m_axis_video_TKEEP;
 output  [2:0] m_axis_video_TSTRB;
 output  [0:0] m_axis_video_TUSER;
 output  [0:0] m_axis_video_TLAST;
 output  [0:0] m_axis_video_TID;
 output  [0:0] m_axis_video_TDEST;
-
-reg ap_done;
-reg ap_idle;
-reg ap_ready;
-reg m_axis_video_TVALID;
+output   m_axis_video_TVALID;
+input   m_axis_video_TREADY;
 
  reg    ap_rst_n_inv;
-(* fsm_encoding = "none" *) reg   [2:0] ap_CS_fsm;
-wire    ap_CS_fsm_state1;
-reg    m_axis_video_TDATA_blk_n;
-wire    ap_CS_fsm_state3;
-wire   [0:0] icmp_ln16_fu_124_p2;
-wire   [9:0] i_fu_118_p2;
-reg   [9:0] i_reg_164;
-wire    ap_CS_fsm_state2;
-wire   [9:0] j_fu_130_p2;
-reg    ap_block_state3_io;
-reg   [9:0] i_0_reg_89;
-reg   [9:0] j_0_reg_101;
-wire   [0:0] icmp_ln14_fu_112_p2;
-wire   [9:0] or_ln19_fu_136_p2;
-reg   [2:0] ap_NS_fsm;
+wire    ap_start;
+reg    ap_ready;
+reg    ap_done;
+reg    ap_idle;
+wire   [17:0] re_V;
+wire   [17:0] im_V;
+wire   [17:0] zoom_factor_V;
+wire   [23:0] dataflow_in_loop_out_U0_m_axis_video_TDATA;
+wire   [2:0] dataflow_in_loop_out_U0_m_axis_video_TKEEP;
+wire   [2:0] dataflow_in_loop_out_U0_m_axis_video_TSTRB;
+wire   [0:0] dataflow_in_loop_out_U0_m_axis_video_TUSER;
+wire   [0:0] dataflow_in_loop_out_U0_m_axis_video_TLAST;
+wire   [0:0] dataflow_in_loop_out_U0_m_axis_video_TID;
+wire   [0:0] dataflow_in_loop_out_U0_m_axis_video_TDEST;
+wire    dataflow_in_loop_out_U0_m_axis_video_TVALID;
+wire    dataflow_in_loop_out_U0_ap_start;
+wire    dataflow_in_loop_out_U0_ap_done;
+wire    dataflow_in_loop_out_U0_ap_ready;
+wire    dataflow_in_loop_out_U0_ap_idle;
+wire    dataflow_in_loop_out_U0_ap_continue;
+wire    ap_sync_continue;
+wire    ap_sync_done;
+wire    ap_sync_ready;
+reg   [9:0] loop_dataflow_input_count;
+reg   [9:0] loop_dataflow_output_count;
+wire   [9:0] bound_minus_1;
+wire    dataflow_in_loop_out_U0_start_full_n;
+wire    dataflow_in_loop_out_U0_start_write;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 3'd1;
+#0 loop_dataflow_input_count = 10'd0;
+#0 loop_dataflow_output_count = 10'd0;
+end
+
+video_mandelbrot_generator_cmd_s_axi #(
+    .C_S_AXI_ADDR_WIDTH( C_S_AXI_CMD_ADDR_WIDTH ),
+    .C_S_AXI_DATA_WIDTH( C_S_AXI_CMD_DATA_WIDTH ))
+video_mandelbrot_generator_cmd_s_axi_U(
+    .AWVALID(s_axi_cmd_AWVALID),
+    .AWREADY(s_axi_cmd_AWREADY),
+    .AWADDR(s_axi_cmd_AWADDR),
+    .WVALID(s_axi_cmd_WVALID),
+    .WREADY(s_axi_cmd_WREADY),
+    .WDATA(s_axi_cmd_WDATA),
+    .WSTRB(s_axi_cmd_WSTRB),
+    .ARVALID(s_axi_cmd_ARVALID),
+    .ARREADY(s_axi_cmd_ARREADY),
+    .ARADDR(s_axi_cmd_ARADDR),
+    .RVALID(s_axi_cmd_RVALID),
+    .RREADY(s_axi_cmd_RREADY),
+    .RDATA(s_axi_cmd_RDATA),
+    .RRESP(s_axi_cmd_RRESP),
+    .BVALID(s_axi_cmd_BVALID),
+    .BREADY(s_axi_cmd_BREADY),
+    .BRESP(s_axi_cmd_BRESP),
+    .ACLK(ap_clk),
+    .ARESET(ap_rst_n_inv),
+    .ACLK_EN(1'b1),
+    .ap_start(ap_start),
+    .interrupt(interrupt),
+    .ap_ready(ap_ready),
+    .ap_done(ap_done),
+    .ap_idle(ap_idle),
+    .re_V(re_V),
+    .im_V(im_V),
+    .zoom_factor_V(zoom_factor_V)
+);
+
+dataflow_in_loop_out dataflow_in_loop_out_U0(
+    .v_assign(loop_dataflow_input_count),
+    .m_axis_video_TDATA(dataflow_in_loop_out_U0_m_axis_video_TDATA),
+    .m_axis_video_TKEEP(dataflow_in_loop_out_U0_m_axis_video_TKEEP),
+    .m_axis_video_TSTRB(dataflow_in_loop_out_U0_m_axis_video_TSTRB),
+    .m_axis_video_TUSER(dataflow_in_loop_out_U0_m_axis_video_TUSER),
+    .m_axis_video_TLAST(dataflow_in_loop_out_U0_m_axis_video_TLAST),
+    .m_axis_video_TID(dataflow_in_loop_out_U0_m_axis_video_TID),
+    .m_axis_video_TDEST(dataflow_in_loop_out_U0_m_axis_video_TDEST),
+    .im_V(im_V),
+    .re_V(re_V),
+    .zoom_factor_V(zoom_factor_V),
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .v_assign_ap_vld(1'b0),
+    .m_axis_video_TVALID(dataflow_in_loop_out_U0_m_axis_video_TVALID),
+    .m_axis_video_TREADY(m_axis_video_TREADY),
+    .im_V_ap_vld(1'b1),
+    .re_V_ap_vld(1'b1),
+    .zoom_factor_V_ap_vld(1'b1),
+    .ap_start(dataflow_in_loop_out_U0_ap_start),
+    .ap_done(dataflow_in_loop_out_U0_ap_done),
+    .ap_ready(dataflow_in_loop_out_U0_ap_ready),
+    .ap_idle(dataflow_in_loop_out_U0_ap_idle),
+    .ap_continue(dataflow_in_loop_out_U0_ap_continue)
+);
+
+always @ (posedge ap_clk) begin
+    if (ap_rst_n_inv == 1'b1) begin
+        loop_dataflow_input_count <= 10'd0;
+    end else begin
+        if ((~(loop_dataflow_input_count == bound_minus_1) & (dataflow_in_loop_out_U0_ap_ready == 1'b1) & (ap_start == 1'b1))) begin
+            loop_dataflow_input_count <= (loop_dataflow_input_count + 10'd1);
+        end else if (((loop_dataflow_input_count == bound_minus_1) & (dataflow_in_loop_out_U0_ap_ready == 1'b1) & (ap_start == 1'b1))) begin
+            loop_dataflow_input_count <= 10'd0;
+        end
+    end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        ap_CS_fsm <= ap_ST_fsm_state1;
+        loop_dataflow_output_count <= 10'd0;
     end else begin
-        ap_CS_fsm <= ap_NS_fsm;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state3_io) & (icmp_ln16_fu_124_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
-        i_0_reg_89 <= i_reg_164;
-    end else if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
-        i_0_reg_89 <= 10'd0;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state3_io) & (icmp_ln16_fu_124_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-        j_0_reg_101 <= j_fu_130_p2;
-    end else if (((icmp_ln14_fu_112_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        j_0_reg_101 <= 10'd0;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        i_reg_164 <= i_fu_118_p2;
+        if ((~(loop_dataflow_output_count == bound_minus_1) & (dataflow_in_loop_out_U0_ap_continue == 1'b1) & (dataflow_in_loop_out_U0_ap_done == 1'b1))) begin
+            loop_dataflow_output_count <= (loop_dataflow_output_count + 10'd1);
+        end else if (((loop_dataflow_output_count == bound_minus_1) & (dataflow_in_loop_out_U0_ap_continue == 1'b1) & (dataflow_in_loop_out_U0_ap_done == 1'b1))) begin
+            loop_dataflow_output_count <= 10'd0;
+        end
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln14_fu_112_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+    if (((loop_dataflow_output_count == bound_minus_1) & (dataflow_in_loop_out_U0_ap_done == 1'b1))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -113,7 +209,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((loop_dataflow_output_count == 10'd0) & (ap_start == 1'b0) & (dataflow_in_loop_out_U0_ap_idle == 1'b1))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -121,96 +217,47 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln14_fu_112_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+    if (((loop_dataflow_input_count == bound_minus_1) & (dataflow_in_loop_out_U0_ap_ready == 1'b1) & (ap_start == 1'b1))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
     end
 end
 
-always @ (*) begin
-    if (((icmp_ln16_fu_124_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-        m_axis_video_TDATA_blk_n = m_axis_video_TREADY;
-    end else begin
-        m_axis_video_TDATA_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if (((1'b0 == ap_block_state3_io) & (icmp_ln16_fu_124_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-        m_axis_video_TVALID = 1'b1;
-    end else begin
-        m_axis_video_TVALID = 1'b0;
-    end
-end
-
-always @ (*) begin
-    case (ap_CS_fsm)
-        ap_ST_fsm_state1 : begin
-            if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end
-        end
-        ap_ST_fsm_state2 : begin
-            if (((icmp_ln14_fu_112_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state3;
-            end
-        end
-        ap_ST_fsm_state3 : begin
-            if (((1'b0 == ap_block_state3_io) & (icmp_ln16_fu_124_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end else if (((1'b0 == ap_block_state3_io) & (icmp_ln16_fu_124_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-                ap_NS_fsm = ap_ST_fsm_state3;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state3;
-            end
-        end
-        default : begin
-            ap_NS_fsm = 'bx;
-        end
-    endcase
-end
-
-assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
-
-assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
-
-assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
-
-always @ (*) begin
-    ap_block_state3_io = ((icmp_ln16_fu_124_p2 == 1'd0) & (m_axis_video_TREADY == 1'b0));
-end
+assign dataflow_in_loop_out_U0_ap_continue = 1'b1;
 
 always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
-assign i_fu_118_p2 = (i_0_reg_89 + 10'd1);
+assign ap_sync_continue = 1'b1;
 
-assign icmp_ln14_fu_112_p2 = ((i_0_reg_89 == 10'd600) ? 1'b1 : 1'b0);
+assign ap_sync_done = dataflow_in_loop_out_U0_ap_done;
 
-assign icmp_ln16_fu_124_p2 = ((j_0_reg_101 == 10'd800) ? 1'b1 : 1'b0);
+assign ap_sync_ready = dataflow_in_loop_out_U0_ap_ready;
 
-assign j_fu_130_p2 = (j_0_reg_101 + 10'd1);
+assign bound_minus_1 = (10'd600 - 10'd1);
 
-assign m_axis_video_TDATA = j_0_reg_101;
+assign dataflow_in_loop_out_U0_ap_start = ap_start;
 
-assign m_axis_video_TDEST = 1'd0;
+assign dataflow_in_loop_out_U0_start_full_n = 1'b1;
 
-assign m_axis_video_TID = 1'd0;
+assign dataflow_in_loop_out_U0_start_write = 1'b0;
 
-assign m_axis_video_TKEEP = 3'd0;
+assign m_axis_video_TDATA = dataflow_in_loop_out_U0_m_axis_video_TDATA;
 
-assign m_axis_video_TLAST = ((j_0_reg_101 == 10'd799) ? 1'b1 : 1'b0);
+assign m_axis_video_TDEST = dataflow_in_loop_out_U0_m_axis_video_TDEST;
 
-assign m_axis_video_TSTRB = 3'd0;
+assign m_axis_video_TID = dataflow_in_loop_out_U0_m_axis_video_TID;
 
-assign m_axis_video_TUSER = ((or_ln19_fu_136_p2 == 10'd0) ? 1'b1 : 1'b0);
+assign m_axis_video_TKEEP = dataflow_in_loop_out_U0_m_axis_video_TKEEP;
 
-assign or_ln19_fu_136_p2 = (j_0_reg_101 | i_0_reg_89);
+assign m_axis_video_TLAST = dataflow_in_loop_out_U0_m_axis_video_TLAST;
+
+assign m_axis_video_TSTRB = dataflow_in_loop_out_U0_m_axis_video_TSTRB;
+
+assign m_axis_video_TUSER = dataflow_in_loop_out_U0_m_axis_video_TUSER;
+
+assign m_axis_video_TVALID = dataflow_in_loop_out_U0_m_axis_video_TVALID;
 
 endmodule //video_mandelbrot_generator
