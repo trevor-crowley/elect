@@ -230,7 +230,13 @@ proc create_root_design { parentCell } {
   #connect_bd_net -net ap_start_0_1 [get_bd_ports ap_start] [get_bd_pins video_mandelbrot_gen_0/ap_start]
   connect_bd_net -net aresetn_0_1 [get_bd_ports aresetn_0] [get_bd_pins video_mandelbrot_gen_0/ap_rst_n]
 
+  connect_bd_net [get_bd_ports aclk_40MHz] [get_bd_pins axi_vip_0/aclk]
+  connect_bd_net [get_bd_ports aresetn_0] [get_bd_pins axi_vip_0/aresetn]
+
   # Create address segments
+
+  connect_bd_intf_net [get_bd_intf_pins axi_vip_0/M_AXI] [get_bd_intf_pins video_mandelbrot_gen_0/s_axi_cmd]
+  create_bd_addr_seg -range 0x00001000 -offset 0x00000000 [get_bd_addr_spaces axi_vip_0/Master_AXI] [get_bd_addr_segs video_mandelbrot_gen_0/s_axi_cmd/Reg] SEG_video_mandelbrot_gen_0_Reg
 
 
   # Restore current instance

@@ -59,7 +59,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module tb_test_VPG(
+module tb_mandel(
 
     );
 
@@ -92,7 +92,7 @@ integer height=600, width=800;
 always #12.5ns aclk = ~aclk;
 
 // Instanciation of the Unit Under Test (UUT)
-test_VPG_bd_wrapper UUT
+mandel_bd_wrapper UUT
 (
     .aclk_40MHz         (aclk),
     .aresetn_0          (aresetn),
