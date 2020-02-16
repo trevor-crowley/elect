@@ -80,23 +80,23 @@ proc check_tvin_file {} {
 		puts stdout "[debug_prompt arg check_sim.tcl] start...";
 	}
     set rtlfilelist {
-         "c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_data_V.dat"
-         "c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_keep_V.dat"
-         "c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_strb_V.dat"
-         "c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_user_V.dat"
-         "c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_last_V.dat"
-         "c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_id_V.dat"
-         "c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_dest_V.dat"
+         "c.video_mandelbrot_generator.autotvin_m_axis_video_V_data_V.dat"
+         "c.video_mandelbrot_generator.autotvin_m_axis_video_V_keep_V.dat"
+         "c.video_mandelbrot_generator.autotvin_m_axis_video_V_strb_V.dat"
+         "c.video_mandelbrot_generator.autotvin_m_axis_video_V_user_V.dat"
+         "c.video_mandelbrot_generator.autotvin_m_axis_video_V_last_V.dat"
+         "c.video_mandelbrot_generator.autotvin_m_axis_video_V_id_V.dat"
+         "c.video_mandelbrot_generator.autotvin_m_axis_video_V_dest_V.dat"
          "c.video_mandelbrot_generator.autotvin_re_V.dat"
          "c.video_mandelbrot_generator.autotvin_im_V.dat"
          "c.video_mandelbrot_generator.autotvin_zoom_factor_V.dat"
-         "c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat"
-         "c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat"
-         "c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat"
-         "c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat"
-         "c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat"
-         "c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat"
-         "c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat"
+         "c.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat"
+         "c.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat"
+         "c.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat"
+         "c.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat"
+         "c.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat"
+         "c.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat"
+         "c.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat"
     }
     foreach rtlfile $rtlfilelist {
         if {[file isfile $rtlfile]} {
@@ -121,13 +121,13 @@ proc check_tvout_file {} {
 		puts stdout "[debug_prompt arg check_sim.tcl] start...";
 	}
     set rtlfilelist {
-         "rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat"
-         "rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat"
-         "rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat"
-         "rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat"
-         "rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat"
-         "rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat"
-         "rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat"
+         "rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat"
+         "rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat"
+         "rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat"
+         "rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat"
+         "rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat"
+         "rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat"
+         "rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat"
     }
     foreach rtlfile $rtlfilelist {
         if {[file isfile $rtlfile]} {

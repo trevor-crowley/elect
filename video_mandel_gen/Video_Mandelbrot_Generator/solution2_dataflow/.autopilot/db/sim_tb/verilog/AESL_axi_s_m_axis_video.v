@@ -5,20 +5,20 @@
 
 `timescale 1 ns / 1 ps
 
-`define TV_OUT_m_axis_video_TDATA "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat"
-`define EGRESS_STATUS_m_axis_video_TDATA "./stream_egress_status_VIDEO_OUT_V_data_V.dat"
-`define TV_OUT_m_axis_video_TKEEP "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat"
-`define EGRESS_STATUS_m_axis_video_TKEEP "./stream_egress_status_VIDEO_OUT_V_keep_V.dat"
-`define TV_OUT_m_axis_video_TSTRB "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat"
-`define EGRESS_STATUS_m_axis_video_TSTRB "./stream_egress_status_VIDEO_OUT_V_strb_V.dat"
-`define TV_OUT_m_axis_video_TUSER "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat"
-`define EGRESS_STATUS_m_axis_video_TUSER "./stream_egress_status_VIDEO_OUT_V_user_V.dat"
-`define TV_OUT_m_axis_video_TLAST "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat"
-`define EGRESS_STATUS_m_axis_video_TLAST "./stream_egress_status_VIDEO_OUT_V_last_V.dat"
-`define TV_OUT_m_axis_video_TID "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat"
-`define EGRESS_STATUS_m_axis_video_TID "./stream_egress_status_VIDEO_OUT_V_id_V.dat"
-`define TV_OUT_m_axis_video_TDEST "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat"
-`define EGRESS_STATUS_m_axis_video_TDEST "./stream_egress_status_VIDEO_OUT_V_dest_V.dat"
+`define TV_OUT_m_axis_video_TDATA "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat"
+`define EGRESS_STATUS_m_axis_video_TDATA "./stream_egress_status_m_axis_video_V_data_V.dat"
+`define TV_OUT_m_axis_video_TKEEP "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat"
+`define EGRESS_STATUS_m_axis_video_TKEEP "./stream_egress_status_m_axis_video_V_keep_V.dat"
+`define TV_OUT_m_axis_video_TSTRB "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat"
+`define EGRESS_STATUS_m_axis_video_TSTRB "./stream_egress_status_m_axis_video_V_strb_V.dat"
+`define TV_OUT_m_axis_video_TUSER "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat"
+`define EGRESS_STATUS_m_axis_video_TUSER "./stream_egress_status_m_axis_video_V_user_V.dat"
+`define TV_OUT_m_axis_video_TLAST "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat"
+`define EGRESS_STATUS_m_axis_video_TLAST "./stream_egress_status_m_axis_video_V_last_V.dat"
+`define TV_OUT_m_axis_video_TID "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat"
+`define EGRESS_STATUS_m_axis_video_TID "./stream_egress_status_m_axis_video_V_id_V.dat"
+`define TV_OUT_m_axis_video_TDEST "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat"
+`define EGRESS_STATUS_m_axis_video_TDEST "./stream_egress_status_m_axis_video_V_dest_V.dat"
 
 `define AUTOTB_TRANSACTION_NUM 1
 

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'dataflow_in_loop_out'" level="0">
-<item name = "Date">Sun Feb  9 15:06:49 2020
+<item name = "Date">Sat Feb 15 15:52:09 2020
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">Video_Mandelbrot_Generator</item>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">81, 369, 82, 370, dataflow</column>
+<column name="">81, 529, 82, 530, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_inner_proc_fu_68">inner_proc, 81, 369, 81, 369, none</column>
+<column name="grp_inner_proc_fu_96">inner_proc, 81, 529, 81, 529, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

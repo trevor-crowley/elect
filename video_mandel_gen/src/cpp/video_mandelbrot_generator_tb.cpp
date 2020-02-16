@@ -9,11 +9,6 @@ int main (int argc, char** argv) {
 	IplImage* dst = cvCreateImage(pattern_size, IPL_DEPTH_8U, 3);
 	AXI_STREAM dst_axi;
 
-	// test
-//	fixed_point move_x = 0.33;
-//	fixed_point move_y = 0.22;
-//	fixed_point zoom = 0.11;
-
 	fixed_point move_x = +0.3245046418497685;
 	fixed_point move_y = +0.04855101129280834;
 	fixed_point zoom = 0.01;

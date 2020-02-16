@@ -17,23 +17,23 @@ namespace ap_rtl {
 
 struct dataflow_in_loop_out : public sc_module {
     // Port declarations 24
-    sc_in< sc_lv<3> > v_assign;
-    sc_out< sc_lv<24> > m_axis_video_TDATA;
-    sc_out< sc_lv<3> > m_axis_video_TKEEP;
-    sc_out< sc_lv<3> > m_axis_video_TSTRB;
-    sc_out< sc_lv<1> > m_axis_video_TUSER;
-    sc_out< sc_lv<1> > m_axis_video_TLAST;
-    sc_out< sc_lv<1> > m_axis_video_TID;
-    sc_out< sc_lv<1> > m_axis_video_TDEST;
+    sc_out< sc_lv<8> > img_0_data_stream_0_V_din;
+    sc_in< sc_logic > img_0_data_stream_0_V_full_n;
+    sc_out< sc_logic > img_0_data_stream_0_V_write;
+    sc_out< sc_lv<8> > img_0_data_stream_1_V_din;
+    sc_in< sc_logic > img_0_data_stream_1_V_full_n;
+    sc_out< sc_logic > img_0_data_stream_1_V_write;
+    sc_out< sc_lv<8> > img_0_data_stream_2_V_din;
+    sc_in< sc_logic > img_0_data_stream_2_V_full_n;
+    sc_out< sc_logic > img_0_data_stream_2_V_write;
     sc_in< sc_lv<18> > im_V;
+    sc_in< sc_lv<3> > v_assign;
     sc_in< sc_lv<18> > re_V;
     sc_in< sc_lv<18> > zoom_factor_V;
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst;
-    sc_in< sc_logic > v_assign_ap_vld;
-    sc_out< sc_logic > m_axis_video_TVALID;
-    sc_in< sc_logic > m_axis_video_TREADY;
     sc_in< sc_logic > im_V_ap_vld;
+    sc_in< sc_logic > v_assign_ap_vld;
     sc_in< sc_logic > re_V_ap_vld;
     sc_in< sc_logic > zoom_factor_V_ap_vld;
     sc_in< sc_logic > ap_start;
@@ -57,24 +57,20 @@ struct dataflow_in_loop_out : public sc_module {
     sc_signal< sc_logic > inner_proc_U0_ap_continue;
     sc_signal< sc_logic > inner_proc_U0_ap_idle;
     sc_signal< sc_logic > inner_proc_U0_ap_ready;
-    sc_signal< sc_lv<24> > inner_proc_U0_m_axis_video_TDATA;
-    sc_signal< sc_logic > inner_proc_U0_m_axis_video_TVALID;
-    sc_signal< sc_lv<3> > inner_proc_U0_m_axis_video_TKEEP;
-    sc_signal< sc_lv<3> > inner_proc_U0_m_axis_video_TSTRB;
-    sc_signal< sc_lv<1> > inner_proc_U0_m_axis_video_TUSER;
-    sc_signal< sc_lv<1> > inner_proc_U0_m_axis_video_TLAST;
-    sc_signal< sc_lv<1> > inner_proc_U0_m_axis_video_TID;
-    sc_signal< sc_lv<1> > inner_proc_U0_m_axis_video_TDEST;
+    sc_signal< sc_lv<8> > inner_proc_U0_img_0_data_stream_0_V_din;
+    sc_signal< sc_logic > inner_proc_U0_img_0_data_stream_0_V_write;
+    sc_signal< sc_lv<8> > inner_proc_U0_img_0_data_stream_1_V_din;
+    sc_signal< sc_logic > inner_proc_U0_img_0_data_stream_1_V_write;
+    sc_signal< sc_lv<8> > inner_proc_U0_img_0_data_stream_2_V_din;
+    sc_signal< sc_logic > inner_proc_U0_img_0_data_stream_2_V_write;
     sc_signal< sc_logic > ap_sync_continue;
     sc_signal< sc_logic > ap_sync_done;
     sc_signal< sc_logic > ap_sync_ready;
     sc_signal< sc_logic > inner_proc_U0_start_full_n;
     sc_signal< sc_logic > inner_proc_U0_start_write;
-    static const sc_lv<24> ap_const_lv24_0;
-    static const sc_lv<3> ap_const_lv3_0;
-    static const sc_lv<1> ap_const_lv1_0;
-    static const sc_logic ap_const_logic_1;
+    static const sc_lv<8> ap_const_lv8_0;
     static const sc_logic ap_const_logic_0;
+    static const sc_logic ap_const_logic_1;
     // Thread declarations
     void thread_ap_done();
     void thread_ap_idle();
@@ -82,18 +78,16 @@ struct dataflow_in_loop_out : public sc_module {
     void thread_ap_sync_continue();
     void thread_ap_sync_done();
     void thread_ap_sync_ready();
+    void thread_img_0_data_stream_0_V_din();
+    void thread_img_0_data_stream_0_V_write();
+    void thread_img_0_data_stream_1_V_din();
+    void thread_img_0_data_stream_1_V_write();
+    void thread_img_0_data_stream_2_V_din();
+    void thread_img_0_data_stream_2_V_write();
     void thread_inner_proc_U0_ap_continue();
     void thread_inner_proc_U0_ap_start();
     void thread_inner_proc_U0_start_full_n();
     void thread_inner_proc_U0_start_write();
-    void thread_m_axis_video_TDATA();
-    void thread_m_axis_video_TDEST();
-    void thread_m_axis_video_TID();
-    void thread_m_axis_video_TKEEP();
-    void thread_m_axis_video_TLAST();
-    void thread_m_axis_video_TSTRB();
-    void thread_m_axis_video_TUSER();
-    void thread_m_axis_video_TVALID();
 };
 
 }

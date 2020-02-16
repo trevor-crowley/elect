@@ -10,9 +10,8 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 #pragma HLS INTERFACE s_axilite port=im bundle=cmd
 #pragma HLS INTERFACE s_axilite port=zoom_factor bundle=cmd
 
-
-	ap_axiu<24, 1, 1, 1> video;
-	hls::rgb_8 pixel;
+	RGB_IMAGE  img_0(HEIGHT, WIDTH);
+	pix op_pix;
 
 	fixed_point real_top, imag_top;
 	fixed_point real_btm, imag_btm;
@@ -20,30 +19,11 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 	fixed_point x,y;
 	uint16_t row, col, iter;
 
-
 	//Add code for output video generation here
 	out:for(row = 0; row < HEIGHT; row++)
 	{
 		inner:for(col= 0; col < WIDTH; col++)
 		{
-/*
-			// Org frame start here ***
-			// Start of frame, assert tuser
-			if((col==0)&&(row==0))
-				video.user=1;
-			else
-				video.user=0;
-
-			//End of line, assert tlast
-			if(col==WIDTH-1)
-				video.last = 1;
-			else
-				video.last = 0;
-*/
-
-// /*
- 	 		// begin test ***
-			// work2
 			real_top = (fixed_point)col * (const fixed_point)(1.0 / WIDTH) - (fixed_point)0.5;
 			real_btm = (fixed_point)3.0 * zoom_factor;
 			x0 = (fixed_point)real_top * real_btm + re;
@@ -56,10 +36,6 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 			// x0 = +3.0 * (col - WIDTH/2.0) * (zoom_factor * 1/WIDTH)  + re;
 			// y0 = -2.0 * (row - HEIGHT/2.0) * (zoom_factor * 1/HEIGHT) + im;
 
-			//cartX = +3.0 * (screenX - WIDTH/1.28) .* (zoom_factor * 1/WIDTH)  + cartXoffset;
-
-
-//	        iter =0;
 	        rsquare = isquare = zsquare = 0;
 		    mandel_calc:for (iter=0; iter < MAXITER && ((rsquare + isquare) <= (fixed_point)4); iter++) {
 
@@ -73,47 +49,22 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 
 		    }
 
- 	 	 	// end test
-
-// */
-			// Assign the pixel value to the data output
-
 		    // test
-//			pixel.R = 0;
-		    pixel.R = iter;
-			pixel.B = 0;
-			pixel.G = col;
+		    op_pix.val[0] = col;
+		    op_pix.val[1] = 0;
+		    op_pix.val[2] = 0;
+/*
+		    // prod
+		    op_pix.val[0] = 255;
+		    op_pix.val[1] = iter;
+		    op_pix.val[2] = iter;
+*/
+		    img_0.write(op_pix);
 
-//			pixel.R = iter;
-//			pixel.B = iter;
-//			pixel.G = 255;
-
-			// test frame start here ***
-			// Start of frame, assert tuser
-			if((col==0)&&(row==0))
-				video.user=1;
-			else
-				video.user=0;
-
-			//End of line, assert tlast
-			if(col==WIDTH-1)
-				video.last = 1;
-			else
-				video.last = 0;
-
-			video.data = set_rgb_8_pixel_value(pixel);
-
-
-			//Send video to stream
-			m_axis_video << video;
 		}
+
 	}
+	hls::Mat2AXIvideo(img_0, m_axis_video);
+
 }
 
-ap_uint<24> set_rgb_8_pixel_value(hls::rgb_8 pixel)
-{
-	ap_uint<24> pixel_out;
-
-	pixel_out = (pixel.R << 16) + (pixel.B << 8) + pixel.G;
-	return pixel_out;
-}

@@ -36061,16 +36061,17 @@ _ssdm_op_SpecDataflowPipeline(-1, 0, "");
 # 70 "/opt/Xilinx/Vivado/2019.1/common/technology/autopilot/hls_video.h" 2
 # 5 "src/cpp/video_mandelbrot_generator.h" 2
 # 20 "src/cpp/video_mandelbrot_generator.h"
+ typedef ap_fixed<18,3,AP_TRN_ZERO,AP_SAT> fixed_point;
+
  typedef hls::stream<ap_axiu<24,1,1,1> > AXI_STREAM;
 
 
- typedef ap_fixed<18,3,AP_TRN_ZERO,AP_SAT> fixed_point;
 
 
-
+ typedef hls::Mat<600, 800, (((0) & ((1 << 11) - 1)) + (((3)-1) << 11))> RGB_IMAGE;
+ typedef hls::Scalar<3, unsigned char> pix;
 
  void video_mandelbrot_generator(AXI_STREAM&, fixed_point, fixed_point, fixed_point);
- ap_uint<24> set_rgb_8_pixel_value(hls::rgb_8 pixel);
 # 2 "src/cpp/video_mandelbrot_generator.cpp" 2
 
 
@@ -36080,15 +36081,17 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
 #pragma HLS INTERFACE s_axilite port=return
 # 6 "src/cpp/video_mandelbrot_generator.cpp"
 
+#pragma HLS INTERFACE axis register both port=&m_axis_video
 #pragma HLS INTERFACE s_axilite port=return bundle=cmd
 #pragma HLS INTERFACE s_axilite port=&re bundle=cmd
 #pragma HLS INTERFACE s_axilite port=&im bundle=cmd
 #pragma HLS INTERFACE s_axilite port=&zoom_factor bundle=cmd
-#pragma HLS INTERFACE axis port=&m_axis_video bundle=VIDEO_OUT
+
+ static RGB_IMAGE img_0(600, 800);
+ static pix op_pix;
 
 
- ap_axiu<24, 1, 1, 1> video;
- hls::rgb_8 pixel;
+
 
  fixed_point real_top, imag_top;
  fixed_point real_btm, imag_btm;
@@ -36097,35 +36100,24 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
  uint16_t row, col, iter;
 
 
-
- out:for(row = 0; row < 6; row++)
+ out:for(row = 0; row < 600; row++)
  {
-  inner:for(col= 0; col < 8; col++)
+  inner:for(col= 0; col < 800; col++)
   {
-
-   if((col==0)&&(row==0))
-    video.user=1;
-   else
-    video.user=0;
-
-
-   if(col==8 -1)
-    video.last = 1;
-   else
-    video.last = 0;
-
-
-
-   real_top = (fixed_point)col * (const fixed_point)(1.0 / 8) - (fixed_point)0.5;
+   real_top = (fixed_point)col * (const fixed_point)(1.0 / 800) - (fixed_point)0.5;
    real_btm = (fixed_point)3.0 * zoom_factor;
    x0 = (fixed_point)real_top * real_btm + re;
 
-   imag_top = (fixed_point)row * (const fixed_point)(1.0 / 6) - (fixed_point)0.5;
+   imag_top = (fixed_point)row * (const fixed_point)(1.0 / 600) - (fixed_point)0.5;
    imag_btm = (fixed_point)-2.0 * zoom_factor;
    y0 = (fixed_point)(imag_top * imag_btm) + im;
-# 59 "src/cpp/video_mandelbrot_generator.cpp"
+
+
+
+
+
          rsquare = isquare = zsquare = 0;
-      mandel_calc:for (iter=0; iter < 10 && ((rsquare + isquare) <= (fixed_point)4); iter++) {
+      mandel_calc:for (iter=0; iter < 255 && ((rsquare + isquare) <= (fixed_point)4); iter++) {
 
        x = rsquare - isquare + x0;
           y = zsquare - rsquare - isquare + y0;
@@ -36136,32 +36128,15 @@ void video_mandelbrot_generator(AXI_STREAM& m_axis_video, fixed_point re, fixed_
        zsquare = (fixed_point)((x + y) * (x + y));
 
       }
+# 63 "src/cpp/video_mandelbrot_generator.cpp"
+      op_pix.val[0] = 255;
+      op_pix.val[1] = iter;
+      op_pix.val[2] = iter;
 
-
-
-
-
-
-   pixel.R = 0;
-
-   pixel.B = 0;
-   pixel.G = col;
-
-
-
-
-   video.data = set_rgb_8_pixel_value(pixel);
-
-
-   m_axis_video << video;
+      img_0.write(op_pix);
   }
+
  }
-}
+ hls::Mat2AXIvideo(img_0, m_axis_video);
 
-ap_uint<24> set_rgb_8_pixel_value(hls::rgb_8 pixel)
-{
- ap_uint<24> pixel_out;
-
- pixel_out = (pixel.R << 16) + (pixel.B << 8) + pixel.G;
- return pixel_out;
 }

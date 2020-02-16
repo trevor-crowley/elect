@@ -1,6 +1,6 @@
 <InterfaceSummary>
 <RtlPorts>
-<name>VIDEO_OUT_V_data_V</name>
+<name>m_axis_video_V_data_V</name>
 <CType>
 <TypeName>ap_uint 24</TypeName>
 <TypeWidth>24</TypeWidth>
@@ -10,7 +10,7 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>VIDEO_OUT_V_keep_V</name>
+<name>m_axis_video_V_keep_V</name>
 <CType>
 <TypeName>ap_uint 3</TypeName>
 <TypeWidth>3</TypeWidth>
@@ -20,7 +20,7 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>VIDEO_OUT_V_strb_V</name>
+<name>m_axis_video_V_strb_V</name>
 <CType>
 <TypeName>ap_uint 3</TypeName>
 <TypeWidth>3</TypeWidth>
@@ -30,7 +30,7 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>VIDEO_OUT_V_user_V</name>
+<name>m_axis_video_V_user_V</name>
 <CType>
 <TypeName>ap_uint 1</TypeName>
 <TypeWidth>1</TypeWidth>
@@ -40,7 +40,7 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>VIDEO_OUT_V_last_V</name>
+<name>m_axis_video_V_last_V</name>
 <CType>
 <TypeName>ap_uint 1</TypeName>
 <TypeWidth>1</TypeWidth>
@@ -50,7 +50,7 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>VIDEO_OUT_V_id_V</name>
+<name>m_axis_video_V_id_V</name>
 <CType>
 <TypeName>ap_uint 1</TypeName>
 <TypeWidth>1</TypeWidth>
@@ -60,7 +60,7 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>VIDEO_OUT_V_dest_V</name>
+<name>m_axis_video_V_dest_V</name>
 <CType>
 <TypeName>ap_uint 1</TypeName>
 <TypeWidth>1</TypeWidth>

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'inner_proc'" level="0">
-<item name = "Date">Sun Feb  9 15:06:48 2020
+<item name = "Date">Sat Feb 15 15:52:09 2020
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">Video_Mandelbrot_Generator</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">81, 369, 81, 369, none</column>
+<column name="">81, 529, 81, 529, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,8 +35,8 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- inner">80, 368, 10 ~ 46, -, -, 8, no</column>
-<column name=" + mandel_calc">4, 40, 5, 4, 1, 1 ~ 10, yes</column>
+<column name="- inner">80, 528, 10 ~ 66, -, -, 8, no</column>
+<column name=" + mandel_calc">4, 60, 5, 4, 1, 1 ~ 15, yes</column>
 </table>
 </item>
 </section>

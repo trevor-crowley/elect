@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'dataflow_in_loop_out'
 ================================================================
-* Date:           Sat Feb  8 22:19:37 2020
+* Date:           Sat Feb 15 15:43:38 2020
 
 * Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
 * Project:        Video_Mandelbrot_Generator
@@ -25,21 +25,21 @@
 
 + Latency (clock cycles): 
     * Summary: 
-    +-----+-------+-----+-------+----------+
-    |   Latency   |   Interval  | Pipeline |
-    | min |  max  | min |  max  |   Type   |
-    +-----+-------+-----+-------+----------+
-    |   90|  10250|   91|  10251| dataflow |
-    +-----+-------+-----+-------+----------+
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   90|  650|   91|  651| dataflow |
+    +-----+-----+-----+-----+----------+
 
     + Detail: 
         * Instance: 
-        +---------------+------------+-----+-------+-----+-------+---------+
-        |               |            |   Latency   |   Interval  | Pipeline|
-        |    Instance   |   Module   | min |  max  | min |  max  |   Type  |
-        +---------------+------------+-----+-------+-----+-------+---------+
-        |inner_proc_U0  |inner_proc  |   90|  10250|   90|  10250|   none  |
-        +---------------+------------+-----+-------+-----+-------+---------+
+        +---------------+------------+-----+-----+-----+-----+---------+
+        |               |            |  Latency  |  Interval | Pipeline|
+        |    Instance   |   Module   | min | max | min | max |   Type  |
+        +---------------+------------+-----+-----+-----+-----+---------+
+        |inner_proc_U0  |inner_proc  |   90|  650|   90|  650|   none  |
+        +---------------+------------+-----+-----+-----+-----+---------+
 
         * Loop: 
         N/A
@@ -56,12 +56,12 @@
 |DSP              |        -|      -|      -|      -|    -|
 |Expression       |        -|      -|      -|      -|    -|
 |FIFO             |        -|      -|      -|      -|    -|
-|Instance         |        -|      6|    967|   2203|    -|
+|Instance         |        -|      6|    957|   2196|    -|
 |Memory           |        -|      -|      -|      -|    -|
 |Multiplexer      |        -|      -|      -|      -|    -|
 |Register         |        -|      -|      -|      -|    -|
 +-----------------+---------+-------+-------+-------+-----+
-|Total            |        0|      6|    967|   2203|    0|
+|Total            |        0|      6|    957|   2196|    0|
 +-----------------+---------+-------+-------+-------+-----+
 |Available        |      100|     90|  41600|  20800|    0|
 +-----------------+---------+-------+-------+-------+-----+
@@ -73,9 +73,9 @@
     +---------------+------------+---------+-------+-----+------+-----+
     |    Instance   |   Module   | BRAM_18K| DSP48E|  FF |  LUT | URAM|
     +---------------+------------+---------+-------+-----+------+-----+
-    |inner_proc_U0  |inner_proc  |        0|      6|  967|  2203|    0|
+    |inner_proc_U0  |inner_proc  |        0|      6|  957|  2196|    0|
     +---------------+------------+---------+-------+-----+------+-----+
-    |Total          |            |        0|      6|  967|  2203|    0|
+    |Total          |            |        0|      6|  957|  2196|    0|
     +---------------+------------+---------+-------+-----+------+-----+
 
     * DSP48E: 
@@ -102,32 +102,32 @@
 == Interface
 ================================================================
 * Summary: 
-+----------------------+-----+-----+------------+-----------------------+--------------+
-|       RTL Ports      | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
-+----------------------+-----+-----+------------+-----------------------+--------------+
-|v_assign              |  in |    3|   ap_none  |        v_assign       |    scalar    |
-|v_assign_ap_vld       |  in |    1|   ap_none  |        v_assign       |    scalar    |
-|m_axis_video_TDATA    | out |   24|    axis    | m_axis_video_V_data_V |    pointer   |
-|m_axis_video_TKEEP    | out |    3|    axis    | m_axis_video_V_keep_V |    pointer   |
-|m_axis_video_TSTRB    | out |    3|    axis    | m_axis_video_V_strb_V |    pointer   |
-|m_axis_video_TUSER    | out |    1|    axis    | m_axis_video_V_user_V |    pointer   |
-|m_axis_video_TLAST    | out |    1|    axis    | m_axis_video_V_last_V |    pointer   |
-|m_axis_video_TID      | out |    1|    axis    |  m_axis_video_V_id_V  |    pointer   |
-|m_axis_video_TDEST    | out |    1|    axis    | m_axis_video_V_dest_V |    pointer   |
-|m_axis_video_TVALID   | out |    1|    axis    | m_axis_video_V_dest_V |    pointer   |
-|m_axis_video_TREADY   |  in |    1|    axis    | m_axis_video_V_dest_V |    pointer   |
-|im_V                  |  in |   18|   ap_none  |          im_V         |    scalar    |
-|im_V_ap_vld           |  in |    1|   ap_none  |          im_V         |    scalar    |
-|re_V                  |  in |   18|   ap_none  |          re_V         |    scalar    |
-|re_V_ap_vld           |  in |    1|   ap_none  |          re_V         |    scalar    |
-|zoom_factor_V         |  in |   18|   ap_none  |     zoom_factor_V     |    scalar    |
-|zoom_factor_V_ap_vld  |  in |    1|   ap_none  |     zoom_factor_V     |    scalar    |
-|ap_clk                |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
-|ap_rst                |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
-|ap_start              |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
-|ap_done               | out |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
-|ap_ready              | out |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
-|ap_idle               | out |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
-|ap_continue           |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
-+----------------------+-----+-----+------------+-----------------------+--------------+
++------------------------------+-----+-----+------------+-----------------------+--------------+
+|           RTL Ports          | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++------------------------------+-----+-----+------------+-----------------------+--------------+
+|img_0_data_stream_0_V_din     | out |    8|   ap_fifo  | img_0_data_stream_0_V |    pointer   |
+|img_0_data_stream_0_V_full_n  |  in |    1|   ap_fifo  | img_0_data_stream_0_V |    pointer   |
+|img_0_data_stream_0_V_write   | out |    1|   ap_fifo  | img_0_data_stream_0_V |    pointer   |
+|img_0_data_stream_1_V_din     | out |    8|   ap_fifo  | img_0_data_stream_1_V |    pointer   |
+|img_0_data_stream_1_V_full_n  |  in |    1|   ap_fifo  | img_0_data_stream_1_V |    pointer   |
+|img_0_data_stream_1_V_write   | out |    1|   ap_fifo  | img_0_data_stream_1_V |    pointer   |
+|img_0_data_stream_2_V_din     | out |    8|   ap_fifo  | img_0_data_stream_2_V |    pointer   |
+|img_0_data_stream_2_V_full_n  |  in |    1|   ap_fifo  | img_0_data_stream_2_V |    pointer   |
+|img_0_data_stream_2_V_write   | out |    1|   ap_fifo  | img_0_data_stream_2_V |    pointer   |
+|im_V                          |  in |   18|   ap_none  |          im_V         |    scalar    |
+|im_V_ap_vld                   |  in |    1|   ap_none  |          im_V         |    scalar    |
+|v_assign                      |  in |    3|   ap_none  |        v_assign       |    scalar    |
+|v_assign_ap_vld               |  in |    1|   ap_none  |        v_assign       |    scalar    |
+|re_V                          |  in |   18|   ap_none  |          re_V         |    scalar    |
+|re_V_ap_vld                   |  in |    1|   ap_none  |          re_V         |    scalar    |
+|zoom_factor_V                 |  in |   18|   ap_none  |     zoom_factor_V     |    scalar    |
+|zoom_factor_V_ap_vld          |  in |    1|   ap_none  |     zoom_factor_V     |    scalar    |
+|ap_clk                        |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
+|ap_rst                        |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
+|ap_start                      |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
+|ap_done                       | out |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
+|ap_ready                      | out |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
+|ap_idle                       | out |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
+|ap_continue                   |  in |    1| ap_ctrl_hs |  dataflow_in_loop_out | return value |
++------------------------------+-----+-----+------------+-----------------------+--------------+
 

@@ -42,41 +42,41 @@ using namespace sc_dt;
 // [dump_enumeration [get_enumeration_list]] ---------->
 
 
-// wrapc file define: "VIDEO_OUT_V_data_V"
-#define AUTOTB_TVOUT_VIDEO_OUT_V_data_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat"
-#define AUTOTB_TVIN_VIDEO_OUT_V_data_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_data_V.dat"
-#define WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_data_V  "../tv/stream_size/stream_size_out_VIDEO_OUT_V_data_V.dat"
-#define WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_data_V  "../tv/stream_size/stream_egress_status_VIDEO_OUT_V_data_V.dat"
-// wrapc file define: "VIDEO_OUT_V_keep_V"
-#define AUTOTB_TVOUT_VIDEO_OUT_V_keep_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat"
-#define AUTOTB_TVIN_VIDEO_OUT_V_keep_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_keep_V.dat"
-#define WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_keep_V  "../tv/stream_size/stream_size_out_VIDEO_OUT_V_keep_V.dat"
-#define WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_keep_V  "../tv/stream_size/stream_egress_status_VIDEO_OUT_V_keep_V.dat"
-// wrapc file define: "VIDEO_OUT_V_strb_V"
-#define AUTOTB_TVOUT_VIDEO_OUT_V_strb_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat"
-#define AUTOTB_TVIN_VIDEO_OUT_V_strb_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_strb_V.dat"
-#define WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_strb_V  "../tv/stream_size/stream_size_out_VIDEO_OUT_V_strb_V.dat"
-#define WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_strb_V  "../tv/stream_size/stream_egress_status_VIDEO_OUT_V_strb_V.dat"
-// wrapc file define: "VIDEO_OUT_V_user_V"
-#define AUTOTB_TVOUT_VIDEO_OUT_V_user_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat"
-#define AUTOTB_TVIN_VIDEO_OUT_V_user_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_user_V.dat"
-#define WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_user_V  "../tv/stream_size/stream_size_out_VIDEO_OUT_V_user_V.dat"
-#define WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_user_V  "../tv/stream_size/stream_egress_status_VIDEO_OUT_V_user_V.dat"
-// wrapc file define: "VIDEO_OUT_V_last_V"
-#define AUTOTB_TVOUT_VIDEO_OUT_V_last_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat"
-#define AUTOTB_TVIN_VIDEO_OUT_V_last_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_last_V.dat"
-#define WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_last_V  "../tv/stream_size/stream_size_out_VIDEO_OUT_V_last_V.dat"
-#define WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_last_V  "../tv/stream_size/stream_egress_status_VIDEO_OUT_V_last_V.dat"
-// wrapc file define: "VIDEO_OUT_V_id_V"
-#define AUTOTB_TVOUT_VIDEO_OUT_V_id_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat"
-#define AUTOTB_TVIN_VIDEO_OUT_V_id_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_id_V.dat"
-#define WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_id_V  "../tv/stream_size/stream_size_out_VIDEO_OUT_V_id_V.dat"
-#define WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_id_V  "../tv/stream_size/stream_egress_status_VIDEO_OUT_V_id_V.dat"
-// wrapc file define: "VIDEO_OUT_V_dest_V"
-#define AUTOTB_TVOUT_VIDEO_OUT_V_dest_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat"
-#define AUTOTB_TVIN_VIDEO_OUT_V_dest_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_dest_V.dat"
-#define WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_dest_V  "../tv/stream_size/stream_size_out_VIDEO_OUT_V_dest_V.dat"
-#define WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_dest_V  "../tv/stream_size/stream_egress_status_VIDEO_OUT_V_dest_V.dat"
+// wrapc file define: "m_axis_video_V_data_V"
+#define AUTOTB_TVOUT_m_axis_video_V_data_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat"
+#define AUTOTB_TVIN_m_axis_video_V_data_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_m_axis_video_V_data_V.dat"
+#define WRAPC_STREAM_SIZE_OUT_m_axis_video_V_data_V  "../tv/stream_size/stream_size_out_m_axis_video_V_data_V.dat"
+#define WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_data_V  "../tv/stream_size/stream_egress_status_m_axis_video_V_data_V.dat"
+// wrapc file define: "m_axis_video_V_keep_V"
+#define AUTOTB_TVOUT_m_axis_video_V_keep_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat"
+#define AUTOTB_TVIN_m_axis_video_V_keep_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_m_axis_video_V_keep_V.dat"
+#define WRAPC_STREAM_SIZE_OUT_m_axis_video_V_keep_V  "../tv/stream_size/stream_size_out_m_axis_video_V_keep_V.dat"
+#define WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_keep_V  "../tv/stream_size/stream_egress_status_m_axis_video_V_keep_V.dat"
+// wrapc file define: "m_axis_video_V_strb_V"
+#define AUTOTB_TVOUT_m_axis_video_V_strb_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat"
+#define AUTOTB_TVIN_m_axis_video_V_strb_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_m_axis_video_V_strb_V.dat"
+#define WRAPC_STREAM_SIZE_OUT_m_axis_video_V_strb_V  "../tv/stream_size/stream_size_out_m_axis_video_V_strb_V.dat"
+#define WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_strb_V  "../tv/stream_size/stream_egress_status_m_axis_video_V_strb_V.dat"
+// wrapc file define: "m_axis_video_V_user_V"
+#define AUTOTB_TVOUT_m_axis_video_V_user_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat"
+#define AUTOTB_TVIN_m_axis_video_V_user_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_m_axis_video_V_user_V.dat"
+#define WRAPC_STREAM_SIZE_OUT_m_axis_video_V_user_V  "../tv/stream_size/stream_size_out_m_axis_video_V_user_V.dat"
+#define WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_user_V  "../tv/stream_size/stream_egress_status_m_axis_video_V_user_V.dat"
+// wrapc file define: "m_axis_video_V_last_V"
+#define AUTOTB_TVOUT_m_axis_video_V_last_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat"
+#define AUTOTB_TVIN_m_axis_video_V_last_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_m_axis_video_V_last_V.dat"
+#define WRAPC_STREAM_SIZE_OUT_m_axis_video_V_last_V  "../tv/stream_size/stream_size_out_m_axis_video_V_last_V.dat"
+#define WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_last_V  "../tv/stream_size/stream_egress_status_m_axis_video_V_last_V.dat"
+// wrapc file define: "m_axis_video_V_id_V"
+#define AUTOTB_TVOUT_m_axis_video_V_id_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat"
+#define AUTOTB_TVIN_m_axis_video_V_id_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_m_axis_video_V_id_V.dat"
+#define WRAPC_STREAM_SIZE_OUT_m_axis_video_V_id_V  "../tv/stream_size/stream_size_out_m_axis_video_V_id_V.dat"
+#define WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_id_V  "../tv/stream_size/stream_egress_status_m_axis_video_V_id_V.dat"
+// wrapc file define: "m_axis_video_V_dest_V"
+#define AUTOTB_TVOUT_m_axis_video_V_dest_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat"
+#define AUTOTB_TVIN_m_axis_video_V_dest_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_m_axis_video_V_dest_V.dat"
+#define WRAPC_STREAM_SIZE_OUT_m_axis_video_V_dest_V  "../tv/stream_size/stream_size_out_m_axis_video_V_dest_V.dat"
+#define WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_dest_V  "../tv/stream_size/stream_egress_status_m_axis_video_V_dest_V.dat"
 // wrapc file define: "re_V"
 #define AUTOTB_TVIN_re_V  "../tv/cdatafile/c.video_mandelbrot_generator.autotvin_re_V.dat"
 // wrapc file define: "im_V"
@@ -86,32 +86,32 @@ using namespace sc_dt;
 
 #define INTER_TCL  "../tv/cdatafile/ref.tcl"
 
-// tvout file define: "VIDEO_OUT_V_data_V"
-#define AUTOTB_TVOUT_PC_VIDEO_OUT_V_data_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat"
-// tvout file define: "VIDEO_OUT_V_keep_V"
-#define AUTOTB_TVOUT_PC_VIDEO_OUT_V_keep_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat"
-// tvout file define: "VIDEO_OUT_V_strb_V"
-#define AUTOTB_TVOUT_PC_VIDEO_OUT_V_strb_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat"
-// tvout file define: "VIDEO_OUT_V_user_V"
-#define AUTOTB_TVOUT_PC_VIDEO_OUT_V_user_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat"
-// tvout file define: "VIDEO_OUT_V_last_V"
-#define AUTOTB_TVOUT_PC_VIDEO_OUT_V_last_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat"
-// tvout file define: "VIDEO_OUT_V_id_V"
-#define AUTOTB_TVOUT_PC_VIDEO_OUT_V_id_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat"
-// tvout file define: "VIDEO_OUT_V_dest_V"
-#define AUTOTB_TVOUT_PC_VIDEO_OUT_V_dest_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat"
+// tvout file define: "m_axis_video_V_data_V"
+#define AUTOTB_TVOUT_PC_m_axis_video_V_data_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat"
+// tvout file define: "m_axis_video_V_keep_V"
+#define AUTOTB_TVOUT_PC_m_axis_video_V_keep_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat"
+// tvout file define: "m_axis_video_V_strb_V"
+#define AUTOTB_TVOUT_PC_m_axis_video_V_strb_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat"
+// tvout file define: "m_axis_video_V_user_V"
+#define AUTOTB_TVOUT_PC_m_axis_video_V_user_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat"
+// tvout file define: "m_axis_video_V_last_V"
+#define AUTOTB_TVOUT_PC_m_axis_video_V_last_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat"
+// tvout file define: "m_axis_video_V_id_V"
+#define AUTOTB_TVOUT_PC_m_axis_video_V_id_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat"
+// tvout file define: "m_axis_video_V_dest_V"
+#define AUTOTB_TVOUT_PC_m_axis_video_V_dest_V  "../tv/rtldatafile/rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat"
 
 class INTER_TCL_FILE {
 	public:
 		INTER_TCL_FILE(const char* name) {
 			mName = name;
-			VIDEO_OUT_V_data_V_depth = 0;
-			VIDEO_OUT_V_keep_V_depth = 0;
-			VIDEO_OUT_V_strb_V_depth = 0;
-			VIDEO_OUT_V_user_V_depth = 0;
-			VIDEO_OUT_V_last_V_depth = 0;
-			VIDEO_OUT_V_id_V_depth = 0;
-			VIDEO_OUT_V_dest_V_depth = 0;
+			m_axis_video_V_data_V_depth = 0;
+			m_axis_video_V_keep_V_depth = 0;
+			m_axis_video_V_strb_V_depth = 0;
+			m_axis_video_V_user_V_depth = 0;
+			m_axis_video_V_last_V_depth = 0;
+			m_axis_video_V_id_V_depth = 0;
+			m_axis_video_V_dest_V_depth = 0;
 			re_V_depth = 0;
 			im_V_depth = 0;
 			zoom_factor_V_depth = 0;
@@ -134,13 +134,13 @@ class INTER_TCL_FILE {
 
 		string get_depth_list () {
 			stringstream total_list;
-			total_list << "{VIDEO_OUT_V_data_V " << VIDEO_OUT_V_data_V_depth << "}\n";
-			total_list << "{VIDEO_OUT_V_keep_V " << VIDEO_OUT_V_keep_V_depth << "}\n";
-			total_list << "{VIDEO_OUT_V_strb_V " << VIDEO_OUT_V_strb_V_depth << "}\n";
-			total_list << "{VIDEO_OUT_V_user_V " << VIDEO_OUT_V_user_V_depth << "}\n";
-			total_list << "{VIDEO_OUT_V_last_V " << VIDEO_OUT_V_last_V_depth << "}\n";
-			total_list << "{VIDEO_OUT_V_id_V " << VIDEO_OUT_V_id_V_depth << "}\n";
-			total_list << "{VIDEO_OUT_V_dest_V " << VIDEO_OUT_V_dest_V_depth << "}\n";
+			total_list << "{m_axis_video_V_data_V " << m_axis_video_V_data_V_depth << "}\n";
+			total_list << "{m_axis_video_V_keep_V " << m_axis_video_V_keep_V_depth << "}\n";
+			total_list << "{m_axis_video_V_strb_V " << m_axis_video_V_strb_V_depth << "}\n";
+			total_list << "{m_axis_video_V_user_V " << m_axis_video_V_user_V_depth << "}\n";
+			total_list << "{m_axis_video_V_last_V " << m_axis_video_V_last_V_depth << "}\n";
+			total_list << "{m_axis_video_V_id_V " << m_axis_video_V_id_V_depth << "}\n";
+			total_list << "{m_axis_video_V_dest_V " << m_axis_video_V_dest_V_depth << "}\n";
 			total_list << "{re_V " << re_V_depth << "}\n";
 			total_list << "{im_V " << im_V_depth << "}\n";
 			total_list << "{zoom_factor_V " << zoom_factor_V_depth << "}\n";
@@ -151,13 +151,13 @@ class INTER_TCL_FILE {
 			(*class_num) = (*class_num) > num ? (*class_num) : num;
 		}
 	public:
-		int VIDEO_OUT_V_data_V_depth;
-		int VIDEO_OUT_V_keep_V_depth;
-		int VIDEO_OUT_V_strb_V_depth;
-		int VIDEO_OUT_V_user_V_depth;
-		int VIDEO_OUT_V_last_V_depth;
-		int VIDEO_OUT_V_id_V_depth;
-		int VIDEO_OUT_V_dest_V_depth;
+		int m_axis_video_V_data_V_depth;
+		int m_axis_video_V_keep_V_depth;
+		int m_axis_video_V_strb_V_depth;
+		int m_axis_video_V_user_V_depth;
+		int m_axis_video_V_last_V_depth;
+		int m_axis_video_V_id_V_depth;
+		int m_axis_video_V_dest_V_depth;
 		int re_V_depth;
 		int im_V_depth;
 		int zoom_factor_V_depth;
@@ -198,29 +198,29 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		int aesl_tmp_2 = 0;
 
 		// read output stream size: "m_axis_video"
-		aesl_fh.read(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_data_V, AESL_token); // [[transaction]]
-		aesl_fh.read(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_data_V, AESL_num); // transaction number
+		aesl_fh.read(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_data_V, AESL_token); // [[transaction]]
+		aesl_fh.read(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_data_V, AESL_num); // transaction number
 
 		if (atoi(AESL_num.c_str()) == AESL_transaction_pc)
 		{
-			aesl_fh.read(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_data_V, AESL_token); // pop_size
+			aesl_fh.read(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_data_V, AESL_token); // pop_size
 			aesl_tmp_1 = atoi(AESL_token.c_str());
-			aesl_fh.read(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_data_V, AESL_token); // [[/transaction]]
+			aesl_fh.read(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_data_V, AESL_token); // [[/transaction]]
 		}
 
-		// output port post check: "VIDEO_OUT_V_data_V"
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_data_V, AESL_token); // [[transaction]]
+		// output port post check: "m_axis_video_V_data_V"
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_data_V, AESL_token); // [[transaction]]
 		if (AESL_token != "[[transaction]]")
 		{
 			exit(1);
 		}
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_data_V, AESL_num); // transaction number
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_data_V, AESL_num); // transaction number
 
 		if (atoi(AESL_num.c_str()) == AESL_transaction_pc)
 		{
-			aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_data_V, AESL_token); // data
+			aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_data_V, AESL_token); // data
 
-			std::vector<sc_bv<24> > VIDEO_OUT_V_data_V_pc_buffer;
+			std::vector<sc_bv<24> > m_axis_video_V_data_V_pc_buffer;
 			int i = 0;
 
 			while (AESL_token != "[[/transaction]]")
@@ -236,7 +236,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_data_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_data_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -258,7 +258,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_data_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_data_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -272,13 +272,13 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 				// push token into output port buffer
 				if (AESL_token != "")
 				{
-					VIDEO_OUT_V_data_V_pc_buffer.push_back(AESL_token.c_str());
+					m_axis_video_V_data_V_pc_buffer.push_back(AESL_token.c_str());
 					i++;
 				}
 
-				aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_data_V, AESL_token); // data or [[/transaction]]
+				aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_data_V, AESL_token); // data or [[/transaction]]
 
-				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_VIDEO_OUT_V_data_V))
+				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_m_axis_video_V_data_V))
 				{
 					exit(1);
 				}
@@ -304,7 +304,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			// ***********************************
 			if (i > 0)
 			{
-				// RTL Name: VIDEO_OUT_V_data_V
+				// RTL Name: m_axis_video_V_data_V
 				{
 					// bitslice(23, 0)
 					// {
@@ -327,7 +327,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 								{
 									if (&(aesl_tmp_0[0].data) != NULL) // check the null address if the c port is array or others
 									{
-										m_axis_video_V_data_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(23, 0) = sc_bv<24>(VIDEO_OUT_V_data_V_pc_buffer[hls_map_index].range(23, 0));
+										m_axis_video_V_data_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(23, 0) = sc_bv<24>(m_axis_video_V_data_V_pc_buffer[hls_map_index].range(23, 0));
 										hls_map_index++;
 									}
 								}
@@ -365,19 +365,19 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			}
 		}
 
-		// output port post check: "VIDEO_OUT_V_keep_V"
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_keep_V, AESL_token); // [[transaction]]
+		// output port post check: "m_axis_video_V_keep_V"
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_keep_V, AESL_token); // [[transaction]]
 		if (AESL_token != "[[transaction]]")
 		{
 			exit(1);
 		}
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_keep_V, AESL_num); // transaction number
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_keep_V, AESL_num); // transaction number
 
 		if (atoi(AESL_num.c_str()) == AESL_transaction_pc)
 		{
-			aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_keep_V, AESL_token); // data
+			aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_keep_V, AESL_token); // data
 
-			std::vector<sc_bv<3> > VIDEO_OUT_V_keep_V_pc_buffer;
+			std::vector<sc_bv<3> > m_axis_video_V_keep_V_pc_buffer;
 			int i = 0;
 
 			while (AESL_token != "[[/transaction]]")
@@ -393,7 +393,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_keep_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_keep_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -415,7 +415,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_keep_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_keep_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -429,13 +429,13 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 				// push token into output port buffer
 				if (AESL_token != "")
 				{
-					VIDEO_OUT_V_keep_V_pc_buffer.push_back(AESL_token.c_str());
+					m_axis_video_V_keep_V_pc_buffer.push_back(AESL_token.c_str());
 					i++;
 				}
 
-				aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_keep_V, AESL_token); // data or [[/transaction]]
+				aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_keep_V, AESL_token); // data or [[/transaction]]
 
-				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_VIDEO_OUT_V_keep_V))
+				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_m_axis_video_V_keep_V))
 				{
 					exit(1);
 				}
@@ -461,7 +461,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			// ***********************************
 			if (i > 0)
 			{
-				// RTL Name: VIDEO_OUT_V_keep_V
+				// RTL Name: m_axis_video_V_keep_V
 				{
 					// bitslice(2, 0)
 					// {
@@ -484,7 +484,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 								{
 									if (&(aesl_tmp_0[0].keep) != NULL) // check the null address if the c port is array or others
 									{
-										m_axis_video_V_keep_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(2, 0) = sc_bv<3>(VIDEO_OUT_V_keep_V_pc_buffer[hls_map_index].range(2, 0));
+										m_axis_video_V_keep_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(2, 0) = sc_bv<3>(m_axis_video_V_keep_V_pc_buffer[hls_map_index].range(2, 0));
 										hls_map_index++;
 									}
 								}
@@ -522,19 +522,19 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			}
 		}
 
-		// output port post check: "VIDEO_OUT_V_strb_V"
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_strb_V, AESL_token); // [[transaction]]
+		// output port post check: "m_axis_video_V_strb_V"
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_strb_V, AESL_token); // [[transaction]]
 		if (AESL_token != "[[transaction]]")
 		{
 			exit(1);
 		}
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_strb_V, AESL_num); // transaction number
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_strb_V, AESL_num); // transaction number
 
 		if (atoi(AESL_num.c_str()) == AESL_transaction_pc)
 		{
-			aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_strb_V, AESL_token); // data
+			aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_strb_V, AESL_token); // data
 
-			std::vector<sc_bv<3> > VIDEO_OUT_V_strb_V_pc_buffer;
+			std::vector<sc_bv<3> > m_axis_video_V_strb_V_pc_buffer;
 			int i = 0;
 
 			while (AESL_token != "[[/transaction]]")
@@ -550,7 +550,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_strb_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_strb_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -572,7 +572,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_strb_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_strb_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -586,13 +586,13 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 				// push token into output port buffer
 				if (AESL_token != "")
 				{
-					VIDEO_OUT_V_strb_V_pc_buffer.push_back(AESL_token.c_str());
+					m_axis_video_V_strb_V_pc_buffer.push_back(AESL_token.c_str());
 					i++;
 				}
 
-				aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_strb_V, AESL_token); // data or [[/transaction]]
+				aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_strb_V, AESL_token); // data or [[/transaction]]
 
-				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_VIDEO_OUT_V_strb_V))
+				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_m_axis_video_V_strb_V))
 				{
 					exit(1);
 				}
@@ -618,7 +618,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			// ***********************************
 			if (i > 0)
 			{
-				// RTL Name: VIDEO_OUT_V_strb_V
+				// RTL Name: m_axis_video_V_strb_V
 				{
 					// bitslice(2, 0)
 					// {
@@ -641,7 +641,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 								{
 									if (&(aesl_tmp_0[0].strb) != NULL) // check the null address if the c port is array or others
 									{
-										m_axis_video_V_strb_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(2, 0) = sc_bv<3>(VIDEO_OUT_V_strb_V_pc_buffer[hls_map_index].range(2, 0));
+										m_axis_video_V_strb_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(2, 0) = sc_bv<3>(m_axis_video_V_strb_V_pc_buffer[hls_map_index].range(2, 0));
 										hls_map_index++;
 									}
 								}
@@ -679,19 +679,19 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			}
 		}
 
-		// output port post check: "VIDEO_OUT_V_user_V"
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_user_V, AESL_token); // [[transaction]]
+		// output port post check: "m_axis_video_V_user_V"
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_user_V, AESL_token); // [[transaction]]
 		if (AESL_token != "[[transaction]]")
 		{
 			exit(1);
 		}
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_user_V, AESL_num); // transaction number
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_user_V, AESL_num); // transaction number
 
 		if (atoi(AESL_num.c_str()) == AESL_transaction_pc)
 		{
-			aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_user_V, AESL_token); // data
+			aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_user_V, AESL_token); // data
 
-			std::vector<sc_bv<1> > VIDEO_OUT_V_user_V_pc_buffer;
+			std::vector<sc_bv<1> > m_axis_video_V_user_V_pc_buffer;
 			int i = 0;
 
 			while (AESL_token != "[[/transaction]]")
@@ -707,7 +707,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_user_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_user_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -729,7 +729,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_user_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_user_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -743,13 +743,13 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 				// push token into output port buffer
 				if (AESL_token != "")
 				{
-					VIDEO_OUT_V_user_V_pc_buffer.push_back(AESL_token.c_str());
+					m_axis_video_V_user_V_pc_buffer.push_back(AESL_token.c_str());
 					i++;
 				}
 
-				aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_user_V, AESL_token); // data or [[/transaction]]
+				aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_user_V, AESL_token); // data or [[/transaction]]
 
-				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_VIDEO_OUT_V_user_V))
+				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_m_axis_video_V_user_V))
 				{
 					exit(1);
 				}
@@ -775,7 +775,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			// ***********************************
 			if (i > 0)
 			{
-				// RTL Name: VIDEO_OUT_V_user_V
+				// RTL Name: m_axis_video_V_user_V
 				{
 					// bitslice(0, 0)
 					// {
@@ -798,7 +798,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 								{
 									if (&(aesl_tmp_0[0].user) != NULL) // check the null address if the c port is array or others
 									{
-										m_axis_video_V_user_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(0, 0) = sc_bv<1>(VIDEO_OUT_V_user_V_pc_buffer[hls_map_index].range(0, 0));
+										m_axis_video_V_user_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(0, 0) = sc_bv<1>(m_axis_video_V_user_V_pc_buffer[hls_map_index].range(0, 0));
 										hls_map_index++;
 									}
 								}
@@ -836,19 +836,19 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			}
 		}
 
-		// output port post check: "VIDEO_OUT_V_last_V"
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_last_V, AESL_token); // [[transaction]]
+		// output port post check: "m_axis_video_V_last_V"
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_last_V, AESL_token); // [[transaction]]
 		if (AESL_token != "[[transaction]]")
 		{
 			exit(1);
 		}
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_last_V, AESL_num); // transaction number
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_last_V, AESL_num); // transaction number
 
 		if (atoi(AESL_num.c_str()) == AESL_transaction_pc)
 		{
-			aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_last_V, AESL_token); // data
+			aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_last_V, AESL_token); // data
 
-			std::vector<sc_bv<1> > VIDEO_OUT_V_last_V_pc_buffer;
+			std::vector<sc_bv<1> > m_axis_video_V_last_V_pc_buffer;
 			int i = 0;
 
 			while (AESL_token != "[[/transaction]]")
@@ -864,7 +864,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_last_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_last_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -886,7 +886,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_last_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_last_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -900,13 +900,13 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 				// push token into output port buffer
 				if (AESL_token != "")
 				{
-					VIDEO_OUT_V_last_V_pc_buffer.push_back(AESL_token.c_str());
+					m_axis_video_V_last_V_pc_buffer.push_back(AESL_token.c_str());
 					i++;
 				}
 
-				aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_last_V, AESL_token); // data or [[/transaction]]
+				aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_last_V, AESL_token); // data or [[/transaction]]
 
-				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_VIDEO_OUT_V_last_V))
+				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_m_axis_video_V_last_V))
 				{
 					exit(1);
 				}
@@ -932,7 +932,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			// ***********************************
 			if (i > 0)
 			{
-				// RTL Name: VIDEO_OUT_V_last_V
+				// RTL Name: m_axis_video_V_last_V
 				{
 					// bitslice(0, 0)
 					// {
@@ -955,7 +955,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 								{
 									if (&(aesl_tmp_0[0].last) != NULL) // check the null address if the c port is array or others
 									{
-										m_axis_video_V_last_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(0, 0) = sc_bv<1>(VIDEO_OUT_V_last_V_pc_buffer[hls_map_index].range(0, 0));
+										m_axis_video_V_last_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(0, 0) = sc_bv<1>(m_axis_video_V_last_V_pc_buffer[hls_map_index].range(0, 0));
 										hls_map_index++;
 									}
 								}
@@ -993,19 +993,19 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			}
 		}
 
-		// output port post check: "VIDEO_OUT_V_id_V"
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_id_V, AESL_token); // [[transaction]]
+		// output port post check: "m_axis_video_V_id_V"
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_id_V, AESL_token); // [[transaction]]
 		if (AESL_token != "[[transaction]]")
 		{
 			exit(1);
 		}
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_id_V, AESL_num); // transaction number
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_id_V, AESL_num); // transaction number
 
 		if (atoi(AESL_num.c_str()) == AESL_transaction_pc)
 		{
-			aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_id_V, AESL_token); // data
+			aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_id_V, AESL_token); // data
 
-			std::vector<sc_bv<1> > VIDEO_OUT_V_id_V_pc_buffer;
+			std::vector<sc_bv<1> > m_axis_video_V_id_V_pc_buffer;
 			int i = 0;
 
 			while (AESL_token != "[[/transaction]]")
@@ -1021,7 +1021,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_id_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_id_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -1043,7 +1043,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_id_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_id_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -1057,13 +1057,13 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 				// push token into output port buffer
 				if (AESL_token != "")
 				{
-					VIDEO_OUT_V_id_V_pc_buffer.push_back(AESL_token.c_str());
+					m_axis_video_V_id_V_pc_buffer.push_back(AESL_token.c_str());
 					i++;
 				}
 
-				aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_id_V, AESL_token); // data or [[/transaction]]
+				aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_id_V, AESL_token); // data or [[/transaction]]
 
-				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_VIDEO_OUT_V_id_V))
+				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_m_axis_video_V_id_V))
 				{
 					exit(1);
 				}
@@ -1089,7 +1089,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			// ***********************************
 			if (i > 0)
 			{
-				// RTL Name: VIDEO_OUT_V_id_V
+				// RTL Name: m_axis_video_V_id_V
 				{
 					// bitslice(0, 0)
 					// {
@@ -1112,7 +1112,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 								{
 									if (&(aesl_tmp_0[0].id) != NULL) // check the null address if the c port is array or others
 									{
-										m_axis_video_V_id_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(0, 0) = sc_bv<1>(VIDEO_OUT_V_id_V_pc_buffer[hls_map_index].range(0, 0));
+										m_axis_video_V_id_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(0, 0) = sc_bv<1>(m_axis_video_V_id_V_pc_buffer[hls_map_index].range(0, 0));
 										hls_map_index++;
 									}
 								}
@@ -1150,19 +1150,19 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			}
 		}
 
-		// output port post check: "VIDEO_OUT_V_dest_V"
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_dest_V, AESL_token); // [[transaction]]
+		// output port post check: "m_axis_video_V_dest_V"
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_dest_V, AESL_token); // [[transaction]]
 		if (AESL_token != "[[transaction]]")
 		{
 			exit(1);
 		}
-		aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_dest_V, AESL_num); // transaction number
+		aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_dest_V, AESL_num); // transaction number
 
 		if (atoi(AESL_num.c_str()) == AESL_transaction_pc)
 		{
-			aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_dest_V, AESL_token); // data
+			aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_dest_V, AESL_token); // data
 
-			std::vector<sc_bv<1> > VIDEO_OUT_V_dest_V_pc_buffer;
+			std::vector<sc_bv<1> > m_axis_video_V_dest_V_pc_buffer;
 			int i = 0;
 
 			while (AESL_token != "[[/transaction]]")
@@ -1178,7 +1178,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_dest_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_dest_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -1200,7 +1200,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 					{
 						if (!err)
 						{
-							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'VIDEO_OUT_V_dest_V', possible cause: There are uninitialized variables in the C design." << endl;
+							cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'X' on port 'm_axis_video_V_dest_V', possible cause: There are uninitialized variables in the C design." << endl;
 							err = true;
 						}
 						AESL_token.replace(x_found, 1, "0");
@@ -1214,13 +1214,13 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 				// push token into output port buffer
 				if (AESL_token != "")
 				{
-					VIDEO_OUT_V_dest_V_pc_buffer.push_back(AESL_token.c_str());
+					m_axis_video_V_dest_V_pc_buffer.push_back(AESL_token.c_str());
 					i++;
 				}
 
-				aesl_fh.read(AUTOTB_TVOUT_PC_VIDEO_OUT_V_dest_V, AESL_token); // data or [[/transaction]]
+				aesl_fh.read(AUTOTB_TVOUT_PC_m_axis_video_V_dest_V, AESL_token); // data or [[/transaction]]
 
-				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_VIDEO_OUT_V_dest_V))
+				if (AESL_token == "[[[/runtime]]]" || aesl_fh.eof(AUTOTB_TVOUT_PC_m_axis_video_V_dest_V))
 				{
 					exit(1);
 				}
@@ -1246,7 +1246,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 			// ***********************************
 			if (i > 0)
 			{
-				// RTL Name: VIDEO_OUT_V_dest_V
+				// RTL Name: m_axis_video_V_dest_V
 				{
 					// bitslice(0, 0)
 					// {
@@ -1269,7 +1269,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 								{
 									if (&(aesl_tmp_0[0].dest) != NULL) // check the null address if the c port is array or others
 									{
-										m_axis_video_V_dest_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(0, 0) = sc_bv<1>(VIDEO_OUT_V_dest_V_pc_buffer[hls_map_index].range(0, 0));
+										m_axis_video_V_dest_V_lv0_0_0_1_lv1_0_0_1[hls_map_index].range(0, 0) = sc_bv<1>(m_axis_video_V_dest_V_pc_buffer[hls_map_index].range(0, 0));
 										hls_map_index++;
 									}
 								}
@@ -1322,75 +1322,75 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 
 		static AESL_FILE_HANDLER aesl_fh;
 
-		// "VIDEO_OUT_V_data_V"
-		char* tvin_VIDEO_OUT_V_data_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_VIDEO_OUT_V_data_V);
-		char* tvout_VIDEO_OUT_V_data_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVOUT_VIDEO_OUT_V_data_V);
-		char* wrapc_stream_size_out_VIDEO_OUT_V_data_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_data_V);
-		char* wrapc_stream_egress_status_VIDEO_OUT_V_data_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_data_V);
+		// "m_axis_video_V_data_V"
+		char* tvin_m_axis_video_V_data_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_m_axis_video_V_data_V);
+		char* tvout_m_axis_video_V_data_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVOUT_m_axis_video_V_data_V);
+		char* wrapc_stream_size_out_m_axis_video_V_data_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_data_V);
+		char* wrapc_stream_egress_status_m_axis_video_V_data_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_data_V);
 
-		// "VIDEO_OUT_V_keep_V"
-		char* tvin_VIDEO_OUT_V_keep_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_VIDEO_OUT_V_keep_V);
-		char* tvout_VIDEO_OUT_V_keep_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVOUT_VIDEO_OUT_V_keep_V);
-		char* wrapc_stream_size_out_VIDEO_OUT_V_keep_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_keep_V);
-		char* wrapc_stream_egress_status_VIDEO_OUT_V_keep_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_keep_V);
+		// "m_axis_video_V_keep_V"
+		char* tvin_m_axis_video_V_keep_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_m_axis_video_V_keep_V);
+		char* tvout_m_axis_video_V_keep_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVOUT_m_axis_video_V_keep_V);
+		char* wrapc_stream_size_out_m_axis_video_V_keep_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_keep_V);
+		char* wrapc_stream_egress_status_m_axis_video_V_keep_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_keep_V);
 
-		// "VIDEO_OUT_V_strb_V"
-		char* tvin_VIDEO_OUT_V_strb_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_VIDEO_OUT_V_strb_V);
-		char* tvout_VIDEO_OUT_V_strb_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVOUT_VIDEO_OUT_V_strb_V);
-		char* wrapc_stream_size_out_VIDEO_OUT_V_strb_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_strb_V);
-		char* wrapc_stream_egress_status_VIDEO_OUT_V_strb_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_strb_V);
+		// "m_axis_video_V_strb_V"
+		char* tvin_m_axis_video_V_strb_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_m_axis_video_V_strb_V);
+		char* tvout_m_axis_video_V_strb_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVOUT_m_axis_video_V_strb_V);
+		char* wrapc_stream_size_out_m_axis_video_V_strb_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_strb_V);
+		char* wrapc_stream_egress_status_m_axis_video_V_strb_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_strb_V);
 
-		// "VIDEO_OUT_V_user_V"
-		char* tvin_VIDEO_OUT_V_user_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_VIDEO_OUT_V_user_V);
-		char* tvout_VIDEO_OUT_V_user_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVOUT_VIDEO_OUT_V_user_V);
-		char* wrapc_stream_size_out_VIDEO_OUT_V_user_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_user_V);
-		char* wrapc_stream_egress_status_VIDEO_OUT_V_user_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_user_V);
+		// "m_axis_video_V_user_V"
+		char* tvin_m_axis_video_V_user_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_m_axis_video_V_user_V);
+		char* tvout_m_axis_video_V_user_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVOUT_m_axis_video_V_user_V);
+		char* wrapc_stream_size_out_m_axis_video_V_user_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_user_V);
+		char* wrapc_stream_egress_status_m_axis_video_V_user_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_user_V);
 
-		// "VIDEO_OUT_V_last_V"
-		char* tvin_VIDEO_OUT_V_last_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_VIDEO_OUT_V_last_V);
-		char* tvout_VIDEO_OUT_V_last_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVOUT_VIDEO_OUT_V_last_V);
-		char* wrapc_stream_size_out_VIDEO_OUT_V_last_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_last_V);
-		char* wrapc_stream_egress_status_VIDEO_OUT_V_last_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_last_V);
+		// "m_axis_video_V_last_V"
+		char* tvin_m_axis_video_V_last_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_m_axis_video_V_last_V);
+		char* tvout_m_axis_video_V_last_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVOUT_m_axis_video_V_last_V);
+		char* wrapc_stream_size_out_m_axis_video_V_last_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_last_V);
+		char* wrapc_stream_egress_status_m_axis_video_V_last_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_last_V);
 
-		// "VIDEO_OUT_V_id_V"
-		char* tvin_VIDEO_OUT_V_id_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_VIDEO_OUT_V_id_V);
-		char* tvout_VIDEO_OUT_V_id_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVOUT_VIDEO_OUT_V_id_V);
-		char* wrapc_stream_size_out_VIDEO_OUT_V_id_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_id_V);
-		char* wrapc_stream_egress_status_VIDEO_OUT_V_id_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_id_V);
+		// "m_axis_video_V_id_V"
+		char* tvin_m_axis_video_V_id_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_m_axis_video_V_id_V);
+		char* tvout_m_axis_video_V_id_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVOUT_m_axis_video_V_id_V);
+		char* wrapc_stream_size_out_m_axis_video_V_id_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_id_V);
+		char* wrapc_stream_egress_status_m_axis_video_V_id_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_id_V);
 
-		// "VIDEO_OUT_V_dest_V"
-		char* tvin_VIDEO_OUT_V_dest_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_VIDEO_OUT_V_dest_V);
-		char* tvout_VIDEO_OUT_V_dest_V = new char[50];
-		aesl_fh.touch(AUTOTB_TVOUT_VIDEO_OUT_V_dest_V);
-		char* wrapc_stream_size_out_VIDEO_OUT_V_dest_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_dest_V);
-		char* wrapc_stream_egress_status_VIDEO_OUT_V_dest_V = new char[50];
-		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_VIDEO_OUT_V_dest_V);
+		// "m_axis_video_V_dest_V"
+		char* tvin_m_axis_video_V_dest_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_m_axis_video_V_dest_V);
+		char* tvout_m_axis_video_V_dest_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVOUT_m_axis_video_V_dest_V);
+		char* wrapc_stream_size_out_m_axis_video_V_dest_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_dest_V);
+		char* wrapc_stream_egress_status_m_axis_video_V_dest_V = new char[50];
+		aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_m_axis_video_V_dest_V);
 
 		// "re_V"
 		char* tvin_re_V = new char[50];
@@ -1566,12 +1566,12 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		}
 
 		// [[transaction]]
-		sprintf(tvout_VIDEO_OUT_V_data_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_data_V, tvout_VIDEO_OUT_V_data_V);
+		sprintf(tvout_m_axis_video_V_data_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_data_V, tvout_m_axis_video_V_data_V);
 
-		sc_bv<24>* VIDEO_OUT_V_data_V_tvout_wrapc_buffer = new sc_bv<24>[aesl_tmp_1 - aesl_tmp_2];
+		sc_bv<24>* m_axis_video_V_data_V_tvout_wrapc_buffer = new sc_bv<24>[aesl_tmp_1 - aesl_tmp_2];
 
-		// RTL Name: VIDEO_OUT_V_data_V
+		// RTL Name: m_axis_video_V_data_V
 		{
 			// bitslice(23, 0)
 			{
@@ -1594,7 +1594,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 							{
 								sc_lv<24> m_axis_video_V_data_V_tmp_mem;
 								m_axis_video_V_data_V_tmp_mem = (aesl_tmp_0[i_0].data).to_string(2).c_str();
-								VIDEO_OUT_V_data_V_tvout_wrapc_buffer[hls_map_index].range(23, 0) = m_axis_video_V_data_V_tmp_mem.range(23, 0);
+								m_axis_video_V_data_V_tvout_wrapc_buffer[hls_map_index].range(23, 0) = m_axis_video_V_data_V_tmp_mem.range(23, 0);
                                  		       hls_map_index++;
 							}
 						}
@@ -1606,32 +1606,32 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		// dump tv to file
 		for (int i = 0; i < aesl_tmp_1 - aesl_tmp_2; i++)
 		{
-			sprintf(tvout_VIDEO_OUT_V_data_V, "%s\n", (VIDEO_OUT_V_data_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_data_V, tvout_VIDEO_OUT_V_data_V);
+			sprintf(tvout_m_axis_video_V_data_V, "%s\n", (m_axis_video_V_data_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_data_V, tvout_m_axis_video_V_data_V);
 		}
 
-		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.VIDEO_OUT_V_data_V_depth);
-		sprintf(tvout_VIDEO_OUT_V_data_V, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_data_V, tvout_VIDEO_OUT_V_data_V);
+		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.m_axis_video_V_data_V_depth);
+		sprintf(tvout_m_axis_video_V_data_V, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_data_V, tvout_m_axis_video_V_data_V);
 
 		// release memory allocation
-		delete [] VIDEO_OUT_V_data_V_tvout_wrapc_buffer;
+		delete [] m_axis_video_V_data_V_tvout_wrapc_buffer;
 
 		// dump stream size
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_data_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_data_V, wrapc_stream_size_out_VIDEO_OUT_V_data_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_data_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_data_V, wrapc_stream_size_out_VIDEO_OUT_V_data_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_data_V, "[[/transaction]] \n");
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_data_V, wrapc_stream_size_out_VIDEO_OUT_V_data_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_data_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_data_V, wrapc_stream_size_out_m_axis_video_V_data_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_data_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_data_V, wrapc_stream_size_out_m_axis_video_V_data_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_data_V, "[[/transaction]] \n");
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_data_V, wrapc_stream_size_out_m_axis_video_V_data_V);
 
 		// [[transaction]]
-		sprintf(tvout_VIDEO_OUT_V_keep_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_keep_V, tvout_VIDEO_OUT_V_keep_V);
+		sprintf(tvout_m_axis_video_V_keep_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_keep_V, tvout_m_axis_video_V_keep_V);
 
-		sc_bv<3>* VIDEO_OUT_V_keep_V_tvout_wrapc_buffer = new sc_bv<3>[aesl_tmp_1 - aesl_tmp_2];
+		sc_bv<3>* m_axis_video_V_keep_V_tvout_wrapc_buffer = new sc_bv<3>[aesl_tmp_1 - aesl_tmp_2];
 
-		// RTL Name: VIDEO_OUT_V_keep_V
+		// RTL Name: m_axis_video_V_keep_V
 		{
 			// bitslice(2, 0)
 			{
@@ -1654,7 +1654,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 							{
 								sc_lv<3> m_axis_video_V_keep_V_tmp_mem;
 								m_axis_video_V_keep_V_tmp_mem = (aesl_tmp_0[i_0].keep).to_string(2).c_str();
-								VIDEO_OUT_V_keep_V_tvout_wrapc_buffer[hls_map_index].range(2, 0) = m_axis_video_V_keep_V_tmp_mem.range(2, 0);
+								m_axis_video_V_keep_V_tvout_wrapc_buffer[hls_map_index].range(2, 0) = m_axis_video_V_keep_V_tmp_mem.range(2, 0);
                                  		       hls_map_index++;
 							}
 						}
@@ -1666,32 +1666,32 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		// dump tv to file
 		for (int i = 0; i < aesl_tmp_1 - aesl_tmp_2; i++)
 		{
-			sprintf(tvout_VIDEO_OUT_V_keep_V, "%s\n", (VIDEO_OUT_V_keep_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_keep_V, tvout_VIDEO_OUT_V_keep_V);
+			sprintf(tvout_m_axis_video_V_keep_V, "%s\n", (m_axis_video_V_keep_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_keep_V, tvout_m_axis_video_V_keep_V);
 		}
 
-		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.VIDEO_OUT_V_keep_V_depth);
-		sprintf(tvout_VIDEO_OUT_V_keep_V, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_keep_V, tvout_VIDEO_OUT_V_keep_V);
+		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.m_axis_video_V_keep_V_depth);
+		sprintf(tvout_m_axis_video_V_keep_V, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_keep_V, tvout_m_axis_video_V_keep_V);
 
 		// release memory allocation
-		delete [] VIDEO_OUT_V_keep_V_tvout_wrapc_buffer;
+		delete [] m_axis_video_V_keep_V_tvout_wrapc_buffer;
 
 		// dump stream size
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_keep_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_keep_V, wrapc_stream_size_out_VIDEO_OUT_V_keep_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_keep_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_keep_V, wrapc_stream_size_out_VIDEO_OUT_V_keep_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_keep_V, "[[/transaction]] \n");
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_keep_V, wrapc_stream_size_out_VIDEO_OUT_V_keep_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_keep_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_keep_V, wrapc_stream_size_out_m_axis_video_V_keep_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_keep_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_keep_V, wrapc_stream_size_out_m_axis_video_V_keep_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_keep_V, "[[/transaction]] \n");
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_keep_V, wrapc_stream_size_out_m_axis_video_V_keep_V);
 
 		// [[transaction]]
-		sprintf(tvout_VIDEO_OUT_V_strb_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_strb_V, tvout_VIDEO_OUT_V_strb_V);
+		sprintf(tvout_m_axis_video_V_strb_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_strb_V, tvout_m_axis_video_V_strb_V);
 
-		sc_bv<3>* VIDEO_OUT_V_strb_V_tvout_wrapc_buffer = new sc_bv<3>[aesl_tmp_1 - aesl_tmp_2];
+		sc_bv<3>* m_axis_video_V_strb_V_tvout_wrapc_buffer = new sc_bv<3>[aesl_tmp_1 - aesl_tmp_2];
 
-		// RTL Name: VIDEO_OUT_V_strb_V
+		// RTL Name: m_axis_video_V_strb_V
 		{
 			// bitslice(2, 0)
 			{
@@ -1714,7 +1714,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 							{
 								sc_lv<3> m_axis_video_V_strb_V_tmp_mem;
 								m_axis_video_V_strb_V_tmp_mem = (aesl_tmp_0[i_0].strb).to_string(2).c_str();
-								VIDEO_OUT_V_strb_V_tvout_wrapc_buffer[hls_map_index].range(2, 0) = m_axis_video_V_strb_V_tmp_mem.range(2, 0);
+								m_axis_video_V_strb_V_tvout_wrapc_buffer[hls_map_index].range(2, 0) = m_axis_video_V_strb_V_tmp_mem.range(2, 0);
                                  		       hls_map_index++;
 							}
 						}
@@ -1726,32 +1726,32 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		// dump tv to file
 		for (int i = 0; i < aesl_tmp_1 - aesl_tmp_2; i++)
 		{
-			sprintf(tvout_VIDEO_OUT_V_strb_V, "%s\n", (VIDEO_OUT_V_strb_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_strb_V, tvout_VIDEO_OUT_V_strb_V);
+			sprintf(tvout_m_axis_video_V_strb_V, "%s\n", (m_axis_video_V_strb_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_strb_V, tvout_m_axis_video_V_strb_V);
 		}
 
-		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.VIDEO_OUT_V_strb_V_depth);
-		sprintf(tvout_VIDEO_OUT_V_strb_V, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_strb_V, tvout_VIDEO_OUT_V_strb_V);
+		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.m_axis_video_V_strb_V_depth);
+		sprintf(tvout_m_axis_video_V_strb_V, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_strb_V, tvout_m_axis_video_V_strb_V);
 
 		// release memory allocation
-		delete [] VIDEO_OUT_V_strb_V_tvout_wrapc_buffer;
+		delete [] m_axis_video_V_strb_V_tvout_wrapc_buffer;
 
 		// dump stream size
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_strb_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_strb_V, wrapc_stream_size_out_VIDEO_OUT_V_strb_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_strb_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_strb_V, wrapc_stream_size_out_VIDEO_OUT_V_strb_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_strb_V, "[[/transaction]] \n");
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_strb_V, wrapc_stream_size_out_VIDEO_OUT_V_strb_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_strb_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_strb_V, wrapc_stream_size_out_m_axis_video_V_strb_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_strb_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_strb_V, wrapc_stream_size_out_m_axis_video_V_strb_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_strb_V, "[[/transaction]] \n");
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_strb_V, wrapc_stream_size_out_m_axis_video_V_strb_V);
 
 		// [[transaction]]
-		sprintf(tvout_VIDEO_OUT_V_user_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_user_V, tvout_VIDEO_OUT_V_user_V);
+		sprintf(tvout_m_axis_video_V_user_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_user_V, tvout_m_axis_video_V_user_V);
 
-		sc_bv<1>* VIDEO_OUT_V_user_V_tvout_wrapc_buffer = new sc_bv<1>[aesl_tmp_1 - aesl_tmp_2];
+		sc_bv<1>* m_axis_video_V_user_V_tvout_wrapc_buffer = new sc_bv<1>[aesl_tmp_1 - aesl_tmp_2];
 
-		// RTL Name: VIDEO_OUT_V_user_V
+		// RTL Name: m_axis_video_V_user_V
 		{
 			// bitslice(0, 0)
 			{
@@ -1774,7 +1774,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 							{
 								sc_lv<1> m_axis_video_V_user_V_tmp_mem;
 								m_axis_video_V_user_V_tmp_mem = (aesl_tmp_0[i_0].user).to_string(2).c_str();
-								VIDEO_OUT_V_user_V_tvout_wrapc_buffer[hls_map_index].range(0, 0) = m_axis_video_V_user_V_tmp_mem.range(0, 0);
+								m_axis_video_V_user_V_tvout_wrapc_buffer[hls_map_index].range(0, 0) = m_axis_video_V_user_V_tmp_mem.range(0, 0);
                                  		       hls_map_index++;
 							}
 						}
@@ -1786,32 +1786,32 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		// dump tv to file
 		for (int i = 0; i < aesl_tmp_1 - aesl_tmp_2; i++)
 		{
-			sprintf(tvout_VIDEO_OUT_V_user_V, "%s\n", (VIDEO_OUT_V_user_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_user_V, tvout_VIDEO_OUT_V_user_V);
+			sprintf(tvout_m_axis_video_V_user_V, "%s\n", (m_axis_video_V_user_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_user_V, tvout_m_axis_video_V_user_V);
 		}
 
-		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.VIDEO_OUT_V_user_V_depth);
-		sprintf(tvout_VIDEO_OUT_V_user_V, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_user_V, tvout_VIDEO_OUT_V_user_V);
+		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.m_axis_video_V_user_V_depth);
+		sprintf(tvout_m_axis_video_V_user_V, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_user_V, tvout_m_axis_video_V_user_V);
 
 		// release memory allocation
-		delete [] VIDEO_OUT_V_user_V_tvout_wrapc_buffer;
+		delete [] m_axis_video_V_user_V_tvout_wrapc_buffer;
 
 		// dump stream size
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_user_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_user_V, wrapc_stream_size_out_VIDEO_OUT_V_user_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_user_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_user_V, wrapc_stream_size_out_VIDEO_OUT_V_user_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_user_V, "[[/transaction]] \n");
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_user_V, wrapc_stream_size_out_VIDEO_OUT_V_user_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_user_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_user_V, wrapc_stream_size_out_m_axis_video_V_user_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_user_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_user_V, wrapc_stream_size_out_m_axis_video_V_user_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_user_V, "[[/transaction]] \n");
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_user_V, wrapc_stream_size_out_m_axis_video_V_user_V);
 
 		// [[transaction]]
-		sprintf(tvout_VIDEO_OUT_V_last_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_last_V, tvout_VIDEO_OUT_V_last_V);
+		sprintf(tvout_m_axis_video_V_last_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_last_V, tvout_m_axis_video_V_last_V);
 
-		sc_bv<1>* VIDEO_OUT_V_last_V_tvout_wrapc_buffer = new sc_bv<1>[aesl_tmp_1 - aesl_tmp_2];
+		sc_bv<1>* m_axis_video_V_last_V_tvout_wrapc_buffer = new sc_bv<1>[aesl_tmp_1 - aesl_tmp_2];
 
-		// RTL Name: VIDEO_OUT_V_last_V
+		// RTL Name: m_axis_video_V_last_V
 		{
 			// bitslice(0, 0)
 			{
@@ -1834,7 +1834,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 							{
 								sc_lv<1> m_axis_video_V_last_V_tmp_mem;
 								m_axis_video_V_last_V_tmp_mem = (aesl_tmp_0[i_0].last).to_string(2).c_str();
-								VIDEO_OUT_V_last_V_tvout_wrapc_buffer[hls_map_index].range(0, 0) = m_axis_video_V_last_V_tmp_mem.range(0, 0);
+								m_axis_video_V_last_V_tvout_wrapc_buffer[hls_map_index].range(0, 0) = m_axis_video_V_last_V_tmp_mem.range(0, 0);
                                  		       hls_map_index++;
 							}
 						}
@@ -1846,32 +1846,32 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		// dump tv to file
 		for (int i = 0; i < aesl_tmp_1 - aesl_tmp_2; i++)
 		{
-			sprintf(tvout_VIDEO_OUT_V_last_V, "%s\n", (VIDEO_OUT_V_last_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_last_V, tvout_VIDEO_OUT_V_last_V);
+			sprintf(tvout_m_axis_video_V_last_V, "%s\n", (m_axis_video_V_last_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_last_V, tvout_m_axis_video_V_last_V);
 		}
 
-		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.VIDEO_OUT_V_last_V_depth);
-		sprintf(tvout_VIDEO_OUT_V_last_V, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_last_V, tvout_VIDEO_OUT_V_last_V);
+		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.m_axis_video_V_last_V_depth);
+		sprintf(tvout_m_axis_video_V_last_V, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_last_V, tvout_m_axis_video_V_last_V);
 
 		// release memory allocation
-		delete [] VIDEO_OUT_V_last_V_tvout_wrapc_buffer;
+		delete [] m_axis_video_V_last_V_tvout_wrapc_buffer;
 
 		// dump stream size
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_last_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_last_V, wrapc_stream_size_out_VIDEO_OUT_V_last_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_last_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_last_V, wrapc_stream_size_out_VIDEO_OUT_V_last_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_last_V, "[[/transaction]] \n");
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_last_V, wrapc_stream_size_out_VIDEO_OUT_V_last_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_last_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_last_V, wrapc_stream_size_out_m_axis_video_V_last_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_last_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_last_V, wrapc_stream_size_out_m_axis_video_V_last_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_last_V, "[[/transaction]] \n");
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_last_V, wrapc_stream_size_out_m_axis_video_V_last_V);
 
 		// [[transaction]]
-		sprintf(tvout_VIDEO_OUT_V_id_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_id_V, tvout_VIDEO_OUT_V_id_V);
+		sprintf(tvout_m_axis_video_V_id_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_id_V, tvout_m_axis_video_V_id_V);
 
-		sc_bv<1>* VIDEO_OUT_V_id_V_tvout_wrapc_buffer = new sc_bv<1>[aesl_tmp_1 - aesl_tmp_2];
+		sc_bv<1>* m_axis_video_V_id_V_tvout_wrapc_buffer = new sc_bv<1>[aesl_tmp_1 - aesl_tmp_2];
 
-		// RTL Name: VIDEO_OUT_V_id_V
+		// RTL Name: m_axis_video_V_id_V
 		{
 			// bitslice(0, 0)
 			{
@@ -1894,7 +1894,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 							{
 								sc_lv<1> m_axis_video_V_id_V_tmp_mem;
 								m_axis_video_V_id_V_tmp_mem = (aesl_tmp_0[i_0].id).to_string(2).c_str();
-								VIDEO_OUT_V_id_V_tvout_wrapc_buffer[hls_map_index].range(0, 0) = m_axis_video_V_id_V_tmp_mem.range(0, 0);
+								m_axis_video_V_id_V_tvout_wrapc_buffer[hls_map_index].range(0, 0) = m_axis_video_V_id_V_tmp_mem.range(0, 0);
                                  		       hls_map_index++;
 							}
 						}
@@ -1906,32 +1906,32 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		// dump tv to file
 		for (int i = 0; i < aesl_tmp_1 - aesl_tmp_2; i++)
 		{
-			sprintf(tvout_VIDEO_OUT_V_id_V, "%s\n", (VIDEO_OUT_V_id_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_id_V, tvout_VIDEO_OUT_V_id_V);
+			sprintf(tvout_m_axis_video_V_id_V, "%s\n", (m_axis_video_V_id_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_id_V, tvout_m_axis_video_V_id_V);
 		}
 
-		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.VIDEO_OUT_V_id_V_depth);
-		sprintf(tvout_VIDEO_OUT_V_id_V, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_id_V, tvout_VIDEO_OUT_V_id_V);
+		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.m_axis_video_V_id_V_depth);
+		sprintf(tvout_m_axis_video_V_id_V, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_id_V, tvout_m_axis_video_V_id_V);
 
 		// release memory allocation
-		delete [] VIDEO_OUT_V_id_V_tvout_wrapc_buffer;
+		delete [] m_axis_video_V_id_V_tvout_wrapc_buffer;
 
 		// dump stream size
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_id_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_id_V, wrapc_stream_size_out_VIDEO_OUT_V_id_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_id_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_id_V, wrapc_stream_size_out_VIDEO_OUT_V_id_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_id_V, "[[/transaction]] \n");
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_id_V, wrapc_stream_size_out_VIDEO_OUT_V_id_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_id_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_id_V, wrapc_stream_size_out_m_axis_video_V_id_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_id_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_id_V, wrapc_stream_size_out_m_axis_video_V_id_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_id_V, "[[/transaction]] \n");
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_id_V, wrapc_stream_size_out_m_axis_video_V_id_V);
 
 		// [[transaction]]
-		sprintf(tvout_VIDEO_OUT_V_dest_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_dest_V, tvout_VIDEO_OUT_V_dest_V);
+		sprintf(tvout_m_axis_video_V_dest_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_dest_V, tvout_m_axis_video_V_dest_V);
 
-		sc_bv<1>* VIDEO_OUT_V_dest_V_tvout_wrapc_buffer = new sc_bv<1>[aesl_tmp_1 - aesl_tmp_2];
+		sc_bv<1>* m_axis_video_V_dest_V_tvout_wrapc_buffer = new sc_bv<1>[aesl_tmp_1 - aesl_tmp_2];
 
-		// RTL Name: VIDEO_OUT_V_dest_V
+		// RTL Name: m_axis_video_V_dest_V
 		{
 			// bitslice(0, 0)
 			{
@@ -1954,7 +1954,7 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 							{
 								sc_lv<1> m_axis_video_V_dest_V_tmp_mem;
 								m_axis_video_V_dest_V_tmp_mem = (aesl_tmp_0[i_0].dest).to_string(2).c_str();
-								VIDEO_OUT_V_dest_V_tvout_wrapc_buffer[hls_map_index].range(0, 0) = m_axis_video_V_dest_V_tmp_mem.range(0, 0);
+								m_axis_video_V_dest_V_tvout_wrapc_buffer[hls_map_index].range(0, 0) = m_axis_video_V_dest_V_tmp_mem.range(0, 0);
                                  		       hls_map_index++;
 							}
 						}
@@ -1966,24 +1966,24 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		// dump tv to file
 		for (int i = 0; i < aesl_tmp_1 - aesl_tmp_2; i++)
 		{
-			sprintf(tvout_VIDEO_OUT_V_dest_V, "%s\n", (VIDEO_OUT_V_dest_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_dest_V, tvout_VIDEO_OUT_V_dest_V);
+			sprintf(tvout_m_axis_video_V_dest_V, "%s\n", (m_axis_video_V_dest_V_tvout_wrapc_buffer[i]).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_dest_V, tvout_m_axis_video_V_dest_V);
 		}
 
-		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.VIDEO_OUT_V_dest_V_depth);
-		sprintf(tvout_VIDEO_OUT_V_dest_V, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVOUT_VIDEO_OUT_V_dest_V, tvout_VIDEO_OUT_V_dest_V);
+		tcl_file.set_num(aesl_tmp_1 - aesl_tmp_2, &tcl_file.m_axis_video_V_dest_V_depth);
+		sprintf(tvout_m_axis_video_V_dest_V, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVOUT_m_axis_video_V_dest_V, tvout_m_axis_video_V_dest_V);
 
 		// release memory allocation
-		delete [] VIDEO_OUT_V_dest_V_tvout_wrapc_buffer;
+		delete [] m_axis_video_V_dest_V_tvout_wrapc_buffer;
 
 		// dump stream size
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_dest_V, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_dest_V, wrapc_stream_size_out_VIDEO_OUT_V_dest_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_dest_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_dest_V, wrapc_stream_size_out_VIDEO_OUT_V_dest_V);
-		sprintf(wrapc_stream_size_out_VIDEO_OUT_V_dest_V, "[[/transaction]] \n");
-		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_VIDEO_OUT_V_dest_V, wrapc_stream_size_out_VIDEO_OUT_V_dest_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_dest_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_dest_V, wrapc_stream_size_out_m_axis_video_V_dest_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_dest_V, "%d\n", aesl_tmp_1 - aesl_tmp_2);
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_dest_V, wrapc_stream_size_out_m_axis_video_V_dest_V);
+		sprintf(wrapc_stream_size_out_m_axis_video_V_dest_V, "[[/transaction]] \n");
+		aesl_fh.write(WRAPC_STREAM_SIZE_OUT_m_axis_video_V_dest_V, wrapc_stream_size_out_m_axis_video_V_dest_V);
 
 		// push back output stream: "m_axis_video"
 		for (int i = 0; i < aesl_tmp_1; i++)
@@ -1992,34 +1992,34 @@ ap_fixed<18, 3, (ap_q_mode) 6, (ap_o_mode)0, 0> zoom_factor)
 		}
 
 		CodeState = DELETE_CHAR_BUFFERS;
-		// release memory allocation: "VIDEO_OUT_V_data_V"
-		delete [] tvout_VIDEO_OUT_V_data_V;
-		delete [] tvin_VIDEO_OUT_V_data_V;
-		delete [] wrapc_stream_size_out_VIDEO_OUT_V_data_V;
-		// release memory allocation: "VIDEO_OUT_V_keep_V"
-		delete [] tvout_VIDEO_OUT_V_keep_V;
-		delete [] tvin_VIDEO_OUT_V_keep_V;
-		delete [] wrapc_stream_size_out_VIDEO_OUT_V_keep_V;
-		// release memory allocation: "VIDEO_OUT_V_strb_V"
-		delete [] tvout_VIDEO_OUT_V_strb_V;
-		delete [] tvin_VIDEO_OUT_V_strb_V;
-		delete [] wrapc_stream_size_out_VIDEO_OUT_V_strb_V;
-		// release memory allocation: "VIDEO_OUT_V_user_V"
-		delete [] tvout_VIDEO_OUT_V_user_V;
-		delete [] tvin_VIDEO_OUT_V_user_V;
-		delete [] wrapc_stream_size_out_VIDEO_OUT_V_user_V;
-		// release memory allocation: "VIDEO_OUT_V_last_V"
-		delete [] tvout_VIDEO_OUT_V_last_V;
-		delete [] tvin_VIDEO_OUT_V_last_V;
-		delete [] wrapc_stream_size_out_VIDEO_OUT_V_last_V;
-		// release memory allocation: "VIDEO_OUT_V_id_V"
-		delete [] tvout_VIDEO_OUT_V_id_V;
-		delete [] tvin_VIDEO_OUT_V_id_V;
-		delete [] wrapc_stream_size_out_VIDEO_OUT_V_id_V;
-		// release memory allocation: "VIDEO_OUT_V_dest_V"
-		delete [] tvout_VIDEO_OUT_V_dest_V;
-		delete [] tvin_VIDEO_OUT_V_dest_V;
-		delete [] wrapc_stream_size_out_VIDEO_OUT_V_dest_V;
+		// release memory allocation: "m_axis_video_V_data_V"
+		delete [] tvout_m_axis_video_V_data_V;
+		delete [] tvin_m_axis_video_V_data_V;
+		delete [] wrapc_stream_size_out_m_axis_video_V_data_V;
+		// release memory allocation: "m_axis_video_V_keep_V"
+		delete [] tvout_m_axis_video_V_keep_V;
+		delete [] tvin_m_axis_video_V_keep_V;
+		delete [] wrapc_stream_size_out_m_axis_video_V_keep_V;
+		// release memory allocation: "m_axis_video_V_strb_V"
+		delete [] tvout_m_axis_video_V_strb_V;
+		delete [] tvin_m_axis_video_V_strb_V;
+		delete [] wrapc_stream_size_out_m_axis_video_V_strb_V;
+		// release memory allocation: "m_axis_video_V_user_V"
+		delete [] tvout_m_axis_video_V_user_V;
+		delete [] tvin_m_axis_video_V_user_V;
+		delete [] wrapc_stream_size_out_m_axis_video_V_user_V;
+		// release memory allocation: "m_axis_video_V_last_V"
+		delete [] tvout_m_axis_video_V_last_V;
+		delete [] tvin_m_axis_video_V_last_V;
+		delete [] wrapc_stream_size_out_m_axis_video_V_last_V;
+		// release memory allocation: "m_axis_video_V_id_V"
+		delete [] tvout_m_axis_video_V_id_V;
+		delete [] tvin_m_axis_video_V_id_V;
+		delete [] wrapc_stream_size_out_m_axis_video_V_id_V;
+		// release memory allocation: "m_axis_video_V_dest_V"
+		delete [] tvout_m_axis_video_V_dest_V;
+		delete [] tvin_m_axis_video_V_dest_V;
+		delete [] wrapc_stream_size_out_m_axis_video_V_dest_V;
 		// release memory allocation: "re_V"
 		delete [] tvin_re_V;
 		// release memory allocation: "im_V"

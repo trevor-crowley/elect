@@ -23,14 +23,14 @@ add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_genera
 add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/s_axi_cmd_AWADDR -into $re__im__zoom_factor__return_group -radix hex
 set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
 set m_axis_video_group [add_wave_group m_axis_video(axis) -into $coutputgroup]
-add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TREADY -into $m_axis_video_group -color #ffff00 -radix hex
-add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TVALID -into $m_axis_video_group -color #ffff00 -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TDEST -into $m_axis_video_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TID -into $m_axis_video_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TLAST -into $m_axis_video_group -color #ffff00 -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TUSER -into $m_axis_video_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TSTRB -into $m_axis_video_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TKEEP -into $m_axis_video_group -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TREADY -into $m_axis_video_group -color #ffff00 -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TVALID -into $m_axis_video_group -color #ffff00 -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/m_axis_video_TDATA -into $m_axis_video_group -radix hex
 set blocksiggroup [add_wave_group "Block-level IO Handshake(internal)" -into $designtopgroup]
 add_wave /apatb_video_mandelbrot_generator_top/AESL_inst_video_mandelbrot_generator/ap_done -into $blocksiggroup
@@ -48,13 +48,13 @@ set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
 add_wave /apatb_video_mandelbrot_generator_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/ready_cnt -into $tb_simstatus_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/done_cnt -into $tb_simstatus_group -radix hex
-add_wave /apatb_video_mandelbrot_generator_top/LENGTH_VIDEO_OUT_V_data_V -into $tb_portdepth_group -radix hex
-add_wave /apatb_video_mandelbrot_generator_top/LENGTH_VIDEO_OUT_V_keep_V -into $tb_portdepth_group -radix hex
-add_wave /apatb_video_mandelbrot_generator_top/LENGTH_VIDEO_OUT_V_strb_V -into $tb_portdepth_group -radix hex
-add_wave /apatb_video_mandelbrot_generator_top/LENGTH_VIDEO_OUT_V_user_V -into $tb_portdepth_group -radix hex
-add_wave /apatb_video_mandelbrot_generator_top/LENGTH_VIDEO_OUT_V_last_V -into $tb_portdepth_group -radix hex
-add_wave /apatb_video_mandelbrot_generator_top/LENGTH_VIDEO_OUT_V_id_V -into $tb_portdepth_group -radix hex
-add_wave /apatb_video_mandelbrot_generator_top/LENGTH_VIDEO_OUT_V_dest_V -into $tb_portdepth_group -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/LENGTH_m_axis_video_V_data_V -into $tb_portdepth_group -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/LENGTH_m_axis_video_V_keep_V -into $tb_portdepth_group -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/LENGTH_m_axis_video_V_strb_V -into $tb_portdepth_group -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/LENGTH_m_axis_video_V_user_V -into $tb_portdepth_group -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/LENGTH_m_axis_video_V_last_V -into $tb_portdepth_group -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/LENGTH_m_axis_video_V_id_V -into $tb_portdepth_group -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/LENGTH_m_axis_video_V_dest_V -into $tb_portdepth_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/LENGTH_re_V -into $tb_portdepth_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/LENGTH_im_V -into $tb_portdepth_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/LENGTH_zoom_factor_V -into $tb_portdepth_group -radix hex
@@ -80,14 +80,14 @@ add_wave /apatb_video_mandelbrot_generator_top/cmd_AWVALID -into $tb_re__im__zoo
 add_wave /apatb_video_mandelbrot_generator_top/cmd_AWADDR -into $tb_re__im__zoom_factor__return_group -radix hex
 set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
 set tb_m_axis_video_group [add_wave_group m_axis_video(axis) -into $tbcoutputgroup]
-add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TREADY -into $tb_m_axis_video_group -color #ffff00 -radix hex
-add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TVALID -into $tb_m_axis_video_group -color #ffff00 -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TDEST -into $tb_m_axis_video_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TID -into $tb_m_axis_video_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TLAST -into $tb_m_axis_video_group -color #ffff00 -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TUSER -into $tb_m_axis_video_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TSTRB -into $tb_m_axis_video_group -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TKEEP -into $tb_m_axis_video_group -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TREADY -into $tb_m_axis_video_group -color #ffff00 -radix hex
+add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TVALID -into $tb_m_axis_video_group -color #ffff00 -radix hex
 add_wave /apatb_video_mandelbrot_generator_top/m_axis_video_TDATA -into $tb_m_axis_video_group -radix hex
 save_wave_config video_mandelbrot_generator.wcfg
 run all

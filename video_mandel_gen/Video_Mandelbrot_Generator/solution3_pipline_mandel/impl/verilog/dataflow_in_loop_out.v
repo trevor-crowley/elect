@@ -8,23 +8,23 @@
 `timescale 1 ns / 1 ps 
 
 module dataflow_in_loop_out (
-        v_assign,
-        m_axis_video_TDATA,
-        m_axis_video_TKEEP,
-        m_axis_video_TSTRB,
-        m_axis_video_TUSER,
-        m_axis_video_TLAST,
-        m_axis_video_TID,
-        m_axis_video_TDEST,
+        img_0_data_stream_0_V_din,
+        img_0_data_stream_0_V_full_n,
+        img_0_data_stream_0_V_write,
+        img_0_data_stream_1_V_din,
+        img_0_data_stream_1_V_full_n,
+        img_0_data_stream_1_V_write,
+        img_0_data_stream_2_V_din,
+        img_0_data_stream_2_V_full_n,
+        img_0_data_stream_2_V_write,
         im_V,
+        v_assign,
         re_V,
         zoom_factor_V,
         ap_clk,
         ap_rst,
-        v_assign_ap_vld,
-        m_axis_video_TVALID,
-        m_axis_video_TREADY,
         im_V_ap_vld,
+        v_assign_ap_vld,
         re_V_ap_vld,
         zoom_factor_V_ap_vld,
         ap_start,
@@ -35,23 +35,23 @@ module dataflow_in_loop_out (
 );
 
 
-input  [2:0] v_assign;
-output  [23:0] m_axis_video_TDATA;
-output  [2:0] m_axis_video_TKEEP;
-output  [2:0] m_axis_video_TSTRB;
-output  [0:0] m_axis_video_TUSER;
-output  [0:0] m_axis_video_TLAST;
-output  [0:0] m_axis_video_TID;
-output  [0:0] m_axis_video_TDEST;
+output  [7:0] img_0_data_stream_0_V_din;
+input   img_0_data_stream_0_V_full_n;
+output   img_0_data_stream_0_V_write;
+output  [7:0] img_0_data_stream_1_V_din;
+input   img_0_data_stream_1_V_full_n;
+output   img_0_data_stream_1_V_write;
+output  [7:0] img_0_data_stream_2_V_din;
+input   img_0_data_stream_2_V_full_n;
+output   img_0_data_stream_2_V_write;
 input  [17:0] im_V;
+input  [2:0] v_assign;
 input  [17:0] re_V;
 input  [17:0] zoom_factor_V;
 input   ap_clk;
 input   ap_rst;
-input   v_assign_ap_vld;
-output   m_axis_video_TVALID;
-input   m_axis_video_TREADY;
 input   im_V_ap_vld;
+input   v_assign_ap_vld;
 input   re_V_ap_vld;
 input   zoom_factor_V_ap_vld;
 input   ap_start;
@@ -65,14 +65,12 @@ wire    inner_proc_U0_ap_done;
 wire    inner_proc_U0_ap_continue;
 wire    inner_proc_U0_ap_idle;
 wire    inner_proc_U0_ap_ready;
-wire   [23:0] inner_proc_U0_m_axis_video_TDATA;
-wire    inner_proc_U0_m_axis_video_TVALID;
-wire   [2:0] inner_proc_U0_m_axis_video_TKEEP;
-wire   [2:0] inner_proc_U0_m_axis_video_TSTRB;
-wire   [0:0] inner_proc_U0_m_axis_video_TUSER;
-wire   [0:0] inner_proc_U0_m_axis_video_TLAST;
-wire   [0:0] inner_proc_U0_m_axis_video_TID;
-wire   [0:0] inner_proc_U0_m_axis_video_TDEST;
+wire   [7:0] inner_proc_U0_img_0_data_stream_0_V_din;
+wire    inner_proc_U0_img_0_data_stream_0_V_write;
+wire   [7:0] inner_proc_U0_img_0_data_stream_1_V_din;
+wire    inner_proc_U0_img_0_data_stream_1_V_write;
+wire   [7:0] inner_proc_U0_img_0_data_stream_2_V_din;
+wire    inner_proc_U0_img_0_data_stream_2_V_write;
 wire    ap_sync_continue;
 wire    ap_sync_done;
 wire    ap_sync_ready;
@@ -87,17 +85,17 @@ inner_proc inner_proc_U0(
     .ap_continue(inner_proc_U0_ap_continue),
     .ap_idle(inner_proc_U0_ap_idle),
     .ap_ready(inner_proc_U0_ap_ready),
-    .v_assign(v_assign),
-    .m_axis_video_TDATA(inner_proc_U0_m_axis_video_TDATA),
-    .m_axis_video_TVALID(inner_proc_U0_m_axis_video_TVALID),
-    .m_axis_video_TREADY(m_axis_video_TREADY),
-    .m_axis_video_TKEEP(inner_proc_U0_m_axis_video_TKEEP),
-    .m_axis_video_TSTRB(inner_proc_U0_m_axis_video_TSTRB),
-    .m_axis_video_TUSER(inner_proc_U0_m_axis_video_TUSER),
-    .m_axis_video_TLAST(inner_proc_U0_m_axis_video_TLAST),
-    .m_axis_video_TID(inner_proc_U0_m_axis_video_TID),
-    .m_axis_video_TDEST(inner_proc_U0_m_axis_video_TDEST),
+    .img_0_data_stream_0_V_din(inner_proc_U0_img_0_data_stream_0_V_din),
+    .img_0_data_stream_0_V_full_n(img_0_data_stream_0_V_full_n),
+    .img_0_data_stream_0_V_write(inner_proc_U0_img_0_data_stream_0_V_write),
+    .img_0_data_stream_1_V_din(inner_proc_U0_img_0_data_stream_1_V_din),
+    .img_0_data_stream_1_V_full_n(img_0_data_stream_1_V_full_n),
+    .img_0_data_stream_1_V_write(inner_proc_U0_img_0_data_stream_1_V_write),
+    .img_0_data_stream_2_V_din(inner_proc_U0_img_0_data_stream_2_V_din),
+    .img_0_data_stream_2_V_full_n(img_0_data_stream_2_V_full_n),
+    .img_0_data_stream_2_V_write(inner_proc_U0_img_0_data_stream_2_V_write),
     .im_V(im_V),
+    .v_assign(v_assign),
     .re_V(re_V),
     .zoom_factor_V(zoom_factor_V)
 );
@@ -114,6 +112,18 @@ assign ap_sync_done = inner_proc_U0_ap_done;
 
 assign ap_sync_ready = inner_proc_U0_ap_ready;
 
+assign img_0_data_stream_0_V_din = inner_proc_U0_img_0_data_stream_0_V_din;
+
+assign img_0_data_stream_0_V_write = inner_proc_U0_img_0_data_stream_0_V_write;
+
+assign img_0_data_stream_1_V_din = inner_proc_U0_img_0_data_stream_1_V_din;
+
+assign img_0_data_stream_1_V_write = inner_proc_U0_img_0_data_stream_1_V_write;
+
+assign img_0_data_stream_2_V_din = inner_proc_U0_img_0_data_stream_2_V_din;
+
+assign img_0_data_stream_2_V_write = inner_proc_U0_img_0_data_stream_2_V_write;
+
 assign inner_proc_U0_ap_continue = ap_continue;
 
 assign inner_proc_U0_ap_start = ap_start;
@@ -121,21 +131,5 @@ assign inner_proc_U0_ap_start = ap_start;
 assign inner_proc_U0_start_full_n = 1'b1;
 
 assign inner_proc_U0_start_write = 1'b0;
-
-assign m_axis_video_TDATA = inner_proc_U0_m_axis_video_TDATA;
-
-assign m_axis_video_TDEST = inner_proc_U0_m_axis_video_TDEST;
-
-assign m_axis_video_TID = inner_proc_U0_m_axis_video_TID;
-
-assign m_axis_video_TKEEP = inner_proc_U0_m_axis_video_TKEEP;
-
-assign m_axis_video_TLAST = inner_proc_U0_m_axis_video_TLAST;
-
-assign m_axis_video_TSTRB = inner_proc_U0_m_axis_video_TSTRB;
-
-assign m_axis_video_TUSER = inner_proc_U0_m_axis_video_TUSER;
-
-assign m_axis_video_TVALID = inner_proc_U0_m_axis_video_TVALID;
 
 endmodule //dataflow_in_loop_out

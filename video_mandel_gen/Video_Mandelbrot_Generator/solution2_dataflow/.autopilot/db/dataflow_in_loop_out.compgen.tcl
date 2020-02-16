@@ -7,138 +7,65 @@ if {${::AESL::PGuard_autoexp_gen}} {
     AESL_LIB_XILADAPTER::native_axis_begin
 }
 
-# Native AXIS:
+# Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
-eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 22 \
-    name m_axis_video_V_data_V \
+eval "cg_default_interface_gen_dc { \
+    id 17 \
+    name img_0_data_stream_0_V \
+    type fifo \
+    dir O \
     reset_level 1 \
     sync_rst true \
-    corename {m_axis_video} \
-    metadata {  } \
+    corename dc_img_0_data_stream_0_V \
     op interface \
-    ports { m_axis_video_TDATA { O 24 vector } } \
+    ports { img_0_data_stream_0_V_din { O 8 vector } img_0_data_stream_0_V_full_n { I 1 bit } img_0_data_stream_0_V_write { O 1 bit } } \
 } "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'm_axis_video_V_data_V'"
-}
 }
 
-
-# Native AXIS:
+# Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
-eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 23 \
-    name m_axis_video_V_keep_V \
+eval "cg_default_interface_gen_dc { \
+    id 18 \
+    name img_0_data_stream_1_V \
+    type fifo \
+    dir O \
     reset_level 1 \
     sync_rst true \
-    corename {m_axis_video} \
-    metadata {  } \
+    corename dc_img_0_data_stream_1_V \
     op interface \
-    ports { m_axis_video_TKEEP { O 3 vector } } \
+    ports { img_0_data_stream_1_V_din { O 8 vector } img_0_data_stream_1_V_full_n { I 1 bit } img_0_data_stream_1_V_write { O 1 bit } } \
 } "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'm_axis_video_V_keep_V'"
-}
 }
 
-
-# Native AXIS:
+# Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
-eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 24 \
-    name m_axis_video_V_strb_V \
+eval "cg_default_interface_gen_dc { \
+    id 19 \
+    name img_0_data_stream_2_V \
+    type fifo \
+    dir O \
     reset_level 1 \
     sync_rst true \
-    corename {m_axis_video} \
-    metadata {  } \
+    corename dc_img_0_data_stream_2_V \
     op interface \
-    ports { m_axis_video_TSTRB { O 3 vector } } \
+    ports { img_0_data_stream_2_V_din { O 8 vector } img_0_data_stream_2_V_full_n { I 1 bit } img_0_data_stream_2_V_write { O 1 bit } } \
 } "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'm_axis_video_V_strb_V'"
-}
 }
 
-
-# Native AXIS:
+# Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
-eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 25 \
-    name m_axis_video_V_user_V \
+eval "cg_default_interface_gen_dc { \
+    id 20 \
+    name im_V \
+    type other \
+    dir I \
     reset_level 1 \
     sync_rst true \
-    corename {m_axis_video} \
-    metadata {  } \
+    corename dc_im_V \
     op interface \
-    ports { m_axis_video_TUSER { O 1 vector } } \
+    ports { im_V { I 18 vector } im_V_ap_vld { I 1 bit } } \
 } "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'm_axis_video_V_user_V'"
 }
-}
-
-
-# Native AXIS:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
-eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 26 \
-    name m_axis_video_V_last_V \
-    reset_level 1 \
-    sync_rst true \
-    corename {m_axis_video} \
-    metadata {  } \
-    op interface \
-    ports { m_axis_video_TLAST { O 1 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'm_axis_video_V_last_V'"
-}
-}
-
-
-# Native AXIS:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
-eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 27 \
-    name m_axis_video_V_id_V \
-    reset_level 1 \
-    sync_rst true \
-    corename {m_axis_video} \
-    metadata {  } \
-    op interface \
-    ports { m_axis_video_TID { O 1 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'm_axis_video_V_id_V'"
-}
-}
-
-
-# Native AXIS:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
-eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 28 \
-    name m_axis_video_V_dest_V \
-    reset_level 1 \
-    sync_rst true \
-    corename {m_axis_video} \
-    metadata {  } \
-    op interface \
-    ports { m_axis_video_TDEST { O 1 vector } m_axis_video_TVALID { O 1 bit } m_axis_video_TREADY { I 1 bit } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'm_axis_video_V_dest_V'"
-}
-}
-
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
@@ -158,22 +85,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 29 \
-    name im_V \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_im_V \
-    op interface \
-    ports { im_V { I 18 vector } im_V_ap_vld { I 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 30 \
+    id 22 \
     name re_V \
     type other \
     dir I \
@@ -188,7 +100,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 31 \
+    id 23 \
     name zoom_factor_V \
     type other \
     dir I \

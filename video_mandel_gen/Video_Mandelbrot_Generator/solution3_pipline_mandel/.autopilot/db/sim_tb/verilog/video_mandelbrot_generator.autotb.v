@@ -14,62 +14,62 @@
 `define AUTOTB_MAX_ALLOW_LATENCY  15000000
 `define AUTOTB_CLOCK_PERIOD_DIV2 5.00
 
-`define AESL_DEPTH_VIDEO_OUT_V_data_V 1
-`define AESL_DEPTH_VIDEO_OUT_V_keep_V 1
-`define AESL_DEPTH_VIDEO_OUT_V_strb_V 1
-`define AESL_DEPTH_VIDEO_OUT_V_user_V 1
-`define AESL_DEPTH_VIDEO_OUT_V_last_V 1
-`define AESL_DEPTH_VIDEO_OUT_V_id_V 1
-`define AESL_DEPTH_VIDEO_OUT_V_dest_V 1
+`define AESL_DEPTH_m_axis_video_V_data_V 1
+`define AESL_DEPTH_m_axis_video_V_keep_V 1
+`define AESL_DEPTH_m_axis_video_V_strb_V 1
+`define AESL_DEPTH_m_axis_video_V_user_V 1
+`define AESL_DEPTH_m_axis_video_V_last_V 1
+`define AESL_DEPTH_m_axis_video_V_id_V 1
+`define AESL_DEPTH_m_axis_video_V_dest_V 1
 `define AESL_DEPTH_re_V 1
 `define AESL_DEPTH_im_V 1
 `define AESL_DEPTH_zoom_factor_V 1
-`define AUTOTB_TVIN_VIDEO_OUT_V_data_V  "./c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_data_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_keep_V  "./c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_keep_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_strb_V  "./c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_strb_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_user_V  "./c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_user_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_last_V  "./c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_last_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_id_V  "./c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_id_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_dest_V  "./c.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_dest_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_data_V  "./c.video_mandelbrot_generator.autotvin_m_axis_video_V_data_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_keep_V  "./c.video_mandelbrot_generator.autotvin_m_axis_video_V_keep_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_strb_V  "./c.video_mandelbrot_generator.autotvin_m_axis_video_V_strb_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_user_V  "./c.video_mandelbrot_generator.autotvin_m_axis_video_V_user_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_last_V  "./c.video_mandelbrot_generator.autotvin_m_axis_video_V_last_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_id_V  "./c.video_mandelbrot_generator.autotvin_m_axis_video_V_id_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_dest_V  "./c.video_mandelbrot_generator.autotvin_m_axis_video_V_dest_V.dat"
 `define AUTOTB_TVIN_re_V  "./c.video_mandelbrot_generator.autotvin_re_V.dat"
 `define AUTOTB_TVIN_im_V  "./c.video_mandelbrot_generator.autotvin_im_V.dat"
 `define AUTOTB_TVIN_zoom_factor_V  "./c.video_mandelbrot_generator.autotvin_zoom_factor_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_data_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_data_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_keep_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_keep_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_strb_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_strb_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_user_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_user_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_last_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_last_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_id_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_id_V.dat"
-`define AUTOTB_TVIN_VIDEO_OUT_V_dest_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_VIDEO_OUT_V_dest_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_data_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_m_axis_video_V_data_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_keep_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_m_axis_video_V_keep_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_strb_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_m_axis_video_V_strb_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_user_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_m_axis_video_V_user_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_last_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_m_axis_video_V_last_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_id_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_m_axis_video_V_id_V.dat"
+`define AUTOTB_TVIN_m_axis_video_V_dest_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_m_axis_video_V_dest_V.dat"
 `define AUTOTB_TVIN_re_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_re_V.dat"
 `define AUTOTB_TVIN_im_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_im_V.dat"
 `define AUTOTB_TVIN_zoom_factor_V_out_wrapc  "./rtl.video_mandelbrot_generator.autotvin_zoom_factor_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_data_V  "./c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_keep_V  "./c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_strb_V  "./c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_user_V  "./c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_last_V  "./c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_id_V  "./c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_dest_V  "./c.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_data_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_keep_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_strb_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_user_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_last_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_id_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat"
-`define AUTOTB_TVOUT_VIDEO_OUT_V_dest_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_data_V  "./c.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_keep_V  "./c.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_strb_V  "./c.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_user_V  "./c.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_last_V  "./c.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_id_V  "./c.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_dest_V  "./c.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_data_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_keep_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_strb_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_user_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_last_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_id_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat"
+`define AUTOTB_TVOUT_m_axis_video_V_dest_V_out_wrapc  "./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat"
 module `AUTOTB_TOP;
 
 parameter AUTOTB_TRANSACTION_NUM = 1;
 parameter PROGRESS_TIMEOUT = 10000000;
-parameter LATENCY_ESTIMATION = 2222;
-parameter LENGTH_VIDEO_OUT_V_data_V = 48;
-parameter LENGTH_VIDEO_OUT_V_keep_V = 48;
-parameter LENGTH_VIDEO_OUT_V_strb_V = 48;
-parameter LENGTH_VIDEO_OUT_V_user_V = 48;
-parameter LENGTH_VIDEO_OUT_V_last_V = 48;
-parameter LENGTH_VIDEO_OUT_V_id_V = 48;
-parameter LENGTH_VIDEO_OUT_V_dest_V = 48;
+parameter LATENCY_ESTIMATION = 3258;
+parameter LENGTH_m_axis_video_V_data_V = 48;
+parameter LENGTH_m_axis_video_V_keep_V = 48;
+parameter LENGTH_m_axis_video_V_strb_V = 48;
+parameter LENGTH_m_axis_video_V_user_V = 48;
+parameter LENGTH_m_axis_video_V_last_V = 48;
+parameter LENGTH_m_axis_video_V_id_V = 48;
+parameter LENGTH_m_axis_video_V_dest_V = 48;
 parameter LENGTH_re_V = 1;
 parameter LENGTH_im_V = 1;
 parameter LENGTH_zoom_factor_V = 1;
@@ -174,14 +174,14 @@ wire  cmd_BREADY;
 wire [1 : 0] cmd_BRESP;
 wire  cmd_INTERRUPT;
 wire [23 : 0] m_axis_video_TDATA;
+wire  m_axis_video_TVALID;
+wire  m_axis_video_TREADY;
 wire [2 : 0] m_axis_video_TKEEP;
 wire [2 : 0] m_axis_video_TSTRB;
 wire [0 : 0] m_axis_video_TUSER;
 wire [0 : 0] m_axis_video_TLAST;
 wire [0 : 0] m_axis_video_TID;
 wire [0 : 0] m_axis_video_TDEST;
-wire  m_axis_video_TVALID;
-wire  m_axis_video_TREADY;
 integer done_cnt = 0;
 integer AESL_ready_cnt = 0;
 integer ready_cnt = 0;
@@ -231,14 +231,14 @@ wire ap_rst_n_n;
     .ap_clk(ap_clk),
     .ap_rst_n(ap_rst_n),
     .m_axis_video_TDATA(m_axis_video_TDATA),
+    .m_axis_video_TVALID(m_axis_video_TVALID),
+    .m_axis_video_TREADY(m_axis_video_TREADY),
     .m_axis_video_TKEEP(m_axis_video_TKEEP),
     .m_axis_video_TSTRB(m_axis_video_TSTRB),
     .m_axis_video_TUSER(m_axis_video_TUSER),
     .m_axis_video_TLAST(m_axis_video_TLAST),
     .m_axis_video_TID(m_axis_video_TID),
-    .m_axis_video_TDEST(m_axis_video_TDEST),
-    .m_axis_video_TVALID(m_axis_video_TVALID),
-    .m_axis_video_TREADY(m_axis_video_TREADY));
+    .m_axis_video_TDEST(m_axis_video_TDEST));
 
 // Assignment for control signal
 assign ap_clk = AESL_clock;
@@ -312,7 +312,7 @@ end
 
 
 
-reg [31:0] ap_c_n_tvin_trans_num_VIDEO_OUT_V_data_V;
+reg [31:0] ap_c_n_tvin_trans_num_m_axis_video_V_data_V;
 
 reg m_axis_video_ready_reg; // for self-sync
 
@@ -444,86 +444,86 @@ end
         @ (posedge AESL_clock);
         @ (posedge AESL_clock);
         @ (posedge AESL_clock);
-    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat", "r");
-    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat", "r");
+    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat", "r");
+    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat", "r");
     if(fp1 == 0)        // Failed to open file
-        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat\"!");
+        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat\"!");
     else if(fp2 == 0)
-        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat\"!");
+        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat\"!");
     else begin
-        $display("Comparing rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_data_V.dat");
+        $display("Comparing rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_data_V.dat");
         post_check(fp1, fp2);
     end
     $fclose(fp1);
     $fclose(fp2);
-    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat", "r");
-    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat", "r");
+    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat", "r");
+    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat", "r");
     if(fp1 == 0)        // Failed to open file
-        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat\"!");
+        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat\"!");
     else if(fp2 == 0)
-        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat\"!");
+        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat\"!");
     else begin
-        $display("Comparing rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_keep_V.dat");
+        $display("Comparing rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_keep_V.dat");
         post_check(fp1, fp2);
     end
     $fclose(fp1);
     $fclose(fp2);
-    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat", "r");
-    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat", "r");
+    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat", "r");
+    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat", "r");
     if(fp1 == 0)        // Failed to open file
-        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat\"!");
+        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat\"!");
     else if(fp2 == 0)
-        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat\"!");
+        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat\"!");
     else begin
-        $display("Comparing rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_strb_V.dat");
+        $display("Comparing rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_strb_V.dat");
         post_check(fp1, fp2);
     end
     $fclose(fp1);
     $fclose(fp2);
-    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat", "r");
-    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat", "r");
+    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat", "r");
+    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat", "r");
     if(fp1 == 0)        // Failed to open file
-        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat\"!");
+        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat\"!");
     else if(fp2 == 0)
-        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat\"!");
+        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat\"!");
     else begin
-        $display("Comparing rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_user_V.dat");
+        $display("Comparing rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_user_V.dat");
         post_check(fp1, fp2);
     end
     $fclose(fp1);
     $fclose(fp2);
-    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat", "r");
-    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat", "r");
+    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat", "r");
+    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat", "r");
     if(fp1 == 0)        // Failed to open file
-        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat\"!");
+        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat\"!");
     else if(fp2 == 0)
-        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat\"!");
+        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat\"!");
     else begin
-        $display("Comparing rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_last_V.dat");
+        $display("Comparing rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_last_V.dat");
         post_check(fp1, fp2);
     end
     $fclose(fp1);
     $fclose(fp2);
-    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat", "r");
-    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat", "r");
+    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat", "r");
+    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat", "r");
     if(fp1 == 0)        // Failed to open file
-        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat\"!");
+        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat\"!");
     else if(fp2 == 0)
-        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat\"!");
+        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat\"!");
     else begin
-        $display("Comparing rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_id_V.dat");
+        $display("Comparing rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_id_V.dat");
         post_check(fp1, fp2);
     end
     $fclose(fp1);
     $fclose(fp2);
-    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat", "r");
-    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat", "r");
+    fp1 = $fopen("./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat", "r");
+    fp2 = $fopen("./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat", "r");
     if(fp1 == 0)        // Failed to open file
-        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat\"!");
+        $display("Failed to open file \"./rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat\"!");
     else if(fp2 == 0)
-        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat\"!");
+        $display("Failed to open file \"./impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat\"!");
     else begin
-        $display("Comparing rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_VIDEO_OUT_V_dest_V.dat");
+        $display("Comparing rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat with impl_rtl.video_mandelbrot_generator.autotvout_m_axis_video_V_dest_V.dat");
         post_check(fp1, fp2);
     end
     $fclose(fp1);
@@ -538,27 +538,27 @@ initial begin
 end
 
 
-reg end_VIDEO_OUT_V_data_V;
-reg [31:0] size_VIDEO_OUT_V_data_V;
-reg [31:0] size_VIDEO_OUT_V_data_V_backup;
-reg end_VIDEO_OUT_V_keep_V;
-reg [31:0] size_VIDEO_OUT_V_keep_V;
-reg [31:0] size_VIDEO_OUT_V_keep_V_backup;
-reg end_VIDEO_OUT_V_strb_V;
-reg [31:0] size_VIDEO_OUT_V_strb_V;
-reg [31:0] size_VIDEO_OUT_V_strb_V_backup;
-reg end_VIDEO_OUT_V_user_V;
-reg [31:0] size_VIDEO_OUT_V_user_V;
-reg [31:0] size_VIDEO_OUT_V_user_V_backup;
-reg end_VIDEO_OUT_V_last_V;
-reg [31:0] size_VIDEO_OUT_V_last_V;
-reg [31:0] size_VIDEO_OUT_V_last_V_backup;
-reg end_VIDEO_OUT_V_id_V;
-reg [31:0] size_VIDEO_OUT_V_id_V;
-reg [31:0] size_VIDEO_OUT_V_id_V_backup;
-reg end_VIDEO_OUT_V_dest_V;
-reg [31:0] size_VIDEO_OUT_V_dest_V;
-reg [31:0] size_VIDEO_OUT_V_dest_V_backup;
+reg end_m_axis_video_V_data_V;
+reg [31:0] size_m_axis_video_V_data_V;
+reg [31:0] size_m_axis_video_V_data_V_backup;
+reg end_m_axis_video_V_keep_V;
+reg [31:0] size_m_axis_video_V_keep_V;
+reg [31:0] size_m_axis_video_V_keep_V_backup;
+reg end_m_axis_video_V_strb_V;
+reg [31:0] size_m_axis_video_V_strb_V;
+reg [31:0] size_m_axis_video_V_strb_V_backup;
+reg end_m_axis_video_V_user_V;
+reg [31:0] size_m_axis_video_V_user_V;
+reg [31:0] size_m_axis_video_V_user_V_backup;
+reg end_m_axis_video_V_last_V;
+reg [31:0] size_m_axis_video_V_last_V;
+reg [31:0] size_m_axis_video_V_last_V_backup;
+reg end_m_axis_video_V_id_V;
+reg [31:0] size_m_axis_video_V_id_V;
+reg [31:0] size_m_axis_video_V_id_V_backup;
+reg end_m_axis_video_V_dest_V;
+reg [31:0] size_m_axis_video_V_dest_V;
+reg [31:0] size_m_axis_video_V_dest_V_backup;
 reg end_re_V;
 reg [31:0] size_re_V;
 reg [31:0] size_re_V_backup;
@@ -669,14 +669,14 @@ begin
   end
 end
 
-reg dump_tvout_finish_VIDEO_OUT_V_data_V;
+reg dump_tvout_finish_m_axis_video_V_data_V;
 
-initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_data_V
+initial begin : dump_tvout_runtime_sign_m_axis_video_V_data_V
     integer fp;
-    dump_tvout_finish_VIDEO_OUT_V_data_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_data_V_out_wrapc, "w");
+    dump_tvout_finish_m_axis_video_V_data_V = 0;
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_data_V_out_wrapc, "w");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_data_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_data_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
@@ -687,26 +687,26 @@ initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_data_V
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_data_V_out_wrapc, "a");
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_data_V_out_wrapc, "a");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_data_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_data_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
     $fdisplay(fp,"[[[/runtime]]]");
     $fclose(fp);
-    dump_tvout_finish_VIDEO_OUT_V_data_V = 1;
+    dump_tvout_finish_m_axis_video_V_data_V = 1;
 end
 
 
-reg dump_tvout_finish_VIDEO_OUT_V_keep_V;
+reg dump_tvout_finish_m_axis_video_V_keep_V;
 
-initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_keep_V
+initial begin : dump_tvout_runtime_sign_m_axis_video_V_keep_V
     integer fp;
-    dump_tvout_finish_VIDEO_OUT_V_keep_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_keep_V_out_wrapc, "w");
+    dump_tvout_finish_m_axis_video_V_keep_V = 0;
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_keep_V_out_wrapc, "w");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_keep_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_keep_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
@@ -717,26 +717,26 @@ initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_keep_V
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_keep_V_out_wrapc, "a");
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_keep_V_out_wrapc, "a");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_keep_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_keep_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
     $fdisplay(fp,"[[[/runtime]]]");
     $fclose(fp);
-    dump_tvout_finish_VIDEO_OUT_V_keep_V = 1;
+    dump_tvout_finish_m_axis_video_V_keep_V = 1;
 end
 
 
-reg dump_tvout_finish_VIDEO_OUT_V_strb_V;
+reg dump_tvout_finish_m_axis_video_V_strb_V;
 
-initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_strb_V
+initial begin : dump_tvout_runtime_sign_m_axis_video_V_strb_V
     integer fp;
-    dump_tvout_finish_VIDEO_OUT_V_strb_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_strb_V_out_wrapc, "w");
+    dump_tvout_finish_m_axis_video_V_strb_V = 0;
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_strb_V_out_wrapc, "w");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_strb_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_strb_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
@@ -747,26 +747,26 @@ initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_strb_V
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_strb_V_out_wrapc, "a");
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_strb_V_out_wrapc, "a");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_strb_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_strb_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
     $fdisplay(fp,"[[[/runtime]]]");
     $fclose(fp);
-    dump_tvout_finish_VIDEO_OUT_V_strb_V = 1;
+    dump_tvout_finish_m_axis_video_V_strb_V = 1;
 end
 
 
-reg dump_tvout_finish_VIDEO_OUT_V_user_V;
+reg dump_tvout_finish_m_axis_video_V_user_V;
 
-initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_user_V
+initial begin : dump_tvout_runtime_sign_m_axis_video_V_user_V
     integer fp;
-    dump_tvout_finish_VIDEO_OUT_V_user_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_user_V_out_wrapc, "w");
+    dump_tvout_finish_m_axis_video_V_user_V = 0;
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_user_V_out_wrapc, "w");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_user_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_user_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
@@ -777,26 +777,26 @@ initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_user_V
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_user_V_out_wrapc, "a");
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_user_V_out_wrapc, "a");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_user_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_user_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
     $fdisplay(fp,"[[[/runtime]]]");
     $fclose(fp);
-    dump_tvout_finish_VIDEO_OUT_V_user_V = 1;
+    dump_tvout_finish_m_axis_video_V_user_V = 1;
 end
 
 
-reg dump_tvout_finish_VIDEO_OUT_V_last_V;
+reg dump_tvout_finish_m_axis_video_V_last_V;
 
-initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_last_V
+initial begin : dump_tvout_runtime_sign_m_axis_video_V_last_V
     integer fp;
-    dump_tvout_finish_VIDEO_OUT_V_last_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_last_V_out_wrapc, "w");
+    dump_tvout_finish_m_axis_video_V_last_V = 0;
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_last_V_out_wrapc, "w");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_last_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_last_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
@@ -807,26 +807,26 @@ initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_last_V
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_last_V_out_wrapc, "a");
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_last_V_out_wrapc, "a");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_last_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_last_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
     $fdisplay(fp,"[[[/runtime]]]");
     $fclose(fp);
-    dump_tvout_finish_VIDEO_OUT_V_last_V = 1;
+    dump_tvout_finish_m_axis_video_V_last_V = 1;
 end
 
 
-reg dump_tvout_finish_VIDEO_OUT_V_id_V;
+reg dump_tvout_finish_m_axis_video_V_id_V;
 
-initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_id_V
+initial begin : dump_tvout_runtime_sign_m_axis_video_V_id_V
     integer fp;
-    dump_tvout_finish_VIDEO_OUT_V_id_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_id_V_out_wrapc, "w");
+    dump_tvout_finish_m_axis_video_V_id_V = 0;
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_id_V_out_wrapc, "w");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_id_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_id_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
@@ -837,26 +837,26 @@ initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_id_V
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_id_V_out_wrapc, "a");
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_id_V_out_wrapc, "a");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_id_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_id_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
     $fdisplay(fp,"[[[/runtime]]]");
     $fclose(fp);
-    dump_tvout_finish_VIDEO_OUT_V_id_V = 1;
+    dump_tvout_finish_m_axis_video_V_id_V = 1;
 end
 
 
-reg dump_tvout_finish_VIDEO_OUT_V_dest_V;
+reg dump_tvout_finish_m_axis_video_V_dest_V;
 
-initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_dest_V
+initial begin : dump_tvout_runtime_sign_m_axis_video_V_dest_V
     integer fp;
-    dump_tvout_finish_VIDEO_OUT_V_dest_V = 0;
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_dest_V_out_wrapc, "w");
+    dump_tvout_finish_m_axis_video_V_dest_V = 0;
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_dest_V_out_wrapc, "w");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_dest_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_dest_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
@@ -867,15 +867,15 @@ initial begin : dump_tvout_runtime_sign_VIDEO_OUT_V_dest_V
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
     @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_VIDEO_OUT_V_dest_V_out_wrapc, "a");
+    fp = $fopen(`AUTOTB_TVOUT_m_axis_video_V_dest_V_out_wrapc, "a");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_VIDEO_OUT_V_dest_V_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_m_axis_video_V_dest_V_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
     $fdisplay(fp,"[[[/runtime]]]");
     $fclose(fp);
-    dump_tvout_finish_VIDEO_OUT_V_dest_V = 1;
+    dump_tvout_finish_m_axis_video_V_dest_V = 1;
 end
 
 
@@ -1037,7 +1037,7 @@ task calculate_performance();
                 interval_min = 0;
                 interval_total = 0;
             end else if (i < AUTOTB_TRANSACTION_NUM - 1) begin
-                interval[i] = start_timestamp[i + 1] - start_timestamp[i];
+                interval[i] = finish_timestamp[i] - start_timestamp[i]+1;
                 if (interval[i] > interval_max) interval_max = interval[i];
                 if (interval[i] < interval_min) interval_min = interval[i];
                 interval_total = interval_total + interval[i];

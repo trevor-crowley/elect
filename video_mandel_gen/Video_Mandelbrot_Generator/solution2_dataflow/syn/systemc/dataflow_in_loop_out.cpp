@@ -12,11 +12,9 @@ using namespace std;
 
 namespace ap_rtl {
 
-const sc_lv<24> dataflow_in_loop_out::ap_const_lv24_0 = "000000000000000000000000";
-const sc_lv<3> dataflow_in_loop_out::ap_const_lv3_0 = "000";
-const sc_lv<1> dataflow_in_loop_out::ap_const_lv1_0 = "0";
-const sc_logic dataflow_in_loop_out::ap_const_logic_1 = sc_dt::Log_1;
+const sc_lv<8> dataflow_in_loop_out::ap_const_lv8_0 = "00000000";
 const sc_logic dataflow_in_loop_out::ap_const_logic_0 = sc_dt::Log_0;
+const sc_logic dataflow_in_loop_out::ap_const_logic_1 = sc_dt::Log_1;
 
 dataflow_in_loop_out::dataflow_in_loop_out(sc_module_name name) : sc_module(name), mVcdFile(0) {
     inner_proc_U0 = new inner_proc("inner_proc_U0");
@@ -27,17 +25,17 @@ dataflow_in_loop_out::dataflow_in_loop_out(sc_module_name name) : sc_module(name
     inner_proc_U0->ap_continue(inner_proc_U0_ap_continue);
     inner_proc_U0->ap_idle(inner_proc_U0_ap_idle);
     inner_proc_U0->ap_ready(inner_proc_U0_ap_ready);
-    inner_proc_U0->v_assign(v_assign);
-    inner_proc_U0->m_axis_video_TDATA(inner_proc_U0_m_axis_video_TDATA);
-    inner_proc_U0->m_axis_video_TVALID(inner_proc_U0_m_axis_video_TVALID);
-    inner_proc_U0->m_axis_video_TREADY(m_axis_video_TREADY);
-    inner_proc_U0->m_axis_video_TKEEP(inner_proc_U0_m_axis_video_TKEEP);
-    inner_proc_U0->m_axis_video_TSTRB(inner_proc_U0_m_axis_video_TSTRB);
-    inner_proc_U0->m_axis_video_TUSER(inner_proc_U0_m_axis_video_TUSER);
-    inner_proc_U0->m_axis_video_TLAST(inner_proc_U0_m_axis_video_TLAST);
-    inner_proc_U0->m_axis_video_TID(inner_proc_U0_m_axis_video_TID);
-    inner_proc_U0->m_axis_video_TDEST(inner_proc_U0_m_axis_video_TDEST);
+    inner_proc_U0->img_0_data_stream_0_V_din(inner_proc_U0_img_0_data_stream_0_V_din);
+    inner_proc_U0->img_0_data_stream_0_V_full_n(img_0_data_stream_0_V_full_n);
+    inner_proc_U0->img_0_data_stream_0_V_write(inner_proc_U0_img_0_data_stream_0_V_write);
+    inner_proc_U0->img_0_data_stream_1_V_din(inner_proc_U0_img_0_data_stream_1_V_din);
+    inner_proc_U0->img_0_data_stream_1_V_full_n(img_0_data_stream_1_V_full_n);
+    inner_proc_U0->img_0_data_stream_1_V_write(inner_proc_U0_img_0_data_stream_1_V_write);
+    inner_proc_U0->img_0_data_stream_2_V_din(inner_proc_U0_img_0_data_stream_2_V_din);
+    inner_proc_U0->img_0_data_stream_2_V_full_n(img_0_data_stream_2_V_full_n);
+    inner_proc_U0->img_0_data_stream_2_V_write(inner_proc_U0_img_0_data_stream_2_V_write);
     inner_proc_U0->im_V(im_V);
+    inner_proc_U0->v_assign(v_assign);
     inner_proc_U0->re_V(re_V);
     inner_proc_U0->zoom_factor_V(zoom_factor_V);
 
@@ -59,6 +57,24 @@ dataflow_in_loop_out::dataflow_in_loop_out(sc_module_name name) : sc_module(name
     SC_METHOD(thread_ap_sync_ready);
     sensitive << ( inner_proc_U0_ap_ready );
 
+    SC_METHOD(thread_img_0_data_stream_0_V_din);
+    sensitive << ( inner_proc_U0_img_0_data_stream_0_V_din );
+
+    SC_METHOD(thread_img_0_data_stream_0_V_write);
+    sensitive << ( inner_proc_U0_img_0_data_stream_0_V_write );
+
+    SC_METHOD(thread_img_0_data_stream_1_V_din);
+    sensitive << ( inner_proc_U0_img_0_data_stream_1_V_din );
+
+    SC_METHOD(thread_img_0_data_stream_1_V_write);
+    sensitive << ( inner_proc_U0_img_0_data_stream_1_V_write );
+
+    SC_METHOD(thread_img_0_data_stream_2_V_din);
+    sensitive << ( inner_proc_U0_img_0_data_stream_2_V_din );
+
+    SC_METHOD(thread_img_0_data_stream_2_V_write);
+    sensitive << ( inner_proc_U0_img_0_data_stream_2_V_write );
+
     SC_METHOD(thread_inner_proc_U0_ap_continue);
     sensitive << ( ap_continue );
 
@@ -69,30 +85,6 @@ dataflow_in_loop_out::dataflow_in_loop_out(sc_module_name name) : sc_module(name
 
     SC_METHOD(thread_inner_proc_U0_start_write);
 
-    SC_METHOD(thread_m_axis_video_TDATA);
-    sensitive << ( inner_proc_U0_m_axis_video_TDATA );
-
-    SC_METHOD(thread_m_axis_video_TDEST);
-    sensitive << ( inner_proc_U0_m_axis_video_TDEST );
-
-    SC_METHOD(thread_m_axis_video_TID);
-    sensitive << ( inner_proc_U0_m_axis_video_TID );
-
-    SC_METHOD(thread_m_axis_video_TKEEP);
-    sensitive << ( inner_proc_U0_m_axis_video_TKEEP );
-
-    SC_METHOD(thread_m_axis_video_TLAST);
-    sensitive << ( inner_proc_U0_m_axis_video_TLAST );
-
-    SC_METHOD(thread_m_axis_video_TSTRB);
-    sensitive << ( inner_proc_U0_m_axis_video_TSTRB );
-
-    SC_METHOD(thread_m_axis_video_TUSER);
-    sensitive << ( inner_proc_U0_m_axis_video_TUSER );
-
-    SC_METHOD(thread_m_axis_video_TVALID);
-    sensitive << ( inner_proc_U0_m_axis_video_TVALID );
-
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "dataflow_in_loop_out_sc_trace_" << apTFileNum ++;
@@ -101,23 +93,23 @@ dataflow_in_loop_out::dataflow_in_loop_out(sc_module_name name) : sc_module(name
     mVcdFile->set_time_unit(1, SC_PS);
     if (1) {
 #ifdef __HLS_TRACE_LEVEL_PORT_HIER__
-    sc_trace(mVcdFile, v_assign, "(port)v_assign");
-    sc_trace(mVcdFile, m_axis_video_TDATA, "(port)m_axis_video_TDATA");
-    sc_trace(mVcdFile, m_axis_video_TKEEP, "(port)m_axis_video_TKEEP");
-    sc_trace(mVcdFile, m_axis_video_TSTRB, "(port)m_axis_video_TSTRB");
-    sc_trace(mVcdFile, m_axis_video_TUSER, "(port)m_axis_video_TUSER");
-    sc_trace(mVcdFile, m_axis_video_TLAST, "(port)m_axis_video_TLAST");
-    sc_trace(mVcdFile, m_axis_video_TID, "(port)m_axis_video_TID");
-    sc_trace(mVcdFile, m_axis_video_TDEST, "(port)m_axis_video_TDEST");
+    sc_trace(mVcdFile, img_0_data_stream_0_V_din, "(port)img_0_data_stream_0_V_din");
+    sc_trace(mVcdFile, img_0_data_stream_0_V_full_n, "(port)img_0_data_stream_0_V_full_n");
+    sc_trace(mVcdFile, img_0_data_stream_0_V_write, "(port)img_0_data_stream_0_V_write");
+    sc_trace(mVcdFile, img_0_data_stream_1_V_din, "(port)img_0_data_stream_1_V_din");
+    sc_trace(mVcdFile, img_0_data_stream_1_V_full_n, "(port)img_0_data_stream_1_V_full_n");
+    sc_trace(mVcdFile, img_0_data_stream_1_V_write, "(port)img_0_data_stream_1_V_write");
+    sc_trace(mVcdFile, img_0_data_stream_2_V_din, "(port)img_0_data_stream_2_V_din");
+    sc_trace(mVcdFile, img_0_data_stream_2_V_full_n, "(port)img_0_data_stream_2_V_full_n");
+    sc_trace(mVcdFile, img_0_data_stream_2_V_write, "(port)img_0_data_stream_2_V_write");
     sc_trace(mVcdFile, im_V, "(port)im_V");
+    sc_trace(mVcdFile, v_assign, "(port)v_assign");
     sc_trace(mVcdFile, re_V, "(port)re_V");
     sc_trace(mVcdFile, zoom_factor_V, "(port)zoom_factor_V");
     sc_trace(mVcdFile, ap_clk, "(port)ap_clk");
     sc_trace(mVcdFile, ap_rst, "(port)ap_rst");
-    sc_trace(mVcdFile, v_assign_ap_vld, "(port)v_assign_ap_vld");
-    sc_trace(mVcdFile, m_axis_video_TVALID, "(port)m_axis_video_TVALID");
-    sc_trace(mVcdFile, m_axis_video_TREADY, "(port)m_axis_video_TREADY");
     sc_trace(mVcdFile, im_V_ap_vld, "(port)im_V_ap_vld");
+    sc_trace(mVcdFile, v_assign_ap_vld, "(port)v_assign_ap_vld");
     sc_trace(mVcdFile, re_V_ap_vld, "(port)re_V_ap_vld");
     sc_trace(mVcdFile, zoom_factor_V_ap_vld, "(port)zoom_factor_V_ap_vld");
     sc_trace(mVcdFile, ap_start, "(port)ap_start");
@@ -132,14 +124,12 @@ dataflow_in_loop_out::dataflow_in_loop_out(sc_module_name name) : sc_module(name
     sc_trace(mVcdFile, inner_proc_U0_ap_continue, "inner_proc_U0_ap_continue");
     sc_trace(mVcdFile, inner_proc_U0_ap_idle, "inner_proc_U0_ap_idle");
     sc_trace(mVcdFile, inner_proc_U0_ap_ready, "inner_proc_U0_ap_ready");
-    sc_trace(mVcdFile, inner_proc_U0_m_axis_video_TDATA, "inner_proc_U0_m_axis_video_TDATA");
-    sc_trace(mVcdFile, inner_proc_U0_m_axis_video_TVALID, "inner_proc_U0_m_axis_video_TVALID");
-    sc_trace(mVcdFile, inner_proc_U0_m_axis_video_TKEEP, "inner_proc_U0_m_axis_video_TKEEP");
-    sc_trace(mVcdFile, inner_proc_U0_m_axis_video_TSTRB, "inner_proc_U0_m_axis_video_TSTRB");
-    sc_trace(mVcdFile, inner_proc_U0_m_axis_video_TUSER, "inner_proc_U0_m_axis_video_TUSER");
-    sc_trace(mVcdFile, inner_proc_U0_m_axis_video_TLAST, "inner_proc_U0_m_axis_video_TLAST");
-    sc_trace(mVcdFile, inner_proc_U0_m_axis_video_TID, "inner_proc_U0_m_axis_video_TID");
-    sc_trace(mVcdFile, inner_proc_U0_m_axis_video_TDEST, "inner_proc_U0_m_axis_video_TDEST");
+    sc_trace(mVcdFile, inner_proc_U0_img_0_data_stream_0_V_din, "inner_proc_U0_img_0_data_stream_0_V_din");
+    sc_trace(mVcdFile, inner_proc_U0_img_0_data_stream_0_V_write, "inner_proc_U0_img_0_data_stream_0_V_write");
+    sc_trace(mVcdFile, inner_proc_U0_img_0_data_stream_1_V_din, "inner_proc_U0_img_0_data_stream_1_V_din");
+    sc_trace(mVcdFile, inner_proc_U0_img_0_data_stream_1_V_write, "inner_proc_U0_img_0_data_stream_1_V_write");
+    sc_trace(mVcdFile, inner_proc_U0_img_0_data_stream_2_V_din, "inner_proc_U0_img_0_data_stream_2_V_din");
+    sc_trace(mVcdFile, inner_proc_U0_img_0_data_stream_2_V_write, "inner_proc_U0_img_0_data_stream_2_V_write");
     sc_trace(mVcdFile, ap_sync_continue, "ap_sync_continue");
     sc_trace(mVcdFile, ap_sync_done, "ap_sync_done");
     sc_trace(mVcdFile, ap_sync_ready, "ap_sync_ready");
@@ -181,6 +171,30 @@ void dataflow_in_loop_out::thread_ap_sync_ready() {
     ap_sync_ready = inner_proc_U0_ap_ready.read();
 }
 
+void dataflow_in_loop_out::thread_img_0_data_stream_0_V_din() {
+    img_0_data_stream_0_V_din = inner_proc_U0_img_0_data_stream_0_V_din.read();
+}
+
+void dataflow_in_loop_out::thread_img_0_data_stream_0_V_write() {
+    img_0_data_stream_0_V_write = inner_proc_U0_img_0_data_stream_0_V_write.read();
+}
+
+void dataflow_in_loop_out::thread_img_0_data_stream_1_V_din() {
+    img_0_data_stream_1_V_din = inner_proc_U0_img_0_data_stream_1_V_din.read();
+}
+
+void dataflow_in_loop_out::thread_img_0_data_stream_1_V_write() {
+    img_0_data_stream_1_V_write = inner_proc_U0_img_0_data_stream_1_V_write.read();
+}
+
+void dataflow_in_loop_out::thread_img_0_data_stream_2_V_din() {
+    img_0_data_stream_2_V_din = inner_proc_U0_img_0_data_stream_2_V_din.read();
+}
+
+void dataflow_in_loop_out::thread_img_0_data_stream_2_V_write() {
+    img_0_data_stream_2_V_write = inner_proc_U0_img_0_data_stream_2_V_write.read();
+}
+
 void dataflow_in_loop_out::thread_inner_proc_U0_ap_continue() {
     inner_proc_U0_ap_continue = ap_continue.read();
 }
@@ -195,38 +209,6 @@ void dataflow_in_loop_out::thread_inner_proc_U0_start_full_n() {
 
 void dataflow_in_loop_out::thread_inner_proc_U0_start_write() {
     inner_proc_U0_start_write = ap_const_logic_0;
-}
-
-void dataflow_in_loop_out::thread_m_axis_video_TDATA() {
-    m_axis_video_TDATA = inner_proc_U0_m_axis_video_TDATA.read();
-}
-
-void dataflow_in_loop_out::thread_m_axis_video_TDEST() {
-    m_axis_video_TDEST = inner_proc_U0_m_axis_video_TDEST.read();
-}
-
-void dataflow_in_loop_out::thread_m_axis_video_TID() {
-    m_axis_video_TID = inner_proc_U0_m_axis_video_TID.read();
-}
-
-void dataflow_in_loop_out::thread_m_axis_video_TKEEP() {
-    m_axis_video_TKEEP = inner_proc_U0_m_axis_video_TKEEP.read();
-}
-
-void dataflow_in_loop_out::thread_m_axis_video_TLAST() {
-    m_axis_video_TLAST = inner_proc_U0_m_axis_video_TLAST.read();
-}
-
-void dataflow_in_loop_out::thread_m_axis_video_TSTRB() {
-    m_axis_video_TSTRB = inner_proc_U0_m_axis_video_TSTRB.read();
-}
-
-void dataflow_in_loop_out::thread_m_axis_video_TUSER() {
-    m_axis_video_TUSER = inner_proc_U0_m_axis_video_TUSER.read();
-}
-
-void dataflow_in_loop_out::thread_m_axis_video_TVALID() {
-    m_axis_video_TVALID = inner_proc_U0_m_axis_video_TVALID.read();
 }
 
 }

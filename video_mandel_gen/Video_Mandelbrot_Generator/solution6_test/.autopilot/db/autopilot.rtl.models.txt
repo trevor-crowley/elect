@@ -1,0 +1,8 @@
+fifo_w8_d2_A
+fifo_w8_d2_A
+fifo_w8_d2_A
+start_for_Mat2AXIvideo_U0
+video_mandelbrot_generator_cmd_s_axi
+Loop_out_proc24
+Mat2AXIvideo
+video_mandelbrot_generator

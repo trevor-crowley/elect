@@ -111,6 +111,7 @@ set bCheckIPs 1
 if { $bCheckIPs == 1 } {
    set list_check_ips "\ 
 xilinx.com:hls:video_mandelbrot_generator:1.1\
+xilinx.com:ip:v_tpg:8.0\
 "
 
    set list_ips_missing ""
@@ -188,6 +189,35 @@ proc create_root_design { parentCell } {
  ] $aclk_40MHz
   set ap_start [ create_bd_port -dir I ap_start ]
   set aresetn_0 [ create_bd_port -dir I -type rst aresetn_0 ]
+  
+  # Create instance: axi_vip_0, and set properties
+  set axi_vip_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_vip:1.1 axi_vip_0 ]
+  set_property -dict [ list \
+   CONFIG.ADDR_WIDTH {12} \
+   CONFIG.ARUSER_WIDTH {0} \
+   CONFIG.AWUSER_WIDTH {0} \
+   CONFIG.BUSER_WIDTH {0} \
+   CONFIG.DATA_WIDTH {32} \
+   CONFIG.HAS_BRESP {1} \
+   CONFIG.HAS_BURST {0} \
+   CONFIG.HAS_CACHE {0} \
+   CONFIG.HAS_LOCK {0} \
+   CONFIG.HAS_PROT {1} \
+   CONFIG.HAS_QOS {0} \
+   CONFIG.HAS_REGION {0} \
+   CONFIG.HAS_RRESP {1} \
+   CONFIG.HAS_WSTRB {1} \
+   CONFIG.ID_WIDTH {0} \
+   CONFIG.INTERFACE_MODE {MASTER} \
+   CONFIG.PROTOCOL {AXI4LITE} \
+   CONFIG.READ_WRITE_MODE {READ_WRITE} \
+   CONFIG.RUSER_BITS_PER_BYTE {0} \
+   CONFIG.RUSER_WIDTH {0} \
+   CONFIG.SUPPORTS_NARROW {0} \
+   CONFIG.WUSER_BITS_PER_BYTE {0} \
+   CONFIG.WUSER_WIDTH {0} \
+ ] $axi_vip_0
+
 
   # Create instance: video_mandelbrot_gen_0, and set properties
   set video_mandelbrot_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:video_mandelbrot_generator:1.1 video_mandelbrot_gen_0 ]
@@ -197,7 +227,7 @@ proc create_root_design { parentCell } {
 
   # Create port connections
   connect_bd_net -net aclk_40MHz_1 [get_bd_ports aclk_40MHz] [get_bd_pins video_mandelbrot_gen_0/ap_clk]
-  connect_bd_net -net ap_start_0_1 [get_bd_ports ap_start] [get_bd_pins video_mandelbrot_gen_0/ap_start]
+  #connect_bd_net -net ap_start_0_1 [get_bd_ports ap_start] [get_bd_pins video_mandelbrot_gen_0/ap_start]
   connect_bd_net -net aresetn_0_1 [get_bd_ports aresetn_0] [get_bd_pins video_mandelbrot_gen_0/ap_rst_n]
 
   # Create address segments

@@ -11,23 +11,23 @@ use IEEE.numeric_std.all;
 
 entity dataflow_in_loop_out is
 port (
-    v_assign : IN STD_LOGIC_VECTOR (2 downto 0);
-    m_axis_video_TDATA : OUT STD_LOGIC_VECTOR (23 downto 0);
-    m_axis_video_TKEEP : OUT STD_LOGIC_VECTOR (2 downto 0);
-    m_axis_video_TSTRB : OUT STD_LOGIC_VECTOR (2 downto 0);
-    m_axis_video_TUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
-    m_axis_video_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
-    m_axis_video_TID : OUT STD_LOGIC_VECTOR (0 downto 0);
-    m_axis_video_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0);
+    img_0_data_stream_0_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+    img_0_data_stream_0_V_full_n : IN STD_LOGIC;
+    img_0_data_stream_0_V_write : OUT STD_LOGIC;
+    img_0_data_stream_1_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+    img_0_data_stream_1_V_full_n : IN STD_LOGIC;
+    img_0_data_stream_1_V_write : OUT STD_LOGIC;
+    img_0_data_stream_2_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+    img_0_data_stream_2_V_full_n : IN STD_LOGIC;
+    img_0_data_stream_2_V_write : OUT STD_LOGIC;
     im_V : IN STD_LOGIC_VECTOR (17 downto 0);
+    v_assign : IN STD_LOGIC_VECTOR (2 downto 0);
     re_V : IN STD_LOGIC_VECTOR (17 downto 0);
     zoom_factor_V : IN STD_LOGIC_VECTOR (17 downto 0);
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
-    v_assign_ap_vld : IN STD_LOGIC;
-    m_axis_video_TVALID : OUT STD_LOGIC;
-    m_axis_video_TREADY : IN STD_LOGIC;
     im_V_ap_vld : IN STD_LOGIC;
+    v_assign_ap_vld : IN STD_LOGIC;
     re_V_ap_vld : IN STD_LOGIC;
     zoom_factor_V_ap_vld : IN STD_LOGIC;
     ap_start : IN STD_LOGIC;
@@ -39,25 +39,21 @@ end;
 
 
 architecture behav of dataflow_in_loop_out is 
-    constant ap_const_lv24_0 : STD_LOGIC_VECTOR (23 downto 0) := "000000000000000000000000";
-    constant ap_const_lv3_0 : STD_LOGIC_VECTOR (2 downto 0) := "000";
-    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
-    constant ap_const_logic_1 : STD_LOGIC := '1';
+    constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
     constant ap_const_logic_0 : STD_LOGIC := '0';
+    constant ap_const_logic_1 : STD_LOGIC := '1';
 
     signal inner_proc_U0_ap_start : STD_LOGIC;
     signal inner_proc_U0_ap_done : STD_LOGIC;
     signal inner_proc_U0_ap_continue : STD_LOGIC;
     signal inner_proc_U0_ap_idle : STD_LOGIC;
     signal inner_proc_U0_ap_ready : STD_LOGIC;
-    signal inner_proc_U0_m_axis_video_TDATA : STD_LOGIC_VECTOR (23 downto 0);
-    signal inner_proc_U0_m_axis_video_TVALID : STD_LOGIC;
-    signal inner_proc_U0_m_axis_video_TKEEP : STD_LOGIC_VECTOR (2 downto 0);
-    signal inner_proc_U0_m_axis_video_TSTRB : STD_LOGIC_VECTOR (2 downto 0);
-    signal inner_proc_U0_m_axis_video_TUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal inner_proc_U0_m_axis_video_TLAST : STD_LOGIC_VECTOR (0 downto 0);
-    signal inner_proc_U0_m_axis_video_TID : STD_LOGIC_VECTOR (0 downto 0);
-    signal inner_proc_U0_m_axis_video_TDEST : STD_LOGIC_VECTOR (0 downto 0);
+    signal inner_proc_U0_img_0_data_stream_0_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal inner_proc_U0_img_0_data_stream_0_V_write : STD_LOGIC;
+    signal inner_proc_U0_img_0_data_stream_1_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal inner_proc_U0_img_0_data_stream_1_V_write : STD_LOGIC;
+    signal inner_proc_U0_img_0_data_stream_2_V_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal inner_proc_U0_img_0_data_stream_2_V_write : STD_LOGIC;
     signal ap_sync_continue : STD_LOGIC;
     signal ap_sync_done : STD_LOGIC;
     signal ap_sync_ready : STD_LOGIC;
@@ -73,17 +69,17 @@ architecture behav of dataflow_in_loop_out is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        v_assign : IN STD_LOGIC_VECTOR (2 downto 0);
-        m_axis_video_TDATA : OUT STD_LOGIC_VECTOR (23 downto 0);
-        m_axis_video_TVALID : OUT STD_LOGIC;
-        m_axis_video_TREADY : IN STD_LOGIC;
-        m_axis_video_TKEEP : OUT STD_LOGIC_VECTOR (2 downto 0);
-        m_axis_video_TSTRB : OUT STD_LOGIC_VECTOR (2 downto 0);
-        m_axis_video_TUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
-        m_axis_video_TLAST : OUT STD_LOGIC_VECTOR (0 downto 0);
-        m_axis_video_TID : OUT STD_LOGIC_VECTOR (0 downto 0);
-        m_axis_video_TDEST : OUT STD_LOGIC_VECTOR (0 downto 0);
+        img_0_data_stream_0_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+        img_0_data_stream_0_V_full_n : IN STD_LOGIC;
+        img_0_data_stream_0_V_write : OUT STD_LOGIC;
+        img_0_data_stream_1_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+        img_0_data_stream_1_V_full_n : IN STD_LOGIC;
+        img_0_data_stream_1_V_write : OUT STD_LOGIC;
+        img_0_data_stream_2_V_din : OUT STD_LOGIC_VECTOR (7 downto 0);
+        img_0_data_stream_2_V_full_n : IN STD_LOGIC;
+        img_0_data_stream_2_V_write : OUT STD_LOGIC;
         im_V : IN STD_LOGIC_VECTOR (17 downto 0);
+        v_assign : IN STD_LOGIC_VECTOR (2 downto 0);
         re_V : IN STD_LOGIC_VECTOR (17 downto 0);
         zoom_factor_V : IN STD_LOGIC_VECTOR (17 downto 0) );
     end component;
@@ -100,17 +96,17 @@ begin
         ap_continue => inner_proc_U0_ap_continue,
         ap_idle => inner_proc_U0_ap_idle,
         ap_ready => inner_proc_U0_ap_ready,
-        v_assign => v_assign,
-        m_axis_video_TDATA => inner_proc_U0_m_axis_video_TDATA,
-        m_axis_video_TVALID => inner_proc_U0_m_axis_video_TVALID,
-        m_axis_video_TREADY => m_axis_video_TREADY,
-        m_axis_video_TKEEP => inner_proc_U0_m_axis_video_TKEEP,
-        m_axis_video_TSTRB => inner_proc_U0_m_axis_video_TSTRB,
-        m_axis_video_TUSER => inner_proc_U0_m_axis_video_TUSER,
-        m_axis_video_TLAST => inner_proc_U0_m_axis_video_TLAST,
-        m_axis_video_TID => inner_proc_U0_m_axis_video_TID,
-        m_axis_video_TDEST => inner_proc_U0_m_axis_video_TDEST,
+        img_0_data_stream_0_V_din => inner_proc_U0_img_0_data_stream_0_V_din,
+        img_0_data_stream_0_V_full_n => img_0_data_stream_0_V_full_n,
+        img_0_data_stream_0_V_write => inner_proc_U0_img_0_data_stream_0_V_write,
+        img_0_data_stream_1_V_din => inner_proc_U0_img_0_data_stream_1_V_din,
+        img_0_data_stream_1_V_full_n => img_0_data_stream_1_V_full_n,
+        img_0_data_stream_1_V_write => inner_proc_U0_img_0_data_stream_1_V_write,
+        img_0_data_stream_2_V_din => inner_proc_U0_img_0_data_stream_2_V_din,
+        img_0_data_stream_2_V_full_n => img_0_data_stream_2_V_full_n,
+        img_0_data_stream_2_V_write => inner_proc_U0_img_0_data_stream_2_V_write,
         im_V => im_V,
+        v_assign => v_assign,
         re_V => re_V,
         zoom_factor_V => zoom_factor_V);
 
@@ -123,16 +119,14 @@ begin
     ap_sync_continue <= ap_continue;
     ap_sync_done <= inner_proc_U0_ap_done;
     ap_sync_ready <= inner_proc_U0_ap_ready;
+    img_0_data_stream_0_V_din <= inner_proc_U0_img_0_data_stream_0_V_din;
+    img_0_data_stream_0_V_write <= inner_proc_U0_img_0_data_stream_0_V_write;
+    img_0_data_stream_1_V_din <= inner_proc_U0_img_0_data_stream_1_V_din;
+    img_0_data_stream_1_V_write <= inner_proc_U0_img_0_data_stream_1_V_write;
+    img_0_data_stream_2_V_din <= inner_proc_U0_img_0_data_stream_2_V_din;
+    img_0_data_stream_2_V_write <= inner_proc_U0_img_0_data_stream_2_V_write;
     inner_proc_U0_ap_continue <= ap_continue;
     inner_proc_U0_ap_start <= ap_start;
     inner_proc_U0_start_full_n <= ap_const_logic_1;
     inner_proc_U0_start_write <= ap_const_logic_0;
-    m_axis_video_TDATA <= inner_proc_U0_m_axis_video_TDATA;
-    m_axis_video_TDEST <= inner_proc_U0_m_axis_video_TDEST;
-    m_axis_video_TID <= inner_proc_U0_m_axis_video_TID;
-    m_axis_video_TKEEP <= inner_proc_U0_m_axis_video_TKEEP;
-    m_axis_video_TLAST <= inner_proc_U0_m_axis_video_TLAST;
-    m_axis_video_TSTRB <= inner_proc_U0_m_axis_video_TSTRB;
-    m_axis_video_TUSER <= inner_proc_U0_m_axis_video_TUSER;
-    m_axis_video_TVALID <= inner_proc_U0_m_axis_video_TVALID;
 end behav;

@@ -27,7 +27,7 @@ set project_name 				proj_1
 set BD_name 					test_VPG_bd
 
 # Create a new project
-create_project $project_name ./$project_name -part xc7z020clg484-1
+create_project $project_name ./$project_name -part xc7a35tcpg236-1
 set_property target_language Verilog [current_project]
 
 # Create 'sources_1' fileset (if not found)

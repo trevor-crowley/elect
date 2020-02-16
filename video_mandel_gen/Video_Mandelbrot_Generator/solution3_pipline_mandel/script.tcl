@@ -8,7 +8,7 @@ set_top video_mandelbrot_generator
 add_files src/cpp/video_mandelbrot_generator.cpp
 add_files -tb src/cpp/video_mandelbrot_generator_tb.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "solution3_pipline_mandel"
-set_part {xc7z020iclg484-1L}
+set_part {xc7z020i-clg484-1L}
 create_clock -period 10 -name default
 config_sdx -target none
 config_export -display_name Video_Mandelbrot_Generator -format ip_catalog -rtl verilog -use_netlist none -version 1.1 -vivado_optimization_level 2 -vivado_phys_opt place -vivado_report_level 0

@@ -1,2 +1,0 @@
-video_mandelbrot_generator_cmd_s_axi
-video_mandelbrot_generator
