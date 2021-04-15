@@ -1,7 +1,7 @@
 #ifndef _VPG_H_
 #define _VPG_H_
 	
-	#include <hls_video.h>
+	#include <hls_axi_io.h>
 	#include <hls_math.h>
 
 	// test
