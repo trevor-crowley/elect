@@ -1,2 +1,0 @@
-rtl_model
-example

@@ -1,6 +1,0 @@
-<annotationInfo>
-<item  id="32" filename="example.cpp" linenumber="14" name="_ln14" contextFuncName="example" moduleName="example" rtlName="grp_rtl_model_fu_103" latency="2" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/home/trevor/dev/myelect/sandbox/hls/rtl_as_blackbox"><\/item>
-<item  id="37" filename="example.cpp" linenumber="15" name="add_ln68" contextFuncName="example" moduleName="example" rtlName="add_ln68_fu_139_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="22" fileDirectory="/home/trevor/dev/myelect/sandbox/hls/rtl_as_blackbox"><\/item>
-<item  id="38" filename="example.cpp" linenumber="15" name="add_ln68_1" contextFuncName="example" moduleName="example" rtlName="add_ln68_1_fu_145_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="10" fileDirectory="/home/trevor/dev/myelect/sandbox/hls/rtl_as_blackbox"><\/item>
-<item  id="39" filename="example.cpp" linenumber="15" name="add_ln68_2" contextFuncName="example" moduleName="example" rtlName="sigma_V" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="22" fileDirectory="/home/trevor/dev/myelect/sandbox/hls/rtl_as_blackbox"><\/item>
-</annotationInfo>
